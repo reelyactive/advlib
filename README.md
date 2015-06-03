@@ -62,15 +62,15 @@ Process a 16-bit header (as a hexadecimal string) with the following command:
 
     advlib.ble.header.process(rawHexHeader);
 
-For reference, the 16-bit header is as follows:
+For reference, the 16-bit header is as follows (reading the hexadecimal string from left to right):
 
 | Bit(s) | Function                      |
 |-------:|-------------------------------|
 | 15     | RxAdd: 0 = public, 1 = random |
 | 14     | TxAdd: 0 = public, 1 = random |
-| 13-12  | RFU (currently ignored)       |
+| 13-12  | RFU *(currently ignored)*     |
 | 11-8   | Type (see table below)        |
-| 7-6    | RFU (currently ignored)       |
+| 7-6    | RFU *(currently ignored)*     |
 | 5-0    | Payload length in bytes       |
 
 And the advertising packet types are as follows:
@@ -92,10 +92,10 @@ For example:
 would yield:
 
     {
-      type: "ADV_NONCONNECT_IND",
-      length: 22,
+      rxAdd: "public",
       txAdd: "random",
-      rxAdd: "public"
+      type: "ADV_NONCONNECT_IND",
+      length: 22
     }
 
 
