@@ -24,6 +24,24 @@ var processedPacket = advlib.ble.process(rawHexPacket);
 console.log(JSON.stringify(processedPacket, null, " "));
 ```
 
+The console output should appear as follows:
+
+    {
+      type: "ADVA-48",
+      value: "fee150bada55",
+      advHeader: { 
+        type: "ADV_NONCONNECT_IND",
+        length: 22,
+        txAdd: "random",
+        rxAdd: "public" 
+      },
+      advData: {
+        flags: [ "LE Limited Discoverable Mode", "BR/EDR Not Supported" ],
+        completeLocalName: "reelyActive" 
+      } 
+    }
+
+
 Bluetooth Smart (BLE) Advertising Packet Library
 ------------------------------------------------
 
@@ -40,7 +58,46 @@ The library is organised hierarchically so that the separate elements of a packe
 
 ### Header
 
-Description to come
+Process a 16-bit header (as a hexadecimal string) with the following command:
+
+    advlib.ble.header.process(rawHexHeader);
+
+For reference, the 16-bit header is as follows:
+
+| Bit(s) | Function                      |
+|-------:|-------------------------------|
+| 15     | RxAdd: 0 = public, 1 = random |
+| 14     | TxAdd: 0 = public, 1 = random |
+| 13-12  | RFU (currently ignored)       |
+| 11-8   | Type (see table below)        |
+| 7-6    | RFU (currently ignored)       |
+| 5-0    | Payload length in bytes       |
+
+And the advertising packet types are as follows:
+
+| Type | Packet           |
+|-----:|------------------|
+| 0    | ADV_IND          |
+| 1    | ADV_DIRECT_IND   |
+| 2    | ADV_NONCONN_IND  |
+| 3    | SCAN_REQ         |
+| 4    | SCAN_RSP         |
+| 5    | CONNECT_REQ      |
+| 6    | ADV_DISCOVER_IND |
+
+For example:
+
+    advlib.ble.header.process('4216');
+
+would yield:
+
+    {
+      type: "ADV_NONCONNECT_IND",
+      length: 22,
+      txAdd: "random",
+      rxAdd: "public"
+    }
+
 
 ### Address
 
