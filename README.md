@@ -1,7 +1,9 @@
 advlib
 ======
 
-Library for wireless advertising packet decoding.  Supports Bluetooth Smart (BLE) and reelyActive RFID.
+Library for wireless advertising packet decoding.  Currently supports the following protocols:
+* [Bluetooth Smart (BLE)](#bluetooth-smart-ble-advertising-packet-library)
+* [reelyActive RFID](#reelyactive-rfid-library)
 
 
 Installation
@@ -31,10 +33,24 @@ Process a raw packet (as a hexadecimal string) with the following command:
 
 The library is organised hierarchically so that the separate elements of a packet can be processed individually.  Refer to the index below for details on each element:
 
-* [Header](ble/header)
-* [Address](ble/address)
-* [Data](ble/data)
-  * [Generic Access Profile (GAP)](ble/data/gap)
+* [Header](#header)
+* [Address](#address)
+* [Data](#data)
+  * [Generic Access Profile (GAP)](#generic-access-profile-gap)
+
+### Header
+
+Description to come
+
+### Address
+
+Description to come
+
+### Data
+
+#### Generic Access Profile (GAP)
+
+Description to come
 
 
 reelyActive RFID Library
