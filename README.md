@@ -18,7 +18,7 @@ Hello advlib
 ```javascript
 var advlib = require('advlib');
 
-var rawHexPacket = '421655daba50e1fe0201050c097265656c794163746976650100';
+var rawHexPacket = '421655daba50e1fe0201050c097265656c79416374697665';
 var processedPacket = advlib.ble.process(rawHexPacket);
 
 console.log(JSON.stringify(processedPacket, null, " "));
@@ -68,22 +68,22 @@ For reference, the 16-bit header is as follows (reading the hexadecimal string f
 |-------:|-------------------------------|
 | 15     | RxAdd: 0 = public, 1 = random |
 | 14     | TxAdd: 0 = public, 1 = random |
-| 13-12  | RFU *(currently ignored)*     |
+| 13-12  | Reserved for Future Use (RFU) |
 | 11-8   | Type (see table below)        |
-| 7-6    | RFU *(currently ignored)*     |
+| 7-6    | Reserved for Future Use (RFU) |
 | 5-0    | Payload length in bytes       |
 
 And the advertising packet types are as follows:
 
-| Type | Packet           |
-|-----:|------------------|
-| 0    | ADV_IND          |
-| 1    | ADV_DIRECT_IND   |
-| 2    | ADV_NONCONN_IND  |
-| 3    | SCAN_REQ         |
-| 4    | SCAN_RSP         |
-| 5    | CONNECT_REQ      |
-| 6    | ADV_DISCOVER_IND |
+| Type | Packet           | Purpose                                |
+|-----:|------------------|----------------------------------------|
+| 0    | ADV_IND          | Connectable undirected advertising     |
+| 1    | ADV_DIRECT_IND   | Connectable directed advertising       |
+| 2    | ADV_NONCONN_IND  | Non-connectable undirected advertising |
+| 3    | SCAN_REQ         | Scan for more info from advertiser     |
+| 4    | SCAN_RSP         | Response to scan request from scanner  |
+| 5    | CONNECT_REQ      | Request to connect                     |
+| 6    | ADV_DISCOVER_IND | Scannable undirected advertising       |
 
 For example:
 
@@ -101,7 +101,34 @@ would yield:
 
 ### Address
 
-Description to come
+Process a 48-bit address (as a hexadecimal string) with the following command:
+
+    advlib.ble.address.process(rawHexAddress);
+
+For reference, the 48-bit header is as follows (reading the hexadecimal string from left to right):
+
+| Bit(s) | Address component |
+|-------:|-------------------|
+| 47-40  | xx:xx:xx:xx:xx:## |
+| 39-32  | xx:xx:xx:xx:##:xx |
+| 31-24  | xx:xx:xx:##:xx:xx |
+| 23-16  | xx:xx:##:xx:xx:xx |
+| 15-8   | xx:##:xx:xx:xx:xx |
+| 7-0    | ##:xx:xx:xx:xx:xx |
+
+This is best illustrated with an example:
+
+    advlib.ble.address.process('0123456789ab');
+
+Would yield:
+
+    {
+      type: "ADVA-48",
+      value: "ab8967452301"
+    }
+
+which can alternatively be represented as ab:89:67:45:23:01.
+
 
 ### Data
 
