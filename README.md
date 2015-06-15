@@ -53,8 +53,17 @@ The library is organised hierarchically so that the separate elements of a packe
 
 * [Header](#header)
 * [Address](#address)
-* [Data](#data)
-  * [Generic Access Profile (GAP)](#generic-access-profile-gap)
+* [Data](#data-generic-access-profile)
+  * [Flags](#flags)
+  * [UUID](#uuid)
+  * [Local Name](#local-name)
+  * [Tx Power](#tx-power)
+  * [Slave Connection Interval Range](#slave-connection-interval-range)
+  * [Solicitation](#solicitation)
+  * [Service Data](#service-data)
+  * [Manufacturer Specific Data](#manufacturer-specific-data)
+  * [Generic Data](#generic-data)
+
 
 ### Header
 
@@ -130,9 +139,99 @@ Would yield:
 which can alternatively be represented as ab:89:67:45:23:01.
 
 
-### Data
+### Data (Generic Access Profile)
 
-#### Generic Access Profile (GAP)
+Process GAP data (as a hexadecimal string) with the following command:
+
+    advlib.ble.data.process(rawHexData);
+
+For reference, the structure of the data is as follows:
+
+| Byte(s)     | Data component                                        |
+|------------:|-------------------------------------------------------|
+| 0           | Length of the data in bytes (including type and data) |
+| 1           | GAP Data Type (see table below)                       |
+| 2 to length | Data                                                  |
+
+The Generic Access Profile Data Types are listed on the [Bluetooth GAP Assigned Numbers website](https://www.bluetooth.org/en-us/specification/assigned-numbers/generic-access-profile).  The following table lists the Data Types, their names and the section in this document in which they are described.
+
+| Data Type | Data Type Name                       | See advlib section |
+|----------:|--------------------------------------|--------------------|
+| 0x01      | Flags                                | Flags              |
+| 0x02      | Incomplete List of 16-bit UUIDs      | UUID               |
+| 0x03      | Complete List of 16-bit UUIDs        | UUID               |
+| 0x04      | Incomplete List of 32-bit UUIDs      | UUID               |
+| 0x05      | Complete List of 32-bit UUIDs        | UUID               |
+| 0x06      | Incomplete List of 128-bit UUIDs     | UUID               |
+| 0x07      | Complete List of 128-bit UUIDs       | UUID               |
+| 0x08      | Shortened Local Name                 | Local Name         |
+| 0x09      | Complete Local Name                  | Local Name         |
+| 0x0a      | Tx Power Level                       | Tx Power           |
+| 0x0d      | Class of Device                      | Generic Data       |
+| 0x0e      | Simple Pairing Hash C-192            | Generic Data       |
+| 0x0f      | Simple Pairing Randomizer R-192      | Generic Data       |
+| 0x10      | Security Manager TK Value            | Generic Data       |
+| 0x11      | Security Manager OOB Flags           | Generic Data       |
+| 0x12      | Slave Connection Interval Range      | SCIR               |
+| 0x14      | 16-bit Solicitation UUIDs            | Solicitation       |
+| 0x15      | 128-bit Solicitation UUIDs           | Solicitation       |
+| 0x16      | Service Data 16-bit UUID             | Service Data       |
+| 0x17      | Public Target Address                | Generic Data       |
+| 0x18      | Random Target Address                | Generic Data       |
+| 0x19      | Public Target Address                | Generic Data       |
+| 0x1a      | Advertising Interval                 | Generic Data       |
+| 0x1b      | LE Bluetooth Device Address          | Generic Data       |
+| 0x1c      | LE Bluetooth Role                    | Generic Data       |
+| 0x1d      | Simple Pairing Hash C-256            | Generic Data       |
+| 0x1e      | Simple Pairing Hash Randomizer C-256 | Generic Data       |
+| 0x1f      | 32-bit Solicitation UUIDs            | Solicitation       |
+| 0x20      | Service Data 32-bit UUID             | Service Data       |
+| 0x21      | Service Data 128-bit UUID            | Service Data       |
+| 0x3d      | 3-D Information Data                 | Generic Data       |
+| 0xff      | Manufacturer Specific Data           | Mfr. Specific Data |
+
+
+#### Flags
+
+Description to come
+
+
+#### UUID
+
+Description to come
+
+
+#### Local Name
+
+Description to come
+
+
+#### Tx Power
+
+Description to come
+
+
+#### Slave Connection Interval Range
+
+Description to come
+
+
+#### Solicitation
+
+Description to come
+
+
+#### Service Data
+
+Description to come
+
+
+#### Manufacturer Specific Data
+
+Description to come
+
+
+#### Generic Data
 
 Description to come
 
