@@ -191,49 +191,278 @@ The Generic Access Profile Data Types are listed on the [Bluetooth GAP Assigned 
 | 0xff      | Manufacturer Specific Data           | Mfr. Specific Data |
 
 
+#### UUID 
+
+Process a UUID assigned to the device.
+
+    advlib.ble.data.gap.uuid.nonComplete16BitUUIDs(payload, cursor, advertiserData);
+    advlib.ble.data.gap.uuid.complete16BitUUIDs(payload, cursor, advertiserData);
+    advlib.ble.data.gap.uuid.nonComplete128BitUUIDs(payload, cursor, advertiserData);
+    advlib.ble.data.gap.uuid.complete128BitUUIDs(payload, cursor, advertiserData);
+    
+    
+This is best illustrated with an example:
+
+    var payload = '16074449555520657669746341796c656572';
+    advlib.ble.data.gap.uuid.complete128BitUUIDs(payload, 0, {});
+    
+For reference, the example payload is interpreted as follows:
+
+| Byte(s)     | Hex String                       | Description                             |
+|-------------|:---------------------------------|:----------------------------------------|
+| 0           | 16                               | Length, in bytes, of type and data      |
+| 1           | 07                               | GAP Data Type for complete 128-bit UUID | 
+| 2 to length | 4449555520657669746341796c656572 | ASCII representation for 'reelyActive UUID'|
+
+Which would add a property to advData as follows:
+
+    advData: {
+      complete128BitUUIDs: "7265656c794163746976652055554944"
+    }
+
+
+#### Local Name 
+
+Process a local name (completeLocalName, or shortenedLocalName) of the local name assigned to the device.
+
+    advlib.ble.data.gap.localname.completeLocalName(payload, cursor, advertiserData);
+    advlib.ble.data.gap.localname.completeLocalName(payload, cursor, advertiserData);
+    
+This is best illustrated with an example:
+
+    advlib.ble.data.gap.localname.completeLocalName(12097265656c79416374697665, 0, {});
+    
+For reference, the example payload is interpreted as follows:
+
+| Byte(s)     | Hex String             | Description                             |
+|-------------|:-----------------------|:----------------------------------------|
+| 0           | 12                     | Length, in bytes, of type and data      |
+| 1           | 09                     | GAP Data Type for complete local name   | 
+| 2 to length | 7265656c79416374697665 | ASCII representation for 'reelyActive'  |
+
+Which would add a property to advData as follows:
+
+    advData: {
+      completeLocalName: "reelyActive"
+    }
+
 #### Flags
 
-Description to come
+Process flags assigned to the device.
 
+    advlib.ble.data.gap.flags.process(payload, cursor, advertiserData);
+ 
+For reference, the flags are as follows:
 
-#### UUID
+| Bit(s) | Description                                                   |
+|-------:|---------------------------------------------------------------|
+| 0      | LE Limited Discoverable Mode                                  |
+| 1      | LE General Discoverable Mode                                  |
+| 2      | BR/EDR Not Supported                                          |
+| 3      | Simultaneous LE and BR/EDR to Same Device Capable (Controller)|
+| 4      | Simultaneous LE and BR/EDR to Same Device Capable (Host)      |
+| 5      | Reserved                                                      |
 
-Description to come
+This is best illustrated with an example:
 
+    advlib.ble.data.gap.flags.process(020104, 0, {});
+    
+For reference, the example payload is interpreted as follows:
 
-#### Local Name
+| Byte(s)     | Hex String  | Description                         |
+|-------------|:------------|:------------------------------------|
+| 0           | 02          | Length, in bytes, of type and data  |
+| 1           | 01          | GAP Data Type for flags             | 
+| 2 to length | 04          | See table above                     |
 
-Description to come
+Which would add a property to advData as follows:
 
-
-#### Tx Power
-
-Description to come
-
-
-#### Slave Connection Interval Range
-
-Description to come
-
-
-#### Solicitation
-
-Description to come
-
-
-#### Service Data
-
-Description to come
-
+    advData: {
+      flags: ["BR/EDR Not Supported"]
+    }
 
 #### Manufacturer Specific Data
 
-Description to come
+Process manufacturer specific data assigned to the device.
+
+    advlib.ble.data.gap.manufacturerspecificdata.process(payload, cursor, advertiserData);
+  
+This is best illustrated with an example:
+
+    advlib.ble.data.gap.manufacturerspecificdata.process(03ff8c00, 0, {});
+    
+For reference, the example payload is interpreted as follows:
+
+| Byte(s)     | Hex String             | Description                                  |
+|-------------|:-----------------------|:---------------------------------------------|
+| 0           | 03                     | Length, in bytes, of type and data           |
+| 1           | ff                     | GAP Data Type for manufacturer specific data | 
+| 2 to length | 8c00                   | Gimbal company identifier code (bytes reversed)                                  |
+
+Which would add a property to advData as follows:
+
+    manufacturerSpecificData: {
+      companyIdentifierCode: "008c",
+      data: "",
+    }
+
+In the other case,
+
+    var payload = 26ff4c000215b9407f30f5f8466eaff925556b57fe6d294c903974;
+    advlib.ble.data.gap.manufacturerspecificdata.process(payload, 0, {});
+    
+For reference, the example payload is interpreted as follows:
+
+| Byte(s)     | Hex String                                        | Description       |
+|-------------|:--------------------------------------------------|:------------------|
+| 0           | 26                                                | Length, in bytes, of type and data |
+| 1           | ff                                                | GAP Data Type for manufacturer specific data | 
+| 2 to length | 4c000215b9407f30f5f8466eaff925556b57fe6d294c903974 | See table below  |
+
+And the type specific data is intepreted as follows:
+
+| Byte(s) | Hex String                      | Description                                  |
+|--------:|:--------------------------------|:---------------------------------------------|
+| 0-1     | 4c00                            | Apple company identifier code (bytes reversed)|
+| 2-3     | 0215                            | Identifier code for iBeacon                  |
+| 3-19    | b9407f30f5f8466eaff925556b57fe6d| UUID (assigned by Apple)                     |
+| 20-21   | 294c                            | Major                                        |
+| 21-22   | 9039                            | Minor                                        |
+| 23      | 74                              | TxPower (see TxPower section)                |
+ 
+
+Which would add a property to advData as follows:
+
+    manufacturerSpecificData: {
+      iBeacon: {
+        uuid: "b9407f30f5f8466eaff925556b57fe6d",
+        major: "294c",
+        minor: "9039",
+        txPower: "116dBm"
+        }
+    };
+
+#### TX Power Level 
+
+Process Tx Power Level assigned to the device.
+
+    advlib.ble.data.gap.txpower.process(payload, cursor, advertiserData);
+  
+This is best illustrated with an example:
+
+    advlib.ble.data.gap.txpower.process(020a7f, 0, {});
+    
+For reference, the two's complement value is interpreted as follows:
+
+| Hex String  | Power dBm |
+|------------:|-----------|
+| 7f          | 127 dBm   |
+| 00          | 0 dBm     |
+| ff          | -128 dBm  |
+
+For reference, the example payload is interpreted as follows:
+
+| Byte(s)     | Hex String  | Description                         |
+|-------------|:------------|:------------------------------------|
+| 0           | 02          | Length, in bytes, of type and data  |
+| 1           | 0a          | GAP Data Type for TxPower           | 
+| 2 to length | 7f          | See table above                     |
+
+Which would add a property to advData as follows:
+
+    manufacturerSpecificData": {
+      iBeacon": {
+        txPower": "127dBm"
+      }
+    }
+    
+
+#### Slave Connection Interval Range 
+
+Process Slave Connection Interval Range assigned to the device.
+
+    advlib.ble.data.gap.slaveconnectionintervalrange.process(payload, cursor, advertiserData);
+  
+This is best illustrated with an example:
+
+    advlib.ble.data.gap.slaveconnectionintervalrange.process(0612072e05354c, 0, {});
+    
+For reference, the example payload is interpreted as follows:
+
+| Byte(s)     | Hex String  | Description                                       |
+|-------------|:------------|:--------------------------------------------------|
+| 0           | 06          | Length, in bytes, of type and data                |
+| 1           | 12          | GAP Data Type for Slave Connection Interval Range | 
+| 2 to length | 00060c80    | See table below                                   |
+
+And the type specific data is intepreted as follows:
+
+| Byte(s) | Hex String | Description                      |
+|--------:|:-----------|:---------------------------------|
+| 0-1     | 0006       | Min = 6 x 1.25 ms = 7.5 ms       |
+| 2-3     | 0c80       | Max = 12128 x 1.25 ms = 15160 ms |
 
 
-#### Generic Data
+Which would add a property to advData as follows:
 
-Description to come
+    slaveConnectionIntervalRange": '072e05354c';
+      
+#### Service Solicitation 
+
+Process a Service Solicitation UUID assigned to the device.
+
+    advlib.ble.data.gap.solicitation.solicitation16BitUUIDs(payload, cursor, advertiserData);
+    advlib.ble.data.gap.solicitation.solicitation128BitUUIDs(payload, cursor, advertiserData);
+    
+This is best illustrated with an example:
+
+    var payload = '';
+    advlib.ble.data.gap.uuid.solicitation16BitUUIDs(0314d8fe, 0, {});
+    
+For reference, the example payload is interpreted as follows:
+
+| Byte(s)     | Hex String | Description                                                  |
+|-------------|:-----------|:-------------------------------------------------------------|
+| 0           | 03         | Length, in bytes, of type and data                           |
+| 1           | 14         | GAP Data Type for complete 128-bit Service Solicitation UUID | 
+| 2 to length | d8fe       | Google company identifier code (bytes reversed)              |
+
+Which would add a property to advData as follows:
+
+    solicitation16BitUUIDs": 'fed8';
+
+
+#### Service Data 
+
+Process service data assigned to the device.
+
+    advlib.ble.data.gap.servicedata.process(payload, cursor, advertiserData);
+ 
+This is best illustrated with an example:
+
+    advlib.ble.data.gap.servicedata.process(09160a181204eb150000, 0, {});
+    
+For reference, the example payload is interpreted as follows:
+
+| Byte(s)     | Hex String           | Description                         |
+|-------------|:---------------------|:------------------------------------|
+| 0           | 09                   | Length, in bytes, of type and data  |
+| 1           | 16                   | GAP Data Type for service data      | 
+| 2 to length | 09160a181204eb150000 | See table below                     |
+
+And the type specific data is intepreted as follows:
+
+| Byte(s) | Hex String   | Description     |
+|--------:|:-------------|:----------------|
+| 0-1     | 0a18         | UUID (reversed) |
+| 2-6     | 1204eb150000 | Data            |
+
+Which would add a property to advData as follows:
+
+    serviceData: {
+      uuid : "180a",
+      data : "1204eb150000"
+    };
 
 
 reelyActive RFID Library
