@@ -4,10 +4,9 @@
  */
 
 var advlib = require("../../../../lib/ble/header/index.js");
-var assert = require ('assert'); 
+var assert = require('assert'); 
 
 // Inputs for the scenario
-
 var INPUT_DATA_ADDRESS_RANDOM  = 'c000';
 var INPUT_DATA_ADDRESS_PUBLIC = '0000';
 var INPUT_DATA_ADV_IND = '4000';
@@ -48,46 +47,57 @@ describe('ble header', function() {
 
   // Test the process function
   it('should recognize random txAdd and rxAdd', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_ADDRESS_RANDOM), EXPECTED_DATA_ADDRESS_RANDOM);
+    assert.deepEqual(advlib.process(INPUT_DATA_ADDRESS_RANDOM), 
+                     EXPECTED_DATA_ADDRESS_RANDOM);
   });
 
   it('should recognize public txAdd and rxAdd', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_ADDRESS_PUBLIC), EXPECTED_DATA_ADDRESS_PUBLIC);
+    assert.deepEqual(advlib.process(INPUT_DATA_ADDRESS_PUBLIC),  
+                                    EXPECTED_DATA_ADDRESS_PUBLIC);
   });
 
   it('should recognize a ADV_IND', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_ADV_IND).type, EXPECTED_DATA_ADV_IND);
+    assert.deepEqual(advlib.process(INPUT_DATA_ADV_IND).type, 
+                                    EXPECTED_DATA_ADV_IND);
   });
 
   it('should recognize a ADV_DIRECT_IND', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_ADV_DIRECT_IND).type, EXPECTED_DATA_ADV_DIRECT_IND);
+    assert.deepEqual(advlib.process(INPUT_DATA_ADV_DIRECT_IND).type, 
+                                    EXPECTED_DATA_ADV_DIRECT_IND);
   });
 
   it('should recognize a ADV_NONCONNECT_IND', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_ADV_NONCONNECT_IND).type, EXPECTED_DATA_ADV_NONCONNECT_IND_TYPE);
+    assert.deepEqual(advlib.process(INPUT_DATA_ADV_NONCONNECT_IND).type, 
+                                    EXPECTED_DATA_ADV_NONCONNECT_IND_TYPE);
   });
 
   it('should recognize a SCAN_REQ', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_SCAN_REQ).type, EXPECTED_DATA_SCAN_REQ);
+    assert.deepEqual(advlib.process(INPUT_DATA_SCAN_REQ).type, 
+                                    EXPECTED_DATA_SCAN_REQ);
   });
 
   it('should recognize a SCAN_RSP', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_SCAN_RSP).type, EXPECTED_DATA_SCAN_RSP);
+    assert.deepEqual(advlib.process(INPUT_DATA_SCAN_RSP).type, 
+                                    EXPECTED_DATA_SCAN_RSP);
   });
 
   it('should recognize a CONNECT_REQ', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_CONNECT_REQ).type, EXPECTED_DATA_CONNECT_REQ);
+    assert.deepEqual(advlib.process(INPUT_DATA_CONNECT_REQ).type, 
+                                    EXPECTED_DATA_CONNECT_REQ);
   });
 
   it('should recognize a ADV_DISCOVER_IND', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_ADV_DISCOVER_IND).type, EXPECTED_DATA_ADV_DISCOVER_IND);
+    assert.deepEqual(advlib.process(INPUT_DATA_ADV_DISCOVER_IND).type, 
+                                    EXPECTED_DATA_ADV_DISCOVER_IND);
   });
 
   it('should recognize a unspecified type', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_UNSPECIFIED_TYPE).type, EXPECTED_DATA_UNSPECIFIED_TYPE);
+    assert.deepEqual(advlib.process(INPUT_DATA_UNSPECIFIED_TYPE).type, 
+                                    EXPECTED_DATA_UNSPECIFIED_TYPE);
   });
   
   it('should recognize a payload of max length', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_MAX_LENGTH).length, EXPECTED_DATA_MAX_LENGTH_LENGTH);
+    assert.deepEqual(advlib.process(INPUT_DATA_MAX_LENGTH).length, 
+                                    EXPECTED_DATA_MAX_LENGTH_LENGTH);
   });
 });

@@ -3,8 +3,8 @@
  * We believe in an open Internet of Things
  */
 
-var txpower = require("../../../../../lib/ble/data/gap/txpower.js").process;
-var assert = require ('assert'); 
+var txpower = require("../../../../../lib/ble/data/gap/txpower.js");
+var assert = require('assert'); 
 
 // Constants for the scenario
 var CURSOR = 0;
@@ -20,7 +20,7 @@ describe('ble data txpower', function() {
 
   // Test the process function
   it('should parse BLE advertiser TX power', function() {
-  	txpower(INPUT_DATA, CURSOR, ADVERTISER_DATA);
+    txpower.process(INPUT_DATA, CURSOR, ADVERTISER_DATA);
     assert.deepEqual(ADVERTISER_DATA.txPower, EXPECTED_DATA);
   });
 });
