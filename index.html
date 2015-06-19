@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+      reelyActive: advlib
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script type="text/javascript" src="js/advapp.js"></script>   
+    <link rel="stylesheet" href="style/main.css" />
+  </head>
+  <body ng-app="advapp">
+    <div ng-controller="InteractionCtrl"> 
+
+      <!----- Menu ----->
+      <div id="menu">
+        <ul>
+          <li><a ng-click="selectBluetooth()" ng-class="bluetooth.tabclass">Bluetooth Smart</a></li>
+          <li><a ng-click="selectReelyactive()" ng-class="reelyactive.tabclass">reelyActive</a></li>
+        </ul>
+      </div>
+
+      <!----- Packet ----->
+      <div ng-controller="PacketCtrl">
+
+        <!----- Payload ----->
+        <div>
+          <form>
+            <select ng-model="payload" ng-options="preset.payload as preset.name for preset in presets">
+              <option value="">-- Select Preset Payload --</option>
+            </select>
+            <input ng-model="payload" type="text" size="64"
+                   placeholder="Paste your payload here">
+            <button ng-click="process()"> Process </button>
+          </form>
+        </div>
+
+        <!----- Bluetooth Smart ----->
+        <div class="form" ng-show="bluetooth.show">
+          <h1> Bluetooth Smart Packet Elements </h1>
+          <p> Feature coming soon </p>
+        </div>
+
+        <!----- reelyActive ----->
+        <div class="form" ng-show="reelyactive.show">
+          <h1> reelyActive Packet Elements </h1>
+          <p> Feature coming soon </p>
+        </div>
+
+        <!----- JSON ----->
+        <div class="json">
+          <h1> As JSON </h1>
+          <pre>{{packet}}</pre>
+        </div>
+
+      </div>
+
+    </div>
+    <footer id="footer">
+      <a href="https://github.com/reelyactive/advlib"> advlib </a> &nbsp; | &nbsp;
+      <a href="http://context.reelyactive.com"> &copy; reelyActive 2015 </a>
+    </footer>
+  </body>
+</html>
