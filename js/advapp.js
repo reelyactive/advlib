@@ -1,7 +1,11 @@
-angular.module('advapp', [])
+var advlib = require('../../lib/index.js');
+var angular = require('angular');
+
+module.exports = angular.module('advapp', [])
 
   // ----- Interaction controller -----
   .controller("InteractionCtrl", function($scope) {
+    $scope.payload = '';
     $scope.bluetooth = { show: true,
                          tabclass: "selected-tab",
                          packet: {},
@@ -47,11 +51,11 @@ angular.module('advapp', [])
 
     $scope.process = function(item, event) {
       if($scope.bluetooth.show) {
-        //$scope.bluetooth.packet = advlib.ble.process($scope.bluetooth.payload);
+        $scope.bluetooth.packet = advlib.ble.process($scope.payload);
         $scope.packet = JSON.stringify($scope.bluetooth.packet, null, " ");
       }
       else if($scope.reelyactive.show) {
-        //$scope.reelyactive.packet = advlib.reelyactive.process($scope.reelyactive.payload);
+        $scope.reelyactive.packet = advlib.reelyactive.process($scope.payload);
         $scope.packet = JSON.stringify($scope.reelyactive.packet, null, " ");
       }
     }
