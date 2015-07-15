@@ -1,0 +1,33 @@
+{
+  "name": "advlib",
+  "homepage": "https://github.com/reelyactive/advlib/",
+  "author": "reelyActive <webdev@reelyactive.com>",
+  "description": "Library for Decoding Wireless Advertising Packets.  We believe in an open Internet of Things.",
+  "keywords": [
+    "reelyActive",
+    "IoT",
+    "library",
+    "Bluetooth Smart",
+    "BLE"
+  ],
+  "version": "0.0.0",
+  "engines": {
+    "node": "^0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reelyactive/advlib.git"
+  },
+  "dependencies": {
+    "angular": "^1.4.1",
+    "advlib": "^0.0.2"
+  },
+  "bugs": {
+    "url": "https://github.com/reelyactive/advlib/issues"
+  },
+  "contributors": [
+    { "name": "Imran Jameel" },
+    { "name": "Jeffrey Dungen" }
+  ],
+  "license": "MIT"
+}
