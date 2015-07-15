@@ -668,6 +668,8 @@ function process(payload) {
 }
 
 module.exports.process = process;
+module.exports.address = address;
+
 },{"./address/index.js":1,"./common/util/identifier.js":2,"./data/index.js":13,"./header/index.js":14}],16:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
@@ -676,10 +678,149 @@ module.exports.process = process;
 
 
 var ble = require('./ble');
+var reelyactive = require('./reelyactive');
 
 
 module.exports.ble = ble;
-},{"./ble":15}],17:[function(require,module,exports){
+module.exports.reelyactive = reelyactive;
+
+},{"./ble":15,"./reelyactive":20}],17:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2014
+ * We believe in an open Internet of Things
+ */
+
+
+// Constants (Type)
+var TYPE_EUI64 = 'EUI-64';
+var TYPE_RA28 = 'RA-28';
+var TYPE_ADVA48 = 'ADVA-48';
+var TYPE_RADIO_PAYLOAD = 'RadioPayload';
+var TYPE_UNDEFINED = 'Undefined';
+
+// Constants
+var REELYACTIVE_OUI36 = '001bc5094';
+
+
+/**
+ * Identifier Class
+ * Represents an identifier
+ * @param {string} type Type of identifier.
+ * @param {Object} value The value of the given identifier.
+ * @constructor
+ */
+function Identifier(type, value) {
+  var isValue = (value != null);
+
+  // Constructor for EUI-64
+  if((type == TYPE_EUI64) && isValue) {
+    this.type = TYPE_EUI64;
+    this.value = value;
+  }
+
+  // Constructor for RA-28
+  else if((type == TYPE_RA28) && isValue) {
+    this.type = TYPE_RA28;
+    this.value = value.substr(value.length - 7, 7);
+  }
+
+  // Constructor for ADVA-48
+  else if((type == TYPE_ADVA48) && isValue) {
+    this.type = TYPE_ADVA48;
+    this.value = value;
+  }
+
+  // Constructor for RadioPayload
+  else if((type = TYPE_RADIO_PAYLOAD) && isValue) {
+    this.type = TYPE_RADIO_PAYLOAD;
+    this.value = value.payload;
+    this.lengthBytes = value.payloadLengthBytes;
+  }
+
+  // Constructor for Undefined
+  else {
+    this.type = TYPE_UNDEFINED;
+    this.value = null;
+  }
+};
+
+
+/**
+ * Convert this identifier to a new one of the given type, if possible.
+ * @param {string} newType New identifier type.
+ */
+Identifier.prototype.toType = function(newType) {
+  var isEUI64Target = (newType === TYPE_EUI64);
+  var isRA28Source = (this.type === TYPE_RA28);
+
+  if(isEUI64Target && isRA28Source) {
+    return new Identifier(TYPE_EUI64, REELYACTIVE_OUI36 + this.value);
+  }
+
+  return null;
+}
+
+
+module.exports = Identifier;
+module.exports.EUI64 = TYPE_EUI64;
+module.exports.RA28 = TYPE_RA28;
+module.exports.ADVA48 = TYPE_ADVA48;
+module.exports.RADIO_PAYLOAD = TYPE_RADIO_PAYLOAD;
+module.exports.UNDEFINED = TYPE_UNDEFINED;
+},{}],18:[function(require,module,exports){
+/**
+ * Convert a raw radio sensor data payload.
+ * @param {string} payload The raw payload as a hexadecimal-string.
+ * @return {object} Sensor data.
+ */
+function process(payload) {
+  var batteryRaw = parseInt(payload.substr(2,2),16) % 64;
+  var temperatureRaw = (parseInt(payload.substr(0,3),16) >> 2) % 256;
+  var battery = ((batteryRaw / 34) + 1.8).toFixed(2) + "V";
+  var temperature = ((temperatureRaw - 80) / 2).toFixed(1) + "C";
+  return {
+    battery: battery,
+    temperature: temperature
+  };
+}
+
+module.exports.process = process;
+},{}],19:[function(require,module,exports){
+/**
+ * Convert a raw radio sensor data payload.
+ * @param {string} payload The raw payload as a hexadecimal-string.
+ * @return {object} Sensor data.
+ */
+function process(payload) {
+  var flags = parseInt(payload,16);
+  var transmissionCount = flags >> 2;
+  return { transmissionCount: transmissionCount };
+}
+
+module.exports.process = process;
+},{}],20:[function(require,module,exports){
+/**
+ * Process a raw reelyActive radio payload into semantically meaningful
+ * information.
+ * @param {string} payload The raw payload as a hexadecimal-string.
+ * @return {EUI64} EUI-64 identifier.
+ */
+var identifier = require('./common/util/identifier.js');
+var data = require('./data/index.js');
+var flags = require('./flags/index.js');
+
+function process(payload) {
+  var ra28 = new identifier(identifier.RA28, payload.substr(0, 7));
+  var eui64 = ra28.toType(identifier.EUI64);
+  eui64.flags = flags.process(payload.substr(7, 1));
+  if (payload.length === 12) {
+    eui64.data = data.process(payload.substr(8, 4));
+  }
+  return eui64;
+}
+
+module.exports.process = process;
+},{"./common/util/identifier.js":17,"./data/index.js":18,"./flags/index.js":19}],21:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.1
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -28974,71 +29115,158 @@ var minlengthDirective = function() {
 })(window, document);
 
 !window.angular.$$csp() && window.angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],18:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":17}],19:[function(require,module,exports){
-var advlib = require('../../lib/index.js');
+},{"./angular":21}],23:[function(require,module,exports){
+var advlib = require('advlib');
 var angular = require('angular');
 
-module.exports = angular.module('advapp', [])
-  // ----- Interaction controller -----
-  .controller("InteractionCtrl", function($scope) {
-    $scope.payload = '';
-    $scope.bluetooth = { show: true,
-                         tabclass: "selected-tab",
-                         packet: {},
-                         presets: {} };
-    $scope.reelyactive = { show: false,
-                           tabclass: "tab",
-                           packet: {},
-                           presets: {} };
+module.exports = angular.module('advapp', ['ui.bootstrap'])
+
+// ----- Interaction controller -----
+
+.controller("InteractionCtrl", function($scope) {
+  $scope.payload = '';
+  $scope.header = '';
+  $scope.bluetooth = {
+    show: true,
+    tabclass: "selected-tab",
+    packet: {},
+    presets: {}
+  };
+
+  $scope.reelyactive = {
+    show: false,
+    tabclass: "tab",
+    packet: {},
+    presets: {}
+  };
+
+  $scope.packet = $scope.bluetooth.packet;
+  $scope.packet = $scope.reelyactive.packet;
+  $scope.presets = $scope.bluetooth.presets;
+  $scope.presets = $scope.bluetooth.presets;
+
+  $scope.show = {
+    bluetooth: true,
+    reelyactive: false
+  };
+  $scope.tabclass = {
+    bluetooth: 'selected-tab',
+    reelyactive: 'tab'
+  };
+
+  $scope.selectBluetooth = function() {
+    $scope.bluetooth.show = true;
+    $scope.bluetooth.tabclass = "selected-tab";
+    $scope.reelyactive.show = false;
+    $scope.reelyactive.tabclass = "tab";
     $scope.packet = $scope.bluetooth.packet;
     $scope.presets = $scope.bluetooth.presets;
-                         
-    $scope.show = { bluetooth: true, reelyactive: false };
-    $scope.tabclass = { bluetooth: 'selected-tab', reelyactive: 'tab' };
+  }
 
-    $scope.selectBluetooth = function() {
-      $scope.bluetooth.show = true;
-      $scope.bluetooth.tabclass = "selected-tab";
-      $scope.reelyactive.show = false;
-      $scope.reelyactive.tabclass = "tab";
-      $scope.packet = $scope.bluetooth.packet;
-      $scope.presets = $scope.bluetooth.presets;
+  $scope.selectReelyactive = function() {
+    $scope.bluetooth.show = false;
+    $scope.bluetooth.tabclass = "tab";
+    $scope.reelyactive.show = true;
+    $scope.reelyactive.tabclass = "selected-tab";
+    $scope.packet = $scope.reelyactive.packet;
+    $scope.presets = $scope.reelyactive.presets;
+  }
+})
+
+// ----- Packet controller -----
+
+.controller("PacketCtrl", function($scope) {
+  $scope.bluetooth.presets = [{
+    name: "reelyActible",
+    payload: "421655daba50e1fe0201050c097265656c79416374697665"
+  }, {
+    name: "TrackR",
+    payload: "40239dd02fcbafe20409746b7203194002020106020a0403033e0f09ff00009dd02fcbafe2"
+  }, {
+    name: "Apple TV",
+    payload: "0015415df17b209c02011a0bff4c0009060202c0a8006a"
+  }, {
+    name: "Roximity",
+    payload: "42243cae3eb8ebe00201061aff4c0002158deefbb9f7384297804096668bb4428100012258c5"
+  }, {
+    name: "UriBeacon",
+    payload: "4220f60032be32c20201040303d8fe1216d8fe00f2027265656c7961637469766507"
+  }, {
+    name: "Tile",
+    payload: "400dc3dc80ee20e40201060303edfe"
+  }, {
+    name: "Fitbit",
+    payload: "4025b2a86b4f01d90201041106ba5689a6fabfa2bd01467d6e00fbabad09160a181204eb150000"
+  }, {
+    name: "reelyActive Bluetooth Smart reelceiver (RA-R436)",
+    payload: "061b9e5ed0f7b13402010611074449555520657669746341796c656572"
+  }];
+  $scope.reelyactive.presets = [{
+    name: "Tag Identification Blink",
+    payload: "1234567c"
+  }, {
+    name: "Tag Sensor Blink",
+    payload: "123456742029"
+  }];
+
+  $scope.process = function(item, event) {
+    if ($scope.bluetooth.show) {
+      $scope.bluetooth.packet = advlib.ble.process($scope.payload);
+      $scope.packet = JSON.stringify($scope.bluetooth.packet, null, " ");
+
+      // Defined for ng-keyup function process() calls
+      $scope.header = $scope.payload.substr(0, 4);
+      $scope.payloadData = $scope.payload.substring(16, $scope.payload.length -
+        16);
+
+      // Defined for Flags' array and Form Checkbox binding            
+      var flags = $scope.bluetooth.packet.advData.flags
+      $scope.checkedItems = {};
+      flags.forEach(function(element) {
+        $scope.checkedItems[element] = true;
+      });
+
+    } else if ($scope.reelyactive.show) {
+      console.log(advlib.reelyactive.process($scope.payload))
+      $scope.reelyactive.packet = advlib.reelyactive.process($scope.payload);
+      $scope.packet = JSON.stringify($scope.reelyactive.packet, null, " ");
     }
+  }
 
-    $scope.selectReelyactive = function() {
-      $scope.bluetooth.show = false;
-      $scope.bluetooth.tabclass = "tab";
-      $scope.reelyactive.show = true;
-      $scope.reelyactive.tabclass = "selected-tab";
-      $scope.packet = $scope.reelyactive.packet;
-      $scope.presets = $scope.reelyactive.presets;
-    }
-  })
+  $scope.headerType = [{
+    name: 'ADV_IND'
+  }, {
+    name: 'ADV_DIRECT_IND'
+  }, {
+    name: 'ADV_NONCONNECT_IND'
+  }, {
+    name: 'SCAN_REQ'
+  }, {
+    name: 'SCAN_RSP'
+  }, {
+    name: 'CONNECT_REQ'
+  }, {
+    name: 'ADV_DISCOVER_IND'
+  }, {
+    name: 'UNRECOGNISED'
+  }];
 
 
-  // ----- Packet controller -----
-  .controller("PacketCtrl", function($scope) {
-    $scope.bluetooth.presets = [
-      { name: "reelyActible", payload: "421655daba50e1fe0201050c097265656c79416374697665" }
-    ];
-    $scope.reelyactive.presets = [
-      { name: "Tag", payload: "1234" }
-    ];
 
-    $scope.process = function(item, event) {
-      if($scope.bluetooth.show) {
-        $scope.bluetooth.packet = advlib.ble.process($scope.payload);
-        $scope.packet = JSON.stringify($scope.bluetooth.packet, null, " ");
-      }
-      else if($scope.reelyactive.show) {
-        $scope.reelyactive.packet = advlib.reelyactive.process($scope.payload);
-        $scope.packet = JSON.stringify($scope.reelyactive.packet, null, " ");
-      }
-    }
-  });
+  window.MYSCOPE = $scope; // In order to access scope on console (to be removed when not testing)
 
-},{"../../lib/index.js":16,"angular":18}]},{},[19]);
+})
+
+.controller('AccordionDemoCtrl', function($scope) {
+  $scope.oneAtATime = true;
+
+  $scope.status = {
+    isFirstOpen: true,
+    isFirstDisabled: false
+  };
+});
+},{"advlib":16,"angular":22}]},{},[23]);

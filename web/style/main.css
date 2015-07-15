@@ -1,0 +1,80 @@
+body { 
+  font-family: 'Open Sans', sans-serif;
+}
+a{
+  text-decoration:none;
+}
+
+ul {
+  float:left;
+  width:50%;
+  min-width:480px;
+  padding:0;
+  margin:0;
+  list-style-type:none
+}
+
+li {
+  display:inline
+}
+
+h1 {
+  padding-bottom:.1em
+}
+
+h2 {
+  padding-bottom:-.9em
+}
+header {
+text-align: center;
+font-size: 33px;
+background-color: none;
+height: 50px;
+}
+.payloadInputDd {
+text-align: center;
+}
+
+.form-control{
+  display: inline;
+}
+
+.form {
+  float:left;
+  width:48%;
+  min-width:480px;
+  margin:0 1% 64px
+}
+
+.json {
+  float:left;
+  width:48%;
+  min-width:480px;
+  margin:0 1% 64px
+}
+#footer {
+  clear:both;
+  position:relative;
+  height:5em;
+  line-height:5em;
+  bottom:0;
+   width:100%;
+  margin:0;
+  margin-top: 50%;
+  background:#4997bd;
+  color:#999;
+  color:rgba(255,255,255,0.5);
+  font-size:1.2em;
+  overflow:hidden;
+  text-align:center
+}
+
+#footer a {
+  color:#999;
+  color:rgba(255,255,255,0.5)
+}
+
+#footer a:hover {
+  color:rgba(255,255,255,0.7)
+}
+
