@@ -333,6 +333,12 @@ Which would add the following property to advData:
       }
     }
 
+##### StickNFind
+
+A specific case of manufacturer specific data is that of StickNFind.  The following proprietary payloads are supported:
+- V2 Single Payload
+- SNS Motion
+
 
 #### TX Power Level 
 

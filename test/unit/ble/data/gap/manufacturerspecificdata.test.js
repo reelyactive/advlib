@@ -15,6 +15,9 @@ var ADVERTISER_DATA = {};
 var INPUT_DATA_COMPANY_ONLY = '03ff0800';
 var INPUT_DATA_IBEACON = 
                       '26ff4c000215b9407f30f5f8466eaff925556b57fe6d294c903974';
+var INPUT_DATA_SNF_SINGLE = '17fff9000177665544332211004500000004991800123456';
+var INPUT_DATA_SNS_MOTION =
+                          '18fff90042450000003099001122334455012345aabbccabc0';
 
 // Expected outputs for the scenario
 var EXPECTED_DATA_COMPANY_ONLY = {
@@ -28,6 +31,26 @@ var EXPECTED_DATA_APPLE_AND_IBEACON = {
   minor: "9039",
   txPower: "116dBm"
 };
+var EXPECTED_DATA_SNF_SINGLE = {
+  type: "V2 Single Payload",
+  id: '0011223344556677',
+  time: 69,
+  scanCount: 1,
+  batteryVoltage: '99',
+  temperature: 24,
+  calibration: '00',
+  checksum: '123456'
+};
+var EXPECTED_DATA_SNS_MOTION = {
+  type: "SnS Motion",
+  timestamp: 69,
+  temperature: 24,
+  batteryVoltage: '99',
+  eventCounters: [ 0, 273, 546, 819, 1092, 1365 ],
+  accelerationX: 2730,
+  accelerationY: 3003,
+  accelerationZ: 3276
+}
 
 describe('ble data manufacturerspecificdata', function() {
 
@@ -42,10 +65,28 @@ describe('ble data manufacturerspecificdata', function() {
   
   it('should convert ble advertiser data to apple and iBeacon manufacturer \
      specificdata', function() {
-    ADVERTISER_DATA.manufacturerSpecificData.iBeacon = {};
+    var advertiserData = { manufacturerSpecificData: {} };
     manufacturerspecificdata.process(INPUT_DATA_IBEACON, CURSOR, 
-                                     ADVERTISER_DATA);
-    assert.deepEqual(ADVERTISER_DATA.manufacturerSpecificData.iBeacon, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.iBeacon, 
                      EXPECTED_DATA_APPLE_AND_IBEACON);
+  });
+
+  it('should convert ble advertiser data to StickNFind Beacon Single \
+     specificdata', function() {
+    var advertiserData = { manufacturerSpecificData: {} };
+    manufacturerspecificdata.process(INPUT_DATA_SNF_SINGLE, CURSOR, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.snfBeacon, 
+                     EXPECTED_DATA_SNF_SINGLE);
+  });
+
+  it('should convert ble advertiser data to StickNSense Motion \
+     specificdata', function() {
+    var advertiserData = { manufacturerSpecificData: {} };
+    manufacturerspecificdata.process(INPUT_DATA_SNS_MOTION, CURSOR, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.snfBeacon, 
+                     EXPECTED_DATA_SNS_MOTION);
   });
 });
