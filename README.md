@@ -63,6 +63,9 @@ The library is organised hierarchically so that the separate elements of a packe
   * [Service Data](#service-data)
   * [Manufacturer Specific Data](#manufacturer-specific-data)
   * [Generic Data](#generic-data)
+* [Data](#data-generic-attribute-profile)
+  * [Member Services](#member-services)
+  * [Standard Services](#standard-services)
 
 
 ### Header
@@ -454,6 +457,44 @@ Which would add the following property to advData:
       uuid : "180a",
       data : "1204eb150000"
     }
+
+
+### Data (Generic Attribute Profile)
+
+Process GATT service data (as a hexadecimal string) with the following command:
+
+    advlib.ble.data.gatt.process(advData);
+
+Where advData contains a serviceData object (see [Service Data](#service-data)), for instance:
+
+    advData: {
+      serviceData: {
+        uuid: "fed8",
+        data: "00f2027265656c7961637469766507"
+      }
+    }
+
+Based on the UUID, the serviceData will be parsed as either a member service or a standard service, as applicable.  Note that not all services are yet implemented.
+
+
+#### Member Services
+
+Based on a pilot program for members which allows the SIG to allocate a 16-bit Universally Unique Identifier (UUID) for use with a custom GATT-based service defined by the member.
+
+| UUID   | Member                | Description                           |
+|-------:|-----------------------|---------------------------------------|
+| 0xfed8 | Google                | UriBeacon (Physical Web)              |
+| 0xfeaa | Google                | Eddystone                             |
+
+
+##### Google
+
+Supports Eddystone and the UriBeacon of the Physical Web.  More documentation to come...
+
+
+#### Standard Services
+
+Soon to be implemented...
 
 
 reelyActive RFID Library
