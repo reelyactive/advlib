@@ -10,21 +10,36 @@ var assert = require('assert');
 
 
 // Inputs for the scenario
-var INPUT_DATA_UID = {
+var INPUT_DATA_URIBEACON = {
+    serviceData: { uuid: "fed8",
+                   data: "00f2027265656c7961637469766507" }
+};
+var INPUT_DATA_EDDYSTONE_UID = {
     serviceData: { uuid: "feaa",
                    data: "2116aafe00128b0ca750095477cb3e77001122334455" }
 }; 
-var INPUT_DATA_URI = {
+var INPUT_DATA_EDDYSTONE_URI = {
     serviceData: { uuid: "feaa",
                    data: "0716aafe10120000" }
 }; 
-var INPUT_DATA_TLM = {
+var INPUT_DATA_EDDYSTONE_TLM = {
     serviceData: { uuid: "feaa",
                    data: "1816aafe2000000080000000000000000000" }
 }; 
 
 // Expected outputs for the scenario
-var EXPECTED_DATA_UID = {
+var EXPECTED_DATA_URIBEACON = {
+  serviceData: {
+    uuid: "fed8",
+    data: "00f2027265656c7961637469766507",
+    uriBeacon: {
+      invisibleHint: false,
+      txPower: "-14dBm",
+      url: "http://reelyactive.com"
+    }
+  }
+};
+var EXPECTED_DATA_EDDYSTONE_UID = {
   serviceData: {
     uuid: "feaa",
     data: "2116aafe00128b0ca750095477cb3e77001122334455",
@@ -40,7 +55,7 @@ var EXPECTED_DATA_UID = {
     }
   }
 };
-var EXPECTED_DATA_URI = {
+var EXPECTED_DATA_EDDYSTONE_URI = {
   serviceData: {
     uuid: "feaa",
     data: "0716aafe10120000",
@@ -56,7 +71,7 @@ var EXPECTED_DATA_URI = {
     }
   }
 };
-var EXPECTED_DATA_TLM = {
+var EXPECTED_DATA_EDDYSTONE_TLM = {
   serviceData: {
     uuid: 'feaa',
     data: '1816aafe2000000080000000000000000000',
@@ -78,16 +93,24 @@ var EXPECTED_DATA_TLM = {
 describe('ble data gatt service member google', function() {
 
   // Test the process function
+  it('should parse BLE advertiser data UriBeacon', function() {
+    var advertiserData = INPUT_DATA_URIBEACON;
+    google.process(advertiserData);
+    assert.deepEqual(advertiserData, EXPECTED_DATA_URIBEACON);
+  });
   it('should parse BLE advertiser data Eddystone UID', function() {
-    google.process(INPUT_DATA_UID);
-    assert.deepEqual(INPUT_DATA_UID, EXPECTED_DATA_UID);
+    var advertiserData = INPUT_DATA_EDDYSTONE_UID;
+    google.process(advertiserData);
+    assert.deepEqual(advertiserData, EXPECTED_DATA_EDDYSTONE_UID);
   });
   it('should parse BLE advertiser data Eddystone URI', function() {
-    google.process(INPUT_DATA_URI);
-    assert.deepEqual(INPUT_DATA_URI, EXPECTED_DATA_URI);
+    var advertiserData = INPUT_DATA_EDDYSTONE_URI;
+    google.process(advertiserData);
+    assert.deepEqual(advertiserData, EXPECTED_DATA_EDDYSTONE_URI);
   });
   it('should parse BLE advertiser data Eddystone TLM', function() {
-    google.process(INPUT_DATA_TLM);
-    assert.deepEqual(INPUT_DATA_TLM, EXPECTED_DATA_TLM);
+    var advertiserData = INPUT_DATA_EDDYSTONE_TLM;
+    google.process(advertiserData);
+    assert.deepEqual(advertiserData, EXPECTED_DATA_EDDYSTONE_TLM);
   });
 });
