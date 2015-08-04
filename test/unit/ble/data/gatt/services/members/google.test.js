@@ -1,15 +1,27 @@
- /**
+/**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
  */
 
-var google = require("../../../../../../../../lib/ble/data/gatt/services/members/google/index.js");
+
+var google = 
+  require("../../../../../../../lib/ble/data/gatt/services/members/google.js");
 var assert = require('assert'); 
 
+
 // Inputs for the scenario
-var INPUT_DATA_UID = { serviceData: { uuid: "feaa", data: "2116aafe00128b0ca750095477cb3e77001122334455" } }; 
-var INPUT_DATA_URI = { serviceData: { uuid: "feaa", data: "0716aafe10120000" } }; 
-var INPUT_DATA_TLM = { serviceData: { uuid: "feaa", data: "1816aafe2000000080000000000000000000" } }; 
+var INPUT_DATA_UID = {
+    serviceData: { uuid: "feaa",
+                   data: "2116aafe00128b0ca750095477cb3e77001122334455" }
+}; 
+var INPUT_DATA_URI = {
+    serviceData: { uuid: "feaa",
+                   data: "0716aafe10120000" }
+}; 
+var INPUT_DATA_TLM = {
+    serviceData: { uuid: "feaa",
+                   data: "1816aafe2000000080000000000000000000" }
+}; 
 
 // Expected outputs for the scenario
 var EXPECTED_DATA_UID = {
