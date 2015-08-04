@@ -16,15 +16,15 @@ var INPUT_DATA_URIBEACON = {
 };
 var INPUT_DATA_EDDYSTONE_UID = {
     serviceData: { uuid: "feaa",
-                   data: "2116aafe00128b0ca750095477cb3e77001122334455" }
+                   data: "00128b0ca750095477cb3e77001122334455" }
 }; 
-var INPUT_DATA_EDDYSTONE_URI = {
+var INPUT_DATA_EDDYSTONE_URL = {
     serviceData: { uuid: "feaa",
-                   data: "0716aafe10120000" }
+                   data: "1012027265656c7961637469766507" }
 }; 
 var INPUT_DATA_EDDYSTONE_TLM = {
     serviceData: { uuid: "feaa",
-                   data: "1816aafe2000000080000000000000000000" }
+                   data: "2000000080000000000000000000" }
 }; 
 
 // Expected outputs for the scenario
@@ -42,50 +42,39 @@ var EXPECTED_DATA_URIBEACON = {
 var EXPECTED_DATA_EDDYSTONE_UID = {
   serviceData: {
     uuid: "feaa",
-    data: "2116aafe00128b0ca750095477cb3e77001122334455",
+    data: "00128b0ca750095477cb3e77001122334455",
     eddystone: {
-      dataType: "16",
-      uuid: "aa", 
-      frameType: "00",
+      type: "UID",
+      txPower: "18dBm",
       uid: {
-  	    rangingData: "12",
-  	    namespace: "8b0ca750095477cb3e77",
-  	    instance: "001122334455"
+        namespace: "8b0ca750095477cb3e77",
+        instance: "001122334455"
       }
     }
   }
 };
-var EXPECTED_DATA_EDDYSTONE_URI = {
+var EXPECTED_DATA_EDDYSTONE_URL = {
   serviceData: {
     uuid: "feaa",
-    data: "0716aafe10120000",
+    data: "1012027265656c7961637469766507",
     eddystone: {
-      dataType: "16",
-      uuid: "aa", 
-      frameType: "10",
-      uri: {
-  	    txPower: "12",
-  	    urlScheme: "00",
-  	    encodedUrl: "00"
-  	  }
+      type: "URI",
+      txPower: "18dBm",
+      url: "http://reelyactive.com"
     }
   }
 };
 var EXPECTED_DATA_EDDYSTONE_TLM = {
   serviceData: {
     uuid: 'feaa',
-    data: '1816aafe2000000080000000000000000000',
+    data: '2000000080000000000000000000',
     eddystone: {
-      dataType: "16",
-      uuid: "aa", 
-      frameType: "20",
-      tlm: {
-  	    tlmVersion: "00",
-  	    vBatt: "0000",
-  	    temp: "8000",
-  	    advCnt: "00000000",
-  	    secCnt: "00000000"
-  	  }
+      type: "TLM",
+      version: "00",
+      batteryVoltage: "0000",
+      temperature: "8000",
+      advertisingCount: "00000000",
+      uptime: "00000000"
     }
   }
 };
@@ -103,10 +92,10 @@ describe('ble data gatt service member google', function() {
     google.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA_EDDYSTONE_UID);
   });
-  it('should parse BLE advertiser data Eddystone URI', function() {
-    var advertiserData = INPUT_DATA_EDDYSTONE_URI;
+  it('should parse BLE advertiser data Eddystone URL', function() {
+    var advertiserData = INPUT_DATA_EDDYSTONE_URL;
     google.process(advertiserData);
-    assert.deepEqual(advertiserData, EXPECTED_DATA_EDDYSTONE_URI);
+    assert.deepEqual(advertiserData, EXPECTED_DATA_EDDYSTONE_URL);
   });
   it('should parse BLE advertiser data Eddystone TLM', function() {
     var advertiserData = INPUT_DATA_EDDYSTONE_TLM;
