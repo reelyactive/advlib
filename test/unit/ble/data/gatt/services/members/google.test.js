@@ -11,20 +11,28 @@ var assert = require('assert');
 
 // Inputs for the scenario
 var INPUT_DATA_URIBEACON = {
-    serviceData: { uuid: "fed8",
-                   data: "00f2027265656c7961637469766507" }
+  serviceData: { 
+    uuid: "fed8",
+    data: "00f2027265656c7961637469766507" 
+  }
 };
 var INPUT_DATA_EDDYSTONE_UID = {
-    serviceData: { uuid: "feaa",
-                   data: "00128b0ca750095477cb3e77001122334455" }
+  serviceData: { 
+    uuid: "feaa",
+    data: "00128b0ca750095477cb3e77001122334455" 
+  }
 }; 
 var INPUT_DATA_EDDYSTONE_URL = {
-    serviceData: { uuid: "feaa",
-                   data: "1012027265656c7961637469766507" }
+  serviceData: { 
+    uuid: "feaa",
+    data: "1012027265656c7961637469766507" 
+  }
 }; 
 var INPUT_DATA_EDDYSTONE_TLM = {
-    serviceData: { uuid: "feaa",
-                   data: "2000000080000000000000000000" }
+  serviceData: { 
+    uuid: "feaa",
+    data: "2000000080000000000000000000" 
+  }
 }; 
 
 // Expected outputs for the scenario
