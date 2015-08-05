@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1815",
     data: "1204eb150000",
-    standard: "Automation IO"
+    specificationName: "Automation IO"
   }
 };
 

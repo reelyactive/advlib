@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1821",
     data: "1204eb150000",
-    standard: "Indoor Positioning"
+    specificationName: "Indoor Positioning"
   }
 };
 

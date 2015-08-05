@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "181f",
     data: "1204eb150000",
-    standard: "Continuous Glucose Monitoring"
+    specificationName: "Continuous Glucose Monitoring"
   }
 };
 

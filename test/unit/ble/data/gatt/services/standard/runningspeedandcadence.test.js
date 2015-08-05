@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1814",
     data: "1204eb150000",
-    standard: "Running Speed and Cadence"
+    specificationName: "Running Speed and Cadence"
   }
 };
 

@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "180a",
     data: "1204eb150000",
-    standard: "Device Information"
+    specificationName: "Device Information"
   }
 };
 

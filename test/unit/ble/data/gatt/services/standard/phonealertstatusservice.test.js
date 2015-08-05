@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "180e",
     data: "1204eb150000",
-    standard: "Phone Alert Status Service"
+    specificationName: "Phone Alert Status Service"
   }
 };
 

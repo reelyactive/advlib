@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1811",
     data: "1204eb150000",
-    standard: "Alert Notification Service"
+    specificationName: "Alert Notification Service"
   }
 };
 

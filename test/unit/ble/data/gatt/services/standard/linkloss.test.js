@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1803",
     data: "1204eb150000",
-    standard: "Link Loss"
+    specificationName: "Link Loss"
   }
 };
 

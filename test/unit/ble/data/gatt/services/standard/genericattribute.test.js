@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1801",
     data: "1204eb150000",
-    standard: "Generic Attribute"
+    specificationName: "Generic Attribute"
   }
 };
 

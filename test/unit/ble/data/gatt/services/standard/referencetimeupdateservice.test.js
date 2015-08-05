@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1806",
     data: "1204eb150000",
-    standard: "Reference Time Update Service"
+    specificationName: "Reference Time Update Service"
   }
 };
 

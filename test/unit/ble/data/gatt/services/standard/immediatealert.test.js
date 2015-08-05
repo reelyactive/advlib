@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1802",
     data: "1204eb150000",
-    standard: "Immediate Alert"
+    specificationName: "Immediate Alert"
   }
 };
 

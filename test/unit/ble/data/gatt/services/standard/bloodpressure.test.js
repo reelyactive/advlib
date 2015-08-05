@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1810",
     data: "1204eb150000",
-    standard: "Blood Pressure"
+    specificationName: "Blood Pressure"
   }
 };
 

@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1813",
     data: "1204eb150000",
-    standard: "Scan Parameters"
+    specificationName: "Scan Parameters"
   }
 };
 

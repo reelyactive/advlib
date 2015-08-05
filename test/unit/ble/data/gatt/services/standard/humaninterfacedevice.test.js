@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1812",
     data: "1204eb150000",
-    standard: "Human Interface Device"
+    specificationName: "Human Interface Device"
   }
 };
 

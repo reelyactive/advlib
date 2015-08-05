@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "180d",
     data: "1204eb150000",
-    standard: "Heart Rate"
+    specificationName: "Heart Rate"
   }
 };
 

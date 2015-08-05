@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1820",
     data: "1204eb150000",
-    standard: "Internet Protocol Support"
+    specificationName: "Internet Protocol Support"
   }
 };
 

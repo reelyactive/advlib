@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "181d",
     data: "1204eb150000",
-    standard: "Weight Scale"
+    specificationName: "Weight Scale"
   }
 };
 

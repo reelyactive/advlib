@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1809",
     data: "1204eb150000",
-    standard: "Health Thermometer"
+    specificationName: "Health Thermometer"
   }
 };
 

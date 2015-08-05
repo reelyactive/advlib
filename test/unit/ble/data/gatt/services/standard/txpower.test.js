@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1804",
     data: "1204eb150000",
-    standard: "Tx Power"
+    specificationName: "Tx Power"
   }
 };
 

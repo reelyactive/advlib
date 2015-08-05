@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "181a",
     data: "1204eb150000",
-    standard: "Environmental Sensing"
+    specificationName: "Environmental Sensing"
   }
 };
 

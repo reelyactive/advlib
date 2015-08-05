@@ -21,7 +21,7 @@ var EXPECTED_DATA = {
   serviceData: {
     uuid: "1800",
     data: "1204eb150000",
-    standard: "Generic Access"
+    specificationName: "Generic Access"
   }
 };
 
