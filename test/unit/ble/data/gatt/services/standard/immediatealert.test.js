@@ -33,5 +33,4 @@ describe('ble data gatt standard immediatealert', function() {
     immediatealert.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

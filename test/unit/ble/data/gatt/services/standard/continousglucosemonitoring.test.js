@@ -33,5 +33,4 @@ describe('ble data gatt standard continousglucosemonitoring', function() {
     continousglucosemonitoring.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

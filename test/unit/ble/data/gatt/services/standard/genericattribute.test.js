@@ -33,5 +33,4 @@ describe('ble data gatt standard genericattribute', function() {
     genericattribute.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

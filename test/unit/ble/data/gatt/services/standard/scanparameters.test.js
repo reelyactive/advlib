@@ -33,5 +33,4 @@ describe('ble data gatt standard scanparameters', function() {
     scanparameters.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

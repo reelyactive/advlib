@@ -33,5 +33,4 @@ describe('ble data gatt standard cyclingpower', function() {
     cyclingpower.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

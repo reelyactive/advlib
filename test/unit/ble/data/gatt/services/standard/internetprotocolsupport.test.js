@@ -33,5 +33,4 @@ describe('ble data gatt standard internetprotocolsupport', function() {
     internetprotocolsupport.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

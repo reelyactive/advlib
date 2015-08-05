@@ -33,5 +33,4 @@ describe('ble data gatt standard linkloss', function() {
     linkloss.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

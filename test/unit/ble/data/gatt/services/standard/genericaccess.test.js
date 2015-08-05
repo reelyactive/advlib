@@ -33,5 +33,4 @@ describe('ble data gatt standard genericaccess', function() {
     genericaccess.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

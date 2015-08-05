@@ -33,5 +33,4 @@ describe('ble data gatt standard bloodpressure', function() {
     bloodpressure.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

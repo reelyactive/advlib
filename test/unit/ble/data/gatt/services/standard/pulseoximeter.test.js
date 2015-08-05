@@ -33,5 +33,4 @@ describe('ble data gatt standard pulseoximeter', function() {
     pulseoximeter.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

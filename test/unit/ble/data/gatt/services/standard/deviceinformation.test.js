@@ -33,5 +33,4 @@ describe('ble data gatt standard deviceinformation', function() {
     deviceinformation.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

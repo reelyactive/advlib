@@ -33,5 +33,4 @@ describe('ble data gatt standard heartrate', function() {
     heartrate.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

@@ -33,5 +33,4 @@ describe('ble data gatt standard indoorpositioning', function() {
     indoorpositioning.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

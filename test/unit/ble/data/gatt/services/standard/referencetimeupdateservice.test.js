@@ -33,5 +33,4 @@ describe('ble data gatt standard referencetimeupdateservice', function() {
     referencetimeupdateservice.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

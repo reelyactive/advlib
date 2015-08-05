@@ -33,5 +33,4 @@ describe('ble data gatt standard automationio', function() {
     automationio.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

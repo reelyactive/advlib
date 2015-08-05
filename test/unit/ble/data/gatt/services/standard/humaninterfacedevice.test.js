@@ -33,5 +33,4 @@ describe('ble data gatt standard humaninterfacedevice', function() {
     humaninterfacedevice.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

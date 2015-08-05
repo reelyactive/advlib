@@ -33,5 +33,4 @@ describe('ble data gatt standard runningspeedandcadence', function() {
     runningspeedandcadence.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

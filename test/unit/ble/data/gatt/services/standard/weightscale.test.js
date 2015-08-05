@@ -33,5 +33,4 @@ describe('ble data gatt standard weightscale', function() {
     weightscale.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

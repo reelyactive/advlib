@@ -33,5 +33,4 @@ describe('ble data gatt standard cyclingspeedandcadence', function() {
     cyclingspeedandcadence.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

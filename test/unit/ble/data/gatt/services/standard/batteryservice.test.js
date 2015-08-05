@@ -33,5 +33,4 @@ describe('ble data gatt standard batteryservice', function() {
     batteryservice.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

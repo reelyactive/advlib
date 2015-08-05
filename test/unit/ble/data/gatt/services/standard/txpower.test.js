@@ -33,5 +33,4 @@ describe('ble data gatt standard txpower', function() {
     txpower.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

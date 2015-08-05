@@ -33,5 +33,4 @@ describe('ble data gatt standard environmentalsensing', function() {
     environmentalsensing.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

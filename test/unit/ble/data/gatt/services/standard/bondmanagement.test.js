@@ -33,5 +33,4 @@ describe('ble data gatt standard bondmanagement', function() {
     bondmanagement.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

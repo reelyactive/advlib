@@ -33,5 +33,4 @@ describe('ble data gatt standard locationandnavigation', function() {
     locationandnavigation.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

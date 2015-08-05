@@ -33,5 +33,4 @@ describe('ble data gatt standard alertnotificationservice', function() {
     alertnotificationservice.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

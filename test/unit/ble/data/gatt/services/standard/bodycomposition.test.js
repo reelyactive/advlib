@@ -33,5 +33,4 @@ describe('ble data gatt standard bodycomposition', function() {
     bodycomposition.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

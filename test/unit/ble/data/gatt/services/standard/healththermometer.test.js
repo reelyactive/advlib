@@ -33,5 +33,4 @@ describe('ble data gatt standard healththermometer', function() {
     healththermometer.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });

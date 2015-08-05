@@ -33,5 +33,4 @@ describe('ble data gatt standard currenttimeservice', function() {
     currenttimeservice.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA);
   });
-  
 });
