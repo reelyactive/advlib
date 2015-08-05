@@ -48,7 +48,6 @@ describe('ble data servicedata', function() {
      function() {
     var advertiserData = {};
     servicedata.process(INPUT_DATA_COMPANY_NAME, CURSOR, advertiserData);
-    console.log(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA_COMPANY_NAME);
   });
 });
