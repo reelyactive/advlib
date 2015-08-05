@@ -5,6 +5,8 @@ Library for wireless advertising packet decoding.  Currently supports the follow
 * [Bluetooth Smart (BLE)](#bluetooth-smart-ble-advertising-packet-library)
 * [reelyActive RFID](#reelyactive-rfid-library)
 
+For a live, interactive version of advlib visit [reelyactive.github.io/advlib](http://reelyactive.github.io/advlib/).
+
 
 Installation
 ------------
@@ -53,7 +55,7 @@ The library is organised hierarchically so that the separate elements of a packe
 
 * [Header](#header)
 * [Address](#address)
-* [Data](#data-generic-access-profile)
+* [Data (GAP)](#data-generic-access-profile)
   * [Flags](#flags)
   * [UUID](#uuid)
   * [Local Name](#local-name)
@@ -63,7 +65,7 @@ The library is organised hierarchically so that the separate elements of a packe
   * [Service Data](#service-data)
   * [Manufacturer Specific Data](#manufacturer-specific-data)
   * [Generic Data](#generic-data)
-* [Data](#data-generic-attribute-profile)
+* [Data (GATT)](#data-generic-attribute-profile)
   * [Member Services](#member-services)
   * [Standard Services](#standard-services)
 
@@ -371,11 +373,7 @@ TxPower is a two's complement value which is interpreted as follows:
 
 Which would add the following property to advData:
 
-    manufacturerSpecificData: {
-      iBeacon: {
-        txPower: "127dBm"
-      }
-    }
+    txPower: "127dBm"
     
 
 #### Slave Connection Interval Range 
@@ -474,7 +472,7 @@ Where advData contains a serviceData object (see [Service Data](#service-data)),
       }
     }
 
-Based on the UUID, the serviceData will be parsed as either a member service or a standard service, as applicable.  Note that not all services are yet implemented.
+Based on the UUID, the serviceData will be parsed as either a [member service](#member-services) or a [standard service](#standard-services), as applicable.  Note that not all services are yet implemented.
 
 
 #### Member Services
