@@ -80,6 +80,18 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     name: "Fitbit",
     payload: "4025b2a86b4f01d90201041106ba5689a6fabfa2bd01467d6e00fbabad09160a181204eb150000"
   }, {
+    name: "Bright Beacon",
+    payload: "40241582727dbefb0201061aff4c000215e2c56db5dffb48d2b060d0f5a71096e0fbbe7d72bf0040"
+  }, {
+    name: "Xiaomi Mi Band",
+    payload: "0013dd748d100f880201060502e0fee7fe03094d490041"
+  }, {
+    name: "Estimote",
+    payload: "4024a4b9297143fb0201061aff4c000215b9407f30f5f8466eaff925556b57fe6d03510003b60035"
+  }, {
+    name: "Kontakt.io",
+    payload: "402494eb4ce223ea0201061aff4c000215f7826da64fa24e988024bc5b71e0893ef7e84be5b30036"
+  }, {
     name: "reelyActive Bluetooth Smart reelceiver (RA-R436)",
     payload: "061b9e5ed0f7b13402010611074449555520657669746341796c656572"
   }];
