@@ -438,6 +438,26 @@ Process service data assigned to the device.
  
 This is best illustrated with an example:
 
+    advlib.ble.data.gap.servicedata.process('09164c001204eb150000', 0, {});
+    
+For reference, the example payload is interpreted as follows:
+
+| Byte(s) | Hex String   | Description                         |
+|--------:|:-------------|:------------------------------------|
+| 0       | 09           | Length, in bytes, of type and data  |
+| 1       | 16           | GAP Data Type for service data      | 
+| 2-3     | 4c00         | UUID (bytes reversed)               |
+| 4-9     | 1204eb150000 | Service Data                        |
+
+Which would add the following property to advData:
+
+    serviceData: {
+      uuid: "004c",
+      data: "1204eb150000"
+  }
+
+In the second example, we process and decode contextual information based on the UUID:
+
     advlib.ble.data.gap.servicedata.process('09160a181204eb150000', 0, {});
     
 For reference, the example payload is interpreted as follows:
@@ -454,6 +474,34 @@ Which would add the following property to advData:
     serviceData: {
       uuid : "180a",
       data : "1204eb150000"
+      specificationName: "Device Information"
+    }
+
+
+In the third example, we process and decode more contextual information based on the UUID:
+
+    advlib.ble.data.gap.servicedata.process('1216d8fe00f2027265656c7961637469766507', 0, {});
+    
+For reference, the example payload is interpreted as follows:
+
+| Byte(s) | Hex String   | Description                         |
+|--------:|:-------------|:------------------------------------|
+| 0       | 12           | Length, in bytes, of type and data  |
+| 1       | 16           | GAP Data Type for service data      | 
+| 2-3     | d8fe         | UUID (bytes reversed)               |
+| 4-19    | 00f2027265656c7961637469766507 | Service Data      |
+
+Which would add the following property to advData:
+
+    serviceData: {
+      uuid: "fed8",
+      data: "00f2027265656c7961637469766507",
+      companyName: "Google​",
+      uriBeacon: {
+        invisibleHint: false,
+        txPower: "-14dBm",
+        url: "http://reelyactive.com"
+      }
     }
 
 
@@ -492,8 +540,40 @@ Supports Eddystone and the UriBeacon of the Physical Web.  More documentation to
 
 #### Standard Services
 
-Soon to be implemented...
+The following GATT Services, assigned in the [GATT Specification](https://developer.bluetooth.org/gatt/services/Pages/ServicesHome.aspx) are identified but not parsed:
 
+- Alert Notification Service
+- Automation IO
+- Battery Service
+- Blood Pressure
+- Body Composition 
+- Bond Management
+- Continous Glucose Monitoring
+- Current Time Service
+- Cycling Power
+- Cycling Speed and Cadence
+- Device Information
+- Environmental Sensing
+- Generic Access 
+- Generic Attribute
+- Glucose
+- Health Thermometer
+- Heart Rate
+- Human Interface Device
+- Immediate Alert
+- Indoor Positioning
+- Internet Protocol Support
+- Link Loss
+- Location and Navigation
+- Next DST Change Service
+- Phone Alert Status Service
+- Pulse Oximeter
+- Reference Time Update Service
+- Running Speed and Cadence
+- Scan Parameters
+- TX Power
+- User Data
+- Weight Scale
 
 reelyActive RFID Library
 ------------------------
