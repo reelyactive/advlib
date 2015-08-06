@@ -19,7 +19,7 @@ var INPUT_DATA_URIBEACON = {
 var INPUT_DATA_EDDYSTONE_UID = {
   serviceData: { 
     uuid: "feaa",
-    data: "00128b0ca750095477cb3e77001122334455" 
+    data: "00128b0ca750095477cb3e770011223344550000" 
   }
 }; 
 var INPUT_DATA_EDDYSTONE_URL = {
@@ -31,7 +31,7 @@ var INPUT_DATA_EDDYSTONE_URL = {
 var INPUT_DATA_EDDYSTONE_TLM = {
   serviceData: { 
     uuid: "feaa",
-    data: "2000000080000000000000000000" 
+    data: "20000bb81800000000010000000a" 
   }
 }; 
 
@@ -50,7 +50,7 @@ var EXPECTED_DATA_URIBEACON = {
 var EXPECTED_DATA_EDDYSTONE_UID = {
   serviceData: {
     uuid: "feaa",
-    data: "00128b0ca750095477cb3e77001122334455",
+    data: "00128b0ca750095477cb3e770011223344550000",
     eddystone: {
       type: "UID",
       txPower: "18dBm",
@@ -66,7 +66,7 @@ var EXPECTED_DATA_EDDYSTONE_URL = {
     uuid: "feaa",
     data: "1012027265656c7961637469766507",
     eddystone: {
-      type: "URI",
+      type: "URL",
       txPower: "18dBm",
       url: "http://reelyactive.com"
     }
@@ -75,14 +75,14 @@ var EXPECTED_DATA_EDDYSTONE_URL = {
 var EXPECTED_DATA_EDDYSTONE_TLM = {
   serviceData: {
     uuid: 'feaa',
-    data: '2000000080000000000000000000',
+    data: '20000bb81800000000010000000a',
     eddystone: {
       type: "TLM",
       version: "00",
-      batteryVoltage: "0000",
-      temperature: "8000",
-      advertisingCount: "00000000",
-      uptime: "00000000"
+      batteryVoltage: "3000mV",
+      temperature: "24C",
+      advertisingCount: 1,
+      uptime: "1s"
     }
   }
 };

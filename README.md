@@ -438,26 +438,6 @@ Process service data assigned to the device.
  
 This is best illustrated with an example:
 
-    advlib.ble.data.gap.servicedata.process('09164c001204eb150000', 0, {});
-    
-For reference, the example payload is interpreted as follows:
-
-| Byte(s) | Hex String   | Description                         |
-|--------:|:-------------|:------------------------------------|
-| 0       | 09           | Length, in bytes, of type and data  |
-| 1       | 16           | GAP Data Type for service data      | 
-| 2-3     | 4c00         | UUID (bytes reversed)               |
-| 4-9     | 1204eb150000 | Service Data                        |
-
-Which would add the following property to advData:
-
-    serviceData: {
-      uuid: "004c",
-      data: "1204eb150000"
-  }
-
-In the second example, we process and decode contextual information based on the UUID:
-
     advlib.ble.data.gap.servicedata.process('09160a181204eb150000', 0, {});
     
 For reference, the example payload is interpreted as follows:
@@ -469,40 +449,17 @@ For reference, the example payload is interpreted as follows:
 | 2-3     | 0a18         | UUID (bytes reversed)               |
 | 4-9     | 1204eb150000 | Service Data                        |
 
-Which would add the following property to advData:
+Which would add the following properties to advData:
 
     serviceData: {
       uuid : "180a",
-      data : "1204eb150000"
+      data : "1204eb150000",
       specificationName: "Device Information"
     }
 
+In this case, the service UUID represents one of the GATT [Standard Services](#standard-services) and is processed as such.
 
-In the third example, we process and decode more contextual information based on the UUID:
-
-    advlib.ble.data.gap.servicedata.process('1216d8fe00f2027265656c7961637469766507', 0, {});
-    
-For reference, the example payload is interpreted as follows:
-
-| Byte(s) | Hex String   | Description                         |
-|--------:|:-------------|:------------------------------------|
-| 0       | 12           | Length, in bytes, of type and data  |
-| 1       | 16           | GAP Data Type for service data      | 
-| 2-3     | d8fe         | UUID (bytes reversed)               |
-| 4-19    | 00f2027265656c7961637469766507 | Service Data      |
-
-Which would add the following property to advData:
-
-    serviceData: {
-      uuid: "fed8",
-      data: "00f2027265656c7961637469766507",
-      companyName: "Google​",
-      uriBeacon: {
-        invisibleHint: false,
-        txPower: "-14dBm",
-        url: "http://reelyactive.com"
-      }
-    }
+Additional examples for service UUIDs among the GATT [Member Services](#member-services) are given in that section below.
 
 
 ### Data (Generic Attribute Profile)
@@ -535,7 +492,161 @@ Based on a pilot program for members which allows the SIG to allocate a 16-bit U
 
 ##### Google
 
-Supports Eddystone and the UriBeacon of the Physical Web.  More documentation to come...
+Supports Eddystone ([UID](#eddystone-uid), [URL](#eddystone-url) & [TLM](#eddystone-tlm)) and the [UriBeacon](#uribeacon) of the Physical Web.
+
+###### UriBeacon
+
+Process UriBeacon data (UUID = 0xfed8).
+
+    advlib.ble.data.gatt.services.members.process(advData);
+ 
+This is best illustrated with an example using the following input:
+
+    advData: {
+      serviceData: {
+        uuid: "fed8",
+        data: "00f2027265656c7961637469766507"
+      }
+    }
+       
+For reference, the example serviceData.data is interpreted as follows, based on the [UriBeacon Advertising Packet Specification](https://github.com/google/uribeacon/blob/uribeacon-final/specification/AdvertisingMode.md):
+
+| Byte(s) | Hex String               | Description                   |
+|--------:|:-------------------------|:------------------------------|
+| 0       | 00                       | UriBeacon flags               |
+| 1       | f2                       | UriBeacon TxPower level       | 
+| 3       | 02                       | Uri Scheme Prefix (http://)   |
+| 4-15    | 7265656c7961637469766507 | Encoded Uri (reelyactive.com) |
+
+Which would add the following properties to advData:
+
+    serviceData: {
+      uuid: "fed8",
+      data: "00f2027265656c7961637469766507",
+      companyName: "Google​",
+      uriBeacon: {
+        invisibleHint: false,
+        txPower: "-14dBm",
+        url: "http://reelyactive.com"
+      }
+    }
+
+###### Eddystone-UID
+
+Process Eddystone-UID data (UUID = 0xfeaa).
+
+    advlib.ble.data.gatt.services.members.process(advData);
+ 
+This is best illustrated with an example using the following input:
+
+    advData: {
+      serviceData: {
+        uuid: "feaa",
+        data: "00128b0ca750095477cb3e770011223344550000"
+      }
+    }
+       
+For reference, the example serviceData.data is interpreted as follows, based on the [Eddystone-UID specification](https://github.com/google/eddystone/tree/master/eddystone-uid):
+
+| Byte(s) | Hex String           | Description                   |
+|--------:|:---------------------|:------------------------------|
+| 0       | 00                   | Eddystone-UID Frame Type      |
+| 1       | 12                   | Calibrated TxPower at 0m      | 
+| 2-11    | 8b0ca750095477cb3e77 | 10-byte ID Namespace          |
+| 12-17   | 001122334455         | 6-byte ID Instance            |
+| 18-19   | 0000                 | Reserved for Future Use       |
+
+Which would add the following properties to advData:
+
+    serviceData: {
+      uuid: "feaa",
+      data: "00128b0ca750095477cb3e770011223344550000",
+      eddystone: {
+        type: "UID",
+        txPower: "18dBm",
+        uid: {
+          namespace: "8b0ca750095477cb3e77",
+          instance: "001122334455"
+        }
+      }
+    }
+
+###### Eddystone-URL
+
+Process Eddystone-URL data (UUID = 0xfeaa).
+
+    advlib.ble.data.gatt.services.members.process(advData);
+ 
+This is best illustrated with an example using the following input:
+
+    advData: {
+      serviceData: { 
+        uuid: "feaa",
+        data: "1012027265656c7961637469766507" 
+      }
+    }
+       
+For reference, the example serviceData.data is interpreted as follows, based on the [Eddystone-URL specification](https://github.com/google/eddystone/tree/master/eddystone-url):
+
+| Byte(s) | Hex String               | Description                   |
+|--------:|:-------------------------|:------------------------------|
+| 0       | 10                       | Eddystone-URL Frame Type      |
+| 1       | 12                       | Calibrated TxPower at 0m      | 
+| 2       | 02                       | URL Scheme (http://)          |
+| 3-14    | 7265656c7961637469766507 | Encoded URL (reelyactive.com) |
+
+Which would add the following properties to advData:
+
+    serviceData: {
+      uuid: "feaa",
+      data: "1012027265656c7961637469766507",
+      eddystone: {
+        type: "URL",
+        txPower: "18dBm",
+        url: "http://reelyactive.com"
+      }
+    }
+
+###### Eddystone-TLM
+
+Process Eddystone-TLM data (UUID = 0xfeaa).
+
+    advlib.ble.data.gatt.services.members.process(advData);
+ 
+This is best illustrated with an example using the following input:
+
+    advData: {
+      serviceData: { 
+        uuid: "feaa",
+        data: "20000bb81800000000010000000a"  
+      }
+    }
+       
+For reference, the example serviceData.data is interpreted as follows, based on the [Eddystone-TLM specification](https://github.com/google/eddystone/tree/master/eddystone-tlm):
+
+| Byte(s) | Hex String               | Description                   |
+|--------:|:-------------------------|:------------------------------|
+| 0       | 20                       | Eddystone-TLM Frame Type      |
+| 1       | 00                       | TLM Version                   | 
+| 2-3     | 0bb8                     | Battery Voltage (mV)          |
+| 4-5     | 1800                     | Temperature (8:8 fixed point) |
+| 6-9     | 00000001                 | Advertising PDU Count         |
+| 10-13   | 0000000a                 | Uptime (0.1s resolution)      |
+
+Which would add the following properties to advData:
+
+    serviceData: {
+      uuid: 'feaa',
+      data: '20000bb81800000000010000000a',
+      eddystone: {
+        type: "TLM",
+        version: "00",
+        batteryVoltage: "3000mV",
+        temperature: "24C",
+        advertisingCount: 1,
+        uptime: "1s"
+      }
+    }
 
 
 #### Standard Services
