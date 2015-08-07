@@ -13,8 +13,11 @@ var ADVERTISER_DATA = {};
   
 // Inputs for the scenario
 var INPUT_DATA_COMPANY_ONLY = '03ff0800';
-var INPUT_DATA_IBEACON = 
+var INPUT_DATA_IBEACON_ESTIMOTE = 
                       '26ff4c000215b9407f30f5f8466eaff925556b57fe6d294c903974';
+var INPUT_DATA_IBEACON_UNKNOWN = 
+                      '26ff4c000215000000000000000000000000000000001234567800';
+
 var INPUT_DATA_SNF_SINGLE = '17fff9000177665544332211004500000004991800123456';
 var INPUT_DATA_SNS_MOTION =
                           '18fff90042450000003099001122334455012345aabbccabc0';
@@ -25,11 +28,19 @@ var EXPECTED_DATA_COMPANY_ONLY = {
   companyIdentifierCode: "0008",
   data: ""
 };
-var EXPECTED_DATA_APPLE_AND_IBEACON = {
+var EXPECTED_DATA_IBEACON_ESTIMOTE = {
   uuid: "b9407f30f5f8466eaff925556b57fe6d",
   major: "294c",
   minor: "9039",
-  txPower: "116dBm"
+  txPower: "116dBm",
+  licenseeName: "Estimote"
+};
+var EXPECTED_DATA_IBEACON_UNKNOWN = {
+  uuid: "00000000000000000000000000000000",
+  major: "1234",
+  minor: "5678",
+  txPower: "0dBm",
+  licenseeName: "Unknown"
 };
 var EXPECTED_DATA_SNF_SINGLE = {
   type: "V2 Single Payload",
@@ -66,10 +77,18 @@ describe('ble data manufacturerspecificdata', function() {
   it('should convert ble advertiser data to apple and iBeacon manufacturer \
      specificdata', function() {
     var advertiserData = { manufacturerSpecificData: {} };
-    manufacturerspecificdata.process(INPUT_DATA_IBEACON, CURSOR, 
+    manufacturerspecificdata.process(INPUT_DATA_IBEACON_ESTIMOTE, CURSOR, 
                                      advertiserData);
     assert.deepEqual(advertiserData.manufacturerSpecificData.iBeacon, 
-                     EXPECTED_DATA_APPLE_AND_IBEACON);
+                     EXPECTED_DATA_IBEACON_ESTIMOTE);
+  });
+
+  it('should convert ble advertiser data for unknown iBeacon', function() {
+    var advertiserData = { manufacturerSpecificData: {} };
+    manufacturerspecificdata.process(INPUT_DATA_IBEACON_UNKNOWN, CURSOR, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.iBeacon, 
+                     EXPECTED_DATA_IBEACON_UNKNOWN);
   });
 
   it('should convert ble advertiser data to StickNFind Beacon Single \

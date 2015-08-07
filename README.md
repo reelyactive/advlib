@@ -334,7 +334,8 @@ Which would add the following property to advData:
         uuid: "b9407f30f5f8466eaff925556b57fe6d",
         major: "294c",
         minor: "9039",
-        txPower: "116dBm"
+        txPower: "116dBm",
+        licenseeName: "Estimote"
       }
     }
 
