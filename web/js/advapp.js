@@ -62,9 +62,6 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     name: "reelyActible",
     payload: "421655daba50e1fe0201050c097265656c79416374697665"
   }, {
-    name: "TrackR",
-    payload: "40239dd02fcbafe20409746b7203194002020106020a0403033e0f09ff00009dd02fcbafe2"
-  }, {
     name: "Apple TV",
     payload: "0015415df17b209c02011a0bff4c0009060202c0a8006a"
   }, {
@@ -76,9 +73,6 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
   }, {
     name: "Tile",
     payload: "400dc3dc80ee20e40201060303edfe"
-  }, {
-    name: "Fitbit",
-    payload: "4025b2a86b4f01d90201041106ba5689a6fabfa2bd01467d6e00fbabad09160a181204eb150000"
   }, {
     name: "Bright Beacon",
     payload: "40241582727dbefb0201061aff4c000215e2c56db5dffb48d2b060d0f5a71096e0fbbe7d72bf0040"
