@@ -26,7 +26,7 @@ var EXPECTED_DATA_COMPANY_NAME = {
   serviceData: {
     uuid: "fed8",
     data: "00f2027265656c7961637469766507",
-    companyName: "Google​",
+    companyName: "Google",
     uriBeacon: {
       invisibleHint: false,
       txPower: "-14dBm",
