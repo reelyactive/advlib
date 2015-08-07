@@ -51,7 +51,7 @@ Type in the following watchify command once:
     $ watchify web/js/advapp.js -o web/js/advlib.js
 
 
-Now as you update the web/js/advapp.js file, web/advlib.js will be automatically incrementally rebuilt on the fly.
+Now as you update the web/js/advapp.js file, web/js/advlib.js will be automatically incrementally rebuilt on the fly.
 
 
 Bluetooth Smart (BLE) Advertising Packet Librarya
