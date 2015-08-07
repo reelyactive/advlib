@@ -44,9 +44,17 @@ Finally, drop a single script tag into your index.html file and you are done!
 <script src="js/advlib.js"></script>
 ```
 
+If at any point you need to update the web/js/advapp.js file, you will notice the pain in having to run browserify after every update. To save yourself from this trouble, we use (watchify)[https://www.npmjs.com/package/watchify].
+
+Type in the following watchify command once:
+
+    $ watchify web/js/advapp.js -o web/js/advlib.js
 
 
-Bluetooth Smart (BLE) Advertising Packet Library
+Now as you update the web/js/advapp.js file, web/advlib.js will be automatically incrementally rebuilt on the fly.
+
+
+Bluetooth Smart (BLE) Advertising Packet Librarya
 ------------------------------------------------
 
 More info to come
