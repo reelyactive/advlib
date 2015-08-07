@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "angular": "^1.4.1",
-    "advlib": "^0.0.2"
+    "advlib": "^0.0.5"
   },
   "bugs": {
     "url": "https://github.com/reelyactive/advlib/issues"
@@ -31,3 +31,4 @@
   ],
   "license": "MIT"
 }
+
