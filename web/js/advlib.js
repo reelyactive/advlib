@@ -22,7 +22,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{"../common/util/identifier.js":4}],2:[function(require,module,exports){
+},{"../common/util/identifier.js":5}],2:[function(require,module,exports){
 var companyNames = {
     "0000": "Ericsson Technology Licensing",
     "0001": "Nokia Mobile Phones",
@@ -202,175 +202,175 @@ var companyNames = {
     "00af": "Cinetix",
     "00b0": "Passif Semiconductor Corp",
     "00b1": "Saris Cycling Group, Inc",
-    "00b2": "​Bekey A/S",
-    "00b3": "​Clarinox Technologies Pty. Ltd.",
-    "00b4": "​BDE Technology Co., Ltd.",
+    "00b2": "Bekey A/S",
+    "00b3": "Clarinox Technologies Pty. Ltd.",
+    "00b4": "BDE Technology Co., Ltd.",
     "00b5": "Swirl Networks",
-    "00b6": "​Meso international",
-    "00b7": "​TreLab Ltd",
-    "00b8": "​Qualcomm Innovation Center, Inc. (QuIC)",
-    "00b9": "​​Johnson Controls, Inc.",
-    "00bA": "​Starkey Laboratories Inc.",
-    "00bb": "​​S-Power Electronics Limited",
-    "00bc": "​​Ace Sensor Inc",
-    "00bd": "​​Aplix Corporation",
-    "00be": "​​AAMP of America",
-    "00bf": "​​Stalmart Technology Limited",
-    "00c0": "​​AMICCOM Electronics Corporation",
-    "00c1": "​​Shenzhen Excelsecu Data Technology Co.,Ltd",
-    "00c2": "​​Geneq Inc.",
-    "00c3": "​​adidas AG",
-    "00c4": "​​LG Electronics​",
-    "00c5": "​Onset Computer Corporation",
-    "00c6": "​Selfly BV",
-    "00​c7": "​Quuppa Oy.",
-    "00​c8": "GeLo Inc",
-    "00​c9": "Evluma",
-    "00​ca": "MC10",
-    "00​cb": "Binauric SE",
-    "00​cc": "Beats Electronics",
-    "00​cd": "Microchip Technology Inc.",
-    "00​ce": "Elgato Systems GmbH",
-    "00​cf": "ARCHOS SA",
-    "00​d0": "Dexcom, Inc.",
-    "00​d1": "Polar Electro Europe B.V.",
-    "00​d2": "Dialog Semiconductor B.V.",
-    "00​d3": "Taixingbang Technology (HK) Co,. LTD.",
-    "00​d4": "Kawantech",
-    "00​d5": "Austco Communication Systems",
-    "00​d6": "Timex Group USA, Inc.",
-    "00​d7": "Qualcomm Technologies, Inc.",
-    "00​d8": "Qualcomm Connected Experiences, Inc.",
-    "00​d9": "Voyetra Turtle Beach",
-    "00​da": "txtr GmbH",
-    "00​db": "Biosentronics",
-    "00​dc": "Procter & Gamble",
-    "00​dd": "Hosiden Corporation",
-    "00​de": "Muzik LLC",
-    "00​df": "Misfit Wearables Corp",
-    "00​e0": "Google",
-    "00​e1": "Danlers Ltd",
-    "00​e2": "Semilink Inc",
-    "00​e3": "inMusic Brands, Inc",
-    "00​e4": "L.S. Research Inc.",
-    "00​e5": "Eden Software Consultants Ltd.",
-    "00​e6": "Freshtemp",
-    "00e7": "​KS Technologies",
-    "00e8": "​ACTS Technologies",
-    "00e9": "​Vtrack Systems",
-    "00ea": "​Nielsen-Kellerman Company",
-    "00eb": "​Server Technology, Inc.",
-    "00ec": "​BioResearch Associates",
-    "00ed": "​Jolly Logic, LLC",
-    "00ee": "​Above Average Outcomes, Inc.",
-    "00ef": "​Bitsplitters GmbH",
-    "00f0": "​PayPal, Inc.",
-    "00f1": "​Witron Technology Limited",
-    "00f2": "​Aether Things Inc. (formerly Morse Project Inc.)",
-    "00f3": "​Kent Displays Inc.",
-    "00f4": "Nautilus Inc​.",
-    "00f5": "​Smartifier Oy",
-    "00f6": "​Elcometer Limited",
-    "00f7": "​VSN Technologies Inc.",
-    "00f8": "​AceUni Corp., Ltd.",
-    "00f9": "​StickNFind",
-    "00fa": "​Crystal Code AB",
-    "00fb": "​KOUKAAM a.s.",
+    "00b6": "Meso international",
+    "00b7": "TreLab Ltd",
+    "00b8": "Qualcomm Innovation Center, Inc. (QuIC)",
+    "00b9": "Johnson Controls, Inc.",
+    "00bA": "Starkey Laboratories Inc.",
+    "00bb": "S-Power Electronics Limited",
+    "00bc": "Ace Sensor Inc",
+    "00bd": "Aplix Corporation",
+    "00be": "AAMP of America",
+    "00bf": "Stalmart Technology Limited",
+    "00c0": "AMICCOM Electronics Corporation",
+    "00c1": "Shenzhen Excelsecu Data Technology Co.,Ltd",
+    "00c2": "Geneq Inc.",
+    "00c3": "adidas AG",
+    "00c4": "LG Electronics",
+    "00c5": "Onset Computer Corporation",
+    "00c6": "Selfly BV",
+    "00c7": "Quuppa Oy.",
+    "00c8": "GeLo Inc",
+    "00c9": "Evluma",
+    "00ca": "MC10",
+    "00cb": "Binauric SE",
+    "00cc": "Beats Electronics",
+    "00cd": "Microchip Technology Inc.",
+    "00ce": "Elgato Systems GmbH",
+    "00cf": "ARCHOS SA",
+    "00d0": "Dexcom, Inc.",
+    "00d1": "Polar Electro Europe B.V.",
+    "00d2": "Dialog Semiconductor B.V.",
+    "00d3": "Taixingbang Technology (HK) Co,. LTD.",
+    "00d4": "Kawantech",
+    "00d5": "Austco Communication Systems",
+    "00d6": "Timex Group USA, Inc.",
+    "00d7": "Qualcomm Technologies, Inc.",
+    "00d8": "Qualcomm Connected Experiences, Inc.",
+    "00d9": "Voyetra Turtle Beach",
+    "00da": "txtr GmbH",
+    "00db": "Biosentronics",
+    "00dc": "Procter & Gamble",
+    "00dd": "Hosiden Corporation",
+    "00de": "Muzik LLC",
+    "00df": "Misfit Wearables Corp",
+    "00e0": "Google",
+    "00e1": "Danlers Ltd",
+    "00e2": "Semilink Inc",
+    "00e3": "inMusic Brands, Inc",
+    "00e4": "L.S. Research Inc.",
+    "00e5": "Eden Software Consultants Ltd.",
+    "00e6": "Freshtemp",
+    "00e7": "KS Technologies",
+    "00e8": "ACTS Technologies",
+    "00e9": "Vtrack Systems",
+    "00ea": "Nielsen-Kellerman Company",
+    "00eb": "Server Technology, Inc.",
+    "00ec": "BioResearch Associates",
+    "00ed": "Jolly Logic, LLC",
+    "00ee": "Above Average Outcomes, Inc.",
+    "00ef": "Bitsplitters GmbH",
+    "00f0": "PayPal, Inc.",
+    "00f1": "Witron Technology Limited",
+    "00f2": "Aether Things Inc. (formerly Morse Project Inc.)",
+    "00f3": "Kent Displays Inc.",
+    "00f4": "Nautilus Inc.",
+    "00f5": "Smartifier Oy",
+    "00f6": "Elcometer Limited",
+    "00f7": "VSN Technologies Inc.",
+    "00f8": "AceUni Corp., Ltd.",
+    "00f9": "StickNFind",
+    "00fa": "Crystal Code AB",
+    "00fb": "KOUKAAM a.s.",
     "00fc": "Delphi Corporation",
-    "00fd": "​ValenceTech Limited",
+    "00fd": "ValenceTech Limited",
     "00fe": "Reserved",
-    "00ff": "​Typo Products, LLC",
-    "0100": "​TomTom International BV",
-    "0101": "​Fugoo, Inc",
-    "0102": "​Keiser Corporation",
-    "0103": "​Bang & Olufsen A/S",
-    "0104": "​PLUS Locations Systems Pty Ltd",
-    "0105": "​Ubiquitous Computing Technology Corporation",
-    "0106": "​Innovative Yachtter Solutions",
-    "0107": "​William Demant Holding A/S",
-    "0108": "​Chicony Electronics Co., Ltd.",
-    "0109": "​Atus BV",
-    "010a": "​Codegate Ltd.",
+    "00ff": "Typo Products, LLC",
+    "0100": "TomTom International BV",
+    "0101": "Fugoo, Inc",
+    "0102": "Keiser Corporation",
+    "0103": "Bang & Olufsen A/S",
+    "0104": "PLUS Locations Systems Pty Ltd",
+    "0105": "Ubiquitous Computing Technology Corporation",
+    "0106": "Innovative Yachtter Solutions",
+    "0107": "William Demant Holding A/S",
+    "0108": "Chicony Electronics Co., Ltd.",
+    "0109": "Atus BV",
+    "010a": "Codegate Ltd.",
     "010b": "ERi, Inc.",
-    "010c": "​Transducers Direct, LLC",
-    "010d": "​Fujitsu Ten Limited",
-    "010e": "​Audi AG",
-    "010f": "​HiSilicon Technologies Co., Ltd.",
-    "0110": "​Nippon Seiki Co., Ltd.",
-    "0111": "​Steelseries ApS",
-    "0112": "​vyzybl Inc.",
-    "0113": "​Openbrain Technologies, Co., Ltd.",
-    "0114": "​Xensr",
+    "010c": "Transducers Direct, LLC",
+    "010d": "Fujitsu Ten Limited",
+    "010e": "Audi AG",
+    "010f": "HiSilicon Technologies Co., Ltd.",
+    "0110": "Nippon Seiki Co., Ltd.",
+    "0111": "Steelseries ApS",
+    "0112": "vyzybl Inc.",
+    "0113": "Openbrain Technologies, Co., Ltd.",
+    "0114": "Xensr",
     "0115": "e.solutions",
-    "0116": "​1OAK Technologies",
-    "0117": "​Wimoto Technologies Inc",
-    "0118": "​Radius Networks, Inc.",
-    "0119": "​Wize Technology Co., Ltd.",
-    "011a": "​Qualcomm Labs, Inc. ",
-    "011b": "​Aruba Networks",
-    "011c": "​Baidu",
-    "011d": "​Arendi AG",
-    "011e": "​Skoda Auto a.s.",
-    "011f": "​Volkswagon AG",
-    "0120": "​Porsche AG",
-    "0121": "​Sino Wealth Electronic Ltd.",
-    "0122": "​AirTurn, Inc.",
-    "0123": "​Kinsa, Inc.",
-    "0124": "​HID Global",
-    "0125": "​SEAT es",
-    "0126": "​Promethean Ltd.",
-    "0127": "​Salutica Allied Solutions",
-    "0128": "​GPSI Group Pty Ltd",
-    "0129": "​Nimble Devices Oy",
-    "012a": "​Changzhou Yongse Infotech Co., Ltd",
-    "012b": "​SportIQ",
-    "012c": "​TEMEC Instruments B.V.",
-    "012d": "​Sony Corporation",
-    "012e": "​ASSA ABLOY",
-    "012f": "​Clarion Co., Ltd.",
-    "0130": "​Warehouse Innovations",
-    "0131": "​Cypress Semiconductor Corporation",
-    "0132": "​MADS Inc",
-    "0133": "​Blue Maestro Limited",
-    "0134": "​Resolution Products, Inc.",
-    "0135": "​Airewear LLC",
-    "0136": "Seed Labs, Inc. (formerly ETC sp. z.o.o.)​",
-    "0137": "​Prestigio Plaza Ltd.",
-    "0138": "​NTEO Inc.",
-    "0139": "​Focus Systems Corporation",
-    "013a": "​Tencent Holdings Limited",
-    "013b": "​Allegion",
-    "013c": "​Murata Manufacuring Co., Ltd.",
-    "013e": "​Nod, Inc.",
-    "013f": "​B&B Manufacturing Company",
-    "0140": "​Alpine Electronics (China) Co., Ltd",
-    "0141": "​FedEx Services",
-    "0142": "​Grape Systems Inc.",
-    "0143": "​Bkon Connect",
-    "0144": "​Lintech GmbH",
-    "0145": "​Novatel Wireless",
-    "0146": "​Ciright",
-    "0147": "​Mighty Cast, Inc.",
-    "0148": "​Ambimat Electronics",
-    "0149": "​Perytons Ltd.",
-    "014a": "​Tivoli Audio, LLC",
-    "014b": "​Master Lock",
-    "014c": "​Mesh-Net Ltd",
-    "014d": "​Huizhou Desay SV Automotive CO., LTD.",
+    "0116": "1OAK Technologies",
+    "0117": "Wimoto Technologies Inc",
+    "0118": "Radius Networks, Inc.",
+    "0119": "Wize Technology Co., Ltd.",
+    "011a": "Qualcomm Labs, Inc. ",
+    "011b": "Aruba Networks",
+    "011c": "Baidu",
+    "011d": "Arendi AG",
+    "011e": "Skoda Auto a.s.",
+    "011f": "Volkswagon AG",
+    "0120": "Porsche AG",
+    "0121": "Sino Wealth Electronic Ltd.",
+    "0122": "AirTurn, Inc.",
+    "0123": "Kinsa, Inc.",
+    "0124": "HID Global",
+    "0125": "SEAT es",
+    "0126": "Promethean Ltd.",
+    "0127": "Salutica Allied Solutions",
+    "0128": "GPSI Group Pty Ltd",
+    "0129": "Nimble Devices Oy",
+    "012a": "Changzhou Yongse Infotech Co., Ltd",
+    "012b": "SportIQ",
+    "012c": "TEMEC Instruments B.V.",
+    "012d": "Sony Corporation",
+    "012e": "ASSA ABLOY",
+    "012f": "Clarion Co., Ltd.",
+    "0130": "Warehouse Innovations",
+    "0131": "Cypress Semiconductor Corporation",
+    "0132": "MADS Inc",
+    "0133": "Blue Maestro Limited",
+    "0134": "Resolution Products, Inc.",
+    "0135": "Airewear LLC",
+    "0136": "Seed Labs, Inc. (formerly ETC sp. z.o.o.)",
+    "0137": "Prestigio Plaza Ltd.",
+    "0138": "NTEO Inc.",
+    "0139": "Focus Systems Corporation",
+    "013a": "Tencent Holdings Limited",
+    "013b": "Allegion",
+    "013c": "Murata Manufacuring Co., Ltd.",
+    "013e": "Nod, Inc.",
+    "013f": "B&B Manufacturing Company",
+    "0140": "Alpine Electronics (China) Co., Ltd",
+    "0141": "FedEx Services",
+    "0142": "Grape Systems Inc.",
+    "0143": "Bkon Connect",
+    "0144": "Lintech GmbH",
+    "0145": "Novatel Wireless",
+    "0146": "Ciright",
+    "0147": "Mighty Cast, Inc.",
+    "0148": "Ambimat Electronics",
+    "0149": "Perytons Ltd.",
+    "014a": "Tivoli Audio, LLC",
+    "014b": "Master Lock",
+    "014c": "Mesh-Net Ltd",
+    "014d": "Huizhou Desay SV Automotive CO., LTD.",
     "014e": "Tangerine, Inc.",
     "014f": "B&W Group Ltd.",
-    "0150": "​Pioneer Corporation",
-    "0151": "​OnBeep",
-    "0152": "​Vernier Software & Technology",
-    "0153": "​ROL Ergo",
-    "0154": "​Pebble Technology",
-    "0155": "​NETATMO",
-    "0156": "​Accumulate AB",
-    "0157": "​Anhui Huami Information Technology Co., Ltd.",
-    "0158": "​Inmite s.r.o.",
-    "0159": "​ChefSteps, Inc.",
-    "015a": "​micas AG",
-    "015b": "​Biomedical Research Ltd.",
+    "0150": "Pioneer Corporation",
+    "0151": "OnBeep",
+    "0152": "Vernier Software & Technology",
+    "0153": "ROL Ergo",
+    "0154": "Pebble Technology",
+    "0155": "NETATMO",
+    "0156": "Accumulate AB",
+    "0157": "Anhui Huami Information Technology Co., Ltd.",
+    "0158": "Inmite s.r.o.",
+    "0159": "ChefSteps, Inc.",
+    "015a": "micas AG",
+    "015b": "Biomedical Research Ltd.",
     "015c": "Pitius Tec S.L.",
     "015d": "Estimote, Inc.",
     "015e": "Unikey Technologies, Inc.",
@@ -492,233 +492,251 @@ var companyNames = {
     "01d2": "Gill Electronics",
     "01d3": "Sky Wave Design",
     "01d4": "Newlab S.r.l.",
-    "01d5": "ELAD srl​",
-    "01d6": "​G-wearables inc.",
-    "01d7": "​Squadrone Systems Inc.",
-    "01d8": "​Code Corporation",
-    "01d9": "​Savant Systems LLC",
-    "01da": "​Logitech International SA",
-    "01db": "​Innblue Consulting",
-    "01dc": "​iParking Ltd.",
-    "01dd": "​Koninklijke Philips Electronics N.V.",
-    "01de": "​Minelab Electronics Pty Limited",
-    "01df": "​Bison Group Ltd.",
-    "01e0": "​Widex A/S",
-    "01e1": "​Jolla Ltd",
-    "01e2": "​Lectronix, Inc.",
-    "01e3": "​Caterpillar Inc",
-    "01e4": "​Freedom Innovations",
-    "01e5": "​Dynamic Devices Ltd",
-    "01e6": "​Technology Solutions (UK) Ltd",
-    "01e7": "​IPS Group Inc.",
-    "01e8": "​STIR",
-    "01e9​": "Sano, Inc​",
-    "01ea​": "Advanced Application Design, Inc.​",
-    "01eb": "AutoMap LLC​",
-    "01ec": "​Spreadtrum Communications Shanghai Ltd",
-    "01ed": "​CuteCircuit LTD",
-    "01ee": "​Valeo Service",
-    "01ef": "​Fullpower Technologies, Inc.",
-    "01f0": "​KloudNation",
-    "01f1": "​Zebra Technologies Corporation",
-    "01f2": "​Itron, Inc.",
-    "01f3": "​The University of Tokyo",
-    "01f4": "​UTC Fire and Security",
-    "01f5": "​Cool Webthings Limited",
-    "01f6": "​DJO Global",
-    "01f7": "​Gelliner Limited",
-    "01f8": "​Anyka (Guangzhou) Microelectronics Technology Co, LTD",
-    "01f9": "​Medtronic, Inc.",
-    "01fa": "​Gozio, Inc.",
-    "01fb": "​Form Lifting, LLC",
-    "01fc": "​Wahoo Fitness, LLC",
-    "01fd": "​Kontakt Micro-Location Sp. z o.o.",
-    "01fe": "​Radio System Corporation",
-    "01ff": "​Freescale Semiconductor, Inc.",
-    "0200": "​Verifone Systems PTe Ltd. Taiwan Branch",
-    "0201": "​AR Timing",
-    "0202": "​Rigado LLC",
-    "0203": "​Kemppi Oy",
-    "0204​": "​Tapcentive Inc.",
-    "0205​": "Smartbotics Inc.​",
-    "0206​": "Otter Products, LLC​",
-    "0207​": "​STEMP Inc.",
-    "0208": "​LumiGeek LLC",
-    "0209​": "​InvisionHeart Inc.",
-    "02​0a": "Macnica Inc.",
-    "020b": "​Jaguar Land Rover Limited",
-    "020c": "​CoroWare Technologies, Inc",
-    "020d": "​Simplo Technology Co., LTD",
-    "020e": "​Omron Healthcare Co., LTD",
-    "020f": "​Comodule GMBH",
-    "0210": "​ikeGPS",
-    "0211": "​Telink Semiconductor Co. Ltd",
-    "0212": "​Interplan Co., Ltd",
-    "0213": "​Wyler AG",
-    "0214": "​IK Multimedia Production srl",
-    "0215": "​Lukoton Experience Oy",
-    "0216": "​MTI Ltd",
-    "0217": "​Tech4home, Lda",
-    "0218": "​Hiotech AB",
-    "0219": "​DOTT Limited",
-    "021a": "​Blue Speck Labs, LLC",
-    "021b": "​Cisco Systems Inc",
-    "021c": "​Mobicomm Inc",
-    "021d": "​Edamic",
-    "021e": "​Goodnet Ltd",
-    "021f": "​Luster Leaf Products Inc",
-    "0220": "​Manus Machina BV",
-    "0221": "​Mobiquity Networks Inc",
-    "0222": "​Praxis Dynamics",
-    "0223": "​Philip Morris Products S.A.",
+    "01d5": "ELAD srl",
+    "01d6": "G-wearables inc.",
+    "01d7": "Squadrone Systems Inc.",
+    "01d8": "Code Corporation",
+    "01d9": "Savant Systems LLC",
+    "01da": "Logitech International SA",
+    "01db": "Innblue Consulting",
+    "01dc": "iParking Ltd.",
+    "01dd": "Koninklijke Philips Electronics N.V.",
+    "01de": "Minelab Electronics Pty Limited",
+    "01df": "Bison Group Ltd.",
+    "01e0": "Widex A/S",
+    "01e1": "Jolla Ltd",
+    "01e2": "Lectronix, Inc.",
+    "01e3": "Caterpillar Inc",
+    "01e4": "Freedom Innovations",
+    "01e5": "Dynamic Devices Ltd",
+    "01e6": "Technology Solutions (UK) Ltd",
+    "01e7": "IPS Group Inc.",
+    "01e8": "STIR",
+    "01e9": "Sano, Inc",
+    "01ea": "Advanced Application Design, Inc.",
+    "01eb": "AutoMap LLC",
+    "01ec": "Spreadtrum Communications Shanghai Ltd",
+    "01ed": "CuteCircuit LTD",
+    "01ee": "Valeo Service",
+    "01ef": "Fullpower Technologies, Inc.",
+    "01f0": "KloudNation",
+    "01f1": "Zebra Technologies Corporation",
+    "01f2": "Itron, Inc.",
+    "01f3": "The University of Tokyo",
+    "01f4": "UTC Fire and Security",
+    "01f5": "Cool Webthings Limited",
+    "01f6": "DJO Global",
+    "01f7": "Gelliner Limited",
+    "01f8": "Anyka (Guangzhou) Microelectronics Technology Co, LTD",
+    "01f9": "Medtronic, Inc.",
+    "01fa": "Gozio, Inc.",
+    "01fb": "Form Lifting, LLC",
+    "01fc": "Wahoo Fitness, LLC",
+    "01fd": "Kontakt Micro-Location Sp. z o.o.",
+    "01fe": "Radio System Corporation",
+    "01ff": "Freescale Semiconductor, Inc.",
+    "0200": "Verifone Systems PTe Ltd. Taiwan Branch",
+    "0201": "AR Timing",
+    "0202": "Rigado LLC",
+    "0203": "Kemppi Oy",
+    "0204": "Tapcentive Inc.",
+    "0205": "Smartbotics Inc.",
+    "0206": "Otter Products, LLC",
+    "0207": "STEMP Inc.",
+    "0208": "LumiGeek LLC",
+    "0209": "InvisionHeart Inc.",
+    "020a": "Macnica Inc.",
+    "020b": "Jaguar Land Rover Limited",
+    "020c": "CoroWare Technologies, Inc",
+    "020d": "Simplo Technology Co., LTD",
+    "020e": "Omron Healthcare Co., LTD",
+    "020f": "Comodule GMBH",
+    "0210": "ikeGPS",
+    "0211": "Telink Semiconductor Co. Ltd",
+    "0212": "Interplan Co., Ltd",
+    "0213": "Wyler AG",
+    "0214": "IK Multimedia Production srl",
+    "0215": "Lukoton Experience Oy",
+    "0216": "MTI Ltd",
+    "0217": "Tech4home, Lda",
+    "0218": "Hiotech AB",
+    "0219": "DOTT Limited",
+    "021a": "Blue Speck Labs, LLC",
+    "021b": "Cisco Systems Inc",
+    "021c": "Mobicomm Inc",
+    "021d": "Edamic",
+    "021e": "Goodnet Ltd",
+    "021f": "Luster Leaf Products Inc",
+    "0220": "Manus Machina BV",
+    "0221": "Mobiquity Networks Inc",
+    "0222": "Praxis Dynamics",
+    "0223": "Philip Morris Products S.A.",
     "0224": "Comarch SA",
     "0225": "Nestlé Nespresso S.A.",
-    "0226": "​Merlinia A/S",
+    "0226": "Merlinia A/S",
     "0227": "LifeBEAM Technologies",
-    "0228": "​Twocanoes Labs, LLC",
-    "0229": "​Muoverti Limited",
+    "0228": "Twocanoes Labs, LLC",
+    "0229": "Muoverti Limited",
     "022a": "Stamer Musikanlagen GMBH",
-    "022b": "​Tesla Motors",
-    "022c": "​Pharynks Corporation",
-    "022d": "​Lupine",
-    "022e": "​Siemens AG",
-    "022f": "​Huami (Shanghai) Culture Communication CO., LTD",
-    "0230": "​Foster Electric Company, Ltd",
+    "022b": "Tesla Motors",
+    "022c": "Pharynks Corporation",
+    "022d": "Lupine",
+    "022e": "Siemens AG",
+    "022f": "Huami (Shanghai) Culture Communication CO., LTD",
+    "0230": "Foster Electric Company, Ltd",
     "0231": "ETA SA",
-    "0232": "​x-Senso Solutions Kft",
-    "0233": "​Shenzhen SuLong Communication Ltd",
-    "0234": "​FengFan (BeiJing) Technology Co, Ltd",
-    "0235": "​Qrio Inc",
-    "0236": "​Pitpatpet Ltd",
-    "0237": "​MSHeli s.r.l.",
-    "0238": "​Trakm8 Ltd",
-    "0239": "​JIN CO, Ltd",
-    "023a": "​Alatech Technology"
+    "0232": "x-Senso Solutions Kft",
+    "0233": "Shenzhen SuLong Communication Ltd",
+    "0234": "FengFan (BeiJing) Technology Co, Ltd",
+    "0235": "Qrio Inc",
+    "0236": "Pitpatpet Ltd",
+    "0237": "MSHeli s.r.l.",
+    "0238": "Trakm8 Ltd",
+    "0239": "JIN CO, Ltd",
+    "023a": "Alatech Technology"
 };
 
 module.exports.companyNames = companyNames;
 },{}],3:[function(require,module,exports){
 var companyNames = {
     "feff": "GN Netcom",
-    "fefe": "GN ReSound A/S​",
-    "fefd": "​Gimbal, Inc.",
+    "fefe": "GN ReSound A/S",
+    "fefd": "Gimbal, Inc.",
     "fefc": "Gimbal, Inc.",
-    "fefb": "​Stollmann E+V GmbH",
-    "fefa": "​PayPal, Inc.",
-    "fef9": "​PayPal, Inc.",
-    "fef8": "​Aplix Corporation",
-    "fef7": "​​Aplix Corporation",
-    "fef6": "​Wicentric, Inc.",
-    "fef5": "​Dialog Semiconductor GmbH",
-    "fef4": "​Google",
-    "fef3": "​Google",
-    "fef2": "​CSR",
-    "fef1": "​CSR",
+    "fefb": "Stollmann E+V GmbH",
+    "fefa": "PayPal, Inc.",
+    "fef9": "PayPal, Inc.",
+    "fef8": "Aplix Corporation",
+    "fef7": "Aplix Corporation",
+    "fef6": "Wicentric, Inc.",
+    "fef5": "Dialog Semiconductor GmbH",
+    "fef4": "Google",
+    "fef3": "Google",
+    "fef2": "CSR",
+    "fef1": "CSR",
     "fef0": "Intel",
-    "feef": "​Polar Electro Oy",
-    "feee": "​​Polar Electro Oy",
-    "feed": "Tile, Inc.​",
-    "feec": "​Tile, Inc.",
-    "feeb": "Swirl Networks, Inc.​",
-    "feea": "​Swirl Networks, Inc.",
-    "fedb": "​Perka, Inc.",
-    "feda": "​ISSC Technologies Corporation",
-    "fed9": "​Pebble Technology Corporation",
-    "fed8": "Google​",
-    "fea6": "​GoPro, Inc.",
-    "fee9": "Quintic Corp.​",
-    "fee8": "Quintic Corp.​",
-    "fee7": "Tencent Holdings Limited​",
+    "feef": "Polar Electro Oy",
+    "feee": "Polar Electro Oy",
+    "feed": "Tile, Inc.",
+    "feec": "Tile, Inc.",
+    "feeb": "Swirl Networks, Inc.",
+    "feea": "Swirl Networks, Inc.",
+    "fedb": "Perka, Inc.",
+    "feda": "ISSC Technologies Corporation",
+    "fed9": "Pebble Technology Corporation",
+    "fed8": "Google",
+    "fee9": "Quintic Corp.",
+    "fee8": "Quintic Corp.",
+    "fee7": "Tencent Holdings Limited",
     "fee6": "Seed Labs, Inc.",
-    "fee5": "Nordic Semiconductor ASA​",
-    "fee4": "Nordic Semiconductor ASA​",
-    "fee3": "Anki, Inc.​",
-    "fee2": "​Anki, Inc.",
-    "fee1": "​Anhui Huami Information Technology Co.",
-    "fee0": "​Anhui Huami Information Technology Co.",
-    "fedf": "Design SHIFT​",
-    "fede": "Coin, Inc.​",
-    "fedd": "​Jawbone",
-    "fedc": "​Jawbone",
-    "fed7": "Broadcom​ Corporation",
-    "fed6": "​Broadcom Corporation",
-    "fed5": "​Plantronics Inc.",
-    "fed4": "​Apple, Inc.",
-    "fed3": "​​Apple, Inc.",
-    "fed2": "​​Apple, Inc.",
-    "fed1": "​​Apple, Inc.",
-    "fed0": "​​Apple, Inc.",
-    "fecf": "​​Apple, Inc.",
-    "fece": "​​Apple, Inc.",
-    "fecd": "​​Apple, Inc.",
-    "fecc": "​​Apple, Inc.",
-    "fecb": "​​Apple, Inc.",
-    "feca": "​​Apple, Inc.",
-    "fec9": "​​Apple, Inc.",
-    "fec8": "​​Apple, Inc.",
-    "fec7": "​​Apple, Inc.",
-    "fec6": "​Kocomojo, LLC",
-    "fec5": "Realtek Semiconductor Corp.​",
-    "fec4": "​PLUS Location Systems",
-    "fec3": "​360fly, Inc.",
-    "fec2": "​Blue Spark Technologies, Inc.",
-    "fec1": "​KDDI Corporation",
-    "fec0": "​KDDI Corporation",
-    "febf": "​Nod, Inc.",
-    "febe": "​Bose Corporation",
-    "febd": "​Clover Network, Inc.",
+    "fee5": "Nordic Semiconductor ASA",
+    "fee4": "Nordic Semiconductor ASA",
+    "fee3": "Anki, Inc.",
+    "fee2": "Anki, Inc.",
+    "fee1": "Anhui Huami Information Technology Co.",
+    "fee0": "Anhui Huami Information Technology Co.",
+    "fedf": "Design SHIFT",
+    "fede": "Coin, Inc.",
+    "fedd": "Jawbone",
+    "fedc": "Jawbone",
+    "fed7": "Broadcom Corporation",
+    "fed6": "Broadcom Corporation",
+    "fed5": "Plantronics Inc.",
+    "fed4": "Apple, Inc.",
+    "fed3": "Apple, Inc.",
+    "fed2": "Apple, Inc.",
+    "fed1": "Apple, Inc.",
+    "fed0": "Apple, Inc.",
+    "fecf": "Apple, Inc.",
+    "fece": "Apple, Inc.",
+    "fecd": "Apple, Inc.",
+    "fecc": "Apple, Inc.",
+    "fecb": "Apple, Inc.",
+    "feca": "Apple, Inc.",
+    "fec9": "Apple, Inc.",
+    "fec8": "Apple, Inc.",
+    "fec7": "Apple, Inc.",
+    "fec6": "Kocomojo, LLC",
+    "fec5": "Realtek Semiconductor Corp.",
+    "fec4": "PLUS Location Systems",
+    "fec3": "360fly, Inc.",
+    "fec2": "Blue Spark Technologies, Inc.",
+    "fec1": "KDDI Corporation",
+    "fec0": "KDDI Corporation",
+    "febf": "Nod, Inc.",
+    "febe": "Bose Corporation",
+    "febd": "Clover Network, Inc.",
     "febc": "Dexcom, Inc.",
-    "febb": "​adafruit industries",
-    "feba": "Tencent Holdings Limited​",
-    "feb9": "LG Electronics​",
-    "feb8": "​Facebook, Inc.",
-    "feb7": "​Facebook, Inc.",
-    "feb6": "​Vencer Co, Ltd",
-    "feb5": "WiSilica Inc.​",
-    "feb4": "​WiSilica Inc.",
-    "feb3": "Taobao​",
-    "feb2": "​Microsoft Corporation",
-    "feb1": "Electronics Tomorrow Limited​",
-    "feb0": "Nest Labs Inc.​",
-    "feaf": "Nest Labs Inc.​",
-    "feae": "Nokia ​Corporation",
-    "fead": "​Nokia ​Corporation",
-    "feac": "​Nokia ​Corporation",
-    "feab": "​Nokia ​Corporation",
-    "feaa": "Google​",
-    "fea9": "​Savant Systems LLC",
-    "fea8": "​Savant Systems LLC",
-    "fea7": "​UTC Fire and Security",
-    "fea6": "​GoPro, Inc.",
-    "fea5": "​GoPro, Inc.",
+    "febb": "adafruit industries",
+    "feba": "Tencent Holdings Limited",
+    "feb9": "LG Electronics",
+    "feb8": "Facebook, Inc.",
+    "feb7": "Facebook, Inc.",
+    "feb6": "Vencer Co, Ltd",
+    "feb5": "WiSilica Inc.",
+    "feb4": "WiSilica Inc.",
+    "feb3": "Taobao",
+    "feb2": "Microsoft Corporation",
+    "feb1": "Electronics Tomorrow Limited",
+    "feb0": "Nest Labs Inc.",
+    "feaf": "Nest Labs Inc.",
+    "feae": "Nokia Corporation",
+    "fead": "Nokia Corporation",
+    "feac": "Nokia Corporation",
+    "feab": "Nokia Corporation",
+    "feaa": "Google",
+    "fea9": "Savant Systems LLC",
+    "fea8": "Savant Systems LLC",
+    "fea7": "UTC Fire and Security",
+    "fea6": "GoPro, Inc.",
+    "fea5": "GoPro, Inc.",
     "fea4": "Paxton Access Ltd",
-    "fea3": "​ITT Industries",
+    "fea3": "ITT Industries",
     "fea2": "Intrepid Control Systems, Inc.",
     "fea1": "Intrepid Control Systems, Inc.",
-    "fea0": "Google​",
-    "fe9f": "​Google",
-    "fe9e": "​Dialog Semiconductor B.V.",
-    "fe9d": "Mobiquity Networks Inc​",
-    "fe9c": "GSI Laboratories, Inc.​",
-    "fe9b": "​Samsara Networks, Inc",
-    "fe9a": "​Estimote",
-    "fe99": "​Currant, Inc.",
-    "fe98": "​Currant, Inc.",
-    "fe97": "​Tesla Motor Inc.",
-    "fe96": "​Tesla Motor Inc.",
-    "fe95": "​Xiaomi Inc.",
-    "fe94": "​OttoQ Inc.",
-    "fe93": "​​OttoQ Inc.",
-    "fe92": "​Jarden Safety & Security",
-    "fe91": "​Shanghai Imilab Technology Co.,Ltd",
+    "fea0": "Google",
+    "fe9f": "Google",
+    "fe9e": "Dialog Semiconductor B.V.",
+    "fe9d": "Mobiquity Networks Inc",
+    "fe9c": "GSI Laboratories, Inc.",
+    "fe9b": "Samsara Networks, Inc",
+    "fe9a": "Estimote",
+    "fe99": "Currant, Inc.",
+    "fe98": "Currant, Inc.",
+    "fe97": "Tesla Motor Inc.",
+    "fe96": "Tesla Motor Inc.",
+    "fe95": "Xiaomi Inc.",
+    "fe94": "OttoQ Inc.",
+    "fe93": "OttoQ Inc.",
+    "fe92": "Jarden Safety & Security",
+    "fe91": "Shanghai Imilab Technology Co.,Ltd",
     "fe90": "JUMA",
-    "fe8f": "CSR​",
-    "fe8e": "​ARM Ltd",
-    "fe8d": "​Interaxon Inc."
-}
+    "fe8f": "CSR",
+    "fe8e": "ARM Ltd",
+    "fe8d": "Interaxon Inc."
+};
 
 module.exports.companyNames = companyNames;
 },{}],4:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+var licenseeNames = {
+    "b9407f30f5f8466eaff925556b57fe6d": "Estimote",
+    "8deefbb9f7384297804096668bb44281": "Roximity",
+    "f7826da64fa24e988024bc5b71e0893e": "Kontakt.io",
+    "2f234454cf6d4a0fadf2f4911ba9ffa6": "Radius Networks",
+    "f0018b9b75094c31a9051a27d39c003c": "LocosLab",
+    "3d4f13b4d1fd404980e5d3edcc840b69": "Orange S.A.",
+    "e2c56db5dffb48d2b060d0f5a71096e0": "Bright Beacon",
+    "dab59c4fa4d6ee286bfe8e0000bbc2bb": "eNote"
+};
+
+module.exports.licenseeNames = licenseeNames;
+
+},{}],5:[function(require,module,exports){
 /**
  * Copyright reelyActive 2014
  * We believe in an open Internet of Things
@@ -797,7 +815,7 @@ module.exports.EUI64 = TYPE_EUI64;
 module.exports.RA28 = TYPE_RA28;
 module.exports.ADVA48 = TYPE_ADVA48;
 module.exports.RADIO_PAYLOAD = TYPE_RADIO_PAYLOAD;
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -839,7 +857,7 @@ function convertTxPower(rawTxPower) {
 module.exports.getTagDataLength = getTagDataLength;
 module.exports.reverseBytes = reverseBytes;
 module.exports.convertTxPower = convertTxPower;
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -873,7 +891,7 @@ function process(payload, cursor, advertiserData) {
 }
 
 module.exports.process = process;
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -893,7 +911,7 @@ function process(payload, cursor, advertiserData, adType) {
 }
 
 module.exports.process = process;
-},{"../../common/util/pdu.js":5}],8:[function(require,module,exports){
+},{"../../common/util/pdu.js":6}],9:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -932,14 +950,15 @@ function completeLocalName(payload, cursor, advertiserData) {
 
 module.exports.shortenedLocalName = shortenedLocalName;
 module.exports.completeLocalName = completeLocalName;
-},{"../../common/util/pdu.js":5}],9:[function(require,module,exports){
+},{"../../common/util/pdu.js":6}],10:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
  */
 
- var pdu = require('../../common/util/pdu.js');
- var companyIdentifierCodes = require('../../common/assignednumbers/companyidentifiercodes.js');
+var pdu = require('../../common/util/pdu.js');
+var companyIdentifierCodes = require('../../common/assignednumbers/companyidentifiercodes.js');
+var ibeacon = require('../../common/manufacturers/apple/ibeacon.js');
 
 
 /**
@@ -953,6 +972,9 @@ function process(payload, cursor, advertiserData) {
   companyIdentifierCode += payload.substr(cursor+4, 2);
 
   var companyName = companyIdentifierCodes.companyNames[companyIdentifierCode];
+  if(typeof companyName === 'undefined') {
+    companyName = 'Unknown';
+  }
 
   var data = payload.substr(cursor+8, pdu.getTagDataLength(payload, cursor)-4);
 
@@ -1002,6 +1024,12 @@ function processIBeacon(data, advertiserData) {
   iBeacon.major = data.substr(36,4);
   iBeacon.minor = data.substr(40,4);
   iBeacon.txPower = pdu.convertTxPower(data.substr(44,2));
+
+  var licenseeName = ibeacon.licenseeNames[iBeacon.uuid];
+  if(typeof licenseeName === 'undefined') {
+    licenseeName = 'Unknown';
+  }
+  iBeacon.licenseeName = licenseeName;
 
   advertiserData.manufacturerSpecificData.iBeacon = iBeacon;
 }
@@ -1070,7 +1098,7 @@ function processSnSMotion(data, advertiserData) {
 
 module.exports.process = process;
 
-},{"../../common/assignednumbers/companyidentifiercodes.js":2,"../../common/util/pdu.js":5}],10:[function(require,module,exports){
+},{"../../common/assignednumbers/companyidentifiercodes.js":2,"../../common/manufacturers/apple/ibeacon.js":4,"../../common/util/pdu.js":6}],11:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1100,7 +1128,7 @@ function process(payload, cursor, advertiserData) {
 
 module.exports.process = process;
 
-},{"../../common/util/pdu.js":5,"../gatt/services/index.js":15}],11:[function(require,module,exports){
+},{"../../common/util/pdu.js":6,"../gatt/services/index.js":16}],12:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1120,7 +1148,7 @@ function process(payload, cursor, advertiserData) {
 }
 
 module.exports.process = process;
-},{"../../common/util/pdu.js":5}],12:[function(require,module,exports){
+},{"../../common/util/pdu.js":6}],13:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1155,7 +1183,7 @@ function solicitation128BitUUIDs(payload, cursor, advertiserData) {
 
 module.exports.solicitation16BitUUIDs = solicitation16BitUUIDs;
 module.exports.solicitation128BitUUIDs = solicitation128BitUUIDs;
-},{"../../common/util/pdu.js":5}],13:[function(require,module,exports){
+},{"../../common/util/pdu.js":6}],14:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1175,7 +1203,7 @@ function process(payload, cursor, advertiserData) {
 
 module.exports.process = process;
 
-},{"../../common/util/pdu.js":5}],14:[function(require,module,exports){
+},{"../../common/util/pdu.js":6}],15:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1239,7 +1267,7 @@ module.exports.nonComplete16BitUUIDs = nonComplete16BitUUIDs;
 module.exports.complete16BitUUIDs = complete16BitUUIDs;
 module.exports.nonComplete128BitUUIDs = nonComplete128BitUUIDs;
 module.exports.complete128BitUUIDs = complete128BitUUIDs;
-},{"../../common/util/pdu.js":5}],15:[function(require,module,exports){
+},{"../../common/util/pdu.js":6}],16:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1249,6 +1277,37 @@ module.exports.complete128BitUUIDs = complete128BitUUIDs;
 var memberservices = 
                   require('../../../common/assignednumbers/memberservices.js');
 var google = require('./members/google.js');
+var genericaccess = require('./standard/genericaccess.js');
+var genericattribute = require('./standard/genericattribute.js');
+var immediatealert = require('./standard/immediatealert.js');
+var linkloss = require('./standard/linkloss.js');
+var txpower = require('./standard/txpower.js');
+var nextdstchangeservice = require('./standard/nextdstchangeservice.js');
+var healththermometer = require('./standard/healththermometer.js');
+var deviceinformation = require('./standard/deviceinformation.js');
+var heartrate = require('./standard/heartrate.js');
+var phonealertstatusservice = require('./standard/phonealertstatusservice.js');
+var batteryservice = require('./standard/batteryservice.js');
+var bloodpressure = require('./standard/bloodpressure.js');
+var alertnotificationservice = 
+                             require('./standard/alertnotificationservice.js');
+var humaninterfacedevice = require('./standard/humaninterfacedevice.js');
+var scanparameters = require('./standard/scanparameters.js');
+var runningspeedandcadence = require('./standard/runningspeedandcadence.js');
+var automationio = require('./standard/automationio.js');
+var cyclingspeedandcadence = require('./standard/cyclingspeedandcadence.js');
+var cyclingpower = require('./standard/cyclingpower.js');
+var locationandnavigation = require('./standard/locationandnavigation.js');
+var environmentalsensing = require('./standard/environmentalsensing.js');
+var bodycomposition = require('./standard/bodycomposition.js');
+var userdata = require('./standard/userdata.js');
+var weightscale = require('./standard/weightscale.js');
+var bondmanagement = require('./standard/bondmanagement.js');
+var continousglucosemonitoring = 
+                           require('./standard/continousglucosemonitoring.js');
+var internetprotocolsupport = require('./standard/internetprotocolsupport.js');
+var indoorpositioning = require('./standard/indoorpositioning.js');
+var pulseoximeter = require('./standard/pulseoximeter.js');
 
 
 var MEMBERS_MAX_UUID = 0xfeff;
@@ -1304,10 +1363,10 @@ function process(advertiserData) {
         txpower.process(advertiserData);
         break;
       case('1805'):
-        currenttimeservice.process(advertiserData);
+        txpower.process(advertiserData);
         break;
       case('1806'):
-        referencetimeupdateservice.process(advertiserData);
+        txpower.process(advertiserData);
         break;
       case('1807'):
         nextdstchangeservice.process(advertiserData);
@@ -1392,7 +1451,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"../../../common/assignednumbers/memberservices.js":3,"./members/google.js":16}],16:[function(require,module,exports){
+},{"../../../common/assignednumbers/memberservices.js":3,"./members/google.js":17,"./standard/alertnotificationservice.js":18,"./standard/automationio.js":19,"./standard/batteryservice.js":20,"./standard/bloodpressure.js":21,"./standard/bodycomposition.js":22,"./standard/bondmanagement.js":23,"./standard/continousglucosemonitoring.js":24,"./standard/cyclingpower.js":25,"./standard/cyclingspeedandcadence.js":26,"./standard/deviceinformation.js":27,"./standard/environmentalsensing.js":28,"./standard/genericaccess.js":29,"./standard/genericattribute.js":30,"./standard/healththermometer.js":31,"./standard/heartrate.js":32,"./standard/humaninterfacedevice.js":33,"./standard/immediatealert.js":34,"./standard/indoorpositioning.js":35,"./standard/internetprotocolsupport.js":36,"./standard/linkloss.js":37,"./standard/locationandnavigation.js":38,"./standard/nextdstchangeservice.js":39,"./standard/phonealertstatusservice.js":40,"./standard/pulseoximeter.js":41,"./standard/runningspeedandcadence.js":42,"./standard/scanparameters.js":43,"./standard/txpower.js":44,"./standard/userdata.js":45,"./standard/weightscale.js":46}],17:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1586,7 +1645,502 @@ function parseEncodedUrl(encodedUrl) {
 
 module.exports.process = process;
 
-},{"../../../../common/util/pdu.js":5}],17:[function(require,module,exports){
+},{"../../../../common/util/pdu.js":6}],18:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Alert Notification Service';
+}
+
+module.exports.process = process;
+
+},{}],19:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Automation IO';
+}
+
+module.exports.process = process;
+
+
+},{}],20:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Battery Service';
+}
+
+module.exports.process = process;
+
+
+},{}],21:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Blood Pressure';
+}
+
+module.exports.process = process;
+
+
+},{}],22:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Body Composition';
+}
+
+module.exports.process = process;
+
+
+},{}],23:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Bond Management';
+}
+
+module.exports.process = process;
+
+
+},{}],24:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Continuous Glucose '+
+  																  'Monitoring';
+}
+
+module.exports.process = process;
+
+
+},{}],25:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Cycling Power';
+}
+
+module.exports.process = process;
+
+
+},{}],26:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Cycling Speed and Cadence';
+}
+
+module.exports.process = process;
+
+},{}],27:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Device Information';
+}
+
+module.exports.process = process;
+
+},{}],28:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Environmental Sensing';
+}
+
+module.exports.process = process;
+
+
+},{}],29:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Generic Access';
+}
+
+module.exports.process = process;
+
+
+},{}],30:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Generic Attribute';
+}
+
+module.exports.process = process;
+
+
+},{}],31:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Health Thermometer';
+}
+
+module.exports.process = process;
+
+
+
+},{}],32:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Heart Rate';
+}
+
+module.exports.process = process;
+
+
+
+},{}],33:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Human Interface Device';
+}
+
+module.exports.process = process;
+
+
+},{}],34:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Immediate Alert';
+}
+
+module.exports.process = process;
+
+
+},{}],35:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Indoor Positioning';
+}
+
+module.exports.process = process;
+
+
+},{}],36:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Internet Protocol Support';
+}
+
+module.exports.process = process;
+
+
+},{}],37:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Link Loss';
+}
+
+module.exports.process = process;
+
+
+},{}],38:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Location and Navigation';
+}
+
+module.exports.process = process;
+
+
+},{}],39:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Next DST Change Service';
+}
+
+module.exports.process = process;
+
+
+},{}],40:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Phone Alert Status Service';
+}
+
+module.exports.process = process;
+
+
+},{}],41:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Pulse Oximeter';
+}
+
+module.exports.process = process;
+
+
+},{}],42:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Running Speed and Cadence';
+}
+
+module.exports.process = process;
+
+
+
+},{}],43:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Scan Parameters';
+}
+
+module.exports.process = process;
+
+
+
+},{}],44:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Tx Power';
+}
+
+module.exports.process = process;
+
+
+},{}],45:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'User Data';
+}
+
+module.exports.process = process;
+
+
+},{}],46:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+
+ /**
+ * Parse BLE advertiser data for Standard Service Data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  advertiserData.serviceData.specificationName = 'Weight Scale';
+}
+
+module.exports.process = process;
+
+
+},{}],47:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1734,7 +2288,7 @@ function process(payload) {
 
 module.exports.process = process;
 
-},{"./gap/flags.js":6,"./gap/genericdata.js":7,"./gap/localname.js":8,"./gap/manufacturerspecificdata.js":9,"./gap/servicedata.js":10,"./gap/slaveconnectionintervalrange.js":11,"./gap/solicitation.js":12,"./gap/txpower.js":13,"./gap/uuid.js":14}],18:[function(require,module,exports){
+},{"./gap/flags.js":7,"./gap/genericdata.js":8,"./gap/localname.js":9,"./gap/manufacturerspecificdata.js":10,"./gap/servicedata.js":11,"./gap/slaveconnectionintervalrange.js":12,"./gap/solicitation.js":13,"./gap/txpower.js":14,"./gap/uuid.js":15}],48:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1792,7 +2346,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{}],19:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1822,7 +2376,7 @@ function process(payload) {
 module.exports.process = process;
 module.exports.address = address;
 
-},{"./address/index.js":1,"./common/util/identifier.js":4,"./data/index.js":17,"./header/index.js":18}],20:[function(require,module,exports){
+},{"./address/index.js":1,"./common/util/identifier.js":5,"./data/index.js":47,"./header/index.js":48}],50:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1836,7 +2390,7 @@ var reelyactive = require('./reelyactive');
 module.exports.ble = ble;
 module.exports.reelyactive = reelyactive;
 
-},{"./ble":19,"./reelyactive":24}],21:[function(require,module,exports){
+},{"./ble":49,"./reelyactive":54}],51:[function(require,module,exports){
 /**
  * Copyright reelyActive 2014
  * We believe in an open Internet of Things
@@ -1919,7 +2473,7 @@ module.exports.RA28 = TYPE_RA28;
 module.exports.ADVA48 = TYPE_ADVA48;
 module.exports.RADIO_PAYLOAD = TYPE_RADIO_PAYLOAD;
 module.exports.UNDEFINED = TYPE_UNDEFINED;
-},{}],22:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 /**
  * Convert a raw radio sensor data payload.
  * @param {string} payload The raw payload as a hexadecimal-string.
@@ -1937,7 +2491,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{}],23:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 /**
  * Convert a raw radio sensor data payload.
  * @param {string} payload The raw payload as a hexadecimal-string.
@@ -1950,7 +2504,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{}],24:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 /**
  * Process a raw reelyActive radio payload into semantically meaningful
  * information.
@@ -1972,7 +2526,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{"./common/util/identifier.js":21,"./data/index.js":22,"./flags/index.js":23}],25:[function(require,module,exports){
+},{"./common/util/identifier.js":51,"./data/index.js":52,"./flags/index.js":53}],55:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.3
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -30337,11 +30891,11 @@ var minlengthDirective = function() {
 })(window, document);
 
 !window.angular.$$csp() && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],26:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":25}],27:[function(require,module,exports){
+},{"./angular":55}],57:[function(require,module,exports){
 var advlib = require('advlib');
 var angular = require('angular');
 
@@ -30427,6 +30981,9 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     name: "Estimote",
     payload: "4024a4b9297143fb0201061aff4c000215b9407f30f5f8466eaff925556b57fe6d03510003b60035"
   }, {
+    name: "Fitbit",
+    payload: "4025b2a86b4f01d90201041106ba5689a6fabfa2bd01467d6e00fbabad09160a181204eb150000"
+  }, {
     name: "Kontakt.io",
     payload: "402494eb4ce223ea0201061aff4c000215f7826da64fa24e988024bc5b71e0893ef7e84be5b30036"
   }, {
@@ -30497,4 +31054,4 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     isFirstDisabled: false
   };
 });
-},{"advlib":20,"angular":26}]},{},[27]);
+},{"advlib":50,"angular":56}]},{},[57]);

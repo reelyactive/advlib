@@ -83,6 +83,9 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     name: "Estimote",
     payload: "4024a4b9297143fb0201061aff4c000215b9407f30f5f8466eaff925556b57fe6d03510003b60035"
   }, {
+    name: "Fitbit",
+    payload: "4025b2a86b4f01d90201041106ba5689a6fabfa2bd01467d6e00fbabad09160a181204eb150000"
+  }, {
     name: "Kontakt.io",
     payload: "402494eb4ce223ea0201061aff4c000215f7826da64fa24e988024bc5b71e0893ef7e84be5b30036"
   }, {
