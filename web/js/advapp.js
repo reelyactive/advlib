@@ -146,13 +146,4 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
 
   window.MYSCOPE = $scope; // In order to access scope on console (to be removed when not testing)
 
-})
-
-.controller('AccordionDemoCtrl', function($scope) {
-  $scope.oneAtATime = true;
-
-  $scope.status = {
-    isFirstOpen: true,
-    isFirstDisabled: false
-  };
 });
