@@ -1,80 +1,103 @@
-body { 
-  font-family: 'Open Sans', sans-serif;
-}
-a{
-  text-decoration:none;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
-ul {
-  float:left;
-  width:50%;
-  min-width:480px;
-  padding:0;
-  margin:0;
-  list-style-type:none
+body {
+  background: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin-bottom: 60px;
 }
 
-li {
-  display:inline
+/* Begin Bootstrap 3 navbar override */
+.navbar-default {
+    background-color: #0770a2;
+    border-color: #06638f;
+}
+.navbar-default .navbar-brand {
+    color: #ddd;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #fff;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #ddd;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+}
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #ddd;
+    background-color: #076a99;
+}
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #ddd;
+    background-color: #06638f;
+}
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #ddd;
+    border-bottom-color: #ddd;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+.navbar-default .navbar-nav > .open > a .caret, 
+.navbar-default .navbar-nav > .open > a:hover .caret, 
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #ddd;
+    border-bottom-color: #ddd;
+}
+.navbar-default .navbar-toggle {
+    border-color: #ddd;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #06638f;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ddd;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #fff;
+    }
+}
+/* End Bootstrap 3 navbar override */
+
+.form-group-highlight {
+  background-color: #eee;
 }
 
-h1 {
-  padding-bottom:.1em
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin-top: 30px;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  color: #ddd;
+  background-color: #0770a2;
+  text-align: center;
+  overflow: hidden;
 }
 
-h2 {
-  padding-bottom:-.9em
-}
-header {
-text-align: center;
-font-size: 33px;
-background-color: none;
-height: 50px;
-}
-.payloadInputDd {
-text-align: center;
-}
+  .footer a {
+    color: #ddd;
+  }
 
-.form-control{
-  display: inline;
-}
-
-.form {
-  float:left;
-  width:48%;
-  min-width:480px;
-  margin:0 1% 64px
-}
-
-.json {
-  float:left;
-  width:48%;
-  min-width:480px;
-  margin:0 1% 64px
-}
-#footer {
-  clear:both;
-  position:relative;
-  height:5em;
-  line-height:5em;
-  bottom:0;
-   width:100%;
-  margin:0;
-  margin-top: 50%;
-  background:#4997bd;
-  color:#999;
-  color:rgba(255,255,255,0.5);
-  font-size:1.2em;
-  overflow:hidden;
-  text-align:center
-}
-
-#footer a {
-  color:#999;
-  color:rgba(255,255,255,0.5)
-}
-
-#footer a:hover {
-  color:rgba(255,255,255,0.7)
-}
-
+  .footer a:hover {
+    color: #fff;
+    text-decoration: none;
+  }

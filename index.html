@@ -1,44 +1,63 @@
 <!DOCTYPE HTML>
-<html ng-app="advapp">
+<html>
   <head>
-
-    <title>
-    reelyActive: advlib
-    </title>
-
-    <script src="web/js/advlib.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
-    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="web/style/main.css" />
-
+    <title> reelyActive advlib </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="web/style/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.1/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="web/js/advlib.js"></script>
   </head>
-
-    <body ng-controller="InteractionCtrl">
-
-    <header>reelyActive advLib </header>
-    
+  <body ng-app="advapp">
+    <div ng-controller="InteractionCtrl">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle"
+                  ng-init="navCollapsed = true"
+                  ng-click="navCollapsed = !navCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://context.reelyactive.com">
+            <strong>reely</strong>Active
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'"
+             ng-click="navCollapsed = true">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href> Parsing Mode </a></li>
+          </ul>
+        </div>
+      </nav>
       <tabset justified="true">
-
-      <tab heading="Bluetooth Smart" select="selectBluetooth()" active="true">
-      <!--________Packet________-->
-      <div ng-controller="PacketCtrl">
-        <!--________Payload________-->
+        <tab heading="Bluetooth Smart" select="selectBluetooth()"
+             active="true">
+          <!--________Packet________-->
+          <div ng-controller="PacketCtrl">
+            <!--________Payload________-->
+            <form class="payloadInputDd">
+              <select ng-model="payload" ng-change="process()"
+                      class="form-control" ng-options="preset.payload as preset.name for preset in presets"
+                      style="width:30%">
+                <option value=""> -- Choose a preset payload -- </option>
+              </select>
+              <input ng-model="payload" ng-keyup="process()" type="text"
+                     class="form-control" placeholder="Or paste your payload here"
+                     style="width:40%">
+            </form>
       
-          <form class="payloadInputDd">
-            <select ng-model="payload" ng-change="process()" class="form-control" ng-options="preset.payload as preset.name for preset in presets"
-              style="width:30%">
-              <option value=""> -- Choose a preset payload --</option>
-            </select>
-            <input ng-model="payload" ng-keyup="process()" type="text" class="form-control" placeholder="Or paste your payload here"
-            style="width:40%">
-          </form>
-      
-        <!--________Bluetooth Smart________-->
-        <div class="form" ng-show="bluetooth.show">
+            <!--________Bluetooth Smart________-->
+            <div class="row">
 
+              <!--________Packet Elements________-->
+              <div class="col-xs-12 col-md-6">
+
+
+              <!-- TODO: fix indents starting here -->
           <h1> Bluetooth Smart Packet Elements </h1>
-          <div ng-controller="AccordionDemoCtrl">
+          <div>
             <accordion close-others="false">
               <accordion-group heading="Header: {{header}}">
                 <form>
@@ -178,77 +197,139 @@
             </div>
           </accordion-group>
         </accordion>
-      </div>
+              <!-- TODO: end of indent fixing -->
 
-      <!--________JSON________-->
-      <div class="json">
-        <h1> As JSON </h1>
-      <pre>{{packet}}</pre>
-      </div>
+              </div>
 
-  </div>
-  </tab>
+              <!--________JSON________-->
+              <div class="col-xs-12 col-md-6">
+                <h1> As JSON </h1>
+                <pre>{{packet}}</pre>
+              </div>
 
-  <tab heading="reelyActive" select="selectReelyactive()">
+            </div> <!-- End of row -->
 
-  <!--________reelyActive________-->
-  <div ng-controller="PacketCtrl">
+          </div>
+        </tab>
+
+        <tab heading="reelyActive" select="selectReelyactive()">
+
+          <!--________reelyActive________-->
+          <div ng-controller="PacketCtrl">
     
-      <form class="payloadInputDd">
-        <select ng-model="payload" ng-change="process()" class="form-control" ng-options="preset.payload as preset.name for preset in presets"
-          style="width:30%">
-          <option value="">-- Choose a preset payload --</option>
-        </select>
-        <input ng-model="payload" ng-keyup="process()" type="text" class="form-control" placeholder="Or paste your payload here"
-        style="width:40%">
-      </form>
+            <form class="form-horizontal">
+              <div class="form-group form-group-lg form-group-highlight">
+                <label for="reelyPayload" class="col-sm-2 control-label">
+                  Raw Payload
+                </label>
+                <div class="col-sm-10">
+                  <input ng-model="payload" ng-keyup="process()" type="text"
+                         placeholder="Enter/paste a payload here"
+                         class="form-control" id="reelyPayload">
+                </div>
+              </div>
+              <div class="form-group form-group-sm">
+                <label for="reelyPresets" class="col-sm-2 control-label">
+                  Select from presets
+                </label>
+                <div class="col-sm-10">
+                  <select ng-model="payload" ng-change="process()"
+                          class="form-control" ng-options="preset.payload as preset.name for preset in presets"
+                          id="reelyPresets">
+                    <option value=""> -- Choose a preset payload -- </option>
+                  </select>
+                </div>
+              </div>
+            </form>
     
-    <div class="form" ng-show="reelyactive.show">
+            <div class="row">
 
-      <h1> reelyActive Packet Elements </h1>
+              <div class="col-xs-12 col-md-6">
 
-      <div ng-controller="AccordionDemoCtrl">
-        <accordion close-others="false">
-          <accordion-group heading="Identifier: ">
-            <h4> EUI-64: 
-                <input type="text" name="header" ng-model="reelyactive.packet.value" class="form-control" style="width:35%" readonly>
-            </h4>
-          </accordion-group>
-          <accordion-group heading="Flags:" >
-          <label for="transmissionCount">
-            <h4> Transmission Count: 
-                <input disabled ng-model="reelyactive.packet.flags.transmissionCount" type="number" name="payloadlength" id="length" min="0" max="3" step="1" value="8" class="form-control" style="width:20%">
-            </h4>
-          </label>
-          </accordion-group>
-           <accordion-group heading="Data: ">
-          <h4> Battery:
-            <input type="text" name="header" ng-model="reelyactive.packet.data.battery" class="form-control" style="width:20%" readonly>
-          </h4>
-          <h4> Temperature:
-            <input type="text" name="header" ng-model="reelyactive.packet.data.temperature" class="form-control" style="width:20%" readonly>
-          </h4>
-          </accordion-group>
-          </accordion>
-         
-          
-      </div>
+                <h1> reelyActive Packet Elements </h1>
+
+                <div>
+                  <accordion close-others="false">
+                    <accordion-group is-open="reelyactive.id.open">
+                      <accordion-heading>
+                        <strong>Identifier:</strong> &nbsp;
+                        {{reelyactive.packet.value}}
+                        <!-- Should be {{reelyactive.id.value}} -->
+                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': reelyactive.id.open, 'glyphicon-chevron-right': !reelyactive.id.open}"></i>
+                      </accordion-heading>
+                      <form class="form-horizontal">
+                        <div class="form-group">
+                          <label for="reelyId" class="col-xs-2">EUI-64:</label>
+                          <div class="col-xs-4">
+                            <input type="text" class="form-control" ng-model="reelyactive.packet.value" id="reelyId" readonly>
+                          </div>
+                        </div>
+                      </form>
+                    </accordion-group>
+                    <accordion-group is-open="reelyactive.flags.open">
+                      <accordion-heading>
+                        <strong>Flags:</strong> &nbsp;
+                        {{reelyactive.packet.flags.transmissionCount}}
+                        <!-- Should be {{reelyactive.flags.value}} -->
+                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': reelyactive.flags.open, 'glyphicon-chevron-right': !reelyactive.flags.open}"></i>
+                      </accordion-heading>
+                      <form class="form-horizontal">
+                        <div class="form-group">
+                          <label for="reelyTrans" class="col-xs-3">
+                            Transmission count:
+                          </label>
+                          <div class="col-xs-2">
+                            <input type="number" class="form-control" ng-model="reelyactive.packet.flags.transmissionCount"
+                                   id="reelyTrans" readonly>
+                          </div>
+                        </div>
+                      </form>
+                    </accordion-group>
+                    <accordion-group is-open="reelyactive.data.open">
+                      <accordion-heading>
+                        <strong>Data:</strong> &nbsp;
+                        <!-- Should be {{reelyactive.data.value}} -->
+                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': reelyactive.data.open, 'glyphicon-chevron-right': !reelyactive.data.open}"></i>
+                      </accordion-heading>
+                      <form class="form-horizontal">
+                        <div class="form-group">
+                          <label for="reelyBatt" class="col-xs-2">
+                            Battery:
+                          </label>
+                          <div class="col-xs-2">
+                            <input type="text" class="form-control"
+                                   ng-model="reelyactive.packet.data.battery"
+                                   id="reelyBatt" readonly>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="reelyTemp" class="col-xs-2">
+                            Temperature:
+                          </label>
+                          <div class="col-xs-2">
+                            <input type="text" class="form-control" ng-model="reelyactive.packet.data.temperature"
+                                   id="reelyTemp" readonly>
+                          </div>
+                        </div>
+                      </form>
+                    </accordion-group>
+                  </accordion>     
+                </div>
+              </div>
+
+              <!--________JSON________-->
+              <div class="col-xs-12 col-md-6">
+                <h1> As JSON </h1>
+                <pre>{{packet}}</pre>
+              </div>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+      <footer class="footer">
+        <a href="https://github.com/reelyactive/advlib"> advlib </a> &nbsp; | &nbsp;
+        <a href="http://context.reelyactive.com"> &copy; reelyActive 2015 </a>
+      </footer>
     </div>
-
-    <!--________JSON________-->
-    <div class="json">
-      <h1> As JSON </h1>
-    <pre>{{packet}}</pre>
-  </div>
-
-  </div>
-  </tab>
-</tabset>
-
-<footer id="footer">
-<a href="https://github.com/reelyactive/advlib"> advlib </a> &nbsp; | &nbsp;
-<a href="http://context.reelyactive.com"> &copy; reelyActive 2015 </a>
-</footer>
-
-</body>
+  </body>
 </html>
