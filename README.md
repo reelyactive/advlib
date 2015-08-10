@@ -69,6 +69,13 @@ The library is organised hierarchically so that the separate elements of a packe
   * [Member Services](#member-services)
   * [Standard Services](#standard-services)
 
+Complementary to the packet processing hierarchy above is a _common_ folder which contains supporting functions and lookups that are subject to frequent evolution:
+
+* [Common](#common)
+  * [Assigned Numbers](#assigned-numbers)
+  * [Manufacturers](#manufacturers)
+  * [Utilities](#util)
+
 
 ### Header
 
@@ -307,44 +314,7 @@ Which would add the following property to advData:
       data: ""
     }
 
-##### iBeacon
-
-A specific case of manufacturer specific data is the iBeacon:
-
-    var payload = '26ff4c000215b9407f30f5f8466eaff925556b57fe6d294c903974';
-    advlib.ble.data.gap.manufacturerspecificdata.process(payload, 0, {});
-    
-For reference, the iBeacon payload is interpreted as follows:
-
-| Byte(s) | Hex String                       | Description                    |
-|--------:|:---------------------------------|:-------------------------------|
-| 0       | 26                               | Length, in bytes, of type and data |
-| 1       | ff                               | GAP Data Type for manufacturer specific data | 
-| 2-3     | 4c00                             | Apple company identifier code (bytes reversed) |
-| 4-5     | 0215                             | Identifier code for iBeacon    |
-| 6-21    | b9407f30f5f8466eaff925556b57fe6d | UUID (assigned by Apple)       |
-| 21-22   | 294c                             | Major                          |
-| 23-24   | 9039                             | Minor                          |
-| 25      | 74                               | TxPower (see TxPower section)  |
-
-Which would add the following property to advData:
-
-    manufacturerSpecificData: {
-      iBeacon: {
-        uuid: "b9407f30f5f8466eaff925556b57fe6d",
-        major: "294c",
-        minor: "9039",
-        txPower: "116dBm",
-        licenseeName: "Estimote"
-      }
-    }
-
-##### StickNFind
-
-A specific case of manufacturer specific data is that of StickNFind.  The following proprietary payloads are supported:
-- V2 Single Payload
-- SNS Motion
-
+The proprietary data of some manufacturers can be further processed.  The data for those supported will automatically be processed.  See the [Manufacturers](#manufacturers) section for the list of all supported manufacturers.
 
 #### TX Power Level 
 
@@ -687,6 +657,135 @@ The following GATT Services, assigned in the [GATT Specification](https://develo
 - User Data
 - Weight Scale
 
+
+### Common
+
+Supporting functions and lookups that are subject to frequent evolution are:
+* [Assigned Numbers](#assigned-numbers)
+* [Manufacturers](#manufacturers)
+* [Utilities](#utilities)
+
+#### Assigned Numbers
+
+The Bluetooth SIG maintains a [list of assigned numbers](https://www.bluetooth.org/en-us/specification/assigned-numbers).  The advlib currently implements [16-bit UUIDs for Members](#member-services) and [Company Identifiers](#company-identifiers).
+
+##### Company Identifiers
+
+The Bluetooth SIG maintains a [list of company identifiers](https://www.bluetooth.org/en-us/specification/assigned-numbers/company-identifiers).  Look up a company name from its 16-bit code.
+
+    advlib.ble.common.companyidentifiercodes.companyNames[companyCode];
+
+For example:
+
+    advlib.ble.common.companyidentifiercodes.companyNames['000d'];
+
+would yield:
+
+    "Texas Instruments Inc."
+
+##### Member Services
+
+The Bluetooth SIG maintains a list of 16-bit UUIDs for Members, for members.  In other words, this list is accessible to members.  Look up a company name from its 16-bit service UUID.
+
+    advlib.ble.common.memberservices.companyNames[uuid];
+
+For example:
+
+    advlib.ble.common.memberservices.companyNames['feed'];
+
+would yield:
+
+    "Tile, Inc."
+
+#### Manufacturers
+
+All functions and lookups which represent manufacturer-proprietary data contained in the [Manufacturer Specific Data](#manufacturer-specific-data) data type are included here.  Each manufacturer is contained in a separate subfolder.
+
+##### Apple
+
+Process Apple-proprietary data from a packet's contained advertiser data.
+
+    advlib.ble.common.manufacturers.apple.process(advData);
+
+The first byte of the proprietary data specifies the type:
+
+| Type (Hex String) | Description                   |
+|------------------:|:------------------------------|
+| 02                | [iBeacon](#ibeacon)           |
+| 09                | AppleTV & ???                 |
+
+###### iBeacon
+
+A specific case of Apple-proprietary data is the iBeacon.  Look up a licensee name from its 128-bit iBeacon UUID.
+
+    advlib.ble.common.manufacturers.apple.ibeacon.licenseeNames[uuid];
+
+For example:
+
+    advlib.ble.common.manufacturers.apple.ibeacon.licenseeNames['f7826da64fa24e988024bc5b71e0893e'];
+
+would yield:
+
+    "Kontakt.io"
+
+Process an iBeacon packet from the contained advertiser data.
+
+    advlib.ble.common.manufacturers.apple.ibeacon.process(advData);
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      manufacturerSpecificData: {
+        companyIdentifierCode: "008c",
+        data: "0215b9407f30f5f8466eaff925556b57fe6d294c903974"
+      }
+    }
+
+For reference, the iBeacon payload is interpreted as follows:
+
+| Byte(s) | Hex String                       | Description                    |
+|--------:|:---------------------------------|:-------------------------------|
+| 0       | 26                               | Length, in bytes, of type and data |
+| 1       | ff                               | GAP Data Type for manufacturer specific data | 
+| 2-3     | 4c00                             | Apple company identifier code (bytes reversed) |
+| 4-5     | 0215                             | Identifier code for iBeacon    |
+| 6-21    | b9407f30f5f8466eaff925556b57fe6d | UUID (assigned by Apple)       |
+| 21-22   | 294c                             | Major                          |
+| 23-24   | 9039                             | Minor                          |
+| 25      | 74                               | TxPower (see TxPower section)  |
+
+Which would add the following property to advData:
+
+    manufacturerSpecificData: {
+      iBeacon: {
+        uuid: "b9407f30f5f8466eaff925556b57fe6d",
+        major: "294c",
+        minor: "9039",
+        txPower: "116dBm",
+        licenseeName: "Estimote"
+      }
+    }
+
+##### StickNFind
+
+Process StickNFind-proprietary data from a packet's contained advertiser data.
+
+    advlib.ble.common.manufacturers.sticknfind.process(advData);
+
+The first byte of the proprietary data specifies the type:
+
+| Type (Hex String) | Description                   |
+|------------------:|:------------------------------|
+| 01                | StickNFind Single             |
+| 42                | StickNSense Motion            |
+
+#### Utilities
+
+##### PDU
+
+More info to come.
+
+
 reelyActive RFID Library
 ------------------------
 
@@ -698,7 +797,7 @@ Process a raw packet (as a hexadecimal string) with the following command:
 What's next?
 ------------
 
-This is an active work in progress.  Expect regular changes and updates, as well as improved documentation!
+This is an active work in progress.  Expect regular changes and updates, as well as improved documentation!  If you'd like to contribute, kindly read our [Node.js style guide](https://github.com/reelyactive/node-style-guide) and [contact us](http://context.reelyactive.com/contact.html) or make a pull request.
 
 
 License
