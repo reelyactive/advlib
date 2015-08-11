@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "angular": "^1.4.1",
-    "advlib": "^0.0.6"
+    "advlib": "^0.0.7"
   },
   "bugs": {
     "url": "https://github.com/reelyactive/advlib/issues"
