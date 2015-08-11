@@ -8,16 +8,13 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
 .controller("InteractionCtrl", function($scope) {
   $scope.payload = '';
   $scope.header = '';
+
   $scope.bluetooth = {
-    show: true,
-    tabclass: "selected-tab",
     packet: {},
     presets: {}
   };
 
   $scope.reelyactive = {
-    show: false,
-    tabclass: "tab",
     packet: {},
     presets: {}
   };
@@ -25,31 +22,13 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
   $scope.packet = $scope.bluetooth.packet;
   $scope.packet = $scope.reelyactive.packet;
   $scope.presets = $scope.bluetooth.presets;
-  $scope.presets = $scope.bluetooth.presets;
-
-  $scope.show = {
-    bluetooth: true,
-    reelyactive: false
-  };
-  $scope.tabclass = {
-    bluetooth: 'selected-tab',
-    reelyactive: 'tab'
-  };
 
   $scope.selectBluetooth = function() {
-    $scope.bluetooth.show = true;
-    $scope.bluetooth.tabclass = "selected-tab";
-    $scope.reelyactive.show = false;
-    $scope.reelyactive.tabclass = "tab";
     $scope.packet = $scope.bluetooth.packet;
     $scope.presets = $scope.bluetooth.presets;
   }
 
   $scope.selectReelyactive = function() {
-    $scope.bluetooth.show = false;
-    $scope.bluetooth.tabclass = "tab";
-    $scope.reelyactive.show = true;
-    $scope.reelyactive.tabclass = "selected-tab";
     $scope.packet = $scope.reelyactive.packet;
     $scope.presets = $scope.reelyactive.presets;
   }
@@ -99,31 +78,6 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     name: "Tag Sensor Blink",
     payload: "123456742029"
   }];
-
-  $scope.process = function(item, event) {
-    if ($scope.bluetooth.show) {
-      $scope.bluetooth.packet = advlib.ble.process($scope.payload);
-      $scope.packet = JSON.stringify($scope.bluetooth.packet, null, " ");
-
-      // Defined for ng-keyup function process() calls
-      $scope.header = $scope.payload.substr(0, 4);
-      $scope.payloadData = $scope.payload.substring(16, $scope.payload.length -
-        16);
-
-      // Defined for Flags' array and Form Checkbox binding            
-      var flags = $scope.bluetooth.packet.advData.flags
-      $scope.checkedItems = {};
-      flags.forEach(function(element) {
-        $scope.checkedItems[element] = true;
-      });
-
-    } else if ($scope.reelyactive.show) {
-      console.log(advlib.reelyactive.process($scope.payload))
-      $scope.reelyactive.packet = advlib.reelyactive.process($scope.payload);
-      $scope.packet = JSON.stringify($scope.reelyactive.packet, null, " ");
-    }
-  }
-
   $scope.headerType = [{
     name: 'ADV_IND'
   }, {
@@ -142,7 +96,29 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     name: 'UNRECOGNISED'
   }];
 
+  $scope.process = function(item, event) {
+    if ($scope.bluetooth) {
+      $scope.bluetooth.packet = advlib.ble.process($scope.payload);
+      $scope.packet = JSON.stringify($scope.bluetooth.packet, null, " ");
 
+      // Defined for ng-keyup function process() calls
+      $scope.header = $scope.payload.substr(0, 4);
+      $scope.payloadData = $scope.payload.substring(16, $scope.payload.length -
+        16);
+
+      // Defined for Flags' array and Form Checkbox binding            
+      var flags = $scope.bluetooth.packet.advData.flags
+      $scope.checkedItems = {};
+      flags.forEach(function(element) {
+        $scope.checkedItems[element] = true;
+      });
+
+    } else if ($scope.reelyactive) {
+      console.log(advlib.reelyactive.process($scope.payload))
+      $scope.reelyactive.packet = advlib.reelyactive.process($scope.payload);
+      $scope.packet = JSON.stringify($scope.reelyactive.packet, null, " ");
+    }
+  }
 
   window.MYSCOPE = $scope; // In order to access scope on console (to be removed when not testing)
 
