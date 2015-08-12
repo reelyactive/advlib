@@ -34,32 +34,31 @@
 
       <tabset justified="true">
 
-        <tab heading="Bluetooth Smart" select="selectBluetooth()"
-             active="true">
+        <tab heading="Bluetooth Smart" select="selectBluetooth()">
 
           <!--Bluetooth Smart-->
           <div ng-controller="PacketCtrl">
         
             <form class="form-horizontal">
               <div class="form-group form-group-lg form-group-highlight">
-                <label for="reelyPayload" class="col-sm-2 control-label">
+                <label for="BluetoothPayload" class="col-sm-2 control-label">
                   Raw Payload
                 </label>
                 <div class="col-sm-8">
                   <input ng-model="payload" ng-keyup="process()" type="text"
                          placeholder="Enter/paste a payload here"
-                         class="form-control" id="reelyPayload">
+                         class="form-control" id="BluetoothPayload">
                 </div>
                 <div class="col-sm-2"></div>
               </div>
               <div class="form-group form-group-sm">
-                <label for="reelyPresets" class="col-sm-2 control-label">
+                <label for="BluetoothPresets" class="col-sm-2 control-label">
                   Select from presets
                 </label>
                 <div class="col-sm-8">
                   <select ng-model="payload" ng-change="process()"
                           class="form-control" ng-options="preset.payload as preset.name for preset in presets"
-                          id="reelyPresets">
+                          id="BluetoothPresets">
                     <option value=""> -- Choose a preset payload -- </option>
                   </select>
                 </div>
@@ -71,283 +70,329 @@
 
               <div class="col-xs-12 col-md-6">
 
-          <h1> Bluetooth Smart Packet Elements </h1>
-          <div>
-            <accordion close-others="false">
+                <h1> Bluetooth Smart Packet Elements </h1>
+                <div>
+                  <accordion close-others="false">
 
-            <!-- Header Accordion -->
-              <accordion-group is-open="bluetooth.id.open">
-                <accordion-heading>
-                  <strong>Header:</strong> &nbsp; {{header}}
-                  <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': bluetooth.id.open, 'glyphicon-chevron-right': !bluetooth.id.open}"></i>
-                </accordion-heading>
-                  <form class="form-horizontal">
-                    <div class="form-group">
-                      <label for="bluetoothHeader" class="col-xs-2">Header:</label>
-                        <div class="col-xs-4">
-                          <input type="text" class="form-control" ng-model="header" id="bluetoothHeader" readonly>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="bluetoothType" class="col-xs-2">Type:</label>
-                        <div class="col-xs-10">
-                          <select ng-model="bluetooth.packet.advHeader.type" class="form-control" id="bluetoothType" ng-options="header.name for header in headerType">
-                            <option value="">{{bluetooth.packet.advHeader.type}}
-                            </option>
-                          </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="bluetoothRxAdd" class="col-xs-2">rxAdd:</label>
-                        <span class="btn-group">
-                          <label  ng-model="bluetooth.packet.advHeader.rxAdd"  btn-radio="'public'" id="bluetoothRxAdd" class="btn btn-default"/> public </label>
-                          <label  ng-model="bluetooth.packet.advHeader.rxAdd"  btn-radio="'random'" id="bluetoothRxAdd" class="btn btn-default"/> random </label>
-                        </span>
-                    </div>
-                    <div class="form-group">
-                      <label for="bluetoothTxAdd" class="col-xs-2">txAdd:</label>
-                        <span class="btn-group">
-                          <label  ng-model="bluetooth.packet.advHeader.txAdd"  btn-radio="'public'" id="bluetoothTxAdd" class="btn btn-default"/> public </label>
-                          <label  ng-model="bluetooth.packet.advHeader.txAdd"  btn-radio="'random'" id="bluetoothTxAdd" class="btn btn-default"/> random </label>
-                      </span>
-                    </div>
-                    <div class="form-group">
-                      <label for="bluetoothLength" class="col-xs-2">Length:
-                      </label>
-                        <div class="col-xs-2">
-                          <input type="text" class="form-control" ng-model="bluetooth.packet.advHeader.length" 
-                          id="bluetoothLength" readonly>
-                        </div>
-                    </div>
-                  </form>
-              </accordion-group>
+                    <!-- Header Accordion -->
+                    <accordion-group is-open="bluetooth.header.open">
+                      <accordion-heading>
+                        <strong>Header:</strong> &nbsp; {{header}}
+                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': bluetooth.id.open, 'glyphicon-chevron-right': !bluetooth.id.open}"></i>
+                      </accordion-heading>
+                        <form class="form-horizontal">
+                          <div class="form-group">
+                            <label for="bluetoothHeader" class="col-xs-2">Header:</label>
+                              <div class="col-xs-4">
+                                <input type="text" class="form-control" ng-model="header" id="bluetoothHeader" readonly>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="bluetoothType" class="col-xs-2">Type:</label>
+                              <div class="col-xs-10">
+                                <select ng-model="bluetooth.packet.advHeader.type" class="form-control" id="bluetoothType" ng-options="header.name for header in headerType">
+                                  <option value="">{{bluetooth.packet.advHeader.type}}
+                                  </option>
+                                </select>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="bluetoothRxAdd" class="col-xs-2">rxAdd:</label>
+                              <span class="btn-group col-xs-5 col-sm-5 col-md-5">
+                                <label ng-model="bluetooth.packet.advHeader.rxAdd" btn-radio="'public'" id="bluetoothRxAdd"class="btn btn-default"/> public </label>
+                                <label ng-model="bluetooth.packet.advHeader.rxAdd" btn-radio="'random'" id="bluetoothRxAdd"class="btn btn-default"/> random </label>
+                              </span>
+                          </div>
+                          <div class="form-group">
+                            <label for="bluetoothTxAdd" class="col-xs-2">txAdd:</label>
+                              <span class="btn-group col-xs-5 col-sm-5 col-md-5">
+                                <label ng-model="bluetooth.packet.advHeader.txAdd" btn-radio="'public'" id="bluetoothTxAdd"class="btn btn-default"/> public </label>
+                                <label ng-model="bluetooth.packet.advHeader.txAdd" btn-radio="'random'" id="bluetoothTxAdd"class="btn btn-default"/> random </label>
+                            </span>
+                          </div>
+                          <div class="form-group">
+                            <label for="bluetoothLength" class="col-xs-2">Length:
+                            </label>
+                              <div class="col-xs-2">
+                                <input type="text" class="form-control" ng-model="bluetooth.packet.advHeader.length" 
+                                id="bluetoothLength" readonly>
+                              </div>
+                          </div>
+                        </form>
+                    </accordion-group>
 
-              <!-- Address Accordion -->
-              <accordion-group is-open="bluetooth.id.open">
-                <accordion-heading>
-                  <strong>Address:</strong> &nbsp; {{bluetooth.packet.value}}
-                  <i class="pull-right glyphicon" 
-                  ng-class="{'glyphicon-chevron-down': bluetooth.id.open, 'glyphicon-chevron-right': !bluetooth.id.open}"></i>
-                </accordion-heading>
-                <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="bluetoothAdd" class="col-xs-2">Address:</label>
-                      <div class="col-xs-4">
-                        <input type="text" class="form-control" ng-model="bluetooth.packet.value" id="bluetoothAdd" readonly>
+                    <!-- Address Accordion -->
+                    <accordion-group is-open="bluetooth.address.open">
+                      <accordion-heading>
+                        <strong>Address:</strong> &nbsp; {{bluetooth.packet.value}}
+                        <i class="pull-right glyphicon" 
+                        ng-class="{'glyphicon-chevron-down': bluetooth.id.open, 'glyphicon-chevron-right': !bluetooth.id.open}"></i>
+                      </accordion-heading>
+                      <form class="form-horizontal">
+                        <div class="form-group">
+                          <label for="bluetoothAdd" class="col-xs-2">Address:</label>
+                            <div class="col-xs-4">
+                              <input type="text" class="form-control" ng-model="bluetooth.packet.value" id="bluetoothAdd" readonly>
+                            </div>
+                        </div>
+                      </form>
+                    </accordion-group>
+
+                     <!-- Data Accordion -->
+                    <accordion-group is-open="bluetooth.data.open">
+                      <accordion-heading>
+                        <strong>Data:</strong> &nbsp; {{payloadData}}
+                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': bluetooth.id.open, 'glyphicon-chevron-right': !bluetooth.id.open}"></i>
+                      </accordion-heading>
+                      
+                      <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10"> 
+                        <!-- All the data content is inside this div class^ -->
+
+                          <div class="well well-sm" ng-show="bluetooth.packet.advData.nonComplete16BitUUIDs || bluetooth.packet.advData.complete16BitUUIDs || bluetooth.packet.advData.nonComplete128BitUUIDs || bluetooth.packet.advData.complete128BitUUIDs"> <!--UUID-->
+                            <form class="form-horizontal">
+                              <div class="form-group">
+                                <label class="col-xs-12">UUID:</label>
+                              </div>
+                              <div class="form-group" ng-show="bluetooth.packet.advData.nonComplete16BitUUIDs">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="nc16bit">Non-Complete 16 Bit:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.nonComplete16BitUUIDs" 
+                                  id="nc16bit" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group" ng-show="bluetooth.packet.advData.complete16BitUUIDs">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="c16bit">Complete 16 Bit:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.complete16BitUUIDs" 
+                                  id="c16bit" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group" ng-show="bluetooth.packet.advData.nonComplete128BitUUIDs">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="nc128bit">Non-Complete 128 Bit:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.nonComplete128BitUUIDs" 
+                                  id="nc128bit" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group" ng-show="bluetooth.packet.advData.complete128BitUUIDs">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="c128bit">Complete 128 Bit:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.complete128BitUUIDs" 
+                                  id="c128bit" readonly>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div class="well well-sm" ng-show="bluetooth.packet.advData.completeLocalName || bluetooth.packet.advData.shortenedLocalName"> <!--Local Name-->
+                            <form class="form-horizontal">
+                              <div class="form-group">
+                                <label class="col-xs-12">Local Name:</label>
+                              </div>
+                              <div class="form-group" ng-show="bluetooth.packet.advData.completeLocalName">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="completeLn">Complete:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.completeLocalName" id="completeLn" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group" ng-show="bluetooth.packet.advData.shortenedLocalName">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="shortenedLn">Shortened:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.shortenedLocalName" id="shortenedLn" readonly>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div class="well well-sm" ng-show="true" ng-show="checkedItems['']"> <!--Flags-->
+                            <form class="form-horizontal">
+                              <div class="form-group">
+                                <label class="col-xs-12">Flags:</label>
+                              </div>                       
+                              <div class="checkbox">
+                                <label for="flagBit0">
+                                  <input type="checkbox" ng-model="checkedItems['LE Limited Discoverable Mode']" id="flagBit0" class="col-xs-8 col-sm-8 col-md-8" readonly> LE Limited Discoverable Mode
+                                </label>
+                              </div>
+                              <div class="checkbox">
+                                <label for="flagBit1">
+                                  <input type="checkbox" ng-model="checkedItems['LE General Discoverable Mode']" id="flagBit1" class="col-xs-8 col-sm-8 col-md-8" readonly> LE General Discoverable Mode
+                                </label>
+                              </div>
+                              <div class="checkbox">
+                                <label for="flagBit2">
+                                  <input type="checkbox" ng-model="checkedItems['BR/EDR Not Supported']" id="flagBit2" class="col-xs-8 col-sm-8 col-md-8" readonly> BR/EDR Not Supported
+                                </label>
+                              </div>
+                              <div class="checkbox">
+                                <label for="flagBit3">
+                                  <input type="checkbox" ng-model="checkedItems['Simultaneous LE and BR/EDR to Same Device Capable (Controller)']" id="flagBit3" class="col-xs-8 col-sm-8 col-md-8" readonly> Simultaneous LE and BR/EDR to Same Device Capable (Controller)
+                                </label>
+                              </div>
+                              <div class="checkbox">
+                                <label for="flagBit4">
+                                  <input type="checkbox" ng-model="checkedItems['Simultaneous LE and BR/EDR to Same Device Capable (Host)']" id="flagBit4" class="col-xs-8 col-sm-8 col-md-8" readonly> Simultaneous LE and BR/EDR to Same Device Capable (Host)
+                                </label>
+                              </div>
+                              <div class="checkbox">
+                                <label for="flagBit5">
+                                  <input type="checkbox" ng-model="checkedItems['Reserved']" id="flagBit5" class="col-xs-8 col-sm-8 col-md-8" readonly> Reserved
+                                </label>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div class="well well-sm" ng-show="bluetooth.packet.advData.manufacturerSpecificData.companyName || bluetooth.packet.advData.manufacturerSpecificData.companyIdentifierCode || bluetooth.packet.advData.manufacturerSpecificData.data || bluetooth.packet.advData.manufacturerSpecificData.iBeacon"> <!--Manufacturer Specific Data-->
+                            <form class="form-horizontal">
+                              <div class="form-group">
+                                <label class="col-xs-12">Manufacturer Specific Data:</label>
+                              </div>
+                              <div ng-show="bluetooth.packet.advData.manufacturerSpecificData">
+                              <div class="form-group">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="msdCompanyName">Company Name:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.companyName" id="msdCompanyName" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="msdCompanyIdentifierCode">Company Identifier Code:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.companyIdentifierCode" id="msdCompanyIdentifierCode" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="msdData">Data:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.data" id="msdData" readonly>
+                                </div>
+                              </div>
+                              </div>
+                              <div class="form-group" ng-show="bluetooth.packet.advData.manufacturerSpecificData.iBeacon">
+                                <label class="col-xs-12 col-sm-12 col-md-12">iBeacon - </label>
+                                <div ng-show="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.uuid">
+                                  <label class="col-xs-12 col-sm-3 col-md-3" for="iBeaconUuid">UUID:</label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.uuid" id="iBeaconUuid" readonly>
+                                  </div>
+                                </div>
+                                <div ng-show="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.major">  
+                                  <label class="col-xs-12 col-sm-3 col-md-3" for="iBeaconMajor">Major:</label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.major" id="iBeaconMajor" readonly>
+                                  </div>
+                                </div>
+                                <div ng-show="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.minor">
+                                  <label class="col-xs-12 col-sm-3 col-md-3" for="iBeaconMinor">Minor:</label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.minor" id="iBeaconMinor" readonly>
+                                  </div>
+                                </div>
+                                <div ng-show="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.txPower">
+                                  <label class="col-xs-12 col-sm-3 col-md-3" for="iBeaconTxPower">TxPower:</label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.txPower" id="iBeaconTxPower" readonly>
+                                  </div>
+                                </div>
+                                <div ng-show="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.licenseeName">
+                                  <label class="col-xs-12 col-sm-3 col-md-3" for="iBeaconLicenseeName">Licensee Name:</label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.licenseeName" id="iBeaconLicenseeName" readonly>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div class="well well-sm" ng-show="bluetooth.packet.advData.txPower"> <!--TX Power Level-->
+                          <form class="form-horizontal">
+                            <div class="form-group">
+                              <label for="TxPowerLevel" class="col-xs-12 col-sm-3 col-md-3">TX Power Level:</label>
+                            <div class="col-xs-4" ng-show="bluetooth.packet.advData.txPower">
+                              <input type="text" class="form-control" ng-model="bluetooth.packet.advData.txPower" id="TxPowerLevel" readonly>
+                            </div>
+                            </div>
+                          </form>
+                          </div>
+
+                          <div class="well well-sm" ng-show="bluetooth.packet.advData.solicitation16BitUUIDs || bluetooth.packet.advData.solicitation128BitUUIDs"> <!--Service Solicitation-->
+                            <form class="form-horizontal">
+                              <div class="form-group">
+                                <label class="col-xs-12">Service Solicitation:</label>
+                              </div>                       
+                              <div class="checkbox">
+                                <label for="ss16">
+                                  <input type="checkbox" ng-model="bluetooth.packet.advData.solicitation16BitUUIDs" id="ss16" class="col-xs-8 col-sm-8 col-md-8" readonly> 16 Bit UUIDs
+                                </label>
+                              </div>
+                              <div class="checkbox">
+                                <label for="ss128">
+                                  <input type="checkbox" ng-model="bluetooth.packet.advData.solicitation128BitUUIDs" id="ss128" class="col-xs-8 col-sm-8 col-md-8" readonly> 128 Bit UUIDs
+                                </label>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div class="well well-sm" ng-show="bluetooth.packet.advData.serviceData.uuid || bluetooth.packet.advData.serviceData.data || bluetooth.packet.advData.serviceData.companyName"> <!--Service Data-->
+                            <form class="form-horizontal">
+                              <div class="form-group">
+                                <label class="col-xs-12">Service Data:</label>
+                              </div>
+                              <div class="form-group" ng-show="bluetooth.packet.advData.serviceData.uuid || bluetooth.packet.advData.serviceData.specificationName || bluetooth.packet.advData.serviceData.uriBeacon">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="sdUuid">UUID:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.serviceData.uuid" id="sdUuid" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group" ng-show="bluetooth.packet.advData.serviceData.data">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="sdData">Data:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.serviceData.data" id="sdData" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group" ng-show="bluetooth.packet.advData.serviceData.companyName">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="sdCompanyName">Company Name:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.serviceData.companyName" id="sdCompanyName" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group" ng-show="bluetooth.packet.advData.serviceData.specificationName">
+                                <label class="col-xs-12 col-sm-3 col-md-3" for="sdSpecName">Specification Name:</label>
+                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                  <input type="text" class="form-control" ng-model="bluetooth.packet.advData.serviceData.specificationName" id="sdSpecName" readonly>
+                                </div>
+                              </div>
+                              <div class="form-group" ng-show="bluetooth.packet.advData.serviceData.uriBeacon">
+                                <label class="col-xs-12 col-sm-12 col-md-12">uriBeacon - </label>
+                                <div ng-show="bluetooth.packet.advData.serviceData.uriBeacon.txPower">  
+                                  <label class="col-xs-12 col-sm-3 col-md-3" for="sdUriTxPower">TxPower:</label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control" ng-model="bluetooth.packet.advData.serviceData.uriBeacon.txPower" id="sdUriTxPower" readonly>
+                                  </div>
+                                </div>
+                                <div ng-show="bluetooth.packet.advData.serviceData.uriBeacon.url">
+                                  <label class="col-xs-12 col-sm-3 col-md-3" for="sdUriUrl">URL:</label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control" ng-model="bluetooth.packet.advData.serviceData.uriBeacon.url" id="sdUriUrl" readonly>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
                       </div>
-                  </div>
-                </form>
-              </accordion-group>
+                    </accordion-group>
 
-               <!-- Data Accordion -->
-              <accordion-group is-open="bluetooth.id.open">
-                <accordion-heading>
-                  <strong>Data:</strong> &nbsp; {{payloadData}}
-                  <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': bluetooth.id.open, 'glyphicon-chevron-right': !bluetooth.id.open}"></i>
-                </accordion-heading>
-                
-                <div class="row">
-                  <div class="col-sm-1"></div>
-                  <div class="col-sm-10"> 
-                  <!-- All the data content is inside this div class^ -->
-
-                    <div class="well well-sm" ng-show="true"> <!--UUID-->
-                      <form class="form-horizontal">
-                        <div class="form-group">
-                          <label class="col-xs-12">UUID:</label>
-                        </div>
-                        <div class="form-group" ng-show="bluetooth.packet.advData.nonComplete16BitUUIDs">
-                          <label class="col-xs-12 col-sm-3 col-md-3" for="bluetoothUuid">Non-Complete 16 Bit:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.nonComplete16BitUUIDs" 
-                            id="bluetoothUuid" readonly>
-                          </div>
-                        </div>
-                        <div class="form-group" ng-show="bluetooth.packet.advData.complete16BitUUIDs">
-                          <label class="col-xs-12 col-sm-3 col-md-3" for="bluetoothUuid">Complete 16 Bit:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.complete16BitUUIDs" 
-                            id="bluetoothUuid" readonly>
-                          </div>
-                        </div>
-                        <div class="form-group" ng-show="bluetooth.packet.advData.nonComplete128BitUUIDs">
-                          <label class="col-xs-12 col-sm-3 col-md-3" for="bluetoothUuid">Non-Complete 128 Bit:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.nonComplete128BitUUIDs" 
-                            id="bluetoothUuid" readonly>
-                          </div>
-                        </div>
-                        <div class="form-group" ng-show="bluetooth.packet.advData.complete128BitUUIDs">
-                          <label class="col-xs-12 col-sm-3 col-md-3" for="bluetoothUuid">Complete 128 Bit:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.complete128BitUUIDs" 
-                            id="bluetoothUuid" readonly>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-
-                    <div class="well well-sm" ng-show="true"> <!--Local Name-->
-                      <form class="form-horizontal">
-                        <div class="form-group">
-                          <label class="col-xs-12">Local Name:</label>
-                        </div>
-                        <div class="form-group" ng-show="bluetooth.packet.advData.completeLocalName">
-                          <label class="col-xs-12 col-sm-3 col-md-3" for="bluetoothLn">Complete:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.completeLocalName" id="bluetoothLn" readonly>
-                          </div>
-                        </div>
-                        <div class="form-group" ng-show="bluetooth.packet.advData.shortenedLocalName">
-                          <label class="col-xs-12 col-sm-3 col-md-3" for="bluetoothLn">Shortened:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.shortenedLocalName" id="bluetoothLn" readonly>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-
-                    <div class="well well-sm" ng-show="true"> <!--Flags-->
-                      <form class="form-horizontal">
-                        <div class="form-group">
-                          <label class="col-xs-12">Flags:</label>
-                        </div>                       
-                        <div class="checkbox">
-                          <label for="flagBit0">
-                            <input type="checkbox" ng-model="checkedItems['LE Limited Discoverable Mode']" id="flagBit0" class="col-xs-8 col-sm-8 col-md-8" readonly> LE Limited Discoverable Mode
-                          </label>
-                        </div>
-                        <div class="checkbox">
-                          <label for="flagBit1">
-                            <input type="checkbox" ng-model="checkedItems['LE General Discoverable Mode']" id="flagBit1" class="col-xs-8 col-sm-8 col-md-8" readonly> LE General Discoverable Mode
-                          </label>
-                        </div>
-                        <div class="checkbox">
-                          <label for="flagBit2">
-                            <input type="checkbox" ng-model="checkedItems['BR/EDR Not Supported']" id="flagBit2" class="col-xs-8 col-sm-8 col-md-8" readonly> BR/EDR Not Supported
-                          </label>
-                        </div>
-                        <div class="checkbox">
-                          <label for="flagBit3">
-                            <input type="checkbox" ng-model="checkedItems['Simultaneous LE and BR/EDR to Same Device Capable (Controller)']" id="flagBit3" class="col-xs-8 col-sm-8 col-md-8" readonly> Simultaneous LE and BR/EDR to Same Device Capable (Controller)
-                          </label>
-                        </div>
-                        <div class="checkbox">
-                          <label for="flagBit4">
-                            <input type="checkbox" ng-model="checkedItems['Simultaneous LE and BR/EDR to Same Device Capable (Host)']" id="flagBit4" class="col-xs-8 col-sm-8 col-md-8" readonly> Simultaneous LE and BR/EDR to Same Device Capable (Host)
-                          </label>
-                        </div>
-                        <div class="checkbox">
-                          <label for="flagBit5">
-                            <input type="checkbox" ng-model="checkedItems['Reserved']" id="flagBit5" class="col-xs-8 col-sm-8 col-md-8" readonly> Reserved
-                          </label>
-                        </div>
-                      </form>
-                    </div>
-
-                    <div class="well well-sm" ng-show="true"> <!--Manufacturer Specific Data-->
-                      <form class="form-horizontal">
-                        <div class="form-group">
-                          <label class="col-xs-12">Manufacturer Specific Data:</label>
-                        </div>
-                        <div ng-show="bluetooth.packet.advData.manufacturerSpecificData">
-
-                        <div class="form-group">
-                          <label class="col-xs-12 col-sm-3 col-md-3">Company Identifier Code:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.companyIdentifierCode" id="bluetoothLn" readonly>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-xs-12 col-sm-3 col-md-3">Data:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.data" id="bluetoothLn" readonly>
-                          </div>
-                        </div>
-                        </div>
-                        <div class="form-group" ng-show="bluetooth.packet.advData.manufacturerSpecificData.iBeacon">
-                          <label class="col-xs-12 col-sm-12 col-md-12">iBeacon -</label>
-                          <label class="col-xs-12 col-sm-3 col-md-3">UUID:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.uuid" id="bluetoothLn" readonly>
-                          </div>
-                          <label class="col-xs-12 col-sm-3 col-md-3">Major:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.major" id="bluetoothLn" readonly>
-                          </div>
-                          <label class="col-xs-12 col-sm-3 col-md-3">Minor:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.minor" id="bluetoothLn" readonly>
-                          </div>
-                          <label class="col-xs-12 col-sm-3 col-md-3">TxPower:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.manufacturerSpecificData.iBeacon.txpower" id="bluetoothLn" readonly>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-
-                    <div class="well well-sm" ng-show="true"> <!--TX Power Level-->
-                    <form class="form-horizontal">
-                      <div class="form-group">
-                        <label for="bluetoothTx" class="col-xs-12 col-sm-3 col-md-3">TX Power Level:</label>
-                      <div class="col-xs-4" ng-show="bluetooth.packet.advData.txPower">
-                        <input type="text" class="form-control" ng-model="bluetooth.packet.advData.txPower" id="bluetoothTx" readonly>
-                      </div>
-                      </div>
-                    </form>
-                    </div>
-
-                    <div class="well well-sm" ng-show="true"> <!--Service Solicitation-->
-                      <form class="form-horizontal">
-                        <div class="form-group">
-                          <label class="col-xs-12">Service Solicitation:</label>
-                        </div>                       
-                        <div class="checkbox">
-                          <label for="ss16">
-                            <input type="checkbox" ng-model="bluetooth.packet.advData.solicitation16BitUUIDs" id="ss16" class="col-xs-8 col-sm-8 col-md-8" readonly> 16 Bit UUIDs
-                          </label>
-                        </div>
-                        <div class="checkbox">
-                          <label for="ss128">
-                            <input type="checkbox" ng-model="bluetooth.packet.advData.solicitation128BitUUIDs" id="ss128" class="col-xs-8 col-sm-8 col-md-8" readonly> 128 Bit UUIDs
-                          </label>
-                        </div>
-                      </form>
-                    </div>
-
-                    <div class="well well-sm" ng-show="true"> <!--Service Data-->
-                      <form class="form-horizontal">
-                        <div class="form-group">
-                          <label class="col-xs-12">Service Data:</label>
-                        </div>
-                        <div class="form-group" ng-show="bluetooth.packet.advData.serviceData.uuid">
-                          <label class="col-xs-12 col-sm-3 col-md-3" for="bluetoothLn">UUID:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.serviceData.uuid" id="bluetoothLn" readonly>
-                          </div>
-                        </div>
-                        <div class="form-group" ng-show="bluetooth.packet.advData.serviceData.data">
-                          <label class="col-xs-12 col-sm-3 col-md-3" for="bluetoothLn">Data:</label>
-                          <div class="col-xs-12 col-sm-8 col-md-8">
-                            <input type="text" class="form-control" ng-model="bluetooth.packet.advData.serviceData.data" id="bluetoothLn" readonly>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
+                  </accordion>
                 </div>
-              </accordion-group>
-            </accordion>
-          </div>
-        </div>
+              </div>
 
               <!--JSON-->
               <div class="col-xs-12 col-md-6">
                 <h1> As JSON </h1>
                 <pre>{{packet}}</pre>
               </div>
-
             </div> 
           </div>
         </tab>
@@ -392,6 +437,8 @@
 
                 <div>
                   <accordion close-others="false">
+
+                  <!-- Identifier Accordion -->
                     <accordion-group is-open="reelyactive.id.open">
                       <accordion-heading>
                         <strong>Identifier:</strong> &nbsp;
@@ -408,6 +455,8 @@
                         </div>
                       </form>
                     </accordion-group>
+
+                    <!-- Flags Accordion -->
                     <accordion-group is-open="reelyactive.flags.open">
                       <accordion-heading>
                         <strong>Flags:</strong> &nbsp;
@@ -427,6 +476,8 @@
                         </div>
                       </form>
                     </accordion-group>
+
+                    <!-- Data Accordion -->
                     <accordion-group is-open="reelyactive.data.open">
                       <accordion-heading>
                         <strong>Data:</strong> &nbsp;
@@ -459,7 +510,7 @@
                 </div>
               </div>
 
-              <!--________JSON________-->
+              <!--JSON-->
               <div class="col-xs-12 col-md-6">
                 <h1> As JSON </h1>
                 <pre>{{packet}}</pre>
