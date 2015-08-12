@@ -76,6 +76,35 @@ body {
 }
 /* End Bootstrap 3 navbar override */
 
+/* Begin Bootstrap 3 tabs override */
+.nav-tabs {
+  background-color:#f8f8f8;
+  border-color: #ff6900;
+}
+
+.nav-tabs > li.active > a {
+  color: #fff !important;
+  background-color: #ff6900 !important;
+  font-weight: bold;
+}
+
+.nav-tabs > li > a {
+  color: #ff6900;
+  border-color: #eee;
+  background-color: #fff;
+  border-bottom-color: #ff6900;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.nav-tabs > li > a:hover {
+  color: #ff6900;
+  font-weight: bold;
+  background-color: #fff;
+  border-color: #ff6900 #ff6900 #fff;
+}
+/* End Bootstrap 3 tabs override */
+
 .form-group-highlight {
   background-color: #eee;
 }
