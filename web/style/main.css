@@ -9,6 +9,11 @@ body {
   margin-bottom: 60px;
 }
 
+header {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
 /* Begin Bootstrap 3 navbar override */
 .navbar-default {
     background-color: #0770a2;
