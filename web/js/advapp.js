@@ -22,13 +22,19 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
   $scope.packet = $scope.bluetooth.packet;
   $scope.packet = $scope.reelyactive.packet;
   $scope.presets = $scope.bluetooth.presets;
+  $scope.presets = $scope.reelyactive.presets;
+
 
   $scope.selectBluetooth = function() {
+    $scope.bluetooth.show = true;
+    $scope.reelyactive.show = false;
     $scope.packet = $scope.bluetooth.packet;
     $scope.presets = $scope.bluetooth.presets;
   }
 
   $scope.selectReelyactive = function() {
+    $scope.bluetooth.show = false;
+    $scope.reelyactive.show = true;
     $scope.packet = $scope.reelyactive.packet;
     $scope.presets = $scope.reelyactive.presets;
   }
@@ -97,7 +103,7 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
   }];
 
   $scope.process = function(item, event) {
-    if ($scope.bluetooth) {
+    if ($scope.bluetooth.show) {
       $scope.bluetooth.packet = advlib.ble.process($scope.payload);
       $scope.packet = JSON.stringify($scope.bluetooth.packet, null, " ");
 
@@ -107,19 +113,19 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
         16);
 
       // Defined for Flags' array and Form Checkbox binding            
-      var flags = $scope.bluetooth.packet.advData.flags
+      var flags = $scope.bluetooth.packet.advData.flags;
       $scope.checkedItems = {};
       flags.forEach(function(element) {
         $scope.checkedItems[element] = true;
       });
 
-    } else if ($scope.reelyactive) {
+    } else if ($scope.reelyactive.show) {
       console.log(advlib.reelyactive.process($scope.payload))
       $scope.reelyactive.packet = advlib.reelyactive.process($scope.payload);
       $scope.packet = JSON.stringify($scope.reelyactive.packet, null, " ");
     }
   }
-
+  
   window.MYSCOPE = $scope; // In order to access scope on console (to be removed when not testing)
 
 });
