@@ -62,21 +62,158 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     $scope.process = function(item, event) {
       $scope.packet = advlib.ble.process($scope.payload);
       $scope.json = JSON.stringify($scope.packet, null, "  ");
-
-      // Defined for ng-keyup function process() calls
-      $scope.header = $scope.payload.substr(0, 4);
-      $scope.payloadData = $scope.payload.substr(16);
-
-      // Defined for Flags' array and Form Checkbox binding            
-      var flags = $scope.packet.advData.flags;
-      $scope.checkedItems = {};
-      flags.forEach(function(element) {
-        $scope.checkedItems[element] = true;
-      });
+      $scope.elements = createElements($scope.payload, $scope.packet);
     }
-  
-    //window.MYSCOPE = $scope; // In order to access scope on console (to be removed when not testing)
 
+    function createElements(payload, packet) {
+      var elements = {};
+      elements.header = createElementsHeader(payload, packet);
+      elements.address = createElementsAddress(payload, packet);
+      elements.data = createElementsData(payload, packet);
+      return elements;
+    }
+
+    function createElementsHeader(payload, packet) {
+      var header = {};
+      header.value = payload.substr(0, 4);
+      header.type = packet.advHeader.type;
+      header.rxAdd = packet.advHeader.rxAdd;
+      header.txAdd = packet.advHeader.txAdd;
+      header.lengthInBytes = packet.advHeader.lengthInBytes;
+      return header;
+    }
+
+    function createElementsAddress(payload, packet) {
+      var address = {};
+      address.value = packet.value;
+      return address;
+    }
+        
+    function createElementsData(payload, packet) {
+      var data = {};
+      data.value = $scope.payload.substr(16);
+
+      var advData = $scope.packet.advData;
+
+      for (var key in advData) {
+        if (advData.hasOwnProperty(key)) {
+          switch(key) {
+            case("uuid"):
+              createElementsDataUuid(packet, data);
+              break;
+            case("localName"):
+              createElementsDataLocalName(packet, data);
+              break;
+            case("flags"):
+              createElementsDataFlags(packet, data);
+              break;
+            case("manufacturerSpecificData"):
+              createElementsDataManufacturerSpecificData(packet, data);
+              break;
+            case("txPower"):
+              createElementsDataTxPower(packet, data);
+              break;
+            case("serviceSolicitation"):
+              createElementsDataServiceSolicitation(packet, data);
+              break;
+            case("serviceData"):
+              createElementsDataServiceData(packet, data);
+              break;
+            default:
+          }
+        }
+      }
+      return data;
+    }
+
+    function createElementsDataUuid(packet, data) {
+      var uuid = {};
+      uuid.nonComplete16BitUUIDs = packet.advData.nonComplete16BitUUIDs;
+      uuid.complete16BitUUIDs = packet.advData.complete16BitUUIDs;
+      uuid.nonComplete128BitUUIDs = packet.advData.nonComplete128BitUUIDs;
+      uuid.complete128BitUUIDs = packet.advData.complete128BitUUIDs;
+      data.uuid = uuid;
+    }
+
+    function createElementsDataLocalName(packet, data) {
+      var localName = {};
+      localName.completeLocalName = packet.advData.completeLocalName;
+      localName.shortenedLocalName = packet.advData.shortenedLocalName;
+      data.localName = localName;
+    }
+
+    function createElementsDataFlags(packet, data) {
+      var flagArray = [ 
+        {name: "LE Limited Discoverable Mode", set: false}, 
+        {name: "LE General Discoverable Mode", set: false},
+        {name: "BR/EDR Not Supported", set: false},
+        {name: "Simultaneous LE and BR/EDR to Same Device Capable (Controller)", set: false},
+        {name: "Simultaneous LE and BR/EDR to Same Device Capable (Host)", set: false},
+        {name: "Reserved", set: false},
+      ];
+
+      for(var bit in flagArray) {
+      var flags = $scope.packet.advData.flags;
+      var name = flagArray[bit].name;
+        for(var flag in flags) {
+          if(flags[flag] === name) {
+            flagArray[bit].set = true;
+          }
+        }
+      }
+
+      data.flags = flagArray;
+    }
+
+    function createElementsDataManufacturerSpecificData(packet, data) {
+      var manufacturerSpecificData = {};
+      manufacturerSpecificData.companyName = packet.advData.manufacturerSpecificData.companyName;
+      manufacturerSpecificData.companyIdentifierCode = packet.advData.manufacturerSpecificData.companyIdentifierCode;
+      manufacturerSpecificData.data = packet.advData.manufacturerSpecificData.data;
+
+      if(typeof(packet.advData.manufacturerSpecificData.iBeacon) !== 'undefined') {
+        var iBeacon = {};
+        iBeacon.uuid = packet.advData.manufacturerSpecificData.iBeacon.uuid;
+        iBeacon.major = packet.advData.manufacturerSpecificData.iBeacon.major;
+        iBeacon.minor = packet.advData.manufacturerSpecificData.iBeacon.minor;
+        iBeacon.txPower = packet.advData.manufacturerSpecificData.iBeacon.txPower;
+        iBeacon.licenseeName = packet.advData.manufacturerSpecificData.iBeacon.licenseeName;
+        manufacturerSpecificData.iBeacon = iBeacon;
+      }
+
+      data.manufacturerSpecificData = manufacturerSpecificData;
+    }
+
+    function createElementsDataTxPower(packet, data) {
+      var txPower = {};
+      txPower.value = packet.advData.txPower;
+      data.txPower = txPower;
+    }
+
+    function createElementsDataServiceSolicitation(packet, data) {
+      var serviceSolicitation = {};
+      serviceSolicitation.solicitation16BitUUIDs = packet.advData.solicitation16BitUUIDs;
+      serviceSolicitation.solicitation128BitUUIDs = packet.advData.solicitation128BitUUIDs;
+      data.serviceSolicitation = serviceSolicitation;
+    }
+
+    function createElementsDataServiceData(packet, data) {
+      var serviceData = {};
+      serviceData.uuid = packet.advData.serviceData.uuid;
+      serviceData.data = packet.advData.serviceData.data;
+      serviceData.companyName = packet.advData.serviceData.companyName;
+      serviceData.specificationName = packet.advData.serviceData.specificationName;
+
+      if(typeof(packet.advData.serviceData.uriBeacon) !== 'undefined') {
+        var uriBeacon = {};
+        uriBeacon.txPower = packet.advData.serviceData.uriBeacon.txPower;
+        uriBeacon.url = packet.advData.serviceData.uriBeacon.url;
+        serviceData.uriBeacon = uriBeacon;
+      }
+
+      data.serviceData = serviceData;
+    }      
+        
   })
 
 
@@ -96,3 +233,5 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
       $scope.json = JSON.stringify($scope.packet, null, "  ");
     }
   });
+
+  // window.MYSCOPE = $scope; // In order to access scope on console (to be removed when not testing)
