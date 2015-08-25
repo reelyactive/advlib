@@ -732,6 +732,7 @@ var pdu = require('../../util/pdu.js');
  * Kindly respect ascending order of UUIDs to facilitate verify-before-update!
  */ 
 var licenseeNames = {
+    "24ddf4118cf1440c87cde368daf9c93e": "RECO",
     "2f234454cf6d4a0fadf2f4911ba9ffa6": "Radius Networks",
     "3d4f13b4d1fd404980e5d3edcc840b69": "Orange S.A.",
     "8deefbb9f7384297804096668bb44281": "Roximity",
@@ -1047,7 +1048,16 @@ module.exports.convertTxPower = convertTxPower;
  * We believe in an open Internet of Things
  */
 
- /**
+
+var BIT0_NAME = 'LE Limited Discoverable Mode';
+var BIT1_NAME = 'LE General Discoverable Mode';
+var BIT2_NAME = 'BR/EDR Not Supported';
+var BIT3_NAME = 'Simultaneous LE and BR/EDR to Same Device Capable (Controller)';
+var BIT4_NAME = 'Simultaneous LE and BR/EDR to Same Device Capable (Host)';
+var BIT5_NAME = 'Reserved';
+
+
+/**
  * Parse BLE advertiser data flags.
  * @param {string} payload The raw payload as a hexadecimal-string.
  * @param {number} cursor The start index within the payload.
@@ -1057,24 +1067,34 @@ function process(payload, cursor, advertiserData) {
   var flags = parseInt(payload.substr(cursor+4,2),16);
   var result = [];
   if(flags & 0x01) {
-    result.push("LE Limited Discoverable Mode");
+    result.push(BIT0_NAME);
   }
   if(flags & 0x02) {
-    result.push("LE General Discoverable Mode");
+    result.push(BIT1_NAME);
   }
   if(flags & 0x04) {
-    result.push("BR/EDR Not Supported");
+    result.push(BIT2_NAME);
   }
   if(flags & 0x08) {
-    result.push("Simultaneous LE and BR/EDR to Same Device Capable (Controller)");
+    result.push(BIT3_NAME);
   }
   if(flags & 0x10) {
-    result.push("Simultaneous LE and BR/EDR to Same Device Capable (Host)");
+    result.push(BIT4_NAME);
+  }
+  if(flags & 0x20) {
+    result.push(BIT5_NAME);
   }
   advertiserData.flags = result;
 }
 
 module.exports.process = process;
+module.exports.BIT0_NAME = BIT0_NAME;
+module.exports.BIT1_NAME = BIT1_NAME;
+module.exports.BIT2_NAME = BIT2_NAME;
+module.exports.BIT3_NAME = BIT3_NAME;
+module.exports.BIT4_NAME = BIT4_NAME;
+module.exports.BIT5_NAME = BIT5_NAME;
+
 },{}],12:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
@@ -2374,6 +2394,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
+module.exports.flags = flags;
 
 },{"./gap/flags.js":11,"./gap/genericdata.js":12,"./gap/localname.js":13,"./gap/manufacturerspecificdata.js":14,"./gap/servicedata.js":15,"./gap/slaveconnectionintervalrange.js":16,"./gap/solicitation.js":17,"./gap/txpower.js":18,"./gap/uuid.js":19}],52:[function(require,module,exports){
 /**
@@ -2462,6 +2483,7 @@ function process(payload) {
 
 module.exports.process = process;
 module.exports.address = address;
+module.exports.data = data;
 
 },{"./address/index.js":1,"./common/util/identifier.js":9,"./data/index.js":51,"./header/index.js":52}],54:[function(require,module,exports){
 /**
@@ -31369,24 +31391,22 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
 
     function createElementsDataFlags(packet, data) {
       var flagArray = [ 
-        {name: "LE Limited Discoverable Mode", set: false}, 
-        {name: "LE General Discoverable Mode", set: false},
-        {name: "BR/EDR Not Supported", set: false},
-        {name: "Simultaneous LE and BR/EDR to Same Device Capable (Controller)", set: false},
-        {name: "Simultaneous LE and BR/EDR to Same Device Capable (Host)", set: false},
-        {name: "Reserved", set: false},
+        {name: advlib.ble.data.flags.BIT0_NAME, set: false}, 
+        {name: advlib.ble.data.flags.BIT1_NAME, set: false},
+        {name: advlib.ble.data.flags.BIT2_NAME, set: false},
+        {name: advlib.ble.data.flags.BIT3_NAME, set: false},
+        {name: advlib.ble.data.flags.BIT4_NAME, set: false},
+        {name: advlib.ble.data.flags.BIT5_NAME, set: false},
       ];
-
       for(var bit in flagArray) {
-      var flags = $scope.packet.advData.flags;
-      var name = flagArray[bit].name;
+        var flags = $scope.packet.advData.flags;
+        var name = flagArray[bit].name;
         for(var flag in flags) {
           if(flags[flag] === name) {
             flagArray[bit].set = true;
           }
         }
       }
-
       data.flags = flagArray;
     }
 
@@ -31440,7 +31460,6 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     }      
         
   })
-
 
   // ----- reelyActive controller -----
   .controller("ReelyactiveCtrl", function($scope) {

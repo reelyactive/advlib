@@ -144,24 +144,22 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
 
     function createElementsDataFlags(packet, data) {
       var flagArray = [ 
-        {name: "LE Limited Discoverable Mode", set: false}, 
-        {name: "LE General Discoverable Mode", set: false},
-        {name: "BR/EDR Not Supported", set: false},
-        {name: "Simultaneous LE and BR/EDR to Same Device Capable (Controller)", set: false},
-        {name: "Simultaneous LE and BR/EDR to Same Device Capable (Host)", set: false},
-        {name: "Reserved", set: false},
+        {name: advlib.ble.data.flags.BIT0_NAME, set: false}, 
+        {name: advlib.ble.data.flags.BIT1_NAME, set: false},
+        {name: advlib.ble.data.flags.BIT2_NAME, set: false},
+        {name: advlib.ble.data.flags.BIT3_NAME, set: false},
+        {name: advlib.ble.data.flags.BIT4_NAME, set: false},
+        {name: advlib.ble.data.flags.BIT5_NAME, set: false},
       ];
-
       for(var bit in flagArray) {
-      var flags = $scope.packet.advData.flags;
-      var name = flagArray[bit].name;
+        var flags = $scope.packet.advData.flags;
+        var name = flagArray[bit].name;
         for(var flag in flags) {
           if(flags[flag] === name) {
             flagArray[bit].set = true;
           }
         }
       }
-
       data.flags = flagArray;
     }
 
@@ -215,7 +213,6 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     }      
         
   })
-
 
   // ----- reelyActive controller -----
   .controller("ReelyactiveCtrl", function($scope) {
