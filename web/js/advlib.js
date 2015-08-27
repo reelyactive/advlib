@@ -2402,6 +2402,17 @@ module.exports.flags = flags;
  * We believe in an open Internet of Things
  */
 
+
+var TYPE0_NAME = 'ADV_IND';
+var TYPE1_NAME = 'ADV_DIRECT_IND';
+var TYPE2_NAME = 'ADV_NONCONNECT_IND';
+var TYPE3_NAME = 'SCAN_REQ';
+var TYPE4_NAME = 'SCAN_RSP';
+var TYPE5_NAME = 'CONNECT_REQ';
+var TYPE6_NAME = 'ADV_DISCOVER_IND';
+var TYPE_UNDEFINED_NAME = 'UNRECOGNISED';
+
+
 /**
  * Convert a raw Bluetooth Low Energy advertiser header into its meaningful
  * parts.
@@ -2423,28 +2434,28 @@ function process(payload) {
   var type;
   switch(typeCode) {
     case("0"):
-      type = "ADV_IND";
+      type = TYPE0_NAME;
       break;
     case("1"):
-      type = "ADV_DIRECT_IND";
+      type = TYPE1_NAME;
       break;
     case("2"):
-      type = "ADV_NONCONNECT_IND";
+      type = TYPE2_NAME;
       break;
     case("3"):
-      type = "SCAN_REQ";
+      type = TYPE3_NAME;
       break;
     case("4"):
-      type = "SCAN_RSP";
+      type = TYPE4_NAME;
       break;
     case("5"):
-      type = "CONNECT_REQ";
+      type = TYPE5_NAME;
       break;
     case("6"):
-      type = "ADV_DISCOVER_IND";
+      type = TYPE6_NAME;
       break;
     default: 
-      type = "UNRECOGNISED";
+      type = TYPE_UNDEFINED_NAME;
   }
   return { type: type,
            length: length,
@@ -2453,7 +2464,17 @@ function process(payload) {
   };
 }
 
+
 module.exports.process = process;
+module.exports.TYPE0_NAME = TYPE0_NAME;
+module.exports.TYPE1_NAME = TYPE1_NAME;
+module.exports.TYPE2_NAME = TYPE2_NAME;
+module.exports.TYPE3_NAME = TYPE3_NAME;
+module.exports.TYPE4_NAME = TYPE4_NAME;
+module.exports.TYPE5_NAME = TYPE5_NAME;
+module.exports.TYPE6_NAME = TYPE6_NAME;
+module.exports.TYPE_UNDEFINED_NAME = TYPE_UNDEFINED_NAME;
+
 },{}],53:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
@@ -2482,6 +2503,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
+module.exports.header = header;
 module.exports.address = address;
 module.exports.data = data;
 
@@ -31296,14 +31318,14 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     }];
 
     $scope.headerType = [
-      { name: 'ADV_IND' },
-      { name: 'ADV_DIRECT_IND' },
-      { name: 'ADV_NONCONNECT_IND' },
-      { name: 'SCAN_REQ' },
-      { name: 'SCAN_RSP' },
-      { name: 'CONNECT_REQ' },
-      { name: 'ADV_DISCOVER_IND' },
-      { name: 'UNRECOGNISED' }
+      { name: advlib.ble.header.TYPE0_NAME },
+      { name: advlib.ble.header.TYPE1_NAME },
+      { name: advlib.ble.header.TYPE2_NAME },
+      { name: advlib.ble.header.TYPE3_NAME },
+      { name: advlib.ble.header.TYPE4_NAME },
+      { name: advlib.ble.header.TYPE5_NAME },
+      { name: advlib.ble.header.TYPE6_NAME },
+      { name: advlib.ble.header.TYPE_UNDEFINED_NAME }
     ];
 
     $scope.process = function(item, event) {

@@ -49,14 +49,14 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     }];
 
     $scope.headerType = [
-      { name: 'ADV_IND' },
-      { name: 'ADV_DIRECT_IND' },
-      { name: 'ADV_NONCONNECT_IND' },
-      { name: 'SCAN_REQ' },
-      { name: 'SCAN_RSP' },
-      { name: 'CONNECT_REQ' },
-      { name: 'ADV_DISCOVER_IND' },
-      { name: 'UNRECOGNISED' }
+      { name: advlib.ble.header.TYPE0_NAME },
+      { name: advlib.ble.header.TYPE1_NAME },
+      { name: advlib.ble.header.TYPE2_NAME },
+      { name: advlib.ble.header.TYPE3_NAME },
+      { name: advlib.ble.header.TYPE4_NAME },
+      { name: advlib.ble.header.TYPE5_NAME },
+      { name: advlib.ble.header.TYPE6_NAME },
+      { name: advlib.ble.header.TYPE_UNDEFINED_NAME }
     ];
 
     $scope.process = function(item, event) {
