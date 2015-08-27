@@ -98,10 +98,14 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
       for (var key in advData) {
         if (advData.hasOwnProperty(key)) {
           switch(key) {
-            case("uuid"):
+            case("nonComplete16BitUUIDs"):
+            case("complete16BitUUIDs"):
+            case("nonComplete128BitUUIDs"):
+            case("complete128BitUUIDs"):
               createElementsDataUuid(packet, data);
               break;
-            case("localName"):
+            case("completeLocalName"):
+            case("shortenedLocalName"):
               createElementsDataLocalName(packet, data);
               break;
             case("flags"):

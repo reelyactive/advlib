@@ -85,7 +85,7 @@
                     <accordion-group is-open="bluetooth.header.open">
                       <accordion-heading>
                         <strong>Header:</strong> &nbsp; {{elements.header.value}}
-                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': bluetooth.id.open, 'glyphicon-chevron-right': !bluetooth.id.open}"></i>
+                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': bluetooth.header.open, 'glyphicon-chevron-right': !bluetooth.header.open}"></i>
                       </accordion-heading>
                         <form class="form-horizontal">
                           <div class="form-group">
@@ -133,7 +133,7 @@
                       <accordion-heading>
                         <strong>Address:</strong> &nbsp; {{packet.value}}
                         <i class="pull-right glyphicon" 
-                        ng-class="{'glyphicon-chevron-down': bluetooth.id.open, 'glyphicon-chevron-right': !bluetooth.id.open}"></i>
+                        ng-class="{'glyphicon-chevron-down': bluetooth.address.open, 'glyphicon-chevron-right': !bluetooth.address.open}"></i>
                       </accordion-heading>
                       <form class="form-horizontal">
                         <div class="form-group">
@@ -149,7 +149,7 @@
                     <accordion-group is-open="bluetooth.data.open">
                       <accordion-heading>
                         <strong>Data:</strong> &nbsp; {{elements.data.value}}
-                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': bluetooth.id.open, 'glyphicon-chevron-right': !bluetooth.id.open}"></i>
+                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': bluetooth.data.open, 'glyphicon-chevron-right': !bluetooth.data.open}"></i>
                       </accordion-heading>
                       
                       <div class="row">
