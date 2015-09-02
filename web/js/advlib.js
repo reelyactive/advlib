@@ -31348,7 +31348,7 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
       header.type = packet.advHeader.type;
       header.rxAdd = packet.advHeader.rxAdd;
       header.txAdd = packet.advHeader.txAdd;
-      header.lengthInBytes = packet.advHeader.lengthInBytes;
+      header.lengthInBytes = packet.advHeader.length;
       return header;
     }
 
