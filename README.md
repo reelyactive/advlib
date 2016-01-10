@@ -54,7 +54,7 @@ Type in the following watchify command once:
 Now as you update the web/js/advapp.js file, web/js/advlib.js will be automatically incrementally rebuilt on the fly.
 
 
-Bluetooth Smart (BLE) Advertising Packet Librarya
+Bluetooth Smart (BLE) Advertising Packet Library
 ------------------------------------------------
 
 More info to come
