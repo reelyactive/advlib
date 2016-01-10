@@ -2,10 +2,11 @@
 <html>
   <head>
     <title> reelyActive advlib </title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="web/style/main.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.1/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="web/js/advlib.js"></script>
   </head>
   <body ng-app="advapp">
@@ -31,480 +32,631 @@
           </ul>
         </div>
       </nav>
+      <div class="container-fluid">
+        <header>
+          <h1 class="text-center">
+            advlib: an <span tooltip="Check it out on GitHub">open library</span> for <span tooltip="Short messages spontaneously broadcast to any potential receiving devices in range"> wireless advertising packets </span>
+          </h1>
+        </header>
+        <tabset>
+          <tab heading="Bluetooth Smart" select="selectBluetooth()">
 
-      <header>
-        <h1 class="text-center">
-          advlib: an <span tooltip="Check it out on GitHub">open library</span>
-          for <span tooltip="Short messages spontaneously broadcast to any potential receiving devices in range"> wireless advertising packets </span>
-        </h1>
-      </header>
-
-      <tabset>
-
-        <tab heading="Bluetooth Smart" select="selectBluetooth()">
-
-          <!--Bluetooth Smart-->
-          <div ng-controller="BluetoothCtrl">
+            <!--Bluetooth Smart-->
+            <div ng-controller="BluetoothCtrl">
         
-            <form class="form-horizontal">
-              <div class="form-group form-group-lg form-group-highlight">
-                <label for="BluetoothPayload" class="col-sm-2 control-label">
-                  Raw Payload
-                </label>
-                <div class="col-sm-8">
-                  <input ng-model="payload" ng-keyup="process()" type="text"
-                         placeholder="Enter/paste a payload here"
-                         class="form-control" id="BluetoothPayload">
+              <form class="form-horizontal">
+                <div class="form-group form-group-lg form-group-highlight">
+                  <label for="BluetoothPayload" class="col-sm-2 control-label">
+                    Raw Payload
+                  </label>
+                  <div class="col-sm-8">
+                    <input ng-model="payload" ng-keyup="process()" type="text"
+                           placeholder="Enter/paste a payload here"
+                           class="form-control" id="BluetoothPayload">
+                  </div>
+                  <div class="col-sm-2"></div>
                 </div>
-                <div class="col-sm-2"></div>
-              </div>
-              <div class="form-group form-group-sm">
-                <label for="BluetoothPresets" class="col-sm-2 control-label">
-                  Select from presets
-                </label>
-                <div class="col-sm-8">
-                  <select ng-model="payload" ng-change="process()"
-                          class="form-control" ng-options="preset.payload as preset.name for preset in presets"
-                          id="BluetoothPresets">
-                    <option value=""> -- Choose a preset payload -- </option>
-                  </select>
+                <div class="form-group form-group-sm">
+                  <label for="BluetoothPresets" class="col-sm-2 control-label">
+                    Select from presets
+                  </label>
+                  <div class="col-sm-8">
+                    <select ng-model="payload" ng-change="process()"
+                            class="form-control" id="BluetoothPresets"
+                            ng-options="preset.payload as preset.name for
+                                        preset in presets">
+                      <option value=""> -- Choose a preset payload -- </option>
+                    </select>
+                  </div>
+                  <div class="col-sm-2"></div>
                 </div>
-                <div class="col-sm-2"></div>
-              </div>
-            </form>
+              </form>
 
-            <div class="row">
+              <div class="row">
 
-              <div class="col-xs-12 col-md-6">
+                <div class="col-xs-12 col-md-6">
 
-                <h2> Bluetooth Smart Packet Elements </h2>
-                <div>
-                  <accordion close-others="false">
+                  <h2> Bluetooth Smart Packet Elements </h2>
+                  <div>
+                    <accordion close-others="false">
 
-                    <!-- Header Accordion -->
-                    <accordion-group is-open="bluetooth.header.open">
-                      <accordion-heading>
-                        <strong>Header:</strong> &nbsp; {{elements.header.value}}
-                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': bluetooth.header.open, 'glyphicon-chevron-right': !bluetooth.header.open}"></i>
-                      </accordion-heading>
+                      <!-- Header Accordion -->
+                      <accordion-group is-open="bluetooth.header.open">
+                        <accordion-heading>
+                          <strong>Header:</strong> &nbsp;
+                          {{elements.header.value}}
+                          <i class="pull-right glyphicon"
+                             ng-class="{'glyphicon-chevron-down':
+                                        bluetooth.header.open,
+                                        'glyphicon-chevron-right':
+                                        !bluetooth.header.open}"></i>
+                        </accordion-heading>
                         <form class="form-horizontal">
                           <div class="form-group">
-                            <label for="bluetoothHeader" class="col-xs-2">Header:</label>
-                              <div class="col-xs-4">
-                                <input type="text" class="form-control" ng-model="elements.header.value" id="bluetoothHeader" readonly>
-                              </div>
+                            <label for="bluetoothHeader" class="col-xs-2">
+                              Header:
+                            </label>
+                            <div class="col-xs-4">
+                              <input type="text" class="form-control"
+                                     ng-model="elements.header.value"
+                                     id="bluetoothHeader" readonly>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <label for="bluetoothType" class="col-xs-2">Type:</label>
-                              <div class="col-xs-10">
-                                <select ng-model="elements.header.type" class="form-control" id="bluetoothType" ng-options="header.name for header in headerType">
-                                  <option value="">{{packet.advHeader.type}}
-                                  </option>
-                                </select>
-                              </div>
+                            <label for="bluetoothType" class="col-xs-2">
+                              Type:
+                            </label>
+                            <div class="col-xs-10">
+                              <select ng-model="elements.header.type"
+                                      class="form-control" id="bluetoothType"
+                                      ng-options="header.name for header in
+                                                  headerType">
+                                <option value="">
+                                  {{packet.advHeader.type}}
+                                </option>
+                              </select>
+                            </div>
                           </div>
                           <div class="form-group">
-                            <label for="bluetoothRxAdd" class="col-xs-2">rxAdd:</label>
-                              <span class="btn-group col-xs-5 col-sm-5 col-md-5">
-                                <label ng-model="elements.header.rxAdd" btn-radio="'public'" id="bluetoothRxAdd"class="btn btn-default"/> public </label>
-                                <label ng-model="packet.advHeader.rxAdd" btn-radio="'random'" id="bluetoothRxAdd"class="btn btn-default"/> random </label>
-                              </span>
-                          </div>
-                          <div class="form-group">
-                            <label for="bluetoothTxAdd" class="col-xs-2">txAdd:</label>
-                              <span class="btn-group col-xs-5 col-sm-5 col-md-5">
-                                <label ng-model="elements.header.txAdd" btn-radio="'public'" id="bluetoothTxAdd"class="btn btn-default"/> public </label>
-                                <label ng-model="packet.advHeader.txAdd" btn-radio="'random'" id="bluetoothTxAdd"class="btn btn-default"/> random </label>
+                            <label for="bluetoothRxAdd" class="col-xs-2">
+                              rxAdd:
+                            </label>
+                            <span class="btn-group col-xs-5 col-sm-5 col-md-5">
+                              <label ng-model="elements.header.rxAdd"
+                                     btn-radio="'public'" id="bluetoothRxAdd"
+                                     class="btn btn-default"/> public </label>
+                              <label ng-model="packet.advHeader.rxAdd"
+                                     btn-radio="'random'" id="bluetoothRxAdd"
+                                     class="btn btn-default"/> random </label>
                             </span>
                           </div>
                           <div class="form-group">
-                            <label for="bluetoothLength" class="col-xs-2">Length:
+                            <label for="bluetoothTxAdd" class="col-xs-2">
+                              txAdd:
                             </label>
-                              <div class="col-xs-2">
-                                <input type="text" class="form-control" ng-model="elements.header.lengthInBytes" 
-                                id="bluetoothLength" readonly>
-                              </div>
+                            <span class="btn-group col-xs-5 col-sm-5 col-md-5">
+                              <label ng-model="elements.header.txAdd"
+                                     btn-radio="'public'" id="bluetoothTxAdd"
+                                     class="btn btn-default"/> public </label>
+                              <label ng-model="packet.advHeader.txAdd"
+                                     btn-radio="'random'" id="bluetoothTxAdd"
+                                     class="btn btn-default"/> random </label>
+                            </span>
+                          </div>
+                          <div class="form-group">
+                            <label for="bluetoothLength" class="col-xs-2">
+                              Length:
+                            </label>
+                            <div class="col-xs-2">
+                              <input type="text" class="form-control"
+                                     ng-model="elements.header.lengthInBytes" 
+                                     id="bluetoothLength" readonly>
+                            </div>
                           </div>
                         </form>
-                    </accordion-group>
+                      </accordion-group>
 
-                    <!-- Address Accordion -->
-                    <accordion-group is-open="bluetooth.address.open">
-                      <accordion-heading>
-                        <strong>Address:</strong> &nbsp; {{packet.value}}
-                        <i class="pull-right glyphicon" 
-                        ng-class="{'glyphicon-chevron-down': bluetooth.address.open, 'glyphicon-chevron-right': !bluetooth.address.open}"></i>
-                      </accordion-heading>
-                      <form class="form-horizontal">
-                        <div class="form-group">
-                          <label for="bluetoothAdd" class="col-xs-2">Address:</label>
+                      <!-- Address Accordion -->
+                      <accordion-group is-open="bluetooth.address.open">
+                        <accordion-heading>
+                          <strong>Address:</strong> &nbsp; {{packet.value}}
+                          <i class="pull-right glyphicon" 
+                             ng-class="{'glyphicon-chevron-down':
+                                        bluetooth.address.open,
+                                        'glyphicon-chevron-right':
+                                        !bluetooth.address.open}"></i>
+                        </accordion-heading>
+                        <form class="form-horizontal">
+                          <div class="form-group">
+                            <label for="bluetoothAdd" class="col-xs-2">
+                              Address:
+                            </label>
                             <div class="col-xs-4">
-                              <input type="text" class="form-control" ng-model="elements.address.value" id="bluetoothAdd" readonly>
+                              <input type="text" class="form-control"
+                                     ng-model="elements.address.value"
+                                     id="bluetoothAdd" readonly>
                             </div>
+                          </div>
+                        </form>
+                      </accordion-group>
+
+                      <!-- Data Accordion -->
+                      <accordion-group is-open="bluetooth.data.open">
+                        <accordion-heading>
+                          <strong>Data:</strong> &nbsp; {{elements.data.value}}
+                          <i class="pull-right glyphicon"
+                             ng-class="{'glyphicon-chevron-down':
+                                        bluetooth.data.open,
+                                        'glyphicon-chevron-right':
+                                        !bluetooth.data.open}"></i>
+                        </accordion-heading>
+                        <div class="row">
+                          <div class="col-sm-1"></div>
+                          <div class="col-sm-10">
+
+                            <!--UUID-->
+                            <div class="well well-sm"
+                                 ng-show="elements.data.uuid">
+                              <form class="form-horizontal">
+                                <div class="form-group">
+                                  <label class="col-xs-12"> UUID: </label>
+                                </div>
+                                <div class="form-group" ng-show="elements.data.uuid.nonComplete16BitUUIDs">
+                                  <label class="col-xs-12 col-sm-3 col-md-3"
+                                         for="nc16bit">
+                                    Non-Complete 16 Bit:
+                                  </label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control"
+                                           id="nc16bit" readonly ng-model="elements.data.uuid.nonComplete16BitUUIDs">
+                                  </div>
+                                </div>
+                                <div class="form-group" ng-show="elements.data.uuid.complete16BitUUIDs">
+                                  <label class="col-xs-12 col-sm-3 col-md-3"
+                                         for="c16bit">
+                                    Complete 16 Bit:
+                                  </label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control"
+                                           id="c16bit" readonly ng-model="elements.data.uuid.complete16BitUUIDs">
+                                  </div>
+                                </div>
+                                <div class="form-group" ng-show="elements.data.uuid.nonComplete128BitUUIDs">
+                                  <label class="col-xs-12 col-sm-3 col-md-3"
+                                         for="nc128bit">
+                                    Non-Complete 128 Bit:
+                                  </label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control"
+                                           id="nc128bit" readonly ng-model="elements.data.uuid.nonComplete128BitUUIDs">
+                                  </div>
+                                </div>
+                                <div class="form-group" ng-show="elements.data.uuid.complete128BitUUIDs">
+                                  <label class="col-xs-12 col-sm-3 col-md-3"
+                                         for="c128bit">
+                                    Complete 128 Bit:
+                                  </label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control"
+                                           id="c128bit" readonly ng-model="elements.data.uuid.complete128BitUUIDs">
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+
+                            <!--Local Name-->
+                            <div class="well well-sm"
+                                 ng-show="elements.data.localName"> 
+                              <form class="form-horizontal">
+                                <div class="form-group">
+                                  <label class="col-xs-12">
+                                    Local Name:
+                                  </label>
+                                </div>
+                                <div class="form-group" ng-show="elements.data.localName.completeLocalName">
+                                  <label class="col-xs-12 col-sm-3 col-md-3"
+                                         for="completeLn"> Complete: </label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control"
+                                            id="completeLn" readonly ng-model="elements.data.localName.completeLocalName">
+                                  </div>
+                                </div>
+                                <div class="form-group" ng-show="elements.data.localName.shortenedLocalName">
+                                  <label class="col-xs-12 col-sm-3 col-md-3"
+                                         for="shortenedLn"> Shortened: </label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control"
+                                            id="shortenedLn" readonly ng-model="elements.data.localName.shortenedLocalName">
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+
+                            <!--Flags-->
+                            <div class="well well-sm" 
+                                 ng-show="elements.data.flags"> 
+                              <form class="form-horizontal">
+                                <div class="form-group">
+                                  <label class="col-xs-12"> Flags: </label>
+                                </div>                       
+                                <div class="checkbox"
+                                     ng-repeat="(bit, flag) in
+                                                elements.data.flags">
+                                  <label for="flagBit">
+                                    <input type="checkbox" ng-model="flag.set"
+                                           id="flagBit" readonly
+                                           class="col-xs-8 col-sm-8 col-md-8">
+                                    {{flag.name}}
+                                  </label>
+                                </div>
+                              </form>
+                            </div>
+
+                            <!--Manufacturer Specific Data-->
+                            <div class="well well-sm" ng-show="elements.data.manufacturerSpecificData"> 
+                              <form class="form-horizontal">
+                                <div class="form-group">
+                                  <label class="col-xs-12">
+                                    Manufacturer Specific Data:
+                                  </label>
+                                </div>
+                                <div ng-show="elements.data.manufacturerSpecificData">
+                                  <div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-3"
+                                           for="msdCompanyName">
+                                      Company Name:
+                                    </label>
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                      <input type="text" class="form-control"
+                                             id="msdCompanyName" readonly ng-model="elements.data.manufacturerSpecificData.companyName">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-3"
+                                            for="msdCompanyIdentifierCode">
+                                      Company Identifier Code:
+                                    </label>
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                      <input type="text" class="form-control"
+                                             id="msdCompanyIdentifierCode"
+                                             readonly ng-model="elements.data.manufacturerSpecificData.companyIdentifierCode">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-xs-12 col-sm-3 col-md-3"
+                                           for="msdData"> Data: </label>
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                      <input type="text" class="form-control"
+                                              id="msdData" readonly ng-model="elements.data.manufacturerSpecificData.data">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-group" ng-show="elements.data.manufacturerSpecificData.iBeacon">
+                                  <label class="col-xs-12 col-sm-12 col-md-12">
+                                    iBeacon
+                                  </label>
+                                  <div ng-show="elements.data.manufacturerSpecificData.iBeacon.uuid">
+                                    <label class="col-xs-12 col-sm-3 col-md-3"
+                                           for="iBeaconUuid"> UUID: </label>
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                      <input type="text" class="form-control"
+                                             id="iBeaconUuid" readonly ng-model="elements.data.manufacturerSpecificData.iBeacon.uuid">
+                                    </div>
+                                  </div>
+                                  <div ng-show="elements.data.manufacturerSpecificData.iBeacon.major">  
+                                    <label class="col-xs-12 col-sm-3 col-md-3"
+                                           for="iBeaconMajor"> Major: </label>
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                      <input type="text" class="form-control"
+                                             id="iBeaconMajor" readonly ng-model="elements.data.manufacturerSpecificData.iBeacon.major">
+                                    </div>
+                                  </div>
+                                  <div ng-show="elements.data.manufacturerSpecificData.iBeacon.minor">
+                                    <label class="col-xs-12 col-sm-3 col-md-3"
+                                           for="iBeaconMinor"> Minor: </label>
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                      <input type="text" class="form-control"
+                                             id="iBeaconMinor" readonly ng-model="elements.data.manufacturerSpecificData.iBeacon.minor">
+                                    </div>
+                                  </div>
+                                  <div ng-show="elements.data.manufacturerSpecificData.iBeacon.txPower">
+                                    <label class="col-xs-12 col-sm-3 col-md-3"
+                                           for="iBeaconTxPower">
+                                      TxPower:
+                                    </label>
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                      <input type="text" class="form-control"
+                                             id="iBeaconTxPower" readonly ng-model="elements.data.manufacturerSpecificData.iBeacon.txPower">
+                                    </div>
+                                  </div>
+                                  <div ng-show="elements.data.manufacturerSpecificData.iBeacon.licenseeName">
+                                    <label class="col-xs-12 col-sm-3 col-md-3"
+                                           for="iBeaconLicenseeName">
+                                      Licensee Name:
+                                    </label>
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                      <input type="text" class="form-control"
+                                             id="iBeaconLicenseeName" readonly ng-model="elements.data.manufacturerSpecificData.iBeacon.licenseeName">
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+
+                            <!--TX Power Level-->
+                            <div class="well well-sm"
+                                 ng-show="elements.data.txPower">
+                              <form class="form-horizontal">
+                                <div class="form-group">
+                                  <label for="TxPowerLevel"
+                                         class="col-xs-12 col-sm-3 col-md-3">
+                                    TX Power Level:
+                                  </label>
+                                  <div class="col-xs-4"
+                                       ng-show="elements.data.txPower">
+                                    <input type="text" class="form-control"
+                                           ng-model="elements.data.txPower"
+                                           id="TxPowerLevel" readonly>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+
+                            <!--Service Solicitation-->
+                            <div class="well well-sm"
+                                 ng-show="elements.data.serviceSolicitation">
+                              <form class="form-horizontal">
+                                <div class="form-group">
+                                  <label class="col-xs-12">
+                                    Service Solicitation:
+                                  </label>
+                                </div>                       
+                                <div class="checkbox">
+                                  <label for="ss16">
+                                    <input type="checkbox" id="ss16" readonly
+                                           class="col-xs-8 col-sm-8 col-md-8"
+ ng-model="elements.data.serviceSolicitation.solicitation16BitUUIDs">
+                                    16 Bit UUIDs
+                                  </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label for="ss128">
+                                    <input type="checkbox" id="ss128" readonly
+                                           class="col-xs-8 col-sm-8 col-md-8" ng-model="elements.data.serviceSolicitation.solicitation128BitUUIDs">
+                                    128 Bit UUIDs
+                                  </label>
+                                </div>
+                              </form>
+                            </div>
+
+                            <!--Service Data-->
+                            <div class="well well-sm"
+                                 ng-show="elements.data.serviceData">
+                              <form class="form-horizontal">
+                                <div class="form-group">
+                                  <label class="col-xs-12">
+                                    Service Data:
+                                  </label>
+                                </div>
+                                <div class="form-group"
+                                     ng-show="elements.data.serviceData">
+                                  <label class="col-xs-12 col-sm-3 col-md-3"
+                                         for="sdUuid"> UUID: </label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control"
+                                            id="sdUuid" readonly ng-model="elements.data.serviceData.uuid">
+                                  </div>
+                                </div>
+                                <div class="form-group"
+                                     ng-show="elements.data.serviceData.data">
+                                  <label class="col-xs-12 col-sm-3 col-md-3"
+                                         for="sdData"> Data: </label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control"
+                                           id="sdData" readonly ng-model="elements.data.serviceData.data">
+                                  </div>
+                                </div>
+                                <div class="form-group" ng-show="elements.data.serviceData.companyName">
+                                  <label class="col-xs-12 col-sm-3 col-md-3"
+                                         for="sdCompanyName">
+                                    Company Name:
+                                  </label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control"
+                                           id="sdCompanyName" readonly ng-model="elements.data.serviceData.companyName">
+                                  </div>
+                                </div>
+                                <div class="form-group" ng-show="elements.data.serviceData.specificationName">
+                                  <label class="col-xs-12 col-sm-3 col-md-3"
+                                         for="sdSpecName">
+                                    Specification Name:
+                                  </label>
+                                  <div class="col-xs-12 col-sm-8 col-md-8">
+                                    <input type="text" class="form-control"
+                                           id="sdSpecName" readonly ng-model="elements.data.serviceData.specificationName">
+                                  </div>
+                                </div>
+                                <div class="form-group" ng-show="elements.data.serviceData.uriBeacon">
+                                  <label class="col-xs-12 col-sm-12 col-md-12">
+                                    uriBeacon
+                                  </label>
+                                  <div ng-show="elements.data.serviceData.uriBeacon.txPower">  
+                                    <label class="col-xs-12 col-sm-3 col-md-3"
+                                           for="sdUriTxPower">
+                                      TxPower:
+                                    </label>
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                      <input type="text" class="form-control"
+                                              id="sdUriTxPower" readonly ng-model="elements.data.serviceData.uriBeacon.txPower">
+                                    </div>
+                                  </div>
+                                  <div ng-show="elements.data.serviceData.uriBeacon.url">
+                                    <label class="col-xs-12 col-sm-3 col-md-3"
+                                           for="sdUriUrl"> URL: </label>
+                                    <div class="col-xs-12 col-sm-8 col-md-8">
+                                      <input type="text" class="form-control"
+                                              id="sdUriUrl" readonly ng-model="elements.data.serviceData.uriBeacon.url">
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
                         </div>
-                      </form>
-                    </accordion-group>
+                      </accordion-group>
 
-                     <!-- Data Accordion -->
-                    <accordion-group is-open="bluetooth.data.open">
-                      <accordion-heading>
-                        <strong>Data:</strong> &nbsp; {{elements.data.value}}
-                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': bluetooth.data.open, 'glyphicon-chevron-right': !bluetooth.data.open}"></i>
-                      </accordion-heading>
-                      
-                      <div class="row">
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-10"> 
-                        <!-- All the data content is inside this div class^ -->
-
-                          <div class="well well-sm" ng-show="elements.data.uuid"> <!--UUID-->
-                            <form class="form-horizontal">
-                              <div class="form-group">
-                                <label class="col-xs-12">UUID:</label>
-                              </div>
-                              <div class="form-group" ng-show="elements.data.uuid.nonComplete16BitUUIDs">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="nc16bit">Non-Complete 16 Bit:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.uuid.nonComplete16BitUUIDs" 
-                                  id="nc16bit" readonly>
-                                </div>
-                              </div>
-                              <div class="form-group" ng-show="elements.data.uuid.complete16BitUUIDs">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="c16bit">Complete 16 Bit:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.uuid.complete16BitUUIDs" 
-                                  id="c16bit" readonly>
-                                </div>
-                              </div>
-                              <div class="form-group" ng-show="elements.data.uuid.nonComplete128BitUUIDs">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="nc128bit">Non-Complete 128 Bit:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.uuid.nonComplete128BitUUIDs" 
-                                  id="nc128bit" readonly>
-                                </div>
-                              </div>
-                              <div class="form-group" ng-show="elements.data.uuid.complete128BitUUIDs">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="c128bit">Complete 128 Bit:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.uuid.complete128BitUUIDs" 
-                                  id="c128bit" readonly>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-
-                          <div class="well well-sm" ng-show="elements.data.localName"> <!--Local Name-->
-                            <form class="form-horizontal">
-                              <div class="form-group">
-                                <label class="col-xs-12">Local Name:</label>
-                              </div>
-                              <div class="form-group" ng-show="elements.data.localName.completeLocalName">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="completeLn">Complete:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.localName.completeLocalName" id="completeLn" readonly>
-                                </div>
-                              </div>
-                              <div class="form-group" ng-show="elements.data.localName.shortenedLocalName">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="shortenedLn">Shortened:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.localName.shortenedLocalName" id="shortenedLn" readonly>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-
-                          <div class="well well-sm" ng-show="true" ng-show="elements.data.flags"> <!--Flags-->
-                            <form class="form-horizontal">
-                              <div class="form-group">
-                                <label class="col-xs-12">Flags:</label>
-                              </div>                       
-                              <div class="checkbox" ng-repeat="(bit, flag) in elements.data.flags">
-                                <label for="flagBit">
-                                  <input type="checkbox" ng-model="flag.set" id="flagBit" class="col-xs-8 col-sm-8 col-md-8" readonly> {{flag.name}}
-                                </label>
-                              </div>
-                            </form>
-                          </div>
-
-                          <div class="well well-sm" ng-show="elements.data.manufacturerSpecificData"> <!--Manufacturer Specific Data-->
-                            <form class="form-horizontal">
-                              <div class="form-group">
-                                <label class="col-xs-12">Manufacturer Specific Data:</label>
-                              </div>
-                              <div ng-show="elements.data.manufacturerSpecificData">
-                              <div class="form-group">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="msdCompanyName">Company Name:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.manufacturerSpecificData.companyName" id="msdCompanyName" readonly>
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="msdCompanyIdentifierCode">Company Identifier Code:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.manufacturerSpecificData.companyIdentifierCode" id="msdCompanyIdentifierCode" readonly>
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="msdData">Data:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.manufacturerSpecificData.data" id="msdData" readonly>
-                                </div>
-                              </div>
-                              </div>
-                              <div class="form-group" ng-show="elements.data.manufacturerSpecificData.iBeacon">
-                                <label class="col-xs-12 col-sm-12 col-md-12">iBeacon - </label>
-                                <div ng-show="elements.data.manufacturerSpecificData.iBeacon.uuid">
-                                  <label class="col-xs-12 col-sm-3 col-md-3" for="iBeaconUuid">UUID:</label>
-                                  <div class="col-xs-12 col-sm-8 col-md-8">
-                                    <input type="text" class="form-control" ng-model="elements.data.manufacturerSpecificData.iBeacon.uuid" id="iBeaconUuid" readonly>
-                                  </div>
-                                </div>
-                                <div ng-show="elements.data.manufacturerSpecificData.iBeacon.major">  
-                                  <label class="col-xs-12 col-sm-3 col-md-3" for="iBeaconMajor">Major:</label>
-                                  <div class="col-xs-12 col-sm-8 col-md-8">
-                                    <input type="text" class="form-control" ng-model="elements.data.manufacturerSpecificData.iBeacon.major" id="iBeaconMajor" readonly>
-                                  </div>
-                                </div>
-                                <div ng-show="elements.data.manufacturerSpecificData.iBeacon.minor">
-                                  <label class="col-xs-12 col-sm-3 col-md-3" for="iBeaconMinor">Minor:</label>
-                                  <div class="col-xs-12 col-sm-8 col-md-8">
-                                    <input type="text" class="form-control" ng-model="elements.data.manufacturerSpecificData.iBeacon.minor" id="iBeaconMinor" readonly>
-                                  </div>
-                                </div>
-                                <div ng-show="elements.data.manufacturerSpecificData.iBeacon.txPower">
-                                  <label class="col-xs-12 col-sm-3 col-md-3" for="iBeaconTxPower">TxPower:</label>
-                                  <div class="col-xs-12 col-sm-8 col-md-8">
-                                    <input type="text" class="form-control" ng-model="elements.data.manufacturerSpecificData.iBeacon.txPower" id="iBeaconTxPower" readonly>
-                                  </div>
-                                </div>
-                                <div ng-show="elements.data.manufacturerSpecificData.iBeacon.licenseeName">
-                                  <label class="col-xs-12 col-sm-3 col-md-3" for="iBeaconLicenseeName">Licensee Name:</label>
-                                  <div class="col-xs-12 col-sm-8 col-md-8">
-                                    <input type="text" class="form-control" ng-model="elements.data.manufacturerSpecificData.iBeacon.licenseeName" id="iBeaconLicenseeName" readonly>
-                                  </div>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-
-                          <div class="well well-sm" ng-show="elements.data.txPower"> <!--TX Power Level-->
-                          <form class="form-horizontal">
-                            <div class="form-group">
-                              <label for="TxPowerLevel" class="col-xs-12 col-sm-3 col-md-3">TX Power Level:</label>
-                            <div class="col-xs-4" ng-show="elements.data.txPower">
-                              <input type="text" class="form-control" ng-model="elements.data.txPower" id="TxPowerLevel" readonly>
-                            </div>
-                            </div>
-                          </form>
-                          </div>
-
-                          <div class="well well-sm" ng-show="elements.data.serviceSolicitation"> <!--Service Solicitation-->
-                            <form class="form-horizontal">
-                              <div class="form-group">
-                                <label class="col-xs-12">Service Solicitation:</label>
-                              </div>                       
-                              <div class="checkbox">
-                                <label for="ss16">
-                                  <input type="checkbox" ng-model="elements.data.serviceSolicitation.solicitation16BitUUIDs" id="ss16" class="col-xs-8 col-sm-8 col-md-8" readonly> 16 Bit UUIDs
-                                </label>
-                              </div>
-                              <div class="checkbox">
-                                <label for="ss128">
-                                  <input type="checkbox" ng-model="elements.data.serviceSolicitation.solicitation128BitUUIDs" id="ss128" class="col-xs-8 col-sm-8 col-md-8" readonly> 128 Bit UUIDs
-                                </label>
-                              </div>
-                            </form>
-                          </div>
-
-                          <div class="well well-sm" ng-show="elements.data.serviceData"> <!--Service Data-->
-                            <form class="form-horizontal">
-                              <div class="form-group">
-                                <label class="col-xs-12">Service Data:</label>
-                              </div>
-                              <div class="form-group" ng-show="elements.data.serviceData">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="sdUuid">UUID:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.serviceData.uuid" id="sdUuid" readonly>
-                                </div>
-                              </div>
-                              <div class="form-group" ng-show="elements.data.serviceData.data">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="sdData">Data:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.serviceData.data" id="sdData" readonly>
-                                </div>
-                              </div>
-                              <div class="form-group" ng-show="elements.data.serviceData.companyName">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="sdCompanyName">Company Name:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.serviceData.companyName" id="sdCompanyName" readonly>
-                                </div>
-                              </div>
-                              <div class="form-group" ng-show="elements.data.serviceData.specificationName">
-                                <label class="col-xs-12 col-sm-3 col-md-3" for="sdSpecName">Specification Name:</label>
-                                <div class="col-xs-12 col-sm-8 col-md-8">
-                                  <input type="text" class="form-control" ng-model="elements.data.serviceData.specificationName" id="sdSpecName" readonly>
-                                </div>
-                              </div>
-                              <div class="form-group" ng-show="elements.data.serviceData.uriBeacon">
-                                <label class="col-xs-12 col-sm-12 col-md-12">uriBeacon - </label>
-                                <div ng-show="elements.data.serviceData.uriBeacon.txPower">  
-                                  <label class="col-xs-12 col-sm-3 col-md-3" for="sdUriTxPower">TxPower:</label>
-                                  <div class="col-xs-12 col-sm-8 col-md-8">
-                                    <input type="text" class="form-control" ng-model="elements.data.serviceData.uriBeacon.txPower" id="sdUriTxPower" readonly>
-                                  </div>
-                                </div>
-                                <div ng-show="elements.data.serviceData.uriBeacon.url">
-                                  <label class="col-xs-12 col-sm-3 col-md-3" for="sdUriUrl">URL:</label>
-                                  <div class="col-xs-12 col-sm-8 col-md-8">
-                                    <input type="text" class="form-control" ng-model="elements.data.serviceData.uriBeacon.url" id="sdUriUrl" readonly>
-                                  </div>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </accordion-group>
-
-                  </accordion>
+                    </accordion>
+                  </div>
                 </div>
-              </div>
 
-              <!--JSON-->
-              <div class="col-xs-12 col-md-6">
-                <h2> Represented as JSON </h2>
-                <pre>{{json}}</pre>
-              </div>
-            </div> 
-          </div>
-        </tab>
+                <!--JSON-->
+                <div class="col-xs-12 col-md-6">
+                  <h2> Represented as JSON </h2>
+                  <pre>{{json}}</pre>
+                </div>
+              </div> 
+            </div>
+          </tab>
 
-        <tab heading="reelyActive" select="selectReelyactive()">
+          <tab heading="reelyActive" select="selectReelyactive()">
 
-          <!--reelyActive-->
-          <div ng-controller="ReelyactiveCtrl">
+            <!--reelyActive-->
+            <div ng-controller="ReelyactiveCtrl">
     
-            <form class="form-horizontal">
-              <div class="form-group form-group-lg form-group-highlight">
-                <label for="reelyPayload" class="col-sm-2 control-label">
-                  Raw Payload
-                </label>
-                <div class="col-sm-8">
-                  <input ng-model="payload" ng-keyup="process()" type="text"
-                         placeholder="Enter/paste a payload here"
-                         class="form-control" id="reelyPayload">
+              <form class="form-horizontal">
+                <div class="form-group form-group-lg form-group-highlight">
+                  <label for="reelyPayload" class="col-sm-2 control-label">
+                    Raw Payload
+                  </label>
+                  <div class="col-sm-8">
+                    <input ng-model="payload" ng-keyup="process()" type="text"
+                           placeholder="Enter/paste a payload here"
+                           class="form-control" id="reelyPayload">
+                  </div>
+                  <div class="col-sm-2"></div>
                 </div>
-                <div class="col-sm-2"></div>
-              </div>
-              <div class="form-group form-group-sm">
-                <label for="reelyPresets" class="col-sm-2 control-label">
-                  Select from presets
-                </label>
-                <div class="col-sm-8">
-                  <select ng-model="payload" ng-change="process()"
-                          class="form-control" ng-options="preset.payload as preset.name for preset in presets"
-                          id="reelyPresets">
-                    <option value=""> -- Choose a preset payload -- </option>
-                  </select>
+                <div class="form-group form-group-sm">
+                  <label for="reelyPresets" class="col-sm-2 control-label">
+                    Select from presets
+                  </label>
+                  <div class="col-sm-8">
+                    <select ng-model="payload" ng-change="process()"
+                            ng-options="preset.payload as preset.name for
+                                        preset in presets"
+                            class="form-control" id="reelyPresets">
+                      <option value=""> -- Choose a preset payload -- </option>
+                    </select>
+                  </div>
+                  <div class="col-sm-2"></div>
                 </div>
-                <div class="col-sm-2"></div>
-              </div>
-            </form>
+              </form>
     
-            <div class="row">
+              <div class="row">
+                <div class="col-xs-12 col-md-6">
+                  <h2> reelyActive Packet Elements </h2>
+                  <div>
+                    <accordion close-others="false">
 
-              <div class="col-xs-12 col-md-6">
-
-                <h2> reelyActive Packet Elements </h2>
-
-                <div>
-                  <accordion close-others="false">
-
-                  <!-- Identifier Accordion -->
-                    <accordion-group is-open="reelyactive.id.open">
-                      <accordion-heading>
-                        <strong>Identifier:</strong> &nbsp;
-                        {{reelyactive.packet.value}}
-                        <!-- Should be {{reelyactive.id.value}} -->
-                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': reelyactive.id.open, 'glyphicon-chevron-right': !reelyactive.id.open}"></i>
-                      </accordion-heading>
-                      <form class="form-horizontal">
-                        <div class="form-group">
-                          <label for="reelyId" class="col-xs-2">EUI-64:</label>
-                          <div class="col-xs-4">
-                            <input type="text" class="form-control"
-                                   ng-model="packet.value" id="reelyId"
-                                   readonly>
+                    <!-- Identifier Accordion -->
+                      <accordion-group is-open="reelyactive.id.open">
+                        <accordion-heading>
+                          <strong>Identifier:</strong> &nbsp;
+                          {{reelyactive.packet.value}}
+                          <!-- Should be {{reelyactive.id.value}} -->
+                          <i class="pull-right glyphicon"
+                             ng-class="{'glyphicon-chevron-down':
+                                        reelyactive.id.open,
+                                        'glyphicon-chevron-right':
+                                        !reelyactive.id.open}"></i>
+                        </accordion-heading>
+                        <form class="form-horizontal">
+                          <div class="form-group">
+                            <label for="reelyId" class="col-xs-2">
+                              EUI-64:
+                            </label>
+                            <div class="col-xs-4">
+                              <input type="text" class="form-control"
+                                     ng-model="packet.value" id="reelyId"
+                                     readonly>
+                            </div>
                           </div>
-                        </div>
-                      </form>
-                    </accordion-group>
+                        </form>
+                      </accordion-group>
 
-                    <!-- Flags Accordion -->
-                    <accordion-group is-open="reelyactive.flags.open">
-                      <accordion-heading>
-                        <strong>Flags:</strong> &nbsp;
-                        {{reelyactive.packet.flags.transmissionCount}}
-                        <!-- Should be {{reelyactive.flags.value}} -->
-                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': reelyactive.flags.open, 'glyphicon-chevron-right': !reelyactive.flags.open}"></i>
-                      </accordion-heading>
-                      <form class="form-horizontal">
-                        <div class="form-group">
-                          <label for="reelyTrans" class="col-xs-3">
-                            Transmission count:
-                          </label>
-                          <div class="col-xs-2">
-                            <input type="number" class="form-control"
-                                   ng-model="packet.flags.transmissionCount"
-                                   id="reelyTrans" readonly>
+                      <!-- Flags Accordion -->
+                      <accordion-group is-open="reelyactive.flags.open">
+                        <accordion-heading>
+                          <strong>Flags:</strong> &nbsp;
+                          {{reelyactive.packet.flags.transmissionCount}}
+                          <!-- Should be {{reelyactive.flags.value}} -->
+                          <i class="pull-right glyphicon"
+                             ng-class="{'glyphicon-chevron-down':
+                                        reelyactive.flags.open,
+                                        'glyphicon-chevron-right':
+                                        !reelyactive.flags.open}"></i>
+                        </accordion-heading>
+                        <form class="form-horizontal">
+                          <div class="form-group">
+                            <label for="reelyTrans" class="col-xs-3">
+                              Transmission count:
+                            </label>
+                            <div class="col-xs-2">
+                              <input type="number" class="form-control"
+                                     ng-model="packet.flags.transmissionCount"
+                                     id="reelyTrans" readonly>
+                            </div>
                           </div>
-                        </div>
-                      </form>
-                    </accordion-group>
+                        </form>
+                      </accordion-group>
 
-                    <!-- Data Accordion -->
-                    <accordion-group is-open="reelyactive.data.open">
-                      <accordion-heading>
-                        <strong>Data:</strong> &nbsp;
-                        <!-- Should be {{reelyactive.data.value}} -->
-                        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': reelyactive.data.open, 'glyphicon-chevron-right': !reelyactive.data.open}"></i>
-                      </accordion-heading>
-                      <form class="form-horizontal">
-                        <div class="form-group">
-                          <label for="reelyBatt" class="col-xs-2">
-                            Battery:
-                          </label>
-                          <div class="col-xs-2">
-                            <input type="text" class="form-control"
-                                   ng-model="packet.data.battery"
-                                   id="reelyBatt" readonly>
+                      <!-- Data Accordion -->
+                      <accordion-group is-open="reelyactive.data.open">
+                        <accordion-heading>
+                          <strong>Data:</strong> &nbsp;
+                          <!-- Should be {{reelyactive.data.value}} -->
+                          <i class="pull-right glyphicon"
+                             ng-class="{'glyphicon-chevron-down':
+                                        reelyactive.data.open,
+                                        'glyphicon-chevron-right':
+                                        !reelyactive.data.open}"></i>
+                        </accordion-heading>
+                        <form class="form-horizontal">
+                          <div class="form-group">
+                            <label for="reelyBatt" class="col-xs-2">
+                              Battery:
+                            </label>
+                            <div class="col-xs-2">
+                              <input type="text" class="form-control"
+                                     ng-model="packet.data.battery"
+                                     id="reelyBatt" readonly>
+                            </div>
                           </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="reelyTemp" class="col-xs-2">
-                            Temperature:
-                          </label>
-                          <div class="col-xs-2">
-                            <input type="text" class="form-control"
-                                   ng-model="packet.data.temperature"
-                                   id="reelyTemp" readonly>
+                          <div class="form-group">
+                            <label for="reelyTemp" class="col-xs-2">
+                              Temperature:
+                            </label>
+                            <div class="col-xs-2">
+                              <input type="text" class="form-control"
+                                     ng-model="packet.data.temperature"
+                                     id="reelyTemp" readonly>
+                            </div>
                           </div>
-                        </div>
-                      </form>
-                    </accordion-group>
-                  </accordion>     
+                        </form>
+                      </accordion-group>
+                    </accordion>     
+                  </div>
                 </div>
-              </div>
 
-              <!--JSON-->
-              <div class="col-xs-12 col-md-6">
-                <h2> Represented as JSON </h2>
-                <pre>{{json}}</pre>
+                <!--JSON-->
+                <div class="col-xs-12 col-md-6">
+                  <h2> Represented as JSON </h2>
+                  <pre>{{json}}</pre>
+                </div>
               </div>
             </div>
-          </div>
-        </tab>
-      </tabset>
+          </tab>
+        </tabset>
+      </div>
       <footer class="footer">
         <a href="https://github.com/reelyactive/advlib"> advlib </a>
         &nbsp; | &nbsp;
