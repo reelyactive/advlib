@@ -7,6 +7,8 @@ Library for wireless advertising packet decoding.  Currently supports the follow
 
 For a live, interactive version of advlib visit [reelyactive.github.io/advlib](http://reelyactive.github.io/advlib/).
 
+This project was published in a scientific paper entitled [Low-Power Wireless Advertising Software Library for Distributed M2M and Contextual IoT](http://context.reelyactive.com/science.html) presented at the 2nd IEEE World Forum on Internet of Things (WF-IoT) in Milan, Italy on December 16th, 2015.
+
 
 Installation
 ------------
