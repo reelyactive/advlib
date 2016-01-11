@@ -10,9 +10,9 @@
     "Bluetooth Smart",
     "BLE"
   ],
-  "version": "0.0.9",
+  "version": "0.0.10",
   "engines": {
-    "node": "^0.10.0"
+    "node": ">=0.10.0"
   },
   "main": "./lib/index.js",
   "repository": {
