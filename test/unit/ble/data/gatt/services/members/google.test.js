@@ -28,10 +28,16 @@ var INPUT_DATA_EDDYSTONE_URL = {
     data: "1012027265656c7961637469766507" 
   }
 }; 
-var INPUT_DATA_EDDYSTONE_TLM = {
+var INPUT_DATA_EDDYSTONE_TLM_V00 = {
   serviceData: { 
     uuid: "feaa",
     data: "20000bb81800000000010000000a" 
+  }
+};
+var INPUT_DATA_EDDYSTONE_TLM_V01 = {
+  serviceData: { 
+    uuid: "feaa",
+    data: "2001112233445566778899aabbcc0123abcd" 
   }
 };
 var INPUT_DATA_EDDYSTONE_EID = {
@@ -79,7 +85,7 @@ var EXPECTED_DATA_EDDYSTONE_URL = {
     }
   }
 };
-var EXPECTED_DATA_EDDYSTONE_TLM = {
+var EXPECTED_DATA_EDDYSTONE_TLM_V00 = {
   serviceData: {
     uuid: 'feaa',
     data: '20000bb81800000000010000000a',
@@ -90,6 +96,19 @@ var EXPECTED_DATA_EDDYSTONE_TLM = {
       temperature: "24C",
       advertisingCount: 1,
       uptime: "1s"
+    }
+  }
+};
+var EXPECTED_DATA_EDDYSTONE_TLM_V01 = {
+  serviceData: {
+    uuid: 'feaa',
+    data: '2001112233445566778899aabbcc0123abcd',
+    eddystone: {
+      type: "TLM",
+      version: "01",
+      etlm: "112233445566778899aabbcc",
+      salt: "0123",
+      mic: "abcd"
     }
   }
 };
@@ -123,10 +142,15 @@ describe('ble data gatt service member google', function() {
     google.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA_EDDYSTONE_URL);
   });
-  it('should parse BLE advertiser data Eddystone TLM', function() {
-    var advertiserData = INPUT_DATA_EDDYSTONE_TLM;
+  it('should parse BLE advertiser data Eddystone TLM v00', function() {
+    var advertiserData = INPUT_DATA_EDDYSTONE_TLM_V00;
     google.process(advertiserData);
-    assert.deepEqual(advertiserData, EXPECTED_DATA_EDDYSTONE_TLM);
+    assert.deepEqual(advertiserData, EXPECTED_DATA_EDDYSTONE_TLM_V00);
+  });
+  it('should parse BLE advertiser data Eddystone TLM v01', function() {
+    var advertiserData = INPUT_DATA_EDDYSTONE_TLM_V01;
+    google.process(advertiserData);
+    assert.deepEqual(advertiserData, EXPECTED_DATA_EDDYSTONE_TLM_V01);
   });
   it('should parse BLE advertiser data Eddystone EID', function() {
     var advertiserData = INPUT_DATA_EDDYSTONE_EID;

@@ -595,12 +595,12 @@ This is best illustrated with an example using the following input:
       }
     }
        
-For reference, the example serviceData.data is interpreted as follows, based on the [Eddystone-TLM specification](https://github.com/google/eddystone/tree/master/eddystone-tlm):
+For reference, the example serviceData.data is interpreted as follows, based on the [Eddystone-TLM specification](https://github.com/google/eddystone/tree/master/eddystone-tlm), in this case [Unencrypted TLM](https://github.com/google/eddystone/blob/master/eddystone-tlm/tlm-plain.md):
 
 | Byte(s) | Hex String               | Description                   |
 |--------:|:-------------------------|:------------------------------|
 | 0       | 20                       | Eddystone-TLM Frame Type      |
-| 1       | 00                       | TLM Version                   | 
+| 1       | __00__                   | TLM Version                   | 
 | 2-3     | 0bb8                     | Battery Voltage (mV)          |
 | 4-5     | 1800                     | Temperature (8:8 fixed point) |
 | 6-9     | 00000001                 | Advertising PDU Count         |
@@ -618,6 +618,30 @@ Which would add the following properties to advData:
         temperature: "24C",
         advertisingCount: 1,
         uptime: "1s"
+      }
+    }
+
+Consider also the example of [Encrypted TLM](https://github.com/google/eddystone/blob/master/eddystone-tlm/tlm-encrypted.md):
+
+| Byte(s) | Hex String               | Description              |
+|--------:|:-------------------------|:-------------------------|
+| 0       | 20                       | Eddystone-TLM Frame Type |
+| 1       | __01__                   | TLM Version              | 
+| 2-13    | 112233445566778899aabbcc | Encrypted TLM            |
+| 14-15   | 0123                     | Salt                     |
+| 16-17   | abcd                     | Message Integrity Check  |
+
+Which would add the following properties to advData:
+
+    serviceData: {
+      uuid: 'feaa',
+      data: '2001112233445566778899aabbcc0123abcd',
+      eddystone: {
+        type: "TLM",
+        version: "01",
+        etlm: "112233445566778899aabbcc",
+        salt: "0123",
+        mic: "abcd"
       }
     }
 
