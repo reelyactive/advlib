@@ -465,7 +465,7 @@ Based on a pilot program for members which allows the SIG to allocate a 16-bit U
 
 ##### Google
 
-Supports Eddystone ([UID](#eddystone-uid), [URL](#eddystone-url) & [TLM](#eddystone-tlm)) and the [UriBeacon](#uribeacon) of the Physical Web.
+Supports Eddystone ([UID](#eddystone-uid), [URL](#eddystone-url), [TLM](#eddystone-tlm) & [EID](#eddystone-eid)) and the [UriBeacon](#uribeacon) of the Physical Web.
 
 ###### UriBeacon
 
