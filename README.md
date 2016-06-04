@@ -7,7 +7,7 @@ Library for wireless advertising packet decoding.  Currently supports the follow
 
 For a live, interactive version of advlib visit [reelyactive.github.io/advlib](http://reelyactive.github.io/advlib/).
 
-This project was published in a scientific paper entitled [Low-Power Wireless Advertising Software Library for Distributed M2M and Contextual IoT](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&arnumber=7389121) presented at the 2nd IEEE World Forum on Internet of Things (WF-IoT) in Milan, Italy on December 16th, 2015.
+This project was published in a scientific paper entitled [Low-Power Wireless Advertising Software Library for Distributed M2M and Contextual IoT](http://reelyactive.com/science/reelyActive-IoT2015.pdf) presented at the [2nd IEEE World Forum on Internet of Things (WF-IoT)](http://wfiot2015.ieee-wf-iot.org/) in Milan, Italy on December 16th, 2015.
 
 
 Installation
@@ -621,6 +621,40 @@ Which would add the following properties to advData:
       }
     }
 
+###### Eddystone-EID
+
+Process Eddystone-EID data (UUID = 0xfeaa).
+
+    advlib.ble.data.gatt.services.members.process(advData);
+ 
+This is best illustrated with an example using the following input:
+
+    advData: {
+      serviceData: {
+        uuid: "feaa",
+        data: "30001122334455667788"
+      }
+    }
+       
+For reference, the example serviceData.data is interpreted as follows, based on the [Eddystone-EID specification](https://github.com/google/eddystone/tree/master/eddystone-eid):
+
+| Byte(s) | Hex String       | Description                 |
+|--------:|:-----------------|:----------------------------|
+| 0       | 30               | Eddystone-EID Frame Type    |
+| 1       | 00               | Calibrated TxPower at 0m    | 
+| 2-9     | 1122334455667788 | 8-byte Ephemeral Identifier |
+
+Which would add the following properties to advData:
+
+    serviceData: {
+      uuid: "feaa",
+      data: "30001122334455667788",
+      eddystone: {
+        type: "EID",
+        txPower: "0dBm",
+        eid: "1122334455667788"
+      }
+    }
 
 #### Standard Services
 

@@ -33,7 +33,14 @@ var INPUT_DATA_EDDYSTONE_TLM = {
     uuid: "feaa",
     data: "20000bb81800000000010000000a" 
   }
-}; 
+};
+var INPUT_DATA_EDDYSTONE_EID = {
+  serviceData: { 
+    uuid: "feaa",
+    data: "30001122334455667788" 
+  }
+};
+
 
 // Expected outputs for the scenario
 var EXPECTED_DATA_URIBEACON = {
@@ -86,6 +93,17 @@ var EXPECTED_DATA_EDDYSTONE_TLM = {
     }
   }
 };
+var EXPECTED_DATA_EDDYSTONE_EID = {
+  serviceData: {
+    uuid: 'feaa',
+    data: '30001122334455667788',
+    eddystone: {
+      type: "EID",
+      txPower: "0dBm",
+      eid: "1122334455667788"
+    }
+  }
+};
 
 describe('ble data gatt service member google', function() {
 
@@ -109,5 +127,10 @@ describe('ble data gatt service member google', function() {
     var advertiserData = INPUT_DATA_EDDYSTONE_TLM;
     google.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA_EDDYSTONE_TLM);
+  });
+  it('should parse BLE advertiser data Eddystone EID', function() {
+    var advertiserData = INPUT_DATA_EDDYSTONE_EID;
+    google.process(advertiserData);
+    assert.deepEqual(advertiserData, EXPECTED_DATA_EDDYSTONE_EID);
   });
 });
