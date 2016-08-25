@@ -886,6 +886,7 @@ Which would add the following property to advData:
         currentStateSeconds: 0,
         previousStateSeconds: 3,
         statusBytes: [ "01", "04", "01", "c1", "b2", "53" ]
+      }
     }
 
 
