@@ -839,6 +839,56 @@ The first byte of the proprietary data specifies the type:
 | 01                | StickNFind Single             |
 | 42                | StickNSense Motion            |
 
+##### Estimote
+
+Process Estimote-proprietary data from a packet's contained advertiser data.
+
+    advlib.ble.common.manufacturers.estimote.process(advData);
+
+###### Nearables
+
+A specific case of Estimote-proprietary data is the [Nearable](http://developer.estimote.com/nearables/).  In the absence of official documentation, advlib assumes that all Estimote-proprietary data represents a Nearable and is interpreted based on experimentally-observed behaviour.  Kindly advise or submit a pull request should official documentation be made available.
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      manufacturerSpecificData: {
+        companyIdentifierCode: "015d",
+        data: "012b9e3834cfbfaa710401acc1b202ff3f000353"
+    }
+
+| Byte(s) | Hex String       | Description                                  |
+|--------:|:-----------------|:---------------------------------------------|
+| 0       | 01               | Unknown (Type?). Status byte 0.              |
+| 1-8     | 2b9e3834cfbfaa71 | 64-bit Nearables ID                          |
+| 9       | 04               | Unknown (Firmware?). Status byte 1.          |
+| 10      | 01               | Unknown (Toggling status?). Status byte 2.   |
+| 11      | ac               | Temperature in Celcius (uncalibrated)        |
+| 12      | c1               | Bit 6 is current state. Status byte 3.       |
+| 13      | b2               | Unknown (Toggling status?). Status byte 4.   |
+| 14      | 02               | Acceleration in X-axis (two's complement)    |
+| 15      | ff               | Acceleration in Y-axis (two's complement)    |
+| 16      | 3f               | Acceleration in Z-axis (two's complement)    |
+| 17      | 00               | Duration of current state (var. resolution)  |
+| 18      | 03               | Duration of previous state (var. resolution) |
+| 19      | 53               | Unknown (TX power?). Status byte 5.          |
+
+Which would add the following property to advData:
+
+    manufacturerSpecificData: {
+      nearable: {
+        id: "2b9e3834cfbfaa71",
+        temperature: 22,
+        currentState: "still",
+        accelerationX: 2,
+        accelerationY: -1,
+        accelerationZ: 63,
+        currentStateSeconds: 0,
+        previousStateSeconds: 3,
+        statusBytes: [ "01", "04", "01", "c1", "b2", "53" ]
+    }
+
+
 #### Utilities
 
 ##### PDU
