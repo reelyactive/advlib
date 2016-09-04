@@ -863,8 +863,8 @@ This is best illustrated with an example using the following input:
 | 1-8     | 2b9e3834cfbfaa71 | 64-bit Nearables ID                          |
 | 9       | 04               | Unknown (Firmware?). Status byte 1.          |
 | 10      | 01               | Unknown (Toggling status?). Status byte 2.   |
-| 11      | ac               | Temperature in Celcius (uncalibrated)        |
-| 12      | c1               | Bit 6 is current state. Status byte 3.       |
+| 11      | ac               | Temperature (LSB) (upper bits in next byte)  |
+| 12      | c1               | Bit 6 current state. Temp. Status byte 3.    |
 | 13      | b2               | Unknown (Toggling status?). Status byte 4.   |
 | 14      | 02               | Acceleration in X-axis (two's complement)    |
 | 15      | ff               | Acceleration in Y-axis (two's complement)    |
@@ -878,11 +878,11 @@ Which would add the following property to advData:
     manufacturerSpecificData: {
       nearable: {
         id: "2b9e3834cfbfaa71",
-        temperature: 22,
+        temperature: 26.75,
         currentState: "still",
-        accelerationX: 2,
-        accelerationY: -1,
-        accelerationZ: 63,
+        accelerationX: 0.03125,
+        accelerationY: -0.015625,
+        accelerationZ: 0.984375,
         currentStateSeconds: 0,
         previousStateSeconds: 3,
         statusBytes: [ "01", "04", "01", "c1", "b2", "53" ]
