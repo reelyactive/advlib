@@ -31729,7 +31729,10 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     }, {
       name: "Nexus Player",
       payload: "001b0000005979f002011a1107fc9dd0b3cb84e0840642f3f7e1e0bfcb"
-    },  {
+    }, {
+      name: "Estimote Nearable",
+      payload: "4025da84a454a9d502010603030f1817ff5d010159b254aa72d4eaa8040140d1affc02bf010653"
+    }, {
       name: "Roximity (iBeacon)",
       payload: "42243cae3eb8ebe00201061aff4c0002158deefbb9f7384297804096668bb4428100012258c5"
     }, {
