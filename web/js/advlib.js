@@ -22,7 +22,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{"../common/util/identifier.js":9}],2:[function(require,module,exports){
+},{"../common/util/identifier.js":13}],2:[function(require,module,exports){
 var companyNames = {
     "0000": "Ericsson Technology Licensing",
     "0001": "Nokia Mobile Phones",
@@ -593,10 +593,479 @@ var companyNames = {
     "0237": "MSHeli s.r.l.",
     "0238": "Trakm8 Ltd",
     "0239": "JIN CO, Ltd",
-    "023a": "Alatech Technology"
+    "023a": "Alatech Technology",
+    "023b": "Beijing CarePulse Electronic Technology Co, Ltd",
+    "023c": "Awarepoint",
+    "023d": "ViCentra B.V.",
+    "023e": "Raven Industries",
+    "023f": "WaveWare Technologies",
+    "0240": "Argenox Technologies",
+    "0241": "Bragi GmbH",
+    "0242": "16Lab Inc",
+    "0243": "Masimo Corp",
+    "0244": "Iotera Inc.",
+    "0245": "Endress+Hauser",
+    "0246": "ACKme Networks, Inc.",
+    "0247": "FiftyThree Inc.",
+    "0248": "Parker Hannifin Corp​",
+    "0249": "Transcranial Ltd",
+    "024a": "Uwatec AG",
+    "024b": "Orlan LLC",
+    "024c": "Blue Clover Devices",
+    "024d": "M-Way Solutions GmbH",
+    "024e": "Microtronics Engineering GmbH",
+    "024f": "Schneider Schreibgeräte GmbH",
+    "0250​": "Sapphire Circuits LLC",
+    "0251": "Lumo Bodytech Inc.",
+    "0252": "UKC Technosolution",
+    "0253": "Xicato Inc.",
+    "0254": "Playbrush",
+    "0255": "Dai Nippon Printing Co., Ltd.",
+    "0256": "G24 Power Limited",
+    "0257": "AdBabble Local Commerce Inc.",
+    "0258": "Devialet SA",
+    "0259": "ALTYOR",
+    "025a": "University of Applied Sciences Valais/Haute Ecole Valaisanne",
+    "025b": "​Five Interactive, LLC dba Zendo",
+    "025c": "NetEase (Hangzhou) Network co.Ltd.",
+    "025d": "Lexmark International Inc.",
+    "025e": "Fluke Corporation",
+    "025f": "Yardarm Technologies​",
+    "0260": "SensaRx",
+    "0261": "SECVRE GmbH",
+    "0262": "Glacial Ridge Technologies",
+    "0263": "Identiv, Inc.",
+    "0264​": "DDS, Inc.",
+    "0265": "SMK Corporation",
+    "0266": "Schawbel Technologies LLC",
+    "0267": "XMI Systems SA",
+    "0268": "Cerevo",
+    "0269": "​Torrox GmbH & Co KG",
+    "026a": "​Gemalto",
+    "026b": "DEKA Research & Development Corp.​",
+    "026c": "Domster Tadeusz Szydlowski",
+    "026d": "Technogym SPA​",
+    "026e": "FLEURBAEY BVBA",
+    "026f": "Aptcode Solutions​",
+    "0270": "LSI ADL Technology​",
+    "0271": "Animas Corp",
+    "0272": "Alps Electric Co., Ltd.",
+    "0273": "​OCEASOFT",
+    "0274": "Motsai Research",
+    "0275": "Geotab",
+    "0276": "E.G.O. Elektro-Geratebau GmbH",
+    "0277": "​bewhere inc",
+    "0278​": "Johnson Outdoors Inc",
+    "0279": "Steute Schaltgerate GmbH & Co. KG",
+    "027a": "Ekomini in​c.​",
+    "027b": "​DEFA AS",
+    "027c": "Aseptika Ltd",
+    "027d": "HUAWEI Technologies Co., Ltd.",
+    "027e": "HabitAware, LLC",
+    "027f": "Ruwido Austria GmbH​",
+    "0280": "ITEC corporation",
+    "0281": "StoneL​",
+    "0282​": "Sonova AG",
+    "0283": "Maven Machines, Inc.",
+    "0284": "Synapse Electronics",
+    "0285​": "Standard Innovation Inc.",
+    "0286": "RF Code, Inc.",
+    "0287": "Wally Ventures S.L.",
+    "0288": "Willowbank Electronics Ltd",
+    "0289": "SK Telecom",
+    "028a": "Jetro AS",
+    "028b": "Code Gears LTD",
+    "028c": "NANOLINK APS",
+    "028d": "​IF, LLC",
+    "028e": "RF Digital Corp",
+    "028f": "Church & Dwight Co., Inc",
+    "0290": "Multibit Oy​",
+    "0291": "CliniCloud Inc​",
+    "0292": "​SwiftSensors",
+    "0293": "Blue Bite​​",
+    "0294": "​ELIAS GmbH",
+    "0295": "Sivantos GmbH",
+    "0296": "Petzl​",
+    "0297": "Storm Power ltd",
+    "0298": "EISST Ltd​",
+    "0299": "Inexess Technology Simma KG​",
+    "029a": "​Currant, Inc.",
+    "029b": "C2 Development, Inc.",
+    "029c": "Blue Sky Scientific, LLC",
+    "029d": "ALOTTAZS LABS, LLC",
+    "029e": "Kupson spol. s r.o.",
+    "029f": "Areus Engineering GmbH​",
+    "02a0": "Impossible Camera GmbH",
+    "02a1": "InventureTrack Systems​",
+    "02a2": "​LockedUp",
+    "02a3": "Itude",
+    "02a4": "Pacific Lock Company",
+    "02a5": "Tendyron Corporation",
+    "02a6": "Robert Bosch GmbH",
+    "02a7": "Illuxtron international B.V.",
+    "02a8": "miSport Ltd.",
+    "02a9": "Chargelib",
+    "02aa": "​Doppler Lab",
+    "02ab": "BBPOS Limited",
+    "02ac": "RTB Elektronik GmbH & Co. KG​​",
+    "02ad": "Rx Networks, Inc.",
+    "02ae": "​WeatherFlow, Inc.",
+    "02af": "Technicolor USA Inc.​",
+    "02b0": "Bestechnic(Shanghai),Ltd",
+    "02b1": "​Raden Inc",
+    "02b2": "JouZen Oy",
+    "02b3": "​​CLABER S.P.A.",
+    "02b4": "Hyginex, Inc.",
+    "02b5": "HANSHIN ELECTRIC RAILWAY CO.,LTD.",
+    "02b6": "Schneider Electric",
+    "02b7": "Oort Technologies LLC​",
+    "02b8": "Chrono Therapeutics",
+    "02b9​": "Rinnai Corporation",
+    "02ba": "​Swissprime Technologies AG",
+    "02bb": "Koha.,Co.Ltd",
+    "02bc": "Genevac Ltd​",
+    "02bd": "​Chemtronics",
+    "02be": "Seguro Technology Sp. z o.o.",
+    "02bf": "Redbird Flight Simulations",
+    "02c0": "Dash Robotics",
+    "02c1": "LINE Corporation​",
+    "02c2": "​Guillemot Corporation",
+    "02c3": "Techtronic Power Tools Technology Limited",
+    "02c4": "Wilson Sporting Goods",
+    "02c5": "Lenovo (Singapore) Pte Ltd.",
+    "02c6": "Ayatan Sensors",
+    "02c7": "Electronics Tomorrow Limited",
+    "02c8": "VASCO Data Security International, Inc.",
+    "02c9": "PayRange Inc.​",
+    "02ca": "ABOV ​Semiconductor",
+    "02cb": "​AINA-Wireless Inc.​",
+    "02cc": "​Eijkelkamp Soil & Water",
+    "02cd": "BMA ergonomics b.v.",
+    "02ce": "​Teva Branded Pharmaceutical Products R&D, Inc.",
+    "02cf": "Anima",
+    "02d0": "3M",
+    "02d1": "​Empatica Srl",
+    "02d2": "​​Afero, Inc.",
+    "02d3": "Powercast Corporation",
+    "02d4": "Secuyou ApS",
+    "02d5": "​OMRON Corporation",
+    "02d6": "Send Solutions",
+    "02d7": "​NIPPON SYSTEMWARE CO.,LTD.",
+    "02d8": "Neosfar",
+    "02d9": "Fliegl Agrartechnik GmbH",
+    "02da": "​Gilvader​",
+    "02db": "Digi International Inc (R)",
+    "02dc": "DeWalch Technologies, Inc.",
+    "02dd": "Flint Rehabilitation Devices, LLC",
+    "02de": "​Samsung SDS Co., Ltd.",
+    "02df": "Blur Product Development​",
+    "02e0": "University of Michigan",
+    "02e1": "Victron Energy BV​",
+    "02e2": "​​NTT docomo",
+    "02e3": "Carmanah Technologies Corp.​",
+    "02e4": "​Bytestorm Ltd.",
+    "02e5": "Espressif Incorporated",
+    "02e6": "Unwire​",
+    "02e7": "Connected Yard, Inc.",
+    "02e8": "American Music Environments",
+    "02e9": "Sensogram Technologies, Inc.",
+    "02ea": "Fujitsu Limited",
+    "02eb": "Ardic Technology",
+    "02ec": "Delta Systems, Inc",
+    "02ed": "HTC Corporation",
+    "02ee": "Citizen Holdings Co., Ltd.",
+    "02ef": "SMART-INNOVATION.inc",
+    "02f0": "Blackrat Software",
+    "02f1": "The Idea Cave, LLC",
+    "02f2": "GoPro, Inc.",
+    "02f3": "AuthAir, Inc",
+    "02f4": "Vensi, Inc.",
+    "02f5": "Indagem Tech LLC",
+    "02f6": "Intemo Technologies",
+    "02f7": "DreamVisions co., Ltd.",
+    "02f8": "Runteq Oy Ltd",
+    "02f9": "IMAGINATION TECHNOLOGIES LTD",
+    "02fa": "CoSTAR Technologies",
+    "02fb": "Clarius Mobile Health Corp.",
+    "02fc": "Shanghai Frequen Microelectronics Co., Ltd.",
+    "02fd": "Uwanna, Inc.",
+    "02fe": "Lierda Science & Technology Group Co., Ltd.",
+    "02ff": "Silicon Laboratories",
+    "0300": "World Moto Inc.",
+    "0301": "Giatec Scientific Inc.",
+    "0302": "Loop Devices, Inc",
+    "0303": "IACA electronique",
+    "0304": "Martians Inc",
+    "0305": "Swipp ApS",
+    "0306": "Life Laboratory Inc.",
+    "0307": "FUJI INDUSTRIAL CO.,LTD.",
+    "0308": "Surefire, LLC",
+    "0309": "Dolby Labs",
+    "030a": "Ellisys",
+    "030b": "Magnitude Lighting Converters",
+    "030c": "Hilti AG",
+    "030d": "Devdata S.r.l.",
+    "030e": "Deviceworx",
+    "030f": "Shortcut Labs",
+    "0310": "SGL Italia S.r.l.",
+    "0311": "PEEQ DATA",
+    "0312": "Ducere Technologies Pvt Ltd",
+    "0313": "DiveNav, Inc.",
+    "0314": "RIIG AI Sp. z o.o.",
+    "0315": "Thermo Fisher Scientific",
+    "0316": "AG Measurematics Pvt. Ltd.",
+    "0317": "CHUO Electronics CO., LTD.",
+    "0318": "Aspenta International",
+    "0319": "Eugster Frismag AG",
+    "031a": "Amber wireless GmbH",
+    "031b": "HQ Inc",
+    "031c": "Lab Sensor Solutions",
+    "031d": "Enterlab ApS",
+    "031e": "Eyefi, Inc.",
+    "031f": "MetaSystem S.p.A",
+    "0320": "SONO ELECTRONICS. CO., LTD",
+    "0321": "Jewelbots",
+    "0322": "Compumedics Limited",
+    "0323": "Rotor Bike Components",
+    "0324": "Astro, Inc.",
+    "0325": "Amotus Solutions",
+    "0326": "Healthwear Technologies (Changzhou)Ltd",
+    "0327": "Essex Electronics",
+    "0328": "Grundfos A/S",
+    "0329": "Eargo, Inc.",
+    "032a": "Electronic Design Lab",
+    "032b": "ESYLUX",
+    "032c": "NIPPON SMT.CO.,Ltd",
+    "032d": "BM innovations GmbH",
+    "032e": "indoormap",
+    "032f": "OttoQ Inc",
+    "0330": "North Pole Engineering",
+    "0331": "3flares Technologies Inc.",
+    "0332": "Electrocompaniet A.S.",
+    "0333": "Mul-T-Lock",
+    "0334": "Corentium AS",
+    "0335": "Enlighted Inc",
+    "0336": "GISTIC",
+    "0337": "AJP2 Holdings, LLC",
+    "0338": "COBI GmbH",
+    "0339": "Blue Sky Scientific, LLC",
+    "033a": "Appception, Inc.",
+    "033b": "Courtney Thorne Limited",
+    "033c": "Virtuosys",
+    "033d": "TPV Technology Limited",
+    "033e": "Monitra SA",
+    "033f": "Automation Components, Inc.",
+    "0340": "Letsense s.r.l.",
+    "0341": "Etesian Technologies LLC",
+    "0342": "GERTEC BRASIL LTDA.",
+    "0343": "Drekker Development Pty. Ltd.",
+    "0344": "Whirl Inc",
+    "0345": "Locus Positioning",
+    "0346": "Acuity Brands Lighting, Inc",
+    "0347": "Prevent Biometrics",
+    "0348": "Arioneo",
+    "0349": "VersaMe",
+    "034a": "Vaddio",
+    "034b": "Libratone A/S",
+    "034c": "HM Electronics, Inc.",
+    "034d": "TASER International, Inc.",
+    "034e": "Safe Trust Inc.",
+    "034f": "Heartland Payment Systems",
+    "0350": "Bitstrata Systems Inc.",
+    "0351": "Pieps GmbH",
+    "0352": "iRiding(Xiamen)Technology Co.,Ltd.",
+    "0353": "Alpha Audiotronics, Inc.",
+    "0354": "TOPPAN FORMS CO.,LTD.",
+    "0355": "Signma Designs, Inc.",
+    "0356": "Spectrum Brands, Inc.",
+    "0357": "Polymap Wireless",
+    "0358": "MagniWare Ltd.",
+    "0359": "Novotec Medical GmbH",
+    "035a": "Medicom Innovation Partners a/s",
+    "035b": "Matrix Inc.",
+    "035c": "Eaton Corporation",
+    "035d": "KYS",
+    "035e": "Naya Health, Inc.",
+    "035f": "Acromag",
+    "0360": "Insulet Corporation",
+    "0361": "Wellinks Inc.",
+    "0362": "ON Semiconductor",
+    "0363": "FREELAP SA",
+    "0364": "Favero Electronics Srl",
+    "0365": "BioMech Sensor LLC",
+    "0366": "BOLTT Sports technologies Private limited",
+    "0367": "Saphe International",
+    "0368": "Metormote AB",
+    "0369": "littleBits",
+    "036a": "SetPoint Medical",
+    "036b": "BRControls Products BV",
+    "036c": "Zipcar",
+    "036d": "AirBolt Pty Ltd",
+    "036e": "KeepTruckin Inc",
+    "036f": "Motiv, Inc.",
+    "0370": "Wazombi Labs OU",
+    "0371": "ORBCOMM",
+    "0372": "Nixie Labs, Inc.",
+    "0373": "AppNearMe Ltd",
+    "0374": "Holman Industries",
+    "0375": "Expain AS",
+    "0376": "Electronic Temperature Instruments Ltd",
+    "0377": "Plejd AB",
+    "0378": "Propeller Health",
+    "0379": "Shenzhen iMCO Electronic Technology Co., Ltd",
+    "037a": "Algoria",
+    "037b": "Apption Labs Inc.",
+    "037c": "Cronologics Corporation",
+    "037d": "MICRODIA Ltd.",
+    "037e": "lulabytes S.L.",
+    "037f": "Nestec S.A.",
+    "0380": "LLC MEGA-F service",
+    "0381": "Sharp Corporation",
+    "0382": "Precision Outcomes Ltd",
+    "0383": "Kronos Incorporated",
+    "0384": "OCOSMOS Co., Ltd.",
+    "0385": "Embedded Electronic Solutions Ltd. dba e2Solutions",
+    "0386": "Aterica Inc.",
+    "0387": "BluStor PMC, Inc.",
+    "0388": "Kapsch TrafficCom AB",
+    "0389": "ActiveBlu Corporation",
+    "038a": "Kohler Mira Limited",
+    "038b": "Noke",
+    "038c": "Appion Inc.",
+    "038d": "Resmed Ltd",
+    "038e": "Crownstone B.V.",
+    "038f": "Xiaomi Inc.",
+    "0390": "INFOTECH s.r.o.",
+    "0391": "Thingsquare AB",
+    "0392": "T&D",
+    "0393": "LAVAZZA S.p.A.",
+    "0394": "Netclearance Systems, Inc.",
+    "0395": "SDATAWAY",
+    "0396": "BLOKS GmbH",
+    "0397": "LEGO System A/S",
+    "0398": "Thetatronics Ltd",
+    "0399": "Nikon Corporation",
+    "039a": "NeST",
+    "039b": "South Silicon Valley Microelectronics",
+    "039c": "ALE International",
+    "039d": "CareView Communications, Inc.",
+    "039e": "SchoolBoard Limited",
+    "039f": "Molex Corporation",
+    "03a0": "IVT Wireless Limited",
+    "03a1": "Alpine Labs LLC",
+    "03a2": "Candura Instruments",
+    "03a3": "SmartMovt Technology Co., Ltd",
+    "03a4": "Token Zero Ltd",
+    "03a5": "ACE CAD Enterprise Co., Ltd. (ACECAD)",
+    "03a6": "Medela, Inc",
+    "03a7": "AeroScout",
+    "03a8": "Esrille Inc.",
+    "03a9": "THINKERLY SRL",
+    "03aa": "Exon Sp. z o.o.",
+    "03ab": "Meizu Technology Co., Ltd.",
+    "03ac": "Smablo LTD",
+    "03ad": "XiQ",
+    "03ae": "Allswell Inc.",
+    "03af": "Comm-N-Sense Corp DBA Verigo",
+    "03b0": "VIBRADORM GmbH",
+    "03b1": "Otodata Wireless Network Inc.",
+    "03b2": "Propagation Systems Limited",
+    "03b3": "Midwest Instruments & Controls",
+    "03b4": "Alpha Nodus, inc.",
+    "03b5": "petPOMM, Inc",
+    "03b6": "Mattel",
+    "03b7": "Airbly Inc.",
+    "03b8": "A-Safe Limited",
+    "03b9": "FREDERIQUE CONSTANT SA",
+    "03ba": "Maxscend Microelectronics Company Limited",
+    "03bb": "Aboot Diabetes Care",
+    "03bc": "ASB Bank Ltd",
+    "03bd": "amadas",
+    "03be": "Applied Science, Inc.",
+    "03bf": "iLumi Solutions Inc.",
+    "03c0": "Arch Systems Inc.",
+    "03c1": "Ember Technologies, Inc.",
+    "03c2": "Snapchat Inc",
+    "03c3": "Casambi Technologies Oy",
+    "03c4": "Pico Technology Inc.",
+    "03c5": "St. Jude Medical, Inc.",
+    "03c6": "Intricon",
+    "03c7": "Structural Health Systems, Inc.",
+    "03c8": "Avvel International",
+    "03c9": "Gallagher Group",
+    "03ca": "In2things Automation Pvt. Ltd.",
+    "03cb": "SYSDEV Srl",
+    "03cc": "Vonkil Technologies Ltd",
+    "03cd": "Wynd Technologies, Inc.",
+    "03ce": "CONTRINEX S.A.",
+    "03cf": "MIRA, Inc.",
+    "03d0": "Watteam Ltd",
+    "03d1": "Density Inc.",
+    "03d2": "IOT Pot India Private Limited",
+    "03d3": "Sigma Connectivity AB",
+    "03d4": "PEG PEREGO SPA",
+    "03d5": "Wyzelink Systems Inc.",
+    "03d6": "Yota Devices LTD",
+    "03d7": "FINSECUR",
+    "03d8": "Zen-Me Labs Ltd",
+    "03d9": "3IWare Co., Ltd.",
+    "03da": "EnOcean GmbH",
+    "03db": "Instabeat, Inc",
+    "03dc": "Nima Labs",
+    "03dd": "Andreas Stihl AG & Co. KG",
+    "03de": "Nathan Rhoades LLC",
+    "03df": "Grob Technologies, LLC",
+    "03e0": "Actions (Zhuhai) Technology Co., Limited",
+    "03e1": "SPD Development Company Ltd",
+    "03e2": "Sensoan Oy",
+    "03e3": "Qualcomm Life Inc",
+    "03e4": "Chip-ing AG",
+    "03e5": "ffly4u",
+    "03e6": "IoT Instruments Oy",
+    "03e7": "TRUE Fitness Technology",
+    "03e8": "Reiner Kartengeraete GmbH & Co. KG.",
+    "03e9": "SHENZHEN LEMONJOY TECHNOLOGY CO., LTD.",
+    "03ea": "Hello Inc.",
+    "03eb": "Evollve Inc.",
+    "03ec": "Jigowatts Inc.",
+    "03ed": "BASIC MICRO.COM,INC.",
+    "03ee": "CUBE TECHNOLOGIES",
+    "03ef": "foolography GmbH",
+    "03f0": "CLINK",
+    "03f1": "Hestan Smart Cooking Inc.",
+    "03f2": "WindowMaster A/S",
+    "03f3": "Flowscape AB",
+    "03f4": "PAL Technologies Ltd",
+    "03f5": "WHERE, Inc.",
+    "03f6": "Iton Technology Corp.",
+    "03f7": "Owl Labs Inc.",
+    "03f8": "Rockford Corp.",
+    "03f9": "Becon Technologies Co.,Ltd.",
+    "03fa": "Vyassoft Technologies Inc",
+    "03fb": "Nox Medical",
+    "03fc": "Kimberly-Clark",
+    "03fd": "Trimble Navigation Ltd.",
+    "03fe": "Littelfuse",
+    "03ff": "Withings",
+    "0400": "i-developer IT Beratung UG",
+    "0401": "Relations Co., Ltd.",
+    "0402": "Sears Holdings Corporation",
+    "0403": "Gartner Electronic GmbH",
+    "0404": "Authomate Inc",
+    "0405": "Vertex International, Inc.",
+    "0406": "Airtago",
+    "0407": "Swiss Audio SA",
+    "0408": "ToGetHome Inc.",
+    "0409": "AXIS",
+    "040a": "Openmatics",
+    "040b": "Jana Care Inc.",
+    "040c": "Senix Corporation",
+    "040d": "NorthStar Battery Company, LLC",
+    "ffff": "(Reserved) Default Vendor ID"
 };
 
 module.exports.companyNames = companyNames;
+
 },{}],3:[function(require,module,exports){
 var companyNames = {
     "feff": "GN Netcom",
@@ -713,13 +1182,104 @@ var companyNames = {
     "fe90": "JUMA",
     "fe8f": "CSR",
     "fe8e": "ARM Ltd",
-    "fe8d": "Interaxon Inc."
+    "fe8d": "Interaxon Inc.",
+    "fe8c": "TRON Forum",
+    "fe8b": "Apple, Inc.",
+    "fe8a": "Apple, Inc.",
+    "fe89": "B&) Play A/S",
+    "fe88": "SALTO SYSTEMS S.L.",
+    "fe87": "Qingdao Yeelink Information Technology Co., Ltd.",
+    "fe86": "​HUAWEI Technologies Co., Ltd",
+    "fe85": "RF Digital Corp",
+    "fe84": "RF Digital Corp",
+    "fe83": "Blue Bite",
+    "fe82": "Medtronic Inc.",
+    "fe81": "Medtronic Inc.",
+    "fe80": "Doppler Lab",
+    "fe7f": "Doppler Lab",
+    "fe7e": "Awear Solutions Ltd",
+    "fe7d": "Aterica Health Inc.",
+    "fe7c": "Stollmann E+V GmbH",
+    "fe7b": "Orion Labs, Inc.",
+    "fe7a": "Bragi GmbH",
+    "fe79": "Zebra Technologies",
+    "fe78": "Hewlett-Packard Company",
+    "fe77": "Hewlett-Packard Company",
+    "fe76": "TangoMe",
+    "fe75": "TangoMe",
+    "fe74": "unwire",
+    "fe73": "St. Jude Medical, Inc.",
+    "fe72": "St. Jude Medical, Inc.",
+    "fe71": "Plume Design Inc",
+    "fe70": "Beijing Jingdong Century Trading Co., Ltd.",
+    "fe6f": "LINE Corporation",
+    "fe6e": "The University of Tokyo",
+    "fe6d": "The Universtiy of Tokyo",
+    "fe6c": "TASER International, Inc.",
+    "fe6b": "TASER International, Inc.",
+    "fe6a": "Kontakt Micro-Location Sp. z o.o",
+    "fe69": "Qualcomm Life Inc",
+    "fe68": "Qualcomm Life Inc",
+    "fe67": "Lab Sensor Solutions",
+    "fe66": "Intel Corporation",
+    "fe65": "CHIPOLO d.o.o.",
+    "fe64": "Siemens AG",
+    "fe63": "Connected Yard, Inc.",
+    "fe62": "Indagem Tech LLC",
+    "fe61": "Logitech International SA",
+    "fe60": "Lierda Science & Technology Group Co., Ltd.",
+    "fe5f": "Eyefi, Inc.",
+    "fe5e": "Plastc Corporation",
+    "fe5d": "Grundfos A/S",
+    "fe5c": "million hunters GmbH",
+    "fe5b": "GT-tronics HK Ltd",
+    "fe5a": "Chronologics Corporation",
+    "fe59": "Nordic Semiconductor ASA",
+    "fe58": "Nordic Semiconductor ASA",
+    "fe57": "Dotted Labs",
+    "fe56": "Google Inc.",
+    "fe55": "Google Inc.",
+    "fe54": "Motiv, Inc.",
+    "fe53": "3M",
+    "fe52": "Setpoint Medical",
+    "fe51": "SRAM",
+    "fe50": "Google Inc.",
+    "fe4f": "Molekule, Inc.",
+    "fe4e": "NTT docomo",
+    "fe4d": "Casambi Technologies Oy",
+    "fe4c": "Volkswagen AG",
+    "fe4b": "Koninklijke Philips N.V.",
+    "fe4a": "OMRON HEALTHCARE Co., Ltd.",
+    "fe49": "SenionLab AB",
+    "fe48": "General Motors",
+    "fe47": "General Motors",
+    "fe46": "B&O Play AS",
+    "fe45": "Snapchat Inc",
+    "fe44": "SK Telecom",
+    "fe43": "Andreas Stihl AG & Co. KG",
+    "fe42": "Nets A/S"
 };
 
 module.exports.companyNames = companyNames;
+
 },{}],4:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015
+ * Copyright reelyActive 2016
+ * We believe in an open Internet of Things
+ */
+
+var companyidentifiercodes =
+                       require('./assignednumbers/companyidentifiercodes.js');
+var memberservices = require('./assignednumbers/memberservices.js');
+var manufacturers = require('./manufacturers/index.js');
+
+module.exports.companyidentifiercodes = companyidentifiercodes;
+module.exports.memberservices = memberservices;
+module.exports.manufacturers = manufacturers;
+
+},{"./assignednumbers/companyidentifiercodes.js":2,"./assignednumbers/memberservices.js":3,"./manufacturers/index.js":9}],5:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015-2016
  * We believe in an open Internet of Things
  */
 
@@ -732,14 +1292,17 @@ var pdu = require('../../util/pdu.js');
  * Kindly respect ascending order of UUIDs to facilitate verify-before-update!
  */ 
 var licenseeNames = {
+    "07775dd0111b11e491910800200c9a66": "XY Find It",
     "24ddf4118cf1440c87cde368daf9c93e": "RECO",
     "2f234454cf6d4a0fadf2f4911ba9ffa6": "Radius Networks",
     "3d4f13b4d1fd404980e5d3edcc840b69": "Orange S.A.",
+    "536d6172742043697479204e74776b73": "Eventpath",
     "8deefbb9f7384297804096668bb44281": "Roximity",
     "b9407f30f5f8466eaff925556b57fe6d": "Estimote",
     "dab59c4fa4d6ee286bfe8e0000bbc2bb": "eNote",
     "e2c56db5dffb48d2b060d0f5a71096e0": "Bright Beacon",
     "f0018b9b75094c31a9051a27d39c003c": "LocosLab",
+    "f3077abe93ac465aacf167f080cb7aef": "The Bubbles Company inc.",
     "f7826da64fa24e988024bc5b71e0893e": "Kontakt.io"
 };
 
@@ -770,9 +1333,9 @@ function process(advertiserData) {
 module.exports.licenseeNames = licenseeNames;
 module.exports.process = process;
 
-},{"../../util/pdu.js":10}],5:[function(require,module,exports){
+},{"../../util/pdu.js":14}],6:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015
+ * Copyright reelyActive 2015-2016
  * We believe in an open Internet of Things
  */
 
@@ -799,9 +1362,131 @@ function process(advertiserData) {
 }
 
 
+module.exports.ibeacon = ibeacon;
 module.exports.process = process;
 
-},{"./ibeacon.js":4}],6:[function(require,module,exports){
+},{"./ibeacon.js":5}],7:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2016
+ * We believe in an open Internet of Things
+ */
+
+var nearable = require('./nearable.js');
+
+
+/**
+ * Parse BLE advertiser manufacturer specific data for Estimote.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  var data = advertiserData.manufacturerSpecificData.data;
+  var packetType = data.substr(0,2);
+
+  switch(packetType) { // Update when we have manufacturer documentation
+    case '01':
+    default:
+      nearable.process(advertiserData);
+  }
+}
+
+
+module.exports.process = process;
+
+},{"./nearable.js":8}],8:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2016
+ * We believe in an open Internet of Things
+ */
+
+
+/**
+ * Parse Estimote Nearable manufacturer specific data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  var nearable = {};
+  var data = advertiserData.manufacturerSpecificData.data;
+
+  nearable.id = data.substr(2,16);
+  nearable.temperature = toTemperature(data.substr(24,2), data.substr(22,2));
+  if(parseInt(data.substr(26,2),16) & 0x40) {
+    nearable.currentState = 'motion';
+  }
+  else {
+    nearable.currentState = 'still';
+  }
+  nearable.accelerationX = toAcceleration(data.substr(28,2));
+  nearable.accelerationY = toAcceleration(data.substr(30,2));
+  nearable.accelerationZ = toAcceleration(data.substr(32,2));
+  nearable.currentStateSeconds = toDuration(data.substr(34,2));
+  nearable.previousStateSeconds = toDuration(data.substr(36,2));
+  nearable.statusBytes = [ data.substr(0,2), data.substr(18,2),
+                           data.substr(20,2), data.substr(24,2),
+                           data.substr(26,2), data.substr(38,2) ];
+
+  advertiserData.manufacturerSpecificData.nearable = nearable;
+}
+
+
+/**
+ * Convert the given bytes to temperature.
+ * @param {String} upper4 The most-significant 4 bits of the temperature.
+ * @param {String} lower8 The least-significant 8 bits of the temperature.
+ */
+function toTemperature(upper4, lower8) {
+  var data = ((parseInt(upper4,16) % 16) * 256) + parseInt(lower8,16);
+  if(data > 2047) {
+    return (data - 4096) / 16;
+  }
+  return data / 16;
+}
+
+
+/**
+ * Convert the given twos complement hexadecimal string to acceleration in g.
+ * @param {String} byte The acceleration data byte as a string.
+ */
+function toAcceleration(byte) {
+  var data = parseInt(byte,16);
+  if(data > 127) {
+    return (data - 256) / 64;
+  }
+  return data / 64;
+}
+
+
+/**
+ * Convert the given twos complement hexadecimal string to duration.
+ * @param {String} byte The duration data byte as a string.
+ */
+function toDuration(byte) {
+  var data = parseInt(byte,16);
+  if(data < 64) { // Less than 0x40 is seconds
+    return data;
+  }
+  if(data >= 128) { // Above 0x80 is hours
+    return (data % 128) * 3600;
+  }
+  return (data % 64) * 60; // Between the two is minutes
+}
+
+module.exports.process = process;
+
+},{}],9:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2016
+ * We believe in an open Internet of Things
+ */
+
+var apple = require('./apple/index.js');
+var sticknfind = require('./sticknfind/index.js');
+var estimote = require('./estimote/index.js');
+
+module.exports.apple = apple;
+module.exports.sticknfind = sticknfind;
+module.exports.estimote = estimote;
+
+},{"./apple/index.js":6,"./estimote/index.js":7,"./sticknfind/index.js":10}],10:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -833,7 +1518,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"./snfsingle.js":7,"./snsmotion.js":8}],7:[function(require,module,exports){
+},{"./snfsingle.js":11,"./snsmotion.js":12}],11:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -870,7 +1555,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"../../util/pdu.js":10}],8:[function(require,module,exports){
+},{"../../util/pdu.js":14}],12:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -921,7 +1606,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"../../util/pdu.js":10}],9:[function(require,module,exports){
+},{"../../util/pdu.js":14}],13:[function(require,module,exports){
 /**
  * Copyright reelyActive 2014
  * We believe in an open Internet of Things
@@ -1000,7 +1685,7 @@ module.exports.EUI64 = TYPE_EUI64;
 module.exports.RA28 = TYPE_RA28;
 module.exports.ADVA48 = TYPE_ADVA48;
 module.exports.RADIO_PAYLOAD = TYPE_RADIO_PAYLOAD;
-},{}],10:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1042,7 +1727,7 @@ function convertTxPower(rawTxPower) {
 module.exports.getTagDataLength = getTagDataLength;
 module.exports.reverseBytes = reverseBytes;
 module.exports.convertTxPower = convertTxPower;
-},{}],11:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1095,7 +1780,7 @@ module.exports.BIT3_NAME = BIT3_NAME;
 module.exports.BIT4_NAME = BIT4_NAME;
 module.exports.BIT5_NAME = BIT5_NAME;
 
-},{}],12:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1115,7 +1800,7 @@ function process(payload, cursor, advertiserData, adType) {
 }
 
 module.exports.process = process;
-},{"../../common/util/pdu.js":10}],13:[function(require,module,exports){
+},{"../../common/util/pdu.js":14}],17:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1154,9 +1839,9 @@ function completeLocalName(payload, cursor, advertiserData) {
 
 module.exports.shortenedLocalName = shortenedLocalName;
 module.exports.completeLocalName = completeLocalName;
-},{"../../common/util/pdu.js":10}],14:[function(require,module,exports){
+},{"../../common/util/pdu.js":14}],18:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015
+ * Copyright reelyActive 2015-2016
  * We believe in an open Internet of Things
  */
 
@@ -1165,6 +1850,7 @@ var companyIdentifierCodes =
             require('../../common/assignednumbers/companyidentifiercodes.js');
 var apple = require('../../common/manufacturers/apple/index.js');
 var sticknfind = require('../../common/manufacturers/sticknfind/index.js');
+var estimote = require('../../common/manufacturers/estimote/index.js');
 
 
 /**
@@ -1198,6 +1884,9 @@ function process(payload, cursor, advertiserData) {
     case '00f9':
       sticknfind.process(advertiserData);
       break;
+    case '015d':
+      estimote.process(advertiserData);
+      break;
     default:
   }
 }
@@ -1205,7 +1894,7 @@ function process(payload, cursor, advertiserData) {
 
 module.exports.process = process;
 
-},{"../../common/assignednumbers/companyidentifiercodes.js":2,"../../common/manufacturers/apple/index.js":5,"../../common/manufacturers/sticknfind/index.js":6,"../../common/util/pdu.js":10}],15:[function(require,module,exports){
+},{"../../common/assignednumbers/companyidentifiercodes.js":2,"../../common/manufacturers/apple/index.js":6,"../../common/manufacturers/estimote/index.js":7,"../../common/manufacturers/sticknfind/index.js":10,"../../common/util/pdu.js":14}],19:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1235,7 +1924,7 @@ function process(payload, cursor, advertiserData) {
 
 module.exports.process = process;
 
-},{"../../common/util/pdu.js":10,"../gatt/services/index.js":20}],16:[function(require,module,exports){
+},{"../../common/util/pdu.js":14,"../gatt/services/index.js":24}],20:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1255,7 +1944,7 @@ function process(payload, cursor, advertiserData) {
 }
 
 module.exports.process = process;
-},{"../../common/util/pdu.js":10}],17:[function(require,module,exports){
+},{"../../common/util/pdu.js":14}],21:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1290,7 +1979,7 @@ function solicitation128BitUUIDs(payload, cursor, advertiserData) {
 
 module.exports.solicitation16BitUUIDs = solicitation16BitUUIDs;
 module.exports.solicitation128BitUUIDs = solicitation128BitUUIDs;
-},{"../../common/util/pdu.js":10}],18:[function(require,module,exports){
+},{"../../common/util/pdu.js":14}],22:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1310,7 +1999,7 @@ function process(payload, cursor, advertiserData) {
 
 module.exports.process = process;
 
-},{"../../common/util/pdu.js":10}],19:[function(require,module,exports){
+},{"../../common/util/pdu.js":14}],23:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1374,7 +2063,7 @@ module.exports.nonComplete16BitUUIDs = nonComplete16BitUUIDs;
 module.exports.complete16BitUUIDs = complete16BitUUIDs;
 module.exports.nonComplete128BitUUIDs = nonComplete128BitUUIDs;
 module.exports.complete128BitUUIDs = complete128BitUUIDs;
-},{"../../common/util/pdu.js":10}],20:[function(require,module,exports){
+},{"../../common/util/pdu.js":14}],24:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1558,7 +2247,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"../../../common/assignednumbers/memberservices.js":3,"./members/google.js":21,"./standard/alertnotificationservice.js":22,"./standard/automationio.js":23,"./standard/batteryservice.js":24,"./standard/bloodpressure.js":25,"./standard/bodycomposition.js":26,"./standard/bondmanagement.js":27,"./standard/continousglucosemonitoring.js":28,"./standard/cyclingpower.js":29,"./standard/cyclingspeedandcadence.js":30,"./standard/deviceinformation.js":31,"./standard/environmentalsensing.js":32,"./standard/genericaccess.js":33,"./standard/genericattribute.js":34,"./standard/healththermometer.js":35,"./standard/heartrate.js":36,"./standard/humaninterfacedevice.js":37,"./standard/immediatealert.js":38,"./standard/indoorpositioning.js":39,"./standard/internetprotocolsupport.js":40,"./standard/linkloss.js":41,"./standard/locationandnavigation.js":42,"./standard/nextdstchangeservice.js":43,"./standard/phonealertstatusservice.js":44,"./standard/pulseoximeter.js":45,"./standard/runningspeedandcadence.js":46,"./standard/scanparameters.js":47,"./standard/txpower.js":48,"./standard/userdata.js":49,"./standard/weightscale.js":50}],21:[function(require,module,exports){
+},{"../../../common/assignednumbers/memberservices.js":3,"./members/google.js":25,"./standard/alertnotificationservice.js":26,"./standard/automationio.js":27,"./standard/batteryservice.js":28,"./standard/bloodpressure.js":29,"./standard/bodycomposition.js":30,"./standard/bondmanagement.js":31,"./standard/continousglucosemonitoring.js":32,"./standard/cyclingpower.js":33,"./standard/cyclingspeedandcadence.js":34,"./standard/deviceinformation.js":35,"./standard/environmentalsensing.js":36,"./standard/genericaccess.js":37,"./standard/genericattribute.js":38,"./standard/healththermometer.js":39,"./standard/heartrate.js":40,"./standard/humaninterfacedevice.js":41,"./standard/immediatealert.js":42,"./standard/indoorpositioning.js":43,"./standard/internetprotocolsupport.js":44,"./standard/linkloss.js":45,"./standard/locationandnavigation.js":46,"./standard/nextdstchangeservice.js":47,"./standard/phonealertstatusservice.js":48,"./standard/pulseoximeter.js":49,"./standard/runningspeedandcadence.js":50,"./standard/scanparameters.js":51,"./standard/txpower.js":52,"./standard/userdata.js":53,"./standard/weightscale.js":54}],25:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1644,15 +2333,29 @@ function processEddystone(advertiserData) {
     case '20':
       eddystone.type = 'TLM';
       eddystone.version = data.substr(2,2);
-      eddystone.batteryVoltage = parseInt(data.substr(4,4),16) + 'mV';
-      // TODO: export 8:8 fixed point representation interpreter to pdu
-      eddystone.temperature = parseInt(data.substr(8,4),16);
-      if(eddystone.temperature > 0x7fff) {
-        eddystone.temperature = 0x7fff - eddystone.temperature;
+      if(eddystone.version === '00') {
+        eddystone.batteryVoltage = parseInt(data.substr(4,4),16) + 'mV';
+        // TODO: export 8:8 fixed point representation interpreter to pdu
+        eddystone.temperature = parseInt(data.substr(8,4),16);
+        if(eddystone.temperature > 0x7fff) {
+          eddystone.temperature = 0x7fff - eddystone.temperature;
+        }
+        eddystone.temperature = (eddystone.temperature / 256) + 'C';
+        eddystone.advertisingCount = parseInt(data.substr(12,8),16);
+        eddystone.uptime = (parseInt(data.substr(20,8),16) / 10) + 's';
       }
-      eddystone.temperature = (eddystone.temperature / 256) + 'C';
-      eddystone.advertisingCount = parseInt(data.substr(12,8),16);
-      eddystone.uptime = (parseInt(data.substr(20,8),16) / 10) + 's';
+      else if(eddystone.version === '01') {
+        eddystone.etlm = data.substr(4,24);
+        eddystone.salt = data.substr(28,4);
+        eddystone.mic = data.substr(32,4);
+      }
+      break;
+
+    // EID
+    case '30':
+      eddystone.type = 'EID';
+      eddystone.txPower = pdu.convertTxPower(data.substr(2,2));
+      eddystone.eid = data.substr(4,16);
       break;
   }
 
@@ -1752,7 +2455,7 @@ function parseEncodedUrl(encodedUrl) {
 
 module.exports.process = process;
 
-},{"../../../../common/util/pdu.js":10}],22:[function(require,module,exports){
+},{"../../../../common/util/pdu.js":14}],26:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1768,7 +2471,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{}],23:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1785,7 +2488,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],24:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1802,7 +2505,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],25:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1819,7 +2522,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],26:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1836,7 +2539,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],27:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1853,7 +2556,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],28:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1871,7 +2574,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],29:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1888,7 +2591,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],30:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1904,7 +2607,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{}],31:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1920,7 +2623,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{}],32:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1937,7 +2640,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],33:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1954,7 +2657,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],34:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1971,7 +2674,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],35:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1989,7 +2692,7 @@ module.exports.process = process;
 
 
 
-},{}],36:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2007,7 +2710,7 @@ module.exports.process = process;
 
 
 
-},{}],37:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2024,7 +2727,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],38:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2041,7 +2744,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],39:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2058,7 +2761,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],40:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2075,7 +2778,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],41:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2092,7 +2795,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],42:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2109,7 +2812,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],43:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2126,7 +2829,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],44:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2143,7 +2846,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],45:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2160,7 +2863,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],46:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2178,7 +2881,7 @@ module.exports.process = process;
 
 
 
-},{}],47:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2196,7 +2899,7 @@ module.exports.process = process;
 
 
 
-},{}],48:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2213,7 +2916,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],49:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2230,7 +2933,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],50:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2247,7 +2950,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],51:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2396,7 +3099,7 @@ function process(payload) {
 module.exports.process = process;
 module.exports.flags = flags;
 
-},{"./gap/flags.js":11,"./gap/genericdata.js":12,"./gap/localname.js":13,"./gap/manufacturerspecificdata.js":14,"./gap/servicedata.js":15,"./gap/slaveconnectionintervalrange.js":16,"./gap/solicitation.js":17,"./gap/txpower.js":18,"./gap/uuid.js":19}],52:[function(require,module,exports){
+},{"./gap/flags.js":15,"./gap/genericdata.js":16,"./gap/localname.js":17,"./gap/manufacturerspecificdata.js":18,"./gap/servicedata.js":19,"./gap/slaveconnectionintervalrange.js":20,"./gap/solicitation.js":21,"./gap/txpower.js":22,"./gap/uuid.js":23}],56:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2475,7 +3178,7 @@ module.exports.TYPE5_NAME = TYPE5_NAME;
 module.exports.TYPE6_NAME = TYPE6_NAME;
 module.exports.TYPE_UNDEFINED_NAME = TYPE_UNDEFINED_NAME;
 
-},{}],53:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2487,6 +3190,7 @@ var identifier = require('./common/util/identifier.js');
 var address = require('./address/index.js');
 var header = require('./header/index.js');
 var data = require('./data/index.js');
+var common = require('./common/index.js');
 
 /**
  * Process a raw Bluetooth Low Energy radio payload into semantically
@@ -2506,8 +3210,9 @@ module.exports.process = process;
 module.exports.header = header;
 module.exports.address = address;
 module.exports.data = data;
+module.exports.common = common;
 
-},{"./address/index.js":1,"./common/util/identifier.js":9,"./data/index.js":51,"./header/index.js":52}],54:[function(require,module,exports){
+},{"./address/index.js":1,"./common/index.js":4,"./common/util/identifier.js":13,"./data/index.js":55,"./header/index.js":56}],58:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2521,7 +3226,7 @@ var reelyactive = require('./reelyactive');
 module.exports.ble = ble;
 module.exports.reelyactive = reelyactive;
 
-},{"./ble":53,"./reelyactive":58}],55:[function(require,module,exports){
+},{"./ble":57,"./reelyactive":62}],59:[function(require,module,exports){
 /**
  * Copyright reelyActive 2014
  * We believe in an open Internet of Things
@@ -2604,7 +3309,7 @@ module.exports.RA28 = TYPE_RA28;
 module.exports.ADVA48 = TYPE_ADVA48;
 module.exports.RADIO_PAYLOAD = TYPE_RADIO_PAYLOAD;
 module.exports.UNDEFINED = TYPE_UNDEFINED;
-},{}],56:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 /**
  * Convert a raw radio sensor data payload.
  * @param {string} payload The raw payload as a hexadecimal-string.
@@ -2622,7 +3327,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{}],57:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 /**
  * Convert a raw radio sensor data payload.
  * @param {string} payload The raw payload as a hexadecimal-string.
@@ -2635,7 +3340,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{}],58:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 /**
  * Process a raw reelyActive radio payload into semantically meaningful
  * information.
@@ -2657,7 +3362,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{"./common/util/identifier.js":55,"./data/index.js":56,"./flags/index.js":57}],59:[function(require,module,exports){
+},{"./common/util/identifier.js":59,"./data/index.js":60,"./flags/index.js":61}],63:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -31676,11 +32381,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],60:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":59}],61:[function(require,module,exports){
+},{"./angular":63}],65:[function(require,module,exports){
 var advlib = require('advlib');
 var angular = require('angular');
 
@@ -31938,4 +32643,4 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
 
   // window.MYSCOPE = $scope; // In order to access scope on console (to be removed when not testing)
 
-},{"advlib":54,"angular":60}]},{},[61]);
+},{"advlib":58,"angular":64}]},{},[65]);
