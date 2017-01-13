@@ -25,6 +25,8 @@ var INPUT_DATA_SERVICE_0C = '14ff4c000c0e0000041b59594de21ab6fbbb5cf6';
 var INPUT_DATA_SERVICE_10 = '08ff4c0010020100';
 var INPUT_DATA_SERVICE_0C_AND_10 =
                             '17ff4c000c0e0026487bd5d243b3614ae30fddeb10020b00';
+var INPUT_DATA_ALTBEACON =
+                    '1bff1801beac00010203040506070809101112131415161718190069';
 var INPUT_DATA_SNF_SINGLE = '17fff9000177665544332211004500000004991800123456';
 var INPUT_DATA_SNS_MOTION =
                           '18fff90042450000003099001122334455012345aabbccabc0';
@@ -81,6 +83,11 @@ var EXPECTED_DATA_SERVICE_0C_AND_10 = {
   type: 12,
   length: 14,
   data: "0026487bd5d243b3614ae30fddeb"
+};
+var EXPECTED_DATA_ALTBEACON = {
+  id: "0001020304050607080910111213141516171819",
+  refRSSI: "0dBm",
+  mfgReserved: "69"
 };
 var EXPECTED_DATA_SNF_SINGLE = {
   type: "V2 Single Payload",
@@ -185,6 +192,14 @@ describe('ble data manufacturerspecificdata', function() {
                                      advertiserData);
     assert.deepEqual(advertiserData.manufacturerSpecificData.service, 
                      EXPECTED_DATA_SERVICE_0C_AND_10);
+  });
+
+  it('should convert ble advertiser data for AltBeacon', function() {
+    var advertiserData = { manufacturerSpecificData: {} };
+    manufacturerspecificdata.process(INPUT_DATA_ALTBEACON, CURSOR, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.altBeacon, 
+                     EXPECTED_DATA_ALTBEACON);
   });
 
   it('should convert ble advertiser data to StickNFind Beacon Single \

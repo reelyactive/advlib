@@ -959,6 +959,42 @@ Which would add the following property to advData:
       }
     }
 
+##### Radius Networks
+
+###### AltBeacon
+
+Process an AltBeacon packet from the contained advertiser data.
+
+    advlib.ble.common.manufacturers.radiusnetworks.altbeacon.process(advData);
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      manufacturerSpecificData: {
+        companyIdentifierCode: "0118",
+        data: "beac00010203040506070809101112131415161718190069"
+      }
+    }
+
+For reference, the AltBeacon payload is interpreted as follows:
+
+| Byte(s) | Hex String                               | Description           |
+|--------:|:-----------------------------------------|:----------------------|
+| 0-1     | beac                                     | AltBeacon code        |
+| 2-21    | 0001020304050607080910111213141516171819 | ID                    | 
+| 22      | 00                                       | Reference RSSI        |
+| 23      | 69                                       | Manufacturer reserved |
+
+Which would add the following property to advData:
+
+    manufacturerSpecificData: {
+      altBeacon: {
+        id: "0001020304050607080910111213141516171819",
+        refRSSI: "0dBm",
+        mfgReserved: "69"
+      }
+    }
+
 
 #### Utilities
 
