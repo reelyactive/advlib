@@ -18,6 +18,7 @@ var INPUT_DATA_IBEACON_ESTIMOTE =
 var INPUT_DATA_IBEACON_UNKNOWN = 
                       '26ff4c000215000000000000000000000000000000001234567800';
 var INPUT_DATA_AIRDROP = '17ff4c0005120000000000000000011bc238fa0000000000';
+var INPUT_DATA_AIRPLAY = '06ff4c000a0100';
 var INPUT_DATA_SNF_SINGLE = '17fff9000177665544332211004500000004991800123456';
 var INPUT_DATA_SNS_MOTION =
                           '18fff90042450000003099001122334455012345aabbccabc0';
@@ -45,6 +46,10 @@ var EXPECTED_DATA_IBEACON_UNKNOWN = {
 var EXPECTED_DATA_AIRDROP = {
   length: 18,
   data: "0000000000000000011bc238fa0000000000"
+};
+var EXPECTED_DATA_AIRPLAY = {
+  length: 1,
+  data: "00"
 };
 var EXPECTED_DATA_SNF_SINGLE = {
   type: "V2 Single Payload",
@@ -101,6 +106,14 @@ describe('ble data manufacturerspecificdata', function() {
                                      advertiserData);
     assert.deepEqual(advertiserData.manufacturerSpecificData.airdrop, 
                      EXPECTED_DATA_AIRDROP);
+  });
+
+  it('should convert ble advertiser data for AirPlay', function() {
+    var advertiserData = { manufacturerSpecificData: {} };
+    manufacturerspecificdata.process(INPUT_DATA_AIRPLAY, CURSOR, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.airplay, 
+                     EXPECTED_DATA_AIRPLAY);
   });
 
   it('should convert ble advertiser data to StickNFind Beacon Single \
