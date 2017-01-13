@@ -19,6 +19,10 @@ var INPUT_DATA_IBEACON_UNKNOWN =
                       '26ff4c000215000000000000000000000000000000001234567800';
 var INPUT_DATA_AIRDROP = '17ff4c0005120000000000000000011bc238fa0000000000';
 var INPUT_DATA_AIRPLAY = '06ff4c000a0100';
+var INPUT_DATA_SERVICE_08 = '0dff4c000807ffffff00000045';
+var INPUT_DATA_SERVICE_09 = '0cff4c0009060200c0a80030';
+var INPUT_DATA_SERVICE_0C = '14ff4c000c0e0000041b59594de21ab6fbbb5cf6';
+var INPUT_DATA_SERVICE_10 = '08ff4c0010020100';
 var INPUT_DATA_SNF_SINGLE = '17fff9000177665544332211004500000004991800123456';
 var INPUT_DATA_SNS_MOTION =
                           '18fff90042450000003099001122334455012345aabbccabc0';
@@ -50,6 +54,26 @@ var EXPECTED_DATA_AIRDROP = {
 var EXPECTED_DATA_AIRPLAY = {
   length: 1,
   data: "00"
+};
+var EXPECTED_DATA_SERVICE_08 = {
+  type: 8,
+  length: 7,
+  data: "ffffff00000045"
+};
+var EXPECTED_DATA_SERVICE_09 = {
+  type: 9,
+  length: 6,
+  data: "0200c0a80030"
+};
+var EXPECTED_DATA_SERVICE_0C = {
+  type: 12,
+  length: 14,
+  data: "0000041b59594de21ab6fbbb5cf6"
+};
+var EXPECTED_DATA_SERVICE_10 = {
+  type: 16,
+  length: 2,
+  data: "0100"
 };
 var EXPECTED_DATA_SNF_SINGLE = {
   type: "V2 Single Payload",
@@ -114,6 +138,38 @@ describe('ble data manufacturerspecificdata', function() {
                                      advertiserData);
     assert.deepEqual(advertiserData.manufacturerSpecificData.airplay, 
                      EXPECTED_DATA_AIRPLAY);
+  });
+
+  it('should convert ble advertiser data for Apple service 0x08', function() {
+    var advertiserData = { manufacturerSpecificData: {} };
+    manufacturerspecificdata.process(INPUT_DATA_SERVICE_08, CURSOR, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.service, 
+                     EXPECTED_DATA_SERVICE_08);
+  });
+
+  it('should convert ble advertiser data for Apple service 0x09', function() {
+    var advertiserData = { manufacturerSpecificData: {} };
+    manufacturerspecificdata.process(INPUT_DATA_SERVICE_09, CURSOR, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.service, 
+                     EXPECTED_DATA_SERVICE_09);
+  });
+
+  it('should convert ble advertiser data for Apple service 0x0c', function() {
+    var advertiserData = { manufacturerSpecificData: {} };
+    manufacturerspecificdata.process(INPUT_DATA_SERVICE_0C, CURSOR, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.service, 
+                     EXPECTED_DATA_SERVICE_0C);
+  });
+
+  it('should convert ble advertiser data for Apple service 0x10', function() {
+    var advertiserData = { manufacturerSpecificData: {} };
+    manufacturerspecificdata.process(INPUT_DATA_SERVICE_10, CURSOR, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.service, 
+                     EXPECTED_DATA_SERVICE_10);
   });
 
   it('should convert ble advertiser data to StickNFind Beacon Single \
