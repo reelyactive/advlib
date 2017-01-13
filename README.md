@@ -771,10 +771,16 @@ Process Apple-proprietary data from a packet's contained advertiser data.
 
 The first byte of the proprietary data specifies the type:
 
-| Type (Hex String) | Description                   |
-|------------------:|:------------------------------|
-| 02                | [iBeacon](#ibeacon)           |
-| 09                | AppleTV & ???                 |
+| Type (Hex String) | Description                             |
+|------------------:|:----------------------------------------|
+| 01                | Observed on iOS, not explicitly handled |
+| 02                | [iBeacon](#ibeacon)                     |
+| 05                | [AirDrop](#airdrop)                     |
+| 08                | Unknown, observed on Macs               |
+| 09                | Unknown, observed on Macs & AppleTV     |
+| 0a                | [AirPlay](#airplay)                     |
+| 0c                | Unknown, observed on iOS                |
+| 10                | Unknown, observed on iOS & AppleTV      |
 
 ###### iBeacon
 
@@ -798,7 +804,7 @@ This is best illustrated with an example using the following input:
 
     advData: {
       manufacturerSpecificData: {
-        companyIdentifierCode: "008c",
+        companyIdentifierCode: "004c",
         data: "0215b9407f30f5f8466eaff925556b57fe6d294c903974"
       }
     }
@@ -825,6 +831,68 @@ Which would add the following property to advData:
         minor: "9039",
         txPower: "116dBm",
         licenseeName: "Estimote"
+      }
+    }
+
+###### AirDrop
+
+A specific case of Apple-proprietary data is AirDrop.  Process an AirDrop packet from the contained advertiser data.
+
+    advlib.ble.common.manufacturers.apple.airdrop.process(advData);
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      manufacturerSpecificData: {
+        companyIdentifierCode: "004c",
+        data: "05120000000000000000011bc238fa0000000000"
+      }
+    }
+
+For reference, the AirDrop payload is interpreted as follows:
+
+| Byte(s) | Hex String                           | Description               |
+|--------:|:-------------------------------------|:--------------------------|
+| 0       | 12                                   | Length, in bytes, of data |
+| 1-17    | 0000000000000000011bc238fa0000000000 | Data                      |
+
+Which would add the following property to advData:
+
+    manufacturerSpecificData: {
+      airdrop: { 
+        length: 18,
+        data: "0000000000000000011bc238fa0000000000"
+      }
+    }
+
+###### AirPlay
+
+A specific case of Apple-proprietary data is AirPlay.  Process an AirPlay packet from the contained advertiser data.
+
+    advlib.ble.common.manufacturers.apple.airplay.process(advData);
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      manufacturerSpecificData: {
+        companyIdentifierCode: "004c",
+        data: "0a0100"
+      }
+    }
+
+For reference, the AirPlay payload is interpreted as follows:
+
+| Byte(s) | Hex String | Description               |
+|--------:|:-----------|:--------------------------|
+| 0       | 01         | Length, in bytes, of data |
+| 1       | 00         | Data                      |
+
+Which would add the following property to advData:
+
+    manufacturerSpecificData: {
+      airplay: { 
+        length: 1,
+        data: "00"
       }
     }
 
