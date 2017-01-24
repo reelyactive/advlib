@@ -80,9 +80,9 @@ var EXPECTED_DATA_SERVICE_10 = {
   data: "0100"
 };
 var EXPECTED_DATA_SERVICE_0C_AND_10 = {
-  type: 12,
-  length: 14,
-  data: "0026487bd5d243b3614ae30fddeb"
+  type: 16,
+  length: 2,
+  data: "0b00"
 };
 var EXPECTED_DATA_ALTBEACON = {
   id: "0001020304050607080910111213141516171819",
