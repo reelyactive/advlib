@@ -779,8 +779,8 @@ The first byte of the proprietary data specifies the type:
 | 08                | Unknown, observed on Macs               |
 | 09                | Unknown, observed on Macs & AppleTV     |
 | 0a                | [AirPlay](#airplay)                     |
-| 0c                | Unknown, observed on iOS                |
-| 10                | Unknown, observed on iOS & AppleTV      |
+| 0c                | [Handoff](#handoff)                     |
+| 10                | [Nearby](#nearby)                       |
 
 ###### iBeacon
 
@@ -893,6 +893,68 @@ Which would add the following property to advData:
       airplay: { 
         length: 1,
         data: "00"
+      }
+    }
+
+###### Handoff
+
+A specific case of Apple-proprietary data is Handoff.  Process a Handoff packet from the contained advertiser data.
+
+    advlib.ble.common.manufacturers.apple.handoff.process(advData);
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      manufacturerSpecificData: {
+        companyIdentifierCode: "004c",
+        data: "0c0e0000041b59594de21ab6fbbb5cf6"
+      }
+    }
+
+For reference, the Handoff payload is interpreted as follows:
+
+| Byte(s) | Hex String                   | Description               |
+|--------:|:-----------------------------|:--------------------------|
+| 0       | 0e                           | Length, in bytes, of data |
+| 1       | 0000041b59594de21ab6fbbb5cf6 | Data                      |
+
+Which would add the following property to advData:
+
+    manufacturerSpecificData: {
+      handoff: { 
+        length: 14,
+        data: "0000041b59594de21ab6fbbb5cf6"
+      }
+    }
+
+###### Nearby
+
+A specific case of Apple-proprietary data is Nearby.  Process a Nearby packet from the contained advertiser data.
+
+    advlib.ble.common.manufacturers.apple.nearby.process(advData);
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      manufacturerSpecificData: {
+        companyIdentifierCode: "004c",
+        data: "10020100"
+      }
+    }
+
+For reference, the Nearby payload is interpreted as follows:
+
+| Byte(s) | Hex String | Description               |
+|--------:|:-----------|:--------------------------|
+| 0       | 02         | Length, in bytes, of data |
+| 1       | 0100       | Data                      |
+
+Which would add the following property to advData:
+
+    manufacturerSpecificData: {
+      nearby: { 
+        length: 2,
+        data: "0100"
       }
     }
 
