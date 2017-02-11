@@ -777,8 +777,8 @@ The first byte of the proprietary data specifies the type:
 | 02                | [iBeacon](#ibeacon)                     |
 | 05                | [AirDrop](#airdrop)                     |
 | 08                | Unknown, observed on Macs               |
-| 09                | Unknown, observed on Macs & AppleTV     |
-| 0a                | [AirPlay](#airplay)                     |
+| 09                | [AirPlay](#airplay)                     |
+| 0a                | Unknown, observed on Macs               |
 | 0c                | [Handoff](#handoff)                     |
 | 10                | [Nearby](#nearby)                       |
 
@@ -854,7 +854,7 @@ For reference, the AirDrop payload is interpreted as follows:
 | Byte(s) | Hex String                           | Description               |
 |--------:|:-------------------------------------|:--------------------------|
 | 0       | 12                                   | Length, in bytes, of data |
-| 1-17    | 0000000000000000011bc238fa0000000000 | Data                      |
+| 1-18    | 0000000000000000011bc238fa0000000000 | Data                      |
 
 Which would add the following property to advData:
 
@@ -876,23 +876,23 @@ This is best illustrated with an example using the following input:
     advData: {
       manufacturerSpecificData: {
         companyIdentifierCode: "004c",
-        data: "0a0100"
+        data: "09060200c0a80030"
       }
     }
 
 For reference, the AirPlay payload is interpreted as follows:
 
-| Byte(s) | Hex String | Description               |
-|--------:|:-----------|:--------------------------|
-| 0       | 01         | Length, in bytes, of data |
-| 1       | 00         | Data                      |
+| Byte(s) | Hex String   | Description               |
+|--------:|:-------------|:--------------------------|
+| 0       | 06           | Length, in bytes, of data |
+| 1-6     | 0200c0a80030 | Data                      |
 
 Which would add the following property to advData:
 
     manufacturerSpecificData: {
       airplay: { 
-        length: 1,
-        data: "00"
+        length: 6,
+        data: "0200c0a80030"
       }
     }
 
@@ -916,7 +916,7 @@ For reference, the Handoff payload is interpreted as follows:
 | Byte(s) | Hex String                   | Description               |
 |--------:|:-----------------------------|:--------------------------|
 | 0       | 0e                           | Length, in bytes, of data |
-| 1       | 0000041b59594de21ab6fbbb5cf6 | Data                      |
+| 1-14    | 0000041b59594de21ab6fbbb5cf6 | Data                      |
 
 Which would add the following property to advData:
 
@@ -947,7 +947,7 @@ For reference, the Nearby payload is interpreted as follows:
 | Byte(s) | Hex String | Description               |
 |--------:|:-----------|:--------------------------|
 | 0       | 02         | Length, in bytes, of data |
-| 1       | 0100       | Data                      |
+| 1-2     | 0100       | Data                      |
 
 Which would add the following property to advData:
 
