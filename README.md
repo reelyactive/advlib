@@ -1,9 +1,7 @@
 advlib
 ======
 
-Web front-end for advlib via GitHub Pages.  Currently supports the following protocols:
-* [Bluetooth Smart (BLE)](#bluetooth-smart-ble-advertising-packet-library)
-* [reelyActive RFID](#reelyactive-rfid-library)
+Web front-end for advlib via GitHub Pages.  See it live at [reelyactive.github.io/advlib](https://reelyactive.github.io/advlib/).
 
 See the [advlib master branch](https://github.com/reelyactive/advlib) for more detailed documentation, or [advlib on npmjs](https://www.npmjs.com/package/advlib).
 
@@ -52,18 +50,6 @@ Type in the following watchify command once:
 
 
 Now as you update the web/js/advapp.js file, web/js/advlib.js will be automatically incrementally rebuilt on the fly.
-
-
-Bluetooth Smart (BLE) Advertising Packet Library
-------------------------------------------------
-
-More info to come
-
-
-reelyActive RFID Library
-------------------------
-
-More info to come
 
 
 What's next?
