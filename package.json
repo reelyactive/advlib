@@ -10,7 +10,7 @@
     "Bluetooth Smart",
     "BLE"
   ],
-  "version": "0.0.0",
+  "version": "0.0.1",
   "engines": {
     "node": "^0.10.0"
   },
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "angular": "^1.4.1",
-    "advlib": "^0.0.9"
+    "advlib": ">=0.0.23"
   },
   "bugs": {
     "url": "https://github.com/reelyactive/advlib/issues"
