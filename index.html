@@ -30,6 +30,38 @@
              ng-click="navCollapsed = true">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href> Parsing Mode </a></li>
+            <li class="dropdown" dropdown on-toggle="toggled(open)">
+              <a href class="dropdown-toggle" dropdown-toggle role="button"
+                 data-toggle="dropdown" aria-haspopup="true"
+                 aria-expanded="false">
+                More <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" dropdown-menu role="menu">
+                <li role="menuitem">
+                  <a href="https://github.com/reelyactive/advlib/"
+                     target="_blank"> advlib on GitHub </a>
+                </li>
+                <li role="menuitem">
+                  <a href="https://www.npmjs.com/package/advlib"
+                     target="_blank"> advlib on npm </a>
+                </li>
+                <li role="menuitem">
+                  <a href="https://reelyactive.github.io"
+                     target="_blank"> Open source by reelyActive </a>
+                </li>
+                <li role="menuitem">
+                  <a href="https://shop.reelyactive.com/products/starterkit-min" target="_blank"> BLE starter kit </a>
+                </li>
+                <li role="menuitem">
+                  <a href="https://sniffypedia.org"
+                     target="_blank"> Sniffypedia project </a>
+                </li>
+                <li role="menuitem">
+                  <a href="http://ieeexplore.ieee.org/document/7389121/"
+                     target="_blank"> IEEE Scientific publication </a>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
       </nav>
