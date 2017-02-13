@@ -22,7 +22,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{"../common/util/identifier.js":13}],2:[function(require,module,exports){
+},{"../common/util/identifier.js":20}],2:[function(require,module,exports){
 var companyNames = {
     "0000": "Ericsson Technology Licensing",
     "0001": "Nokia Mobile Phones",
@@ -1061,6 +1061,103 @@ var companyNames = {
     "040b": "Jana Care Inc.",
     "040c": "Senix Corporation",
     "040d": "NorthStar Battery Company, LLC",
+    "040e": "SKF (U.K.) Limited",
+    "040f": "CO-AX Technology, Inc.",
+    "0410": "Fender Musical Instruments",
+    "0411": "Luidia Inc",
+    "0412": "SEFAM",
+    "0413": "Wireless Cables Inc",
+    "0414": "Lightning Protection International Pty Ltd",
+    "0415": "Uber Technologies Inc",
+    "0416": "SODA GmbH",
+    "0417": "Fatigue Science",
+    "0418": "Alpine Electronics Inc.",
+    "0419": "Novalogy LTD",
+    "041a": "Friday Labs Limited",
+    "041b": "OrthoAccel Technologies",
+    "041c": "WaterGuru, Inc.",
+    "041d": "Benning Elektrotechnik und Electronik GmbH & Co. KG",
+    "041e": "Dell Computer Corporation",
+    "041f": "Kopin Corporation",
+    "0420": "TecBakery GmbH",
+    "0421": "Backbone Labs, Inc.",
+    "0422": "DELSEY SA",
+    "0423": "Chargifi Limited",
+    "0424": "Trainesense Ltd.",
+    "0425": "Unify Software and Solutions GmbH & Co. KG",
+    "0426": "Husqvarna AB",
+    "0427": "Focus fleet and fuel management inc",
+    "0428": "SmallLoop, LLC",
+    "0429": "Prolon Inc.",
+    "042a": "BD Medical",
+    "042b": "iMicroMed Incorporated",
+    "042c": "Ticto N.V.",
+    "042d": "Meshtech AS",
+    "042e": "MemCachier Inc.",
+    "042f": "Danfoss A/S",
+    "0430": "SnapStyk Inc.",
+    "0431": "Amyway Corporation",
+    "0432": "Silk Labs, Inc.",
+    "0433": "Pillsy Inc.",
+    "0434": "Hatch Baby, Inc.",
+    "0435": "Blocks Wearables Ltd.",
+    "0436": "Drayson Technologies (Europe) Limited",
+    "0437": "eBest IOT Inc.",
+    "0438": "Helvar Ltd",
+    "0439": "Radiance Technologies",
+    "043a": "Nuheara Limited",
+    "043b": "Appside co., ltd.",
+    "043c": "DeLaval",
+    "043d": "Coiler Corporation",
+    "043e": "Thermomedics, Inc.",
+    "043f": "Tentacle Sync GmbH",
+    "0440": "Valencell, Inc.",
+    "0441": "iProtoXi Oy",
+    "0442": "SECOM CO., LTD.",
+    "0443": "Tucker International LLC",
+    "0444": "Metanate Limited",
+    "0445": "Kobian Canada Inc.",
+    "0446": "NETGEAR, Inc.",
+    "0447": "Fabtronics Australia Pty Ltd",
+    "0448": "Grand Centrix GmbH",
+    "0449": "1UP USA.com llc",
+    "044a": "SHIMANO INC.",
+    "044b": "Nain Inc.",
+    "044c": "LifeStyle Lock, LLC",
+    "044d": "VEGA Grieshaber KG",
+    "044e": "Xtrava Inc.",
+    "044f": "TTS Tooltechnic Systems AG & Co. KG",
+    "0450": "Teenage Engineering AB",
+    "0451": "Tunstall Nordic AB",
+    "0452": "Svep Design Center AB",
+    "0453": "GreenPeak Technologies BV",
+    "0454": "Sphinx Electronics GmbH & Co KG",
+    "0455": "Atomation",
+    "0456": "Nemik Consulting Inc",
+    "0457": "RF INNOVATION",
+    "0458": "Mini Solution Co., Ltd.",
+    "0459": "Lumenetix, Inc",
+    "045a": "2048450 Ontario Inc",
+    "045b": "SPACEEK LTD",
+    "045c": "Delta T Corporation",
+    "045d": "Boston Scientific Corporation",
+    "045e": "Nuviz, Inc.",
+    "045f": "Real Time Automation, Inc.",
+    "0460": "Kolibree",
+    "0461": "vhf electronik GmbH",
+    "0462": "Bonsai Systems GmbH",
+    "0463": "Fathom Systems Inc.",
+    "0464": "Bellman & Symfon",
+    "0465": "International Forte Group LLC",
+    "0466": "CycleLabs Solutions inc.",
+    "0467": "Codenex Oy",
+    "0468": "Kynesim Ltd",
+    "0469": "Palago AB",
+    "046a": "INSIGMA INC.",
+    "046b": "PMD Solutions",
+    "046c": "Qingdao Realtime Technology Co., Ltd.",
+    "046d": "BEGA Gantenbrink-Leuchten KG",
+    "046e": "Pambor Ltd.",
     "ffff": "(Reserved) Default Vendor ID"
 };
 
@@ -1257,7 +1354,22 @@ var companyNames = {
     "fe45": "Snapchat Inc",
     "fe44": "SK Telecom",
     "fe43": "Andreas Stihl AG & Co. KG",
-    "fe42": "Nets A/S"
+    "fe42": "Nets A/S",
+    "fe41": "Inugo Systems Limited",
+    "fe40": "Inugo Systems Limited",
+    "fe3f": "Friday Labs Limited",
+    "fe3e": "BD Medical",
+    "fe3d": "BD Medical",
+    "fe3c": "Alibaba",
+    "fe3b": "Dolby Laboratories",
+    "fe3a": "TTS Tooltechnic Systems AG & Co. KG",
+    "fe39": "TTS Tooltechnic Systems AG & Co. KG",
+    "fe38": "Spaceek LTD",
+    "fe37": "Spaceek LTD",
+    "fe36": "HUAWEI Technologies Co., Ltd",
+    "fe35": "HUAWEI Technologies Co., Ltd",
+    "fe34": "SmallLoop LLC",
+    "fe33": "CHIPOLO d.o.o."
 };
 
 module.exports.companyNames = companyNames;
@@ -1277,9 +1389,93 @@ module.exports.companyidentifiercodes = companyidentifiercodes;
 module.exports.memberservices = memberservices;
 module.exports.manufacturers = manufacturers;
 
-},{"./assignednumbers/companyidentifiercodes.js":2,"./assignednumbers/memberservices.js":3,"./manufacturers/index.js":9}],5:[function(require,module,exports){
+},{"./assignednumbers/companyidentifiercodes.js":2,"./assignednumbers/memberservices.js":3,"./manufacturers/index.js":14}],5:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015-2016
+ * Copyright reelyActive 2017
+ * We believe in an open Internet of Things
+ */
+
+
+/**
+ * Parse Apple AirDrop manufacturer specific data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ * @param {Number} cursor The current index into the raw data.
+ */
+function process(advertiserData, cursor) {
+  var airdrop = {};
+  var data = advertiserData.manufacturerSpecificData.data;
+  var length = parseInt(data.substr(cursor + 2, 2), 16);
+
+  airdrop.length = length;
+  airdrop.data = data.substr(cursor + 4, length * 2); // TODO: decipher
+
+  advertiserData.manufacturerSpecificData.airdrop = airdrop;
+
+  return cursor + 4 + (length * 2);
+}
+
+
+module.exports.process = process;
+
+},{}],6:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2017
+ * We believe in an open Internet of Things
+ */
+
+
+/**
+ * Parse Apple AirPlay manufacturer specific data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ * @param {Number} cursor The current index into the raw data.
+ */
+function process(advertiserData, cursor) {
+  var airplay = {};
+  var data = advertiserData.manufacturerSpecificData.data;
+  var length = parseInt(data.substr(cursor + 2, 2), 16);
+
+  airplay.length = length;
+  airplay.data = data.substr(cursor + 4, length * 2); // TODO: decipher
+
+  advertiserData.manufacturerSpecificData.airplay = airplay;
+
+  return cursor + 4 + (length * 2);
+}
+
+
+module.exports.process = process;
+
+},{}],7:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2017
+ * We believe in an open Internet of Things
+ */
+
+
+/**
+ * Parse Apple handoff manufacturer specific data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ * @param {Number} cursor The current index into the raw data.
+ */
+function process(advertiserData, cursor) {
+  var handoff = {};
+  var data = advertiserData.manufacturerSpecificData.data;
+  var length = parseInt(data.substr(cursor + 2, 2), 16);
+
+  handoff.length = length;
+  handoff.data = data.substr(cursor + 4, length * 2); // TODO: decipher
+
+  advertiserData.manufacturerSpecificData.handoff = handoff;
+
+  return cursor + 4 + (length * 2);
+}
+
+
+module.exports.process = process;
+
+},{}],8:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2015-2017
  * We believe in an open Internet of Things
  */
 
@@ -1297,21 +1493,24 @@ var licenseeNames = {
     "2f234454cf6d4a0fadf2f4911ba9ffa6": "Radius Networks",
     "3d4f13b4d1fd404980e5d3edcc840b69": "Orange S.A.",
     "536d6172742043697479204e74776b73": "Eventpath",
+    "74278bdab64445208f0c720eaf059935": "Minew",
     "8deefbb9f7384297804096668bb44281": "Roximity",
     "b9407f30f5f8466eaff925556b57fe6d": "Estimote",
     "dab59c4fa4d6ee286bfe8e0000bbc2bb": "eNote",
     "e2c56db5dffb48d2b060d0f5a71096e0": "Bright Beacon",
     "f0018b9b75094c31a9051a27d39c003c": "LocosLab",
     "f3077abe93ac465aacf167f080cb7aef": "The Bubbles Company inc.",
-    "f7826da64fa24e988024bc5b71e0893e": "Kontakt.io"
+    "f7826da64fa24e988024bc5b71e0893e": "Kontakt.io",
+    "fda50693a4e24fb1afcfc6eb07647825": "Minew (WeChat)"
 };
 
 
 /**
  * Parse Apple iBeacon manufacturer specific data.
  * @param {Object} advertiserData The object containing all parsed data.
+ * @param {Number} cursor The current index into the raw data.
  */
-function process(advertiserData) {
+function process(advertiserData, cursor) {
   var iBeacon = {};
   var data = advertiserData.manufacturerSpecificData.data;
 
@@ -1327,19 +1526,26 @@ function process(advertiserData) {
   iBeacon.licenseeName = licenseeName;
 
   advertiserData.manufacturerSpecificData.iBeacon = iBeacon;
+
+  return cursor + 46;
 }
 
 
 module.exports.licenseeNames = licenseeNames;
 module.exports.process = process;
 
-},{"../../util/pdu.js":14}],6:[function(require,module,exports){
+},{"../../util/pdu.js":21}],9:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015-2016
+ * Copyright reelyActive 2015-2017
  * We believe in an open Internet of Things
  */
 
 var ibeacon = require('./ibeacon.js');
+var airdrop = require('./airdrop.js');
+var airplay = require('./airplay.js');
+var handoff = require('./handoff.js');
+var nearby = require('./nearby.js');
+var service = require('./service.js');
 
 
 /**
@@ -1348,24 +1554,112 @@ var ibeacon = require('./ibeacon.js');
  */
 function process(advertiserData) {
   var data = advertiserData.manufacturerSpecificData.data;
-  var appleType = data.substr(0,2);
+  var cursor = 0;
 
-  switch(appleType) {
-    case '02':
-      ibeacon.process(advertiserData);
-      break;
-    case '09':
-      // TODO: processAppleTV and/or whatever else uses this
-      break;
-    default:
+  // Apple sometimes includes more than one service data
+  while(cursor < data.length) {
+    var appleType = data.substr(cursor,2);
+
+    switch(appleType) {
+      case '01':
+        return; // TODO: decipher this type (one bit set in fixed length?)
+      case '02':
+        cursor = ibeacon.process(advertiserData, cursor);
+        break;
+      case '05':
+        cursor = airdrop.process(advertiserData, cursor);
+        break;
+      case '08':
+        cursor = service.process(advertiserData, cursor); // TODO: decipher
+        break;
+      case '09':
+        cursor = airplay.process(advertiserData, cursor); 
+        break;
+      case '0a':
+        cursor = service.process(advertiserData, cursor); // TODO: decipher
+        break;
+      case '0b':
+        cursor = service.process(advertiserData, cursor); // TODO: decipher
+        break;
+      case '0c':
+        cursor = handoff.process(advertiserData, cursor);
+        break;
+      case '10':
+        cursor = nearby.process(advertiserData, cursor);
+        break;
+      default:
+        return; // Don't trust types that haven't yet been observed
+    }
   }
 }
 
 
 module.exports.ibeacon = ibeacon;
+module.exports.airdrop = airdrop;
+module.exports.airplay = airplay;
+module.exports.handoff = handoff;
+module.exports.nearby = nearby;
+module.exports.service = service;
 module.exports.process = process;
 
-},{"./ibeacon.js":5}],7:[function(require,module,exports){
+},{"./airdrop.js":5,"./airplay.js":6,"./handoff.js":7,"./ibeacon.js":8,"./nearby.js":10,"./service.js":11}],10:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2017
+ * We believe in an open Internet of Things
+ */
+
+
+/**
+ * Parse Apple nearby manufacturer specific data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ * @param {Number} cursor The current index into the raw data.
+ */
+function process(advertiserData, cursor) {
+  var nearby = {};
+  var data = advertiserData.manufacturerSpecificData.data;
+  var length = parseInt(data.substr(cursor + 2, 2), 16);
+
+  nearby.length = length;
+  nearby.data = data.substr(cursor + 4, length * 2); // TODO: decipher
+
+  advertiserData.manufacturerSpecificData.nearby = nearby;
+
+  return cursor + 4 + (length * 2);
+}
+
+
+module.exports.process = process;
+
+},{}],11:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2017
+ * We believe in an open Internet of Things
+ */
+
+
+/**
+ * Parse Apple unknown manufacturer specific data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ * @param {Number} cursor The current index into the raw data.
+ */
+function process(advertiserData, cursor) {
+  var service = {};
+  var data = advertiserData.manufacturerSpecificData.data;
+  var length = parseInt(data.substr(cursor + 2, 2), 16);
+
+  service.type = parseInt(data.substr(cursor, 2), 16);
+  service.length = length;
+  service.data = data.substr(cursor + 4, length * 2);
+
+  advertiserData.manufacturerSpecificData.service = service;
+
+  return cursor + 4 + (length * 2);
+}
+
+
+module.exports.process = process;
+
+},{}],12:[function(require,module,exports){
 /**
  * Copyright reelyActive 2016
  * We believe in an open Internet of Things
@@ -1392,7 +1686,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"./nearable.js":8}],8:[function(require,module,exports){
+},{"./nearable.js":13}],13:[function(require,module,exports){
 /**
  * Copyright reelyActive 2016
  * We believe in an open Internet of Things
@@ -1472,21 +1766,81 @@ function toDuration(byte) {
 
 module.exports.process = process;
 
-},{}],9:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 /**
- * Copyright reelyActive 2016
+ * Copyright reelyActive 2016-2017
  * We believe in an open Internet of Things
  */
 
 var apple = require('./apple/index.js');
 var sticknfind = require('./sticknfind/index.js');
 var estimote = require('./estimote/index.js');
+var radiusnetworks = require('./radiusnetworks/index.js');
 
 module.exports.apple = apple;
 module.exports.sticknfind = sticknfind;
 module.exports.estimote = estimote;
+module.exports.radiusnetworks = radiusnetworks;
 
-},{"./apple/index.js":6,"./estimote/index.js":7,"./sticknfind/index.js":10}],10:[function(require,module,exports){
+},{"./apple/index.js":9,"./estimote/index.js":12,"./radiusnetworks/index.js":16,"./sticknfind/index.js":17}],15:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2017
+ * We believe in an open Internet of Things
+ */
+
+
+var pdu = require('../../util/pdu.js');
+
+
+var LENGTH = 27;
+var CODE = 'beac';
+
+
+/**
+ * Parse AltBeacon manufacturer specific data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  var altBeacon = {};
+  var data = advertiserData.manufacturerSpecificData.data;
+
+  altBeacon.id = data.substr(4,40);
+  altBeacon.refRSSI = pdu.convertTxPower(data.substr(44,2));
+  altBeacon.mfgReserved = data.substr(46,2);
+
+  advertiserData.manufacturerSpecificData.altBeacon = altBeacon;
+}
+
+
+/**
+ * Verify if the given manufacturerSpecificData represents an AltBeacon.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function isAltBeacon(advertiserData) {
+  var data = advertiserData.manufacturerSpecificData.data;
+  var isCorrectLength = ((data.length + 6) === (LENGTH * 2));
+  var isCorrectCode = (data.substr(0,4) === CODE);
+
+  return isCorrectLength && isCorrectCode;
+}
+
+
+module.exports.LENGTH = LENGTH;
+module.exports.CODE = CODE;
+module.exports.process = process;
+module.exports.isAltBeacon = isAltBeacon;
+
+},{"../../util/pdu.js":21}],16:[function(require,module,exports){
+/**
+ * Copyright reelyActive 2017
+ * We believe in an open Internet of Things
+ */
+
+var altbeacon = require('./altbeacon.js');
+
+module.exports.altbeacon = altbeacon;
+
+},{"./altbeacon.js":15}],17:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1518,7 +1872,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"./snfsingle.js":11,"./snsmotion.js":12}],11:[function(require,module,exports){
+},{"./snfsingle.js":18,"./snsmotion.js":19}],18:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1555,7 +1909,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"../../util/pdu.js":14}],12:[function(require,module,exports){
+},{"../../util/pdu.js":21}],19:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1606,7 +1960,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"../../util/pdu.js":14}],13:[function(require,module,exports){
+},{"../../util/pdu.js":21}],20:[function(require,module,exports){
 /**
  * Copyright reelyActive 2014
  * We believe in an open Internet of Things
@@ -1685,7 +2039,7 @@ module.exports.EUI64 = TYPE_EUI64;
 module.exports.RA28 = TYPE_RA28;
 module.exports.ADVA48 = TYPE_ADVA48;
 module.exports.RADIO_PAYLOAD = TYPE_RADIO_PAYLOAD;
-},{}],14:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1727,7 +2081,7 @@ function convertTxPower(rawTxPower) {
 module.exports.getTagDataLength = getTagDataLength;
 module.exports.reverseBytes = reverseBytes;
 module.exports.convertTxPower = convertTxPower;
-},{}],15:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1780,7 +2134,7 @@ module.exports.BIT3_NAME = BIT3_NAME;
 module.exports.BIT4_NAME = BIT4_NAME;
 module.exports.BIT5_NAME = BIT5_NAME;
 
-},{}],16:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1800,7 +2154,7 @@ function process(payload, cursor, advertiserData, adType) {
 }
 
 module.exports.process = process;
-},{"../../common/util/pdu.js":14}],17:[function(require,module,exports){
+},{"../../common/util/pdu.js":21}],24:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1839,7 +2193,7 @@ function completeLocalName(payload, cursor, advertiserData) {
 
 module.exports.shortenedLocalName = shortenedLocalName;
 module.exports.completeLocalName = completeLocalName;
-},{"../../common/util/pdu.js":14}],18:[function(require,module,exports){
+},{"../../common/util/pdu.js":21}],25:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015-2016
  * We believe in an open Internet of Things
@@ -1851,6 +2205,8 @@ var companyIdentifierCodes =
 var apple = require('../../common/manufacturers/apple/index.js');
 var sticknfind = require('../../common/manufacturers/sticknfind/index.js');
 var estimote = require('../../common/manufacturers/estimote/index.js');
+var altbeacon =
+            require('../../common/manufacturers/radiusnetworks/altbeacon.js');
 
 
 /**
@@ -1875,6 +2231,12 @@ function process(payload, cursor, advertiserData) {
                                  companyIdentifierCode: companyIdentifierCode,
                                  data: data };
 
+  // Handle the unique case of AltBeacon
+  if(altbeacon.isAltBeacon(advertiserData)) {
+    altbeacon.process(advertiserData);
+    return;
+  }
+
   // Interpret the manufacturer specific data, if possible
   // Kindly respect ascending order of company identifier codes 
   switch(companyIdentifierCode) {
@@ -1894,7 +2256,7 @@ function process(payload, cursor, advertiserData) {
 
 module.exports.process = process;
 
-},{"../../common/assignednumbers/companyidentifiercodes.js":2,"../../common/manufacturers/apple/index.js":6,"../../common/manufacturers/estimote/index.js":7,"../../common/manufacturers/sticknfind/index.js":10,"../../common/util/pdu.js":14}],19:[function(require,module,exports){
+},{"../../common/assignednumbers/companyidentifiercodes.js":2,"../../common/manufacturers/apple/index.js":9,"../../common/manufacturers/estimote/index.js":12,"../../common/manufacturers/radiusnetworks/altbeacon.js":15,"../../common/manufacturers/sticknfind/index.js":17,"../../common/util/pdu.js":21}],26:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1924,7 +2286,7 @@ function process(payload, cursor, advertiserData) {
 
 module.exports.process = process;
 
-},{"../../common/util/pdu.js":14,"../gatt/services/index.js":24}],20:[function(require,module,exports){
+},{"../../common/util/pdu.js":21,"../gatt/services/index.js":31}],27:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1944,7 +2306,7 @@ function process(payload, cursor, advertiserData) {
 }
 
 module.exports.process = process;
-},{"../../common/util/pdu.js":14}],21:[function(require,module,exports){
+},{"../../common/util/pdu.js":21}],28:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1979,7 +2341,7 @@ function solicitation128BitUUIDs(payload, cursor, advertiserData) {
 
 module.exports.solicitation16BitUUIDs = solicitation16BitUUIDs;
 module.exports.solicitation128BitUUIDs = solicitation128BitUUIDs;
-},{"../../common/util/pdu.js":14}],22:[function(require,module,exports){
+},{"../../common/util/pdu.js":21}],29:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -1999,7 +2361,7 @@ function process(payload, cursor, advertiserData) {
 
 module.exports.process = process;
 
-},{"../../common/util/pdu.js":14}],23:[function(require,module,exports){
+},{"../../common/util/pdu.js":21}],30:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2063,7 +2425,7 @@ module.exports.nonComplete16BitUUIDs = nonComplete16BitUUIDs;
 module.exports.complete16BitUUIDs = complete16BitUUIDs;
 module.exports.nonComplete128BitUUIDs = nonComplete128BitUUIDs;
 module.exports.complete128BitUUIDs = complete128BitUUIDs;
-},{"../../common/util/pdu.js":14}],24:[function(require,module,exports){
+},{"../../common/util/pdu.js":21}],31:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2247,7 +2609,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"../../../common/assignednumbers/memberservices.js":3,"./members/google.js":25,"./standard/alertnotificationservice.js":26,"./standard/automationio.js":27,"./standard/batteryservice.js":28,"./standard/bloodpressure.js":29,"./standard/bodycomposition.js":30,"./standard/bondmanagement.js":31,"./standard/continousglucosemonitoring.js":32,"./standard/cyclingpower.js":33,"./standard/cyclingspeedandcadence.js":34,"./standard/deviceinformation.js":35,"./standard/environmentalsensing.js":36,"./standard/genericaccess.js":37,"./standard/genericattribute.js":38,"./standard/healththermometer.js":39,"./standard/heartrate.js":40,"./standard/humaninterfacedevice.js":41,"./standard/immediatealert.js":42,"./standard/indoorpositioning.js":43,"./standard/internetprotocolsupport.js":44,"./standard/linkloss.js":45,"./standard/locationandnavigation.js":46,"./standard/nextdstchangeservice.js":47,"./standard/phonealertstatusservice.js":48,"./standard/pulseoximeter.js":49,"./standard/runningspeedandcadence.js":50,"./standard/scanparameters.js":51,"./standard/txpower.js":52,"./standard/userdata.js":53,"./standard/weightscale.js":54}],25:[function(require,module,exports){
+},{"../../../common/assignednumbers/memberservices.js":3,"./members/google.js":32,"./standard/alertnotificationservice.js":33,"./standard/automationio.js":34,"./standard/batteryservice.js":35,"./standard/bloodpressure.js":36,"./standard/bodycomposition.js":37,"./standard/bondmanagement.js":38,"./standard/continousglucosemonitoring.js":39,"./standard/cyclingpower.js":40,"./standard/cyclingspeedandcadence.js":41,"./standard/deviceinformation.js":42,"./standard/environmentalsensing.js":43,"./standard/genericaccess.js":44,"./standard/genericattribute.js":45,"./standard/healththermometer.js":46,"./standard/heartrate.js":47,"./standard/humaninterfacedevice.js":48,"./standard/immediatealert.js":49,"./standard/indoorpositioning.js":50,"./standard/internetprotocolsupport.js":51,"./standard/linkloss.js":52,"./standard/locationandnavigation.js":53,"./standard/nextdstchangeservice.js":54,"./standard/phonealertstatusservice.js":55,"./standard/pulseoximeter.js":56,"./standard/runningspeedandcadence.js":57,"./standard/scanparameters.js":58,"./standard/txpower.js":59,"./standard/userdata.js":60,"./standard/weightscale.js":61}],32:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2455,7 +2817,7 @@ function parseEncodedUrl(encodedUrl) {
 
 module.exports.process = process;
 
-},{"../../../../common/util/pdu.js":14}],26:[function(require,module,exports){
+},{"../../../../common/util/pdu.js":21}],33:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2471,7 +2833,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{}],27:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2488,7 +2850,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],28:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2505,7 +2867,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],29:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2522,7 +2884,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],30:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2539,7 +2901,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],31:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2556,7 +2918,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],32:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2574,7 +2936,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],33:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2591,7 +2953,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],34:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2607,7 +2969,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{}],35:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2623,7 +2985,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{}],36:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2640,7 +3002,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],37:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2657,7 +3019,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],38:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2674,7 +3036,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],39:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2692,7 +3054,7 @@ module.exports.process = process;
 
 
 
-},{}],40:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2710,7 +3072,7 @@ module.exports.process = process;
 
 
 
-},{}],41:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2727,7 +3089,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],42:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2744,7 +3106,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],43:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2761,7 +3123,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],44:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2778,7 +3140,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],45:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2795,7 +3157,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],46:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2812,7 +3174,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],47:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2829,7 +3191,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],48:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2846,7 +3208,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],49:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2863,7 +3225,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],50:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2881,7 +3243,7 @@ module.exports.process = process;
 
 
 
-},{}],51:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2899,7 +3261,7 @@ module.exports.process = process;
 
 
 
-},{}],52:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2916,7 +3278,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],53:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2933,7 +3295,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],54:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2950,7 +3312,7 @@ function process(advertiserData) {
 module.exports.process = process;
 
 
-},{}],55:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -3099,7 +3461,7 @@ function process(payload) {
 module.exports.process = process;
 module.exports.flags = flags;
 
-},{"./gap/flags.js":15,"./gap/genericdata.js":16,"./gap/localname.js":17,"./gap/manufacturerspecificdata.js":18,"./gap/servicedata.js":19,"./gap/slaveconnectionintervalrange.js":20,"./gap/solicitation.js":21,"./gap/txpower.js":22,"./gap/uuid.js":23}],56:[function(require,module,exports){
+},{"./gap/flags.js":22,"./gap/genericdata.js":23,"./gap/localname.js":24,"./gap/manufacturerspecificdata.js":25,"./gap/servicedata.js":26,"./gap/slaveconnectionintervalrange.js":27,"./gap/solicitation.js":28,"./gap/txpower.js":29,"./gap/uuid.js":30}],63:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -3178,7 +3540,7 @@ module.exports.TYPE5_NAME = TYPE5_NAME;
 module.exports.TYPE6_NAME = TYPE6_NAME;
 module.exports.TYPE_UNDEFINED_NAME = TYPE_UNDEFINED_NAME;
 
-},{}],57:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -3212,7 +3574,7 @@ module.exports.address = address;
 module.exports.data = data;
 module.exports.common = common;
 
-},{"./address/index.js":1,"./common/index.js":4,"./common/util/identifier.js":13,"./data/index.js":55,"./header/index.js":56}],58:[function(require,module,exports){
+},{"./address/index.js":1,"./common/index.js":4,"./common/util/identifier.js":20,"./data/index.js":62,"./header/index.js":63}],65:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -3226,7 +3588,7 @@ var reelyactive = require('./reelyactive');
 module.exports.ble = ble;
 module.exports.reelyactive = reelyactive;
 
-},{"./ble":57,"./reelyactive":62}],59:[function(require,module,exports){
+},{"./ble":64,"./reelyactive":69}],66:[function(require,module,exports){
 /**
  * Copyright reelyActive 2014
  * We believe in an open Internet of Things
@@ -3309,7 +3671,7 @@ module.exports.RA28 = TYPE_RA28;
 module.exports.ADVA48 = TYPE_ADVA48;
 module.exports.RADIO_PAYLOAD = TYPE_RADIO_PAYLOAD;
 module.exports.UNDEFINED = TYPE_UNDEFINED;
-},{}],60:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 /**
  * Convert a raw radio sensor data payload.
  * @param {string} payload The raw payload as a hexadecimal-string.
@@ -3327,7 +3689,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{}],61:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 /**
  * Convert a raw radio sensor data payload.
  * @param {string} payload The raw payload as a hexadecimal-string.
@@ -3340,7 +3702,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{}],62:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 /**
  * Process a raw reelyActive radio payload into semantically meaningful
  * information.
@@ -3362,7 +3724,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{"./common/util/identifier.js":59,"./data/index.js":60,"./flags/index.js":61}],63:[function(require,module,exports){
+},{"./common/util/identifier.js":66,"./data/index.js":67,"./flags/index.js":68}],70:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -32381,11 +32743,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],64:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":63}],65:[function(require,module,exports){
+},{"./angular":70}],72:[function(require,module,exports){
 var advlib = require('advlib');
 var angular = require('angular');
 
@@ -32643,4 +33005,4 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
 
   // window.MYSCOPE = $scope; // In order to access scope on console (to be removed when not testing)
 
-},{"advlib":58,"angular":64}]},{},[65]);
+},{"advlib":65,"angular":71}]},{},[72]);
