@@ -9,6 +9,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="web/js/advlib.js"></script>
+
+    <!-- Metadata, the Schema/JSON-LD way. Yay! -->
+    <script type="application/ld+json">
+    {
+      "@context": {
+        "schema": "http://schema.org/"
+      },
+      "@graph": [
+        {
+          "@id": "advlib",
+          "@type": "schema:WebApplication",
+          "schema:name": "advlib",
+          "schema:url": "https://reelyactive.github.io/advlib/",
+          "schema:creator": "http://www.reelyactive.com",
+          "schema:image": "http://www.reelyactive.com/images/reelyActive-logo-square.png"
+        }
+      ]
+    }
+    </script>
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
