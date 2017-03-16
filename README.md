@@ -463,6 +463,7 @@ Based on a pilot program for members which allows the SIG to allocate a 16-bit U
 |-------:|-----------------------|---------------------------------------|
 | 0xfed8 | Google                | UriBeacon (Physical Web)              |
 | 0xfeaa | Google                | Eddystone                             |
+| 0xfe9a | Estimote              | Estimote Location & Telemetry         |
 
 
 ##### Google
@@ -679,6 +680,59 @@ Which would add the following properties to advData:
         type: "EID",
         txPower: "0dBm",
         eid: "1122334455667788"
+      }
+    }
+
+##### Estimote
+
+Supports Estimote beacons that send additional data within a service.  Note that [Estimote Nearables](#nearables) use Manufacturer Specific Data instead of a service.  The first byte of the service data specifies the type, of which there are two observed: location (0x00) and telemetry (0x12).
+
+| Byte(s) | Hex String       | Description               |
+|--------:|:-----------------|:--------------------------|
+| 0       | 12               | Estimote Telemetry packet |
+| 1-8     | ceaac4fd251b1e35 | 64-bit static identifier  | 
+| 9+      |                  | Type-dependent            |
+
+Process Estimote service data (UUID = 0xfe9a).
+
+    advlib.ble.data.gatt.services.members.process(advData);
+
+Consider the following case.
+
+###### Estimote Telemetry
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      serviceData: { 
+        uuid: "fe9a",
+        data: "12ceaac4fd251b1e350020c9010196f002" 
+      }
+    }
+
+| Byte(s) | Hex String       | Description                               |
+|--------:|:-----------------|:------------------------------------------|
+| 0       | 12               | Estimote Telemetry packet                 |
+| 1-8     | ceaac4fd251b1e35 | 64-bit static identifier                  |
+| 9       | 00               | Subtype 0x00                              |
+| 10      | 20               | Acceleration in X-axis (two's complement) |
+| 11      | c9               | Acceleration in Y-axis (two's complement) |
+| 12      | 01               | Acceleration in Z-axis (two's complement) |
+| 13-16   | 0196f002         | Motion/state/duration bytes?              |
+
+Which would add the following property to advData:
+
+    serviceData: {
+      uuid: "fe9a",
+      data: "12ceaac4fd251b1e350020c9010196f002",
+      estimote: {
+        type: "telemetry",
+        id: "ceaac4fd251b1e35",
+        subtype: "00",
+        accelerationX: 0.5,
+        accelerationY: -0.859375,
+        accelerationZ: 0.015625,
+        statusBytes: [ "01", "96", "f0", "02" ]
       }
     }
 
