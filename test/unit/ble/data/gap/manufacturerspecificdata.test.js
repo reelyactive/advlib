@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2015
+ * Copyright reelyActive 2015-2017
  * We believe in an open Internet of Things
  */
 
@@ -30,6 +30,7 @@ var INPUT_DATA_ALTBEACON =
 var INPUT_DATA_SNF_SINGLE = '17fff9000177665544332211004500000004991800123456';
 var INPUT_DATA_SNS_MOTION =
                           '18fff90042450000003099001122334455012345aabbccabc0';
+var INPUT_DATA_MOTSAI = '09ff7402000015000040';
 
 // Expected outputs for the scenario
 var EXPECTED_DATA_COMPANY_ONLY = {
@@ -105,7 +106,14 @@ var EXPECTED_DATA_SNS_MOTION = {
   accelerationX: 2730,
   accelerationY: 3003,
   accelerationZ: 3276
-}
+};
+var EXPECTED_DATA_MOTSAI = {
+  motion: false,
+  temperature: 21,
+  accelerationX: 0,
+  accelerationY: 0,
+  accelerationZ: 1
+};
 
 describe('ble data manufacturerspecificdata', function() {
 
@@ -215,5 +223,13 @@ describe('ble data manufacturerspecificdata', function() {
                                      advertiserData);
     assert.deepEqual(advertiserData.manufacturerSpecificData.snfBeacon, 
                      EXPECTED_DATA_SNS_MOTION);
+  });
+
+  it('should convert ble advertiser data for Motsai', function() {
+    var advertiserData = { manufacturerSpecificData: {} };
+    manufacturerspecificdata.process(INPUT_DATA_MOTSAI, CURSOR, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.sensors, 
+                     EXPECTED_DATA_MOTSAI);
   });
 });
