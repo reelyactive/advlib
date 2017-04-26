@@ -1130,7 +1130,7 @@ Process a raw packet (as a hexadecimal string) with the following command:
 What's next?
 ------------
 
-This is an active work in progress.  Expect regular changes and updates, as well as improved documentation!  If you'd like to contribute, kindly read our [Node.js style guide](https://github.com/reelyactive/node-style-guide) and [contact us](http://context.reelyactive.com/contact.html) or make a pull request.
+This is an active work in progress.  Expect regular changes and updates, as well as improved documentation!  If you'd like to contribute, kindly read our [Node.js style guide](https://github.com/reelyactive/node-style-guide) and [contact us](http://www.reelyactive.com/contact/) or make a pull request.
 
 
 License
@@ -1138,7 +1138,7 @@ License
 
 MIT License
 
-Copyright (c) 2015-2016 reelyActive
+Copyright (c) 2015-2017 reelyActive
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
