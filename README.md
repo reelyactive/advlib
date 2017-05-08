@@ -763,19 +763,19 @@ This is best illustrated with an example using the following input:
 
 Which would add the following property to advData:
 
-  serviceData: {
-    uuid: "ffe1",
-    data: "a1036400d70087fffe5705a03f23ac",
-    minew: {
-      frameType: "a1",
-      productModel: 3,
-      batteryPercent: 100,
-      accelerationX: 0.83984375,
-      accelerationY: 0.52734375,
-      accelerationZ: -0.0078125,
-      macAddress: "ac:23:3f:a0:05:57"
+    serviceData: {
+      uuid: "ffe1",
+      data: "a1036400d70087fffe5705a03f23ac",
+      minew: {
+        frameType: "a1",
+        productModel: 3,
+        batteryPercent: 100,
+        accelerationX: 0.83984375,
+        accelerationY: 0.52734375,
+        accelerationZ: -0.0078125,
+        macAddress: "ac:23:3f:a0:05:57"
+      }
     }
-  }
 
 #### Standard Services
 
