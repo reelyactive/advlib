@@ -736,6 +736,47 @@ Which would add the following property to advData:
       }
     }
 
+##### Minew
+
+Supports the Minew i7 accelerometer beacon that sends data within a service.  Note that the service UUID __0xffe1__ does not appear to be a valid member service granted by the Bluetooth SIG.
+
+###### i7 Accelerometer Beacon
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      serviceData: { 
+        uuid: "ffe1",
+        data: "a1036400d70087fffe5705a03f23ac" 
+      }
+    }
+
+| Byte(s) | Hex String   | Description                         |
+|--------:|:-------------|:------------------------------------|
+| 0       | a1           | Frame type                          |
+| 1       | 03           | Product model                       |
+| 2       | 64           | Battery level in percent            |
+| 3-4     | 00d7         | Acceleration in X-axis (signed 8.8) |
+| 5-6     | 0087         | Acceleration in Y-axis (signed 8.8) |
+| 7-8     | fffe         | Acceleration in Z-axis (signed 8.8) |
+| 9-14    | 5705a03f23ac | MAC address                         |
+
+Which would add the following property to advData:
+
+  serviceData: {
+    uuid: "ffe1",
+    data: "a1036400d70087fffe5705a03f23ac",
+    minew: {
+      frameType: "a1",
+      productModel: 3,
+      batteryPercent: 100,
+      accelerationX: 0.83984375,
+      accelerationY: 0.52734375,
+      accelerationZ: -0.0078125,
+      macAddress: "ac:23:3f:a0:05:57"
+    }
+  }
+
 #### Standard Services
 
 The following GATT Services, assigned in the [GATT Specification](https://developer.bluetooth.org/gatt/services/Pages/ServicesHome.aspx) are identified but not parsed:
