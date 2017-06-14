@@ -757,7 +757,7 @@ This is best illustrated with an example using the following input:
 | 1       | 01           | Product model                       |
 | 2       | 64           | Battery level in percent            |
 | 3-4     | 16dc         | Temperature in celcius (signed 8.8) |
-| 5-6     | 27fd         | Humidity percentage (signed 8.8   ) |
+| 5-6     | 27fd         | Humidity percentage (signed 8.8)    |
 | 7-12    | 0c04a03f23ac | MAC address                         |
 
 Which would add the following property to advData:
