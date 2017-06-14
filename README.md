@@ -738,7 +738,75 @@ Which would add the following property to advData:
 
 ##### Minew
 
-Supports the Minew i7 accelerometer beacon that sends data within a service.  Note that the service UUID __0xffe1__ does not appear to be a valid member service granted by the Bluetooth SIG.
+Supports the Minew S1, E6 and i7 sensor beacons which send data within a service.  Note that the service UUID __0xffe1__ does not appear to be a valid member service granted by the Bluetooth SIG.
+
+###### S1 Temperature/Humidity Beacon
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      serviceData: { 
+        uuid: "ffe1",
+        data: "a1016416dc27fd0c04a03f23ac" 
+      }
+    }
+
+| Byte(s) | Hex String   | Description                         |
+|--------:|:-------------|:------------------------------------|
+| 0       | a1           | Frame type                          |
+| 1       | 01           | Product model                       |
+| 2       | 64           | Battery level in percent            |
+| 3-4     | 16dc         | Temperature in celcius (signed 8.8) |
+| 5-6     | 27fd         | Humidity percentage (signed 8.8   ) |
+| 7-12    | 0c04a03f23ac | MAC address                         |
+
+Which would add the following property to advData:
+
+    serviceData: {
+      uuid: "ffe1",
+      data: "a1016416dc27fd0c04a03f23ac",
+      minew: {
+        frameType: "a1",
+        productModel: 1,
+        batteryPercent: 100,
+        temperature: 22.859375,
+        humidity: 39.98828125,
+        macAddress: "ac:23:3f:a0:04:0c"
+      }
+    }
+
+###### E6 Light Sensor Beacon
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      serviceData: { 
+        uuid: "ffe1",
+        data: "a1026401ff04a03f23ac" 
+      }
+    }
+
+| Byte(s) | Hex String   | Description                     |
+|--------:|:-------------|:--------------------------------|
+| 0       | a1           | Frame type                      |
+| 1       | 02           | Product model                   |
+| 2       | 64           | Battery level in percent        |
+| 3       | 01           | Visible light observed? (Bit 0) |
+| 7-12    | ff04a03f23ac | MAC address                     |
+
+Which would add the following property to advData:
+
+    serviceData: {
+      uuid: "ffe1",
+      data: "a1026401ff04a03f23ac",
+      minew: {
+        frameType: "a1",
+        productModel: 2,
+        batteryPercent: 100,
+        visibleLight: true,
+        macAddress: "ac:23:3f:a0:04:ff"
+      }
+    }
 
 ###### i7 Accelerometer Beacon
 
