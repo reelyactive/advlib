@@ -939,9 +939,10 @@ The first byte of the proprietary data specifies the type:
 | 01                | Observed on iOS, not explicitly handled |
 | 02                | [iBeacon](#ibeacon)                     |
 | 05                | [AirDrop](#airdrop)                     |
+| 07                | [AirPods](#airpods)                     |
 | 08                | Unknown, observed on Macs               |
-| 09                | [AirPlay](#airplay)                     |
-| 0a                | Unknown, observed on Macs               |
+| 09                | [AirPlay](#airplay) destination         |
+| 0a                | [AirPlay](#airplay) source              |
 | 0c                | [Handoff](#handoff)                     |
 | 10                | [Nearby](#nearby)                       |
 
@@ -1028,6 +1029,37 @@ Which would add the following property to advData:
       }
     }
 
+###### AirPods
+
+A specific case of Apple-proprietary data is AirPods.  Process an AirPods packet from the contained advertiser data.
+
+    advlib.ble.common.manufacturers.apple.airpods.process(advData);
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      manufacturerSpecificData: {
+        companyIdentifierCode: "004c",
+        data: "071901022021880f00000049bcba4477206b0447472c771e53bbeb"
+      }
+    }
+
+For reference, the AirDrop payload is interpreted as follows:
+
+| Byte(s) | Hex String                           | Description               |
+|--------:|:-------------------------------------|:--------------------------|
+| 0       | 19                                   | Length, in bytes, of data |
+| 1-25    | 01022021880f00000049bcba4477206b0447472c771e53bbeb | Data        |
+
+Which would add the following property to advData:
+
+    manufacturerSpecificData: {
+      airpods: { 
+        length: 25,
+        data: "01022021880f00000049bcba4477206b0447472c771e53bbeb"
+      }
+    }
+
 ###### AirPlay
 
 A specific case of Apple-proprietary data is AirPlay.  Process an AirPlay packet from the contained advertiser data.
@@ -1055,6 +1087,7 @@ Which would add the following property to advData:
     manufacturerSpecificData: {
       airplay: { 
         length: 6,
+        role: "destination",
         data: "0200c0a80030"
       }
     }
