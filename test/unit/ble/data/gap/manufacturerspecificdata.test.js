@@ -20,8 +20,8 @@ var INPUT_DATA_IBEACON_UNKNOWN =
 var INPUT_DATA_AIRDROP = '17ff4c0005120000000000000000011bc238fa0000000000';
 var INPUT_DATA_AIRPODS = '1eff4c00071901022021880f00000049bcba4477206b0447472c771e53bbeb';
 var INPUT_DATA_SERVICE_08 = '0dff4c000807ffffff00000045';
-var INPUT_DATA_AIRPLAY = '0cff4c0009060200c0a80030';
-var INPUT_DATA_SERVICE_0A = '06ff4c000a0100';
+var INPUT_DATA_AIRPLAY_DESTINATION = '0cff4c0009060200c0a80030';
+var INPUT_DATA_AIRPLAY_SOURCE = '06ff4c000a0100';
 var INPUT_DATA_HANDOFF = '14ff4c000c0e0000041b59594de21ab6fbbb5cf6';
 var INPUT_DATA_NEARBY = '08ff4c0010020100';
 var INPUT_DATA_HANDOFF_AND_NEARBY =
@@ -66,13 +66,14 @@ var EXPECTED_DATA_SERVICE_08 = {
   length: 7,
   data: "ffffff00000045"
 };
-var EXPECTED_DATA_AIRPLAY = {
+var EXPECTED_DATA_AIRPLAY_DESTINATION = {
   length: 6,
+  role: "destination",
   data: "0200c0a80030"
 };
-var EXPECTED_DATA_SERVICE_0A = {
-  type: 10,
+var EXPECTED_DATA_AIRPLAY_SOURCE = {
   length: 1,
+  role: "source",
   data: "00"
 };
 var EXPECTED_DATA_HANDOFF = {
@@ -172,20 +173,20 @@ describe('ble data manufacturerspecificdata', function() {
                      EXPECTED_DATA_SERVICE_08);
   });
 
-  it('should convert ble advertiser data for AirPlay', function() {
+  it('should convert ble advertiser data for AirPlay destination', function() {
     var advertiserData = { manufacturerSpecificData: {} };
-    manufacturerspecificdata.process(INPUT_DATA_AIRPLAY, CURSOR, 
+    manufacturerspecificdata.process(INPUT_DATA_AIRPLAY_DESTINATION, CURSOR, 
                                      advertiserData);
     assert.deepEqual(advertiserData.manufacturerSpecificData.airplay, 
-                     EXPECTED_DATA_AIRPLAY);
+                     EXPECTED_DATA_AIRPLAY_DESTINATION);
   });
 
-  it('should convert ble advertiser data for Apple service 0x0a', function() {
+  it('should convert ble advertiser data for AirPlay source', function() {
     var advertiserData = { manufacturerSpecificData: {} };
-    manufacturerspecificdata.process(INPUT_DATA_SERVICE_0A, CURSOR, 
+    manufacturerspecificdata.process(INPUT_DATA_AIRPLAY_SOURCE, CURSOR, 
                                      advertiserData);
-    assert.deepEqual(advertiserData.manufacturerSpecificData.service, 
-                     EXPECTED_DATA_SERVICE_0A);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.airplay, 
+                     EXPECTED_DATA_AIRPLAY_SOURCE);
   });
 
   it('should convert ble advertiser data for Apple handoff', function() {
