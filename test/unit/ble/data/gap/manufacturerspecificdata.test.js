@@ -18,6 +18,7 @@ var INPUT_DATA_IBEACON_ESTIMOTE =
 var INPUT_DATA_IBEACON_UNKNOWN = 
                       '26ff4c000215000000000000000000000000000000001234567800';
 var INPUT_DATA_AIRDROP = '17ff4c0005120000000000000000011bc238fa0000000000';
+var INPUT_DATA_AIRPODS = '1eff4c00071901022021880f00000049bcba4477206b0447472c771e53bbeb';
 var INPUT_DATA_SERVICE_08 = '0dff4c000807ffffff00000045';
 var INPUT_DATA_AIRPLAY = '0cff4c0009060200c0a80030';
 var INPUT_DATA_SERVICE_0A = '06ff4c000a0100';
@@ -55,6 +56,10 @@ var EXPECTED_DATA_IBEACON_UNKNOWN = {
 var EXPECTED_DATA_AIRDROP = {
   length: 18,
   data: "0000000000000000011bc238fa0000000000"
+};
+var EXPECTED_DATA_AIRPODS = {
+  length: 25,
+  data: "01022021880f00000049bcba4477206b0447472c771e53bbeb"
 };
 var EXPECTED_DATA_SERVICE_08 = {
   type: 8,
@@ -149,6 +154,14 @@ describe('ble data manufacturerspecificdata', function() {
                                      advertiserData);
     assert.deepEqual(advertiserData.manufacturerSpecificData.airdrop, 
                      EXPECTED_DATA_AIRDROP);
+  });
+
+  it('should convert ble advertiser data for AirPods', function() {
+    var advertiserData = { manufacturerSpecificData: {} };
+    manufacturerspecificdata.process(INPUT_DATA_AIRPODS, CURSOR, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.airpods, 
+                     EXPECTED_DATA_AIRPODS);
   });
 
   it('should convert ble advertiser data for Apple service 0x08', function() {
