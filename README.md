@@ -5,9 +5,9 @@ Library for wireless advertising packet decoding.  Currently supports the follow
 * [Bluetooth Smart (BLE)](#bluetooth-smart-ble-advertising-packet-library)
 * [reelyActive RFID](#reelyactive-rfid-library)
 
-For a live, interactive version of advlib visit [reelyactive.github.io/advlib](http://reelyactive.github.io/advlib/).
+For a live, interactive version of advlib visit [reelyactive.github.io/advlib](https://reelyactive.github.io/advlib/).
 
-This project was published in a scientific paper entitled [Low-Power Wireless Advertising Software Library for Distributed M2M and Contextual IoT](http://reelyactive.com/science/reelyActive-IoT2015.pdf) presented at the [2nd IEEE World Forum on Internet of Things (WF-IoT)](http://wfiot2015.ieee-wf-iot.org/) in Milan, Italy on December 16th, 2015.
+This project was published in a scientific paper entitled [Low-Power Wireless Advertising Software Library for Distributed M2M and Contextual IoT](https://reelyactive.com/science/reelyActive-IoT2015.pdf) presented at the [2nd IEEE World Forum on Internet of Things (WF-IoT)](http://wfiot2015.ieee-wf-iot.org/) in Milan, Italy on December 16th, 2015.
 
 ![advlib black box](https://reelyactive.github.io/advlib/web/images/advlib-blackbox.png)
 
@@ -1272,7 +1272,7 @@ Process a raw packet (as a hexadecimal string) with the following command:
 What's next?
 ------------
 
-This is an active work in progress.  Expect regular changes and updates, as well as improved documentation!  If you'd like to contribute, kindly read our [Node.js style guide](https://github.com/reelyactive/node-style-guide) and [contact us](http://www.reelyactive.com/contact/) or make a pull request.
+This is an active work in progress.  Expect regular changes and updates, as well as improved documentation!  If you'd like to contribute, kindly read our [Node.js style guide](https://github.com/reelyactive/node-style-guide) and [contact us](https://www.reelyactive.com/contact/) or make a pull request.
 
 
 License
