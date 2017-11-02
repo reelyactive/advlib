@@ -2,7 +2,7 @@ advlib
 ======
 
 Library for wireless advertising packet decoding.  Currently supports the following protocols:
-* [Bluetooth Smart (BLE)](#bluetooth-smart-ble-advertising-packet-library)
+* [Bluetooth Low Energy (BLE)](#bluetooth-smart-ble-advertising-packet-library)
 * [reelyActive RFID](#reelyactive-rfid-library)
 
 For a live, interactive version of advlib visit [reelyactive.github.io/advlib](https://reelyactive.github.io/advlib/).
@@ -48,8 +48,8 @@ The console output should appear as follows:
     }
 
 
-Bluetooth Smart (BLE) Advertising Packet Library
-------------------------------------------------
+Bluetooth Low Energy (BLE) Advertising Packet Library
+-----------------------------------------------------
 
 Process a raw packet (as a hexadecimal string) with the following command:
 
