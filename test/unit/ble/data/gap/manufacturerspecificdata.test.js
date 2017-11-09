@@ -32,7 +32,7 @@ var INPUT_DATA_SNF_SINGLE = '17fff9000177665544332211004500000004991800123456';
 var INPUT_DATA_SNS_MOTION =
                           '18fff90042450000003099001122334455012345aabbccabc0';
 var INPUT_DATA_MOTSAI = '09ff7402000015000040';
-var INPUT_DATA_NORBLE = '11ff830501cc1234567881f87faabbccdd69';
+var INPUT_DATA_NORBLE = '11ff830501cc1234567881f87faabbccdd17';
 
 // Expected outputs for the scenario
 var EXPECTED_DATA_COMPANY_ONLY = {
@@ -129,7 +129,7 @@ var EXPECTED_DATA_NORBLE = {
   accelerationZ: -1.9375,
   batteryPercentage: 100,
   nearest: [
-    { instanceId: 'aabbccdd', status: '69' }
+    { instanceId: 'aabbccdd', rssi: -69 }
   ]
 };
 
