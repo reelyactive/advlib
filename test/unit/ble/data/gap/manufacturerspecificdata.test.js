@@ -33,6 +33,7 @@ var INPUT_DATA_SNS_MOTION =
                           '18fff90042450000003099001122334455012345aabbccabc0';
 var INPUT_DATA_MOTSAI = '09ff7402000015000040';
 var INPUT_DATA_NORBLE = '11ff830501cc1234567881f87faabbccdd17';
+var INPUT_DATA_PUCKYACTIVE = '10ff8305022b1f736f9d03eab70a1b04e2';
 
 // Expected outputs for the scenario
 var EXPECTED_DATA_COMPANY_ONLY = {
@@ -131,6 +132,16 @@ var EXPECTED_DATA_NORBLE = {
   nearest: [
     { instanceId: 'aabbccdd', rssi: -69 }
   ]
+};
+var EXPECTED_DATA_PUCKYACTIVE = {
+  cyclicCount: 1,
+  batteryVoltage: 2.7215686274509805,
+  temperature: 15.5,
+  lightPercentage: 62,
+  capSensePercentage: 1,
+  magneticFieldX: -5449,
+  magneticFieldY: 2587,
+  magneticFieldZ: 1250
 };
 
 describe('ble data manufacturerspecificdata', function() {
@@ -265,5 +276,13 @@ describe('ble data manufacturerspecificdata', function() {
                                      advertiserData);
     assert.deepEqual(advertiserData.manufacturerSpecificData.norble, 
                      EXPECTED_DATA_NORBLE);
+  });
+
+  it('should convert ble advertiser data for puckyActive', function() {
+    var advertiserData = { manufacturerSpecificData: {} };
+    manufacturerspecificdata.process(INPUT_DATA_PUCKYACTIVE, CURSOR, 
+                                     advertiserData);
+    assert.deepEqual(advertiserData.manufacturerSpecificData.puckyActive, 
+                     EXPECTED_DATA_PUCKYACTIVE);
   });
 });
