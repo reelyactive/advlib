@@ -129,14 +129,14 @@
                 </p>
                 <div class="form-group form-group-sm">
                   <label for="BluetoothPresets" class="col-sm-2 control-label">
-                    Select from presets
+                    Select from examples
                   </label>
                   <div class="col-sm-8">
                     <select ng-model="payload" ng-change="process()"
                             class="form-control" id="BluetoothPresets"
                             ng-options="preset.payload as preset.name for
                                         preset in presets">
-                      <option value=""> -- Choose a preset payload -- </option>
+                      <option value=""> -- Choose an example BLE PDU -- </option>
                     </select>
                   </div>
                   <div class="col-sm-2"></div>

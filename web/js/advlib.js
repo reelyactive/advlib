@@ -33592,7 +33592,7 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
     $scope.bluetooth = {}; // TODO: remove once removed from index.html
     $scope.packet = {};
     $scope.presets = [{
-      name: "reelyActive Bluetooth Smart reelceiver (RA-R436)",
+      name: "reelyActive BLE reelceiver (RA-R436)",
       payload: "061b9e5ed0f7b13402010611074449555520657669746341796c656572"
     }, {
       name: "reelyActive iOS SDK (Foreground)",
@@ -33601,8 +33601,11 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
       name: "reelyActive iOS SDK (Background)",
       payload: "401eb67d3eefc36b02011a14ff4c000100000000000040000000000000000000"
     }, {
+      name: "puckyActive",
+      payload: "401a00003c0284f202010610ff8305024b1f736b4503ecf90f8b1897"
+    }, {
       name: "Scanning device",
-      payload: "430cb67d3eefc36ba28c2d8cba1c"
+      payload: "430cb67d3eefc36b"
     }, {
       name: "Eddystone (URL)",
       payload: "421953ce2b1cec4e1216aafe109f027265656c7961637469766507"
@@ -33611,7 +33614,7 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
       payload: "40250000004f01d90201041106ba5689a6fabfa2bd01467d6e00fbabad09160a181204eb150000"
     }, {
       name: "Xiaomi Mi Band",
-      payload: "0013dd748d100f880201060502e0fee7fe03094d490041"
+      payload: "0013dd748d100f880201060502e0fee7fe03094d49"
     }, {
       name: "Tile",
       payload: "400dc3dc80ee20e40201060303edfe"
@@ -33619,8 +33622,17 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
       name: "Flic",
       payload: "00253ac870dae48002010611071bc5d5a50200dc9ee411e726c0df2af0090966303132634d6736"
     }, {
-      name: "Apple (Home products)",
+      name: "Apple (AirPlay destination)",
       payload: "00150000007b209c02011a0bff4c0009060202c0a8006a"
+    }, {
+      name: "Apple (Nearby)",
+      payload: "401490a3a947507b02011a0aff4c0010050a10b4f1e2"
+    }, {
+      name: "Minew i7 (Accelerometer)",
+      payload: "00250000a03f23ac0201060303e1ff1216e1ffa10364fffb008c00dc6005a03f23ac0409414343"
+    }, {
+      name: "Minew S1 (Temperature / Humidity)",
+      payload: "00220000a03f23ac0201060303e1ff1016e1ffa1016412380887dc02a03f23ac03095331"
     }, {
       name: "Nexus Player",
       payload: "001b0000005979f002011a1107fc9dd0b3cb84e0840642f3f7e1e0bfcb"
@@ -33632,13 +33644,13 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
       payload: "42243cae3eb8ebe00201061aff4c0002158deefbb9f7384297804096668bb4428100012258c5"
     }, {
       name: "Bright Beacon (iBeacon)",
-      payload: "40241582727dbefb0201061aff4c000215e2c56db5dffb48d2b060d0f5a71096e0fbbe7d72bf0040"
+      payload: "40241582727dbefb0201061aff4c000215e2c56db5dffb48d2b060d0f5a71096e0fbbe7d72bf"
     }, {
       name: "Estimote (iBeacon)",
-      payload: "4024a4b9297143fb0201061aff4c000215b9407f30f5f8466eaff925556b57fe6d03510003b60035"
+      payload: "4024a4b9297143fb0201061aff4c000215b9407f30f5f8466eaff925556b57fe6d03510003b6"
     }, {
       name: "Kontakt.io (iBeacon)",
-      payload: "402494eb4ce223ea0201061aff4c000215f7826da64fa24e988024bc5b71e0893ef7e84be5b30036"
+      payload: "402494eb4ce223ea0201061aff4c000215f7826da64fa24e988024bc5b71e0893ef7e84be5b3"
     }, {
       name: "UriBeacon",
       payload: "4220f60032be32c20201040303d8fe1216d8fe00f2027265656c7961637469766507"
