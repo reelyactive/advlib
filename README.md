@@ -203,6 +203,16 @@ The Generic Access Profile Data Types are listed on the [Bluetooth GAP Assigned 
 | 0x1f      | 32-bit Solicitation UUIDs            | Solicitation       |
 | 0x20      | Service Data 32-bit UUID             | Service Data       |
 | 0x21      | Service Data 128-bit UUID            | Service Data       |
+| 0x22      | LE Secure Con. Confirmation Value    | Generic Data       |
+| 0x23      | LE Secure Connections Random Value   | Generic Data       |
+| 0x24      | URI                                  | Generic Data       |
+| 0x25      | Indoor Positioning                   | Generic Data       |
+| 0x26      | Transport Discovery Data             | Generic Data       |
+| 0x27      | LE Supported Features                | Generic Data       |
+| 0x28      | Channel Map Update Indication        | Generic Data       |
+| 0x29      | PB-ADV                               | Generic Data       |
+| 0x2a      | Mesh Message                         | Generic Data       |
+| 0x2b      | Mesh Beacon                          | Generic Data       |
 | 0x3d      | 3-D Information Data                 | Generic Data       |
 | 0xff      | Manufacturer Specific Data           | Mfr. Specific Data |
 
