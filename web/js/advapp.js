@@ -166,12 +166,12 @@ module.exports = angular.module('advapp', ['ui.bootstrap'])
 
     function createElementsDataFlags(packet, data) {
       var flagArray = [ 
-        {name: advlib.ble.data.flags.BIT0_NAME, set: false}, 
-        {name: advlib.ble.data.flags.BIT1_NAME, set: false},
-        {name: advlib.ble.data.flags.BIT2_NAME, set: false},
-        {name: advlib.ble.data.flags.BIT3_NAME, set: false},
-        {name: advlib.ble.data.flags.BIT4_NAME, set: false},
-        {name: advlib.ble.data.flags.BIT5_NAME, set: false},
+        {name: advlib.ble.data.gap.flags.BIT0_NAME, set: false}, 
+        {name: advlib.ble.data.gap.flags.BIT1_NAME, set: false},
+        {name: advlib.ble.data.gap.flags.BIT2_NAME, set: false},
+        {name: advlib.ble.data.gap.flags.BIT3_NAME, set: false},
+        {name: advlib.ble.data.gap.flags.BIT4_NAME, set: false},
+        {name: advlib.ble.data.gap.flags.BIT5_NAME, set: false},
       ];
       for(var bit in flagArray) {
         var flags = $scope.packet.advData.flags;
