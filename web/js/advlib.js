@@ -22,7 +22,7 @@ function process(payload) {
 }
 
 module.exports.process = process;
-},{"../common/util/identifier.js":22}],2:[function(require,module,exports){
+},{"../common/util/identifier.js":23}],2:[function(require,module,exports){
 var companyNames = {
     "0000": "Ericsson Technology Licensing",
     "0001": "Nokia Mobile Phones",
@@ -1401,6 +1401,83 @@ var companyNames = {
     "055f": "PROTECH S.A.S. DI GIRARDI ANDREA & C.",
     "0560": "Sarita CareTech IVS",
     "0561": "Finder S.p.A.",
+    "0562": "Thalmic Labs Inc.",
+    "0563": "Steinel Vertrieb GmbH",
+    "0564": "Beghelli Spa",
+    "0565": "Beijing Smartspace Technologies Inc.",
+    "0566": "CORE TRANSPORT TECHNOLOGIES NZ LIMITED",
+    "0567": "Xiamen Everesports Goods Co., Ltd",
+    "0568": "Bodyport Inc.",
+    "0569": "Audionics System, INC.",
+    "056a": "Flipnavi Co.,Ltd.",
+    "056b": "Rion Co., Ltd.",
+    "056c": "Long Range Systems, LLC",
+    "056d": "Redmond Industrial Group LLC",
+    "056e": "VIZPIN INC.",
+    "056f": "BikeFinder AS",
+    "0570": "Consumer Sleep Solutions LLC",
+    "0571": "PSIKICK, INC.",
+    "0572": "AntTail.com",
+    "0573": "Lighting Science Group Corp.",
+    "0574": "AFFORDABLE ELECTRONICS INC",
+    "0575": "Integral Memroy Plc",
+    "0576": "Globalstar, Inc.",
+    "0577": "True Wearables, Inc.",
+    "0578": "Wellington Drive Technologies Ltd",
+    "0579": "Ensemble Tech Private Limited",
+    "057a": "OMNI Remotes",
+    "057b": "Duracell U.S. Operations Inc.",
+    "057c": "Toor Technologies LLC",
+    "057d": "Instinct Performance",
+    "057e": "Beco, Inc",
+    "057f": "Scuf Gaming International, LLC",
+    "0580": "ARANZ Medical Limited",
+    "0581": "LYS TECHNOLOGIES LTD",
+    "0582": "Breakwall Analytics, LLC",
+    "0583": "Code Blue Communications",
+    "0584": "Gira Giersiepen GmbH & Co. KG",
+    "0585": "Hearing Lab Technology",
+    "0586": "LEGRAND",
+    "0587": "Derichs GmbH",
+    "0588": "ALT-TEKNIK LLC",
+    "0589": "Star Technologies",
+    "058a": "START TODAY CO.,LTD.",
+    "058b": "Maxim Integrated Products",
+    "058c": "MERCK Kommanditgesellschaft auf Aktien",
+    "058d": "Jungheinrich Aktiengesellschaft",
+    "058e": "Oculus VR, LLC",
+    "058f": "HENDON SEMICONDUCTORS PTY LTD",
+    "0590": "Pur3 Ltd",
+    "0591": "Viasat Group S.p.A.",
+    "0592": "IZITHERM",
+    "0593": "Spaulding Clinical Research",
+    "0594": "Kohler Company",
+    "0595": "Inor Process AB",
+    "0596": "My Smart Blinds",
+    "0597": "RadioPulse Inc",
+    "0598": "rapitag GmbH",
+    "0599": "Lazlo326, LLC.",
+    "059a": "Teledyne Lecroy, Inc.",
+    "059b": "Dataflow Systems Limited",
+    "059c": "Macrogiga Electronics",
+    "059d": "Tandem Diabetes Care",
+    "059e": "Polycom, Inc.",
+    "059f": "Fisher & Paykel Healthcare",
+    "05a0": "RCP Software Oy",
+    "05a1": "Shanghai Xiaoyi Technology Co.,Ltd.",
+    "05a2": "ADHERIUM(NZ) LIMITED",
+    "05a3": "Axiomware Systems Incorporated",
+    "05a4": "O. E. M. Controls, Inc.",
+    "05a5": "Kiiroo BV",
+    "05a6": "Telecon Mobile Limited",
+    "05a7": "Sonos Inc",
+    "05a8": "Tom Allebrandi Consulting",
+    "05a9": "Monidor",
+    "05aa": "Tramex Limited",
+    "05ab": "Nofence AS",
+    "05ac": "GoerTek Dynaudio Co., Ltd.",
+    "05ad": "INIA",
+    "05ae": "CARMATE MFG.CO.,LTD",
     "ffff": "(Reserved) Default Vendor ID"
 };
 
@@ -1655,7 +1732,24 @@ var companyNames = {
     "fe0b": "Ruwido Austria GmbH",
     "fe0a": "Ruwido Austria GmbH",
     "fe09": "Pillsy, Inc.",
-    "fe08": "Microsoft"
+    "fe08": "Microsoft",
+    "fe07": "Sonos Inc.",
+    "fe06": "Qualcomm Technologies, Inc.",
+    "fe05": "CORE Transport Technologies NZ Limited",
+    "fe04": "OpenPath Security Inc",
+    "fe03": "Amazon Fulfillment Services, Inc",
+    "fe02": "Robert Bosch GmbH",
+    "fe01": "Duracell U.S. Operations Inc.",
+    "fe00": "Amazon Fulfillment Services Inc.",
+    "fdff": "OSRAM GmbH",
+    "fdfe": "ADHERIUM(NZ) LIMITED",
+    "fdfd": "RecursiveSoft Inc.",
+    "fdfc": "Optrel AG",
+    "fdfb": "Tandem Diabetes Care",
+    "fdfa": "Tandem Diabetes Care",
+    "fdf9": "INIA",
+    "fdf8": "Onvocal",
+    "fdf7": "HP Inc."
 };
 
 module.exports.companyNames = companyNames;
@@ -1675,7 +1769,7 @@ module.exports.companyidentifiercodes = companyidentifiercodes;
 module.exports.memberservices = memberservices;
 module.exports.manufacturers = manufacturers;
 
-},{"./assignednumbers/companyidentifiercodes.js":2,"./assignednumbers/memberservices.js":3,"./manufacturers/index.js":15}],5:[function(require,module,exports){
+},{"./assignednumbers/companyidentifiercodes.js":2,"./assignednumbers/memberservices.js":3,"./manufacturers/index.js":16}],5:[function(require,module,exports){
 /**
  * Copyright reelyActive 2017
  * We believe in an open Internet of Things
@@ -1863,7 +1957,7 @@ function process(advertiserData, cursor) {
 module.exports.licenseeNames = licenseeNames;
 module.exports.process = process;
 
-},{"../../util/pdu.js":23}],10:[function(require,module,exports){
+},{"../../util/pdu.js":24}],10:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015-2017
  * We believe in an open Internet of Things
@@ -1994,6 +2088,183 @@ module.exports.process = process;
 
 },{}],13:[function(require,module,exports){
 /**
+ * Copyright reelyActive 2017
+ * We believe in an open Internet of Things
+ */
+
+
+/**
+ * Parse BLE advertiser manufacturer specific data for Code Blue Comms.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function process(advertiserData) {
+  var data = advertiserData.manufacturerSpecificData.data;
+  var frameType = data.substr(0,2);
+
+  switch(frameType) {
+    case '01':
+      processNorwegianBlue(advertiserData);
+      return;
+    case '02':
+      processPuckyActive(advertiserData);
+      return;
+    default:
+      return;
+  }
+}
+
+
+/**
+ * Parse Norwegian Blue (NorBLE) data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function processNorwegianBlue(advertiserData) {
+  var norble = {};
+  var data = advertiserData.manufacturerSpecificData.data;
+  var frameLength = parseInt(data.substr(2,2), 16) & 0x1f;
+
+  norble.cyclicCount = parseInt(data.substr(2,1), 16) >> 1;
+  norble.instanceId = data.substr(4,8);
+  norble.accelerationX = toAcceleration(data.substr(12,2), true);
+  norble.accelerationY = toAcceleration(data.substr(13,2), false);
+  norble.accelerationZ = toAcceleration(data.substr(15,2), true);
+  norble.batteryPercentage = toBatteryPercentage(data.substr(16,2), false);
+  norble.nearest = [];
+
+  for(nearestIndex = 9; nearestIndex < (frameLength + 2); nearestIndex += 5) {
+    var instanceId = data.substr(nearestIndex * 2, 8);
+    var rssi = toRssi(data.substr(nearestIndex * 2 + 8, 2));
+    norble.nearest.push( { instanceId: instanceId, rssi: rssi } );
+  }
+
+  advertiserData.manufacturerSpecificData.norble = norble;
+}
+
+
+/**
+ * Parse puckyActive data.
+ * @param {Object} advertiserData The object containing all parsed data.
+ */
+function processPuckyActive(advertiserData) {
+  var puckyActive = {};
+  var data = advertiserData.manufacturerSpecificData.data;
+  var frameLength = parseInt(data.substr(2,2), 16) & 0x1f;
+
+  puckyActive.cyclicCount = parseInt(data.substr(2,1), 16) >> 1;
+  puckyActive.batteryVoltage = toBatteryVoltage(data.substr(6,2));
+  puckyActive.temperature = toTemperature(data.substr(8,2));
+  puckyActive.lightPercentage = toPercentage(data.substr(10,2));
+  puckyActive.capSensePercentage = toPercentage(data.substr(12,2));
+  puckyActive.magneticFieldX = toMagneticField(data.substr(14,4));
+  puckyActive.magneticFieldY = toMagneticField(data.substr(18,4));
+  puckyActive.magneticFieldZ = toMagneticField(data.substr(22,4));
+
+  advertiserData.manufacturerSpecificData.puckyActive = puckyActive;
+}
+
+
+/**
+ * Convert the given bytes to battery percentage.
+ * @param {String} bits The 6 bits of the battery level.
+ */
+function toBatteryPercentage(bits, isUpper) {
+  var data = parseInt(bits, 16);
+  if(isUpper) {
+    data = data >> 2;
+  }
+  else {
+    data &= 0x3f;
+  }
+  return Math.round(100 * data / 63);
+}
+
+
+/**
+ * Convert the given twos complement hexadecimal string to acceleration in g.
+ * @param {String} byte The acceleration data byte as a string.
+ */
+function toAcceleration(byte, isUpper) {
+  var data = parseInt(byte, 16);
+  if(isUpper) {
+    data = data >> 2;
+  }
+  else {
+    data &= 0x3f;
+  }
+  if(data === 32) {
+    return 'n/a';
+  }
+  if(data > 31) {
+    return (data - 64) / 16;
+  }
+  return data / 16;
+}
+
+
+/**
+ * Convert the given byte to RSSI.
+ * @param {String} bits The 6 bits of the battery level.
+ */
+function toRssi(bits) {
+  var data = parseInt(bits, 16);
+
+  return (data & 0x3f) - 92;
+}
+
+
+/**
+ * Convert the given byte to battery voltage.
+ * @param {String} byte The encoded battery voltage byte.
+ */
+function toBatteryVoltage(byte) {
+  var data = parseInt(byte, 16);
+
+  return 2 + (1.6 * data / 0xff);
+}
+
+
+/**
+ * Convert the given byte to temperature.
+ * @param {String} byte The encoded temperature byte.
+ */
+function toTemperature(byte) {
+  var data = parseInt(byte, 16);
+
+  return -40 + (data / 2);
+}
+
+
+/**
+ * Convert the given byte to a percentage.
+ * @param {String} byte The encoded byte (0x00 = 0%, 0xff = 100%).
+ */
+function toPercentage(byte) {
+  var data = parseInt(byte, 16);
+
+  return Math.round(100 * data / 0xff);
+}
+
+
+/**
+ * Convert the given two bytes to a signed value.
+ * @param {String} bytes The signed magnetic field bytes.
+ */
+function toMagneticField(bytes) {
+  var upper = parseInt(bytes.substr(0,2), 16);
+  var lower = parseInt(bytes.substr(2,2), 16);
+
+  if(upper > 127) {
+    upper = upper - 256;
+  }
+
+  return (upper * 256) + lower;
+}
+
+
+module.exports.process = process;
+
+},{}],14:[function(require,module,exports){
+/**
  * Copyright reelyActive 2016
  * We believe in an open Internet of Things
  */
@@ -2019,7 +2290,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"./nearable.js":14}],14:[function(require,module,exports){
+},{"./nearable.js":15}],15:[function(require,module,exports){
 /**
  * Copyright reelyActive 2016
  * We believe in an open Internet of Things
@@ -2099,25 +2370,27 @@ function toDuration(byte) {
 
 module.exports.process = process;
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /**
  * Copyright reelyActive 2016-2017
  * We believe in an open Internet of Things
  */
 
 var apple = require('./apple/index.js');
+var codebluecommunications = require('./codebluecommunications/index.js');
 var estimote = require('./estimote/index.js');
 var motsai = require('./motsai/index.js');
 var radiusnetworks = require('./radiusnetworks/index.js');
 var sticknfind = require('./sticknfind/index.js');
 
 module.exports.apple = apple;
+module.exports.codebluecommunications = codebluecommunications;
 module.exports.estimote = estimote;
 module.exports.motsai = motsai;
 module.exports.radiusnetworks = radiusnetworks;
 module.exports.sticknfind = sticknfind;
 
-},{"./apple/index.js":10,"./estimote/index.js":13,"./motsai/index.js":16,"./radiusnetworks/index.js":18,"./sticknfind/index.js":19}],16:[function(require,module,exports){
+},{"./apple/index.js":10,"./codebluecommunications/index.js":13,"./estimote/index.js":14,"./motsai/index.js":17,"./radiusnetworks/index.js":19,"./sticknfind/index.js":20}],17:[function(require,module,exports){
 /**
  * Copyright reelyActive 2017
  * We believe in an open Internet of Things
@@ -2189,7 +2462,7 @@ function toAcceleration(byte) {
 
 module.exports.process = process;
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /**
  * Copyright reelyActive 2017
  * We believe in an open Internet of Things
@@ -2237,7 +2510,7 @@ module.exports.CODE = CODE;
 module.exports.process = process;
 module.exports.isAltBeacon = isAltBeacon;
 
-},{"../../util/pdu.js":23}],18:[function(require,module,exports){
+},{"../../util/pdu.js":24}],19:[function(require,module,exports){
 /**
  * Copyright reelyActive 2017
  * We believe in an open Internet of Things
@@ -2247,7 +2520,7 @@ var altbeacon = require('./altbeacon.js');
 
 module.exports.altbeacon = altbeacon;
 
-},{"./altbeacon.js":17}],19:[function(require,module,exports){
+},{"./altbeacon.js":18}],20:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2279,7 +2552,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"./snfsingle.js":20,"./snsmotion.js":21}],20:[function(require,module,exports){
+},{"./snfsingle.js":21,"./snsmotion.js":22}],21:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2316,7 +2589,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"../../util/pdu.js":23}],21:[function(require,module,exports){
+},{"../../util/pdu.js":24}],22:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2367,7 +2640,7 @@ function process(advertiserData) {
 
 module.exports.process = process;
 
-},{"../../util/pdu.js":23}],22:[function(require,module,exports){
+},{"../../util/pdu.js":24}],23:[function(require,module,exports){
 /**
  * Copyright reelyActive 2014
  * We believe in an open Internet of Things
@@ -2446,7 +2719,7 @@ module.exports.EUI64 = TYPE_EUI64;
 module.exports.RA28 = TYPE_RA28;
 module.exports.ADVA48 = TYPE_ADVA48;
 module.exports.RADIO_PAYLOAD = TYPE_RADIO_PAYLOAD;
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -2488,9 +2761,9 @@ function convertTxPower(rawTxPower) {
 module.exports.getTagDataLength = getTagDataLength;
 module.exports.reverseBytes = reverseBytes;
 module.exports.convertTxPower = convertTxPower;
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015
+ * Copyright reelyActive 2015-2018
  * We believe in an open Internet of Things
  */
 
@@ -2505,12 +2778,10 @@ var BIT5_NAME = 'Reserved';
 
 /**
  * Parse BLE advertiser data flags.
- * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
+ * @param {string} data The raw flag data as a hexadecimal-string.
  */
-function process(payload, cursor, advertiserData) {
-  var flags = parseInt(payload.substr(cursor+4,2),16);
+function process(data) {
+  var flags = parseInt(data, 16);
   var result = [];
   if(flags & 0x01) {
     result.push(BIT0_NAME);
@@ -2530,7 +2801,7 @@ function process(payload, cursor, advertiserData) {
   if(flags & 0x20) {
     result.push(BIT5_NAME);
   }
-  advertiserData.flags = result;
+  return result;
 }
 
 module.exports.process = process;
@@ -2541,68 +2812,210 @@ module.exports.BIT3_NAME = BIT3_NAME;
 module.exports.BIT4_NAME = BIT4_NAME;
 module.exports.BIT5_NAME = BIT5_NAME;
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015
+ * Copyright reelyActive 2018
  * We believe in an open Internet of Things
  */
 
-var pdu = require('../../common/util/pdu.js');
 
- /**
- * Parse generic data.
+var flags = require('./flags.js');
+var uuid = require('./uuid.js');
+var localname = require('./localname.js');
+var txpower = require('./txpower.js');
+var solicitation = require('./solicitation.js');
+var servicedata = require('./servicedata.js');
+var manufacturerspecificdata = require('./manufacturerspecificdata.js');
+
+
+/**
+ * Convert a raw Bluetooth Low Energy advertising packet into its meaningful
+ * parts.
+ * https://www.bluetooth.org/en-us/specification/assigned-numbers/generic-access-profile
  * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
+ * @return {Object} Semantically meaningful advertising packet.
  */
-function process(payload, cursor, advertiserData, adType) {
-  var genericData = payload.substr(cursor+4, pdu.getTagDataLength(payload, cursor));
-  advertiserData[adType] = genericData;
+function process(payload) {
+  var advertiserDataLength = payload.length;
+  var cursor = 0;
+  var advertiserData = {};
+  while(cursor < advertiserDataLength) {
+    var length = (parseInt(payload.substr(cursor,2),16) + 1) * 2;
+    var tag = payload.substr(cursor + 2, 2);
+    var data = payload.substr(cursor + 4, length - 4);
+    switch(tag) {
+      case("01"):
+        advertiserData.flags = flags.process(data);
+        break;
+      case("02"):
+        advertiserData.nonComplete16BitUUIDs = uuid.process(data);
+        break;
+      case("03"):
+        advertiserData.complete16BitUUIDs = uuid.process(data);
+        break;
+      case("04"):
+        advertiserData.nonComplete32BitUUIDs = uuid.process(data);
+        break;
+      case("05"):
+        advertiserData.complete32BitUUIDs = uuid.process(data);
+        break;
+      case("06"):
+        advertiserData.nonComplete128BitUUIDs = uuid.process(data);
+        break;
+      case("07"):
+        advertiserData.complete128BitUUIDs = uuid.process(data);
+        break;
+      case("08"):
+        advertiserData.shortenedLocalName = localname.process(data);
+        break;
+      case("09"):
+        advertiserData.completeLocalName = localname.process(data);
+        break;
+      case("0a"):
+        advertiserData.txPower = txpower.process(data);
+        break;
+      case("0d"):
+        advertiserData.classOfDevice = data;
+        break;
+      case("0e"):
+        advertiserData.simplePairingHashC = data;
+        break;
+      case("0f"):
+        advertiserData.simplePairingRandomizerR = data;
+        break;
+      case("10"):
+        advertiserData.securityManagerTKValue = data;
+        break;
+      case("11"):
+        advertiserData.securityManagerOOBFlags = data;
+        break;
+      case("12"):
+        advertiserData.slaveConnectionIntervalRange = data;
+        break;
+      case("14"):
+        advertiserData.solicitation16BitUUIDs = solicitation.process(data);
+        break;
+      case("15"):
+        advertiserData.solicitation128BitUUIDs = solicitation.process(data);
+        break;
+      case("16"):
+        advertiserData.serviceData = servicedata.process(data);
+        break;
+      case("17"):
+        advertiserData.publicTargetAddress = data;
+        break;
+      case("18"):
+        advertiserData.randomTargetAddress = data;
+        break;
+      case("19"):
+        advertiserData.appearance = data;
+        break;
+      case("1a"):
+        advertiserData.advertisingInterval = data;
+        break;
+      case("1b"):
+        advertiserData.leBluetoothDeviceAddress = data;
+        break;
+      case("1c"):
+        advertiserData.leRole = data;
+        break;
+      case("1d"):
+        advertiserData.simplePairingHashC256 = data;
+        break;
+      case("1e"):
+        advertiserData.simplePairingRandomizerR256 = data;
+        break;
+      case("1f"):
+        advertiserData.solicitation32BitUUIDs = data;
+        break;
+      case("20"):
+        advertiserData.serviceData32BitUUID = data;
+        break;
+      case("21"):
+        advertiserData.serviceData128BitUUID = data;
+        break;
+      case("22"):
+        advertiserData.leSecureConnectionsConfirmationValue = data;
+        break;
+      case("23"):
+        advertiserData.leSecureConnectionsRandomValue = data;
+        break;
+      case("24"):
+        advertiserData.uri = data;
+        break;
+      case("25"):
+        advertiserData.indoorPositioning = data;
+        break;
+      case("26"):
+        advertiserData.transportDiscoveryData = data;
+        break;
+      case("27"):
+        advertiserData.leSupportedFeatures = data;
+        break;
+      case("28"):
+        advertiserData.channelMapUpdateInformation = data;
+        break;
+      case("29"):
+        advertiserData.pbAdv = data;
+        break;
+      case("2a"):
+        advertiserData.meshMessage = data;
+        break;
+      case("2b"):
+        advertiserData.meshBeacon = data;
+        break;
+      case("3d"):
+        advertiserData.informationData3D = data;
+        break;
+      case("ff"):
+        advertiserData.manufacturerSpecificData =
+                                       manufacturerspecificdata.process(data);
+        break;
+      default:
+        //console.log("Unhandled BLE tag " + tag);
+    }
+    cursor += length;
+  }
+  return advertiserData;
 }
 
 module.exports.process = process;
-},{"../../common/util/pdu.js":23}],26:[function(require,module,exports){
+module.exports.flags = flags;
+module.exports.uuid = uuid;
+module.exports.localname = localname;
+module.exports.txpower = txpower;
+module.exports.solicitation = solicitation;
+module.exports.servicedata = servicedata;
+module.exports.manufacturerspecificdata = manufacturerspecificdata;
+
+},{"./flags.js":25,"./localname.js":27,"./manufacturerspecificdata.js":28,"./servicedata.js":29,"./solicitation.js":30,"./txpower.js":31,"./uuid.js":32}],27:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015
+ * Copyright reelyActive 2015-2018
  * We believe in an open Internet of Things
  */
 
+
 var pdu = require('../../common/util/pdu.js');
 
- /**
+
+/**
  * Parse BLE advertiser data non-complete shortened local name.
- * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
+ * @param {string} data The raw name data as a hexadecimal-string.
  */
-function shortenedLocalName(payload, cursor, advertiserData) {
-  var hexName = payload.substr(cursor+4, pdu.getTagDataLength(payload, cursor));
-  var result = "";
-  for(var cChar = 0; cChar < hexName.length; cChar += 2)
-    result += String.fromCharCode(parseInt(hexName.substr(cChar,2),16));
-  advertiserData.shortenedLocalName = result;
-}
-
-/**
- * Parse BLE advertiser data complete local name.
- * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
- */
-function completeLocalName(payload, cursor, advertiserData) {
-  var hexName = payload.substr(cursor+4, pdu.getTagDataLength(payload, cursor));
-  var result = "";
-  for(var cChar = 0; cChar < hexName.length; cChar += 2)
-    result += String.fromCharCode(parseInt(hexName.substr(cChar,2),16));
-  advertiserData.completeLocalName = result;
+function process(data) {
+  var result = '';
+  for(var cChar = 0; cChar < data.length; cChar += 2) {
+    result += String.fromCharCode(parseInt(data.substr(cChar,2),16));
+  }
+  return result;
 }
 
 
-module.exports.shortenedLocalName = shortenedLocalName;
-module.exports.completeLocalName = completeLocalName;
-},{"../../common/util/pdu.js":23}],27:[function(require,module,exports){
+module.exports.process = process;
+
+},{"../../common/util/pdu.js":24}],28:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015-2017
+ * Copyright reelyActive 2015-2018
  * We believe in an open Internet of Things
  */
 
@@ -2610,6 +3023,8 @@ var pdu = require('../../common/util/pdu.js');
 var companyIdentifierCodes =
             require('../../common/assignednumbers/companyidentifiercodes.js');
 var apple = require('../../common/manufacturers/apple/index.js');
+var codebluecommunications = 
+        require('../../common/manufacturers/codebluecommunications/index.js');
 var estimote = require('../../common/manufacturers/estimote/index.js');
 var motsai = require('../../common/manufacturers/motsai/index.js');
 var altbeacon =
@@ -2619,30 +3034,32 @@ var sticknfind = require('../../common/manufacturers/sticknfind/index.js');
 
 /**
  * Parse BLE advertiser data manufacturer specific data.
- * @param {string} payload The raw payload as a hexadecimal-string.
+ * @param {string} data The raw manufacturer data as a hexadecimal-string.
  * @param {number} cursor The start index within the payload.
  * @param {Object} advertiserData The object containing all parsed data.
  */
-function process(payload, cursor, advertiserData) {
-  var companyIdentifierCode = payload.substr(cursor+6, 2);
-  companyIdentifierCode += payload.substr(cursor+4, 2);
+function process(data) {
+  var companyIdentifierCode = data.substr(2,2);
+  companyIdentifierCode += data.substr(0,2);
 
   var companyName = companyIdentifierCodes.companyNames[companyIdentifierCode];
   if(typeof companyName === 'undefined') {
     companyName = 'Unknown';
   }
 
-  var data = payload.substr(cursor+8, pdu.getTagDataLength(payload, cursor)-4);
-
-  advertiserData.manufacturerSpecificData = {
-                                 companyName : companyName,
-                                 companyIdentifierCode: companyIdentifierCode,
-                                 data: data };
+  // NOTE: this is for legacy compatibility
+  var advertiserData = {
+    manufacturerSpecificData: {
+      companyName : companyName,
+      companyIdentifierCode: companyIdentifierCode,
+      data: data.substr(4)
+    }
+  };
 
   // Handle the unique case of AltBeacon
   if(altbeacon.isAltBeacon(advertiserData)) {
     altbeacon.process(advertiserData);
-    return;
+    return advertiserData.manufacturerSpecificData;
   }
 
   // Interpret the manufacturer specific data, if possible
@@ -2650,193 +3067,126 @@ function process(payload, cursor, advertiserData) {
   switch(companyIdentifierCode) {
     case '004c':
       apple.process(advertiserData);
-      break;
+      return advertiserData.manufacturerSpecificData;
     case '00f9':
       sticknfind.process(advertiserData);
-      break;
+      return advertiserData.manufacturerSpecificData;
     case '015d':
       estimote.process(advertiserData);
-      break;
+      return advertiserData.manufacturerSpecificData;
     case '0274':
       motsai.process(advertiserData);
-      break;
+      return advertiserData.manufacturerSpecificData;
+    case '0583':
+      codebluecommunications.process(advertiserData);
+      return advertiserData.manufacturerSpecificData;
     default:
+      return advertiserData.manufacturerSpecificData;
   }
 }
 
 
 module.exports.process = process;
 
-},{"../../common/assignednumbers/companyidentifiercodes.js":2,"../../common/manufacturers/apple/index.js":10,"../../common/manufacturers/estimote/index.js":13,"../../common/manufacturers/motsai/index.js":16,"../../common/manufacturers/radiusnetworks/altbeacon.js":17,"../../common/manufacturers/sticknfind/index.js":19,"../../common/util/pdu.js":23}],28:[function(require,module,exports){
+},{"../../common/assignednumbers/companyidentifiercodes.js":2,"../../common/manufacturers/apple/index.js":10,"../../common/manufacturers/codebluecommunications/index.js":13,"../../common/manufacturers/estimote/index.js":14,"../../common/manufacturers/motsai/index.js":17,"../../common/manufacturers/radiusnetworks/altbeacon.js":18,"../../common/manufacturers/sticknfind/index.js":20,"../../common/util/pdu.js":24}],29:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015
+ * Copyright reelyActive 2015-2018
  * We believe in an open Internet of Things
  */
 
 
-var pdu = require('../../common/util/pdu.js');
 var gattservices = require('../gatt/services/index.js');
 
 
 /**
  * Parse BLE advertiser service data.
- * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
+ * @param {string} data The raw service data as a hexadecimal-string.
  */
-function process(payload, cursor, advertiserData) {
-  var serviceData = payload.substr(cursor + 4,
-                                   pdu.getTagDataLength(payload, cursor));
-  var uuid = serviceData.substr(2,2) + serviceData.substr(0,2);
-  var data = serviceData.substr(4);
-  advertiserData.serviceData = { uuid: uuid, data: data };
+function process(data) {
+  var uuid = data.substr(2,2) + data.substr(0,2);
+
+  // NOTE: this is for legacy compatibility
+  var advertiserData = {
+    serviceData: {
+      uuid: uuid,
+      data: data.substr(4)
+    }
+  };
 
   gattservices.process(advertiserData);
+
+  return advertiserData.serviceData;
 }
 
 
 module.exports.process = process;
 
-},{"../../common/util/pdu.js":23,"../gatt/services/index.js":33}],29:[function(require,module,exports){
+},{"../gatt/services/index.js":33}],30:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015
+ * Copyright reelyActive 2015-2018
  * We believe in an open Internet of Things
  */
 
+
 var pdu = require('../../common/util/pdu.js');
 
- /**
- * Parse BLE advertiser data slave connection interval range.
- * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
+
+/**
+ * Parse BLE advertiser solicitation UUIDs.
+ * @param {string} data The raw solicitation data as a hexadecimal-string.
  */
-function process(payload, cursor, advertiserData) {
-  var result = payload.substr(cursor+4, pdu.getTagDataLength(payload, cursor));
-  advertiserData.slaveConnectionIntervalRange = result;
+function process(data) {
+  // NOTE: eventually this will become an array
+  return pdu.reverseBytes(data);
 }
+
 
 module.exports.process = process;
-},{"../../common/util/pdu.js":23}],30:[function(require,module,exports){
+
+},{"../../common/util/pdu.js":24}],31:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015
+ * Copyright reelyActive 2015-2018
  * We believe in an open Internet of Things
  */
 
-var pdu = require('../../common/util/pdu.js');
-
- /**
- * Parse BLE advertiser data service solicitation 16-bit UUIDs.
- * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
- */
-function solicitation16BitUUIDs(payload, cursor, advertiserData) {
-  var data = payload.substr(cursor+4, pdu.getTagDataLength(payload, cursor));
-  var solicitation16BitUUIDs = pdu.reverseBytes(data);
-  advertiserData.solicitation16BitUUIDs = solicitation16BitUUIDs;
-}
-
-
-/**
- * Parse BLE advertiser data service solicitation 128-bit UUIDs.
- * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
- */
-function solicitation128BitUUIDs(payload, cursor, advertiserData) {
-  var data = payload.substr(cursor+4, pdu.getTagDataLength(payload, cursor));
-  var solicitation128BitUUIDs = pdu.reverseBytes(data);
-  advertiserData.solicitation128BitUUIDs = solicitation128BitUUIDs;
-}
-
-module.exports.solicitation16BitUUIDs = solicitation16BitUUIDs;
-module.exports.solicitation128BitUUIDs = solicitation128BitUUIDs;
-},{"../../common/util/pdu.js":23}],31:[function(require,module,exports){
-/**
- * Copyright reelyActive 2015
- * We believe in an open Internet of Things
- */
 
 var pdu = require('../../common/util/pdu.js');
+
 
 /**
  * Parse BLE advertiser TX power.
- * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
+ * @param {string} data The raw txPower data as a hexadecimal-string.
  */
-function process(payload, cursor, advertiserData) {
-  advertiserData.txPower = pdu.convertTxPower(payload.substr(cursor+4,2));
+function process(data) {
+  return pdu.convertTxPower(data);
 }
+
 
 module.exports.process = process;
 
-},{"../../common/util/pdu.js":23}],32:[function(require,module,exports){
+},{"../../common/util/pdu.js":24}],32:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015
+ * Copyright reelyActive 2015-2018
  * We believe in an open Internet of Things
  */
 
+
 var pdu = require('../../common/util/pdu.js');
- 
-/**
- * Parse BLE advertiser non-complete 16-bit UUIDs.
- * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
- */
-function nonComplete16BitUUIDs(payload, cursor, advertiserData) {
-  var data = payload.substr(cursor+4, pdu.getTagDataLength(payload, cursor));
-  var nonComplete16BitUUIDs = pdu.reverseBytes(data);
-  advertiserData.nonComplete16BitUUIDs = nonComplete16BitUUIDs;
-}
 
 
 /**
- * Parse BLE advertiser complete 16-bit UUIDs.
- * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
+ * Parse BLE advertiser UUIDs.
+ * @param {string} data The raw UUID data as a hexadecimal-string.
  */
-function complete16BitUUIDs(payload, cursor, advertiserData) {
-  var data = payload.substr(cursor+4, pdu.getTagDataLength(payload, cursor));
-  var complete16BitUUIDs = pdu.reverseBytes(data);
-  advertiserData.complete16BitUUIDs = complete16BitUUIDs;
+function process(data) {
+  // NOTE: eventually this will become an array
+  return pdu.reverseBytes(data);
 }
 
 
-/**
- * Parse BLE advertiser non-complete 128-bit UUIDs.
- * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
- */
-function nonComplete128BitUUIDs(payload, cursor, advertiserData) {
-  var data = payload.substr(cursor+4, pdu.getTagDataLength(payload, cursor));
-  var nonComplete128BitUUIDs = pdu.reverseBytes(data); 
-  advertiserData.nonComplete128BitUUIDs = nonComplete128BitUUIDs;
-}
+module.exports.process = process;
 
-
-/**
- * Parse BLE advertiser complete 128-bit UUIDs.
- * @param {string} payload The raw payload as a hexadecimal-string.
- * @param {number} cursor The start index within the payload.
- * @param {Object} advertiserData The object containing all parsed data.
- */
-function complete128BitUUIDs(payload, cursor, advertiserData) {
-  var data = payload.substr(cursor+4, pdu.getTagDataLength(payload, cursor));
-  var complete128BitUUIDs = pdu.reverseBytes(data);
-  advertiserData.complete128BitUUIDs = complete128BitUUIDs;
-}
-
-
-module.exports.nonComplete16BitUUIDs = nonComplete16BitUUIDs;
-module.exports.complete16BitUUIDs = complete16BitUUIDs;
-module.exports.nonComplete128BitUUIDs = nonComplete128BitUUIDs;
-module.exports.complete128BitUUIDs = complete128BitUUIDs;
-},{"../../common/util/pdu.js":23}],33:[function(require,module,exports){
+},{"../../common/util/pdu.js":24}],33:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015-2017
  * We believe in an open Internet of Things
@@ -3313,7 +3663,7 @@ function parseEncodedUrl(encodedUrl) {
 
 module.exports.process = process;
 
-},{"../../../../common/util/pdu.js":23}],36:[function(require,module,exports){
+},{"../../../../common/util/pdu.js":24}],36:[function(require,module,exports){
 /**
  * Copyright reelyActive 2017
  * We believe in an open Internet of Things
@@ -3903,21 +4253,12 @@ module.exports.process = process;
 
 },{}],66:[function(require,module,exports){
 /**
- * Copyright reelyActive 2015
+ * Copyright reelyActive 2015-2018
  * We believe in an open Internet of Things
  */
 
 
-var flags = require('./gap/flags.js');
-var uuid = require('./gap/uuid.js');
-var localname = require('./gap/localname.js');
-var txpower = require('./gap/txpower.js');
-var slaveconnectionintervalrange = 
-                             require('./gap/slaveconnectionintervalrange.js');
-var solicitation = require('./gap/solicitation.js');
-var servicedata = require('./gap/servicedata.js');
-var genericdata = require('./gap/genericdata.js');
-var manufacturerspecificdata = require('./gap/manufacturerspecificdata.js');
+var gap = require('./gap/index.js');
 
 
 /**
@@ -3928,129 +4269,13 @@ var manufacturerspecificdata = require('./gap/manufacturerspecificdata.js');
  * @return {Object} Semantically meaningful advertising packet.
  */
 function process(payload) {
-  var advertiserDataLength = payload.length;
-  var cursor = 0;
-  var advertiserData = {};
-  while(cursor < advertiserDataLength) {
-    var length = (parseInt(payload.substr(cursor,2),16) + 1) * 2;
-    var tag = payload.substr(cursor + 2, 2);
-    switch(tag) {
-      case("01"):
-        flags.process(payload, cursor, advertiserData);
-        break;
-      case("02"):
-         uuid.nonComplete16BitUUIDs(payload, cursor, advertiserData);
-        break;
-      case("03"):
-        uuid.complete16BitUUIDs(payload, cursor, advertiserData);
-        break;
-      case("04"):
-        genericdata.process(payload, cursor, advertiserData,
-                            "nonComplete32BitUUIDs");
-        break;
-      case("05"):
-        genericdata.process(payload, cursor, advertiserData,
-                            "complete32BitUUIDs");
-        break;
-      case("06"):
-        uuid.nonComplete128BitUUIDs(payload, cursor, advertiserData);
-        break;
-      case("07"):
-        uuid.complete128BitUUIDs(payload, cursor, advertiserData);
-        break;
-      case("08"):
-        localname.shortenedLocalName(payload, cursor, advertiserData);
-        break;
-      case("09"):
-        localname.completeLocalName(payload, cursor, advertiserData);
-        break;
-      case("0a"):
-        txpower.process(payload, cursor, advertiserData);
-        break;
-      case("0d"):
-        genericdata.process(payload, cursor, advertiserData, "classOfDevice");
-        break;
-      case("0e"):
-        genericdata.process(payload, cursor, advertiserData,
-                            "simplePairingHashC");
-        break;
-      case("0f"):
-        genericdata.process(payload, cursor, advertiserData,
-                            "simplePairingRandomizerR");
-        break;
-      case("10"):
-        genericdata.process(payload, cursor, advertiserData,
-                            "securityManagerTKValue");
-        break;
-      case("11"):
-        genericdata.process(payload, cursor, advertiserData,
-                            "securityManagerOOBFlags");
-        break;
-      case("12"):
-        slaveconnectionintervalrange.process(payload, cursor, advertiserData);
-        break;
-      case("14"):
-        solicitation.solicitation16BitUUIDs(payload, cursor, advertiserData);
-        break;
-      case("15"):
-        solicitation.solicitation128BitUUIDs(payload, cursor, advertiserData);
-        break;
-      case("16"):
-        servicedata.process(payload, cursor, advertiserData);
-        break;
-      case("17"):
-        genericdata.process(payload, cursor, advertiserData, 
-                            "publicTargetAddress");
-        break;
-      case("18"):
-        genericdata.process(payload, cursor, advertiserData, 
-                            "randomTargetAddress");
-        break;
-      case("19"):
-        genericdata.process(payload, cursor, advertiserData, "appearance");
-        break;
-      case("1a"):
-        genericdata.process(payload, cursor, advertiserData, 
-                            "advertisingInterval");
-        break;
-      case("1b"):
-        genericdata.process(payload, cursor, advertiserData, 
-                            "leBluetoothDeviceAddress");
-        break;
-      case("1c"):
-        genericdata.process(payload, cursor, advertiserData, "leRole");
-        break;
-      case("1d"):
-        genericdata.process(payload, cursor, advertiserData, 
-                            "simplePairingHashC256");
-        break;
-      case("1e"):
-        genericdata.process(payload, cursor, advertiserData, 
-                            "simplePairingRandomizerR256");
-        break;
-      case("1f"):
-        genericdata.process(payload, cursor, advertiserData,
-                            "solicitation32BitUUIDs");
-        break;
-      case("3d"):
-        genericdata.process(payload, cursor, advertiserData,
-                            "informationData3D");
-        break;
-      case("ff"):
-        manufacturerspecificdata.process(payload, cursor, advertiserData);
-        break;
-      default:
-        //console.log("Unhandled BLE tag " + tag);
-    }
-    cursor += length;
-  }
-  return advertiserData;
+  return gap.process(payload);
 }
 
 module.exports.process = process;
-module.exports.flags = flags;
+module.exports.gap = gap;
 
-},{"./gap/flags.js":24,"./gap/genericdata.js":25,"./gap/localname.js":26,"./gap/manufacturerspecificdata.js":27,"./gap/servicedata.js":28,"./gap/slaveconnectionintervalrange.js":29,"./gap/solicitation.js":30,"./gap/txpower.js":31,"./gap/uuid.js":32}],67:[function(require,module,exports){
+},{"./gap/index.js":26}],67:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
@@ -4166,7 +4391,7 @@ module.exports.address = address;
 module.exports.data = data;
 module.exports.common = common;
 
-},{"./address/index.js":1,"./common/index.js":4,"./common/util/identifier.js":22,"./data/index.js":66,"./header/index.js":67}],69:[function(require,module,exports){
+},{"./address/index.js":1,"./common/index.js":4,"./common/util/identifier.js":23,"./data/index.js":66,"./header/index.js":67}],69:[function(require,module,exports){
 /**
  * Copyright reelyActive 2015
  * We believe in an open Internet of Things
