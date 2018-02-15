@@ -775,7 +775,7 @@ Which would add the following property to advData:
 
 ##### Minew
 
-Supports the Minew S1, E6 and i7 sensor beacons which send data within a service.  Note that the service UUID __0xffe1__ does not appear to be a valid member service granted by the Bluetooth SIG.
+Supports the Minew S1, E6, E8 and i7 sensor beacons which send data within a service.  Note that the service UUID __0xffe1__ does not appear to be a valid member service granted by the Bluetooth SIG.
 
 ###### S1 Temperature/Humidity Beacon
 
@@ -845,7 +845,7 @@ Which would add the following property to advData:
       }
     }
 
-###### i7 Accelerometer Beacon
+###### E8 and i7 Accelerometer Beacon
 
 This is best illustrated with an example using the following input:
 
@@ -881,6 +881,40 @@ Which would add the following property to advData:
         macAddress: "ac:23:3f:a0:05:57"
       }
     }
+
+###### Minew Info Frame
+
+This is best illustrated with an example using the following input:
+
+    advData: {
+      serviceData: { 
+        uuid: "ffe1",
+        data: "a10864d739a03f23ac504c5553" 
+      }
+    }
+
+| Byte(s) | Hex String   | Description              |
+|--------:|:-------------|:-------------------------|
+| 0       | a1           | Frame type               |
+| 1       | 08           | Version number           |
+| 2       | 64           | Battery level in percent |
+| 3-8     | d739a03f23ac | MAC address              |
+| 9-12    | 504c5553     | Name (in ASCII)          |
+
+Which would add the following property to advData:
+
+    serviceData: {
+      uuid: "ffe1",
+      data: "a1036400d70087fffe5705a03f23ac",
+      minew: {
+        frameType: "a1",
+        productModel: 8,
+        batteryPercent: 100,
+        macAddress: "ac:23:3f:a0:39:d7",
+        name: "PLUS"
+      }
+    }
+
 
 #### Standard Services
 

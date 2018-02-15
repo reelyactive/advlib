@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2017
+ * Copyright reelyActive 2017-2018
  * We believe in an open Internet of Things
  */
 
@@ -26,6 +26,12 @@ var INPUT_DATA_A1_3 = {
   serviceData: { 
     uuid: "ffe1",
     data: "a1036400d70087fffe5705a03f23ac" 
+  }
+};
+var INPUT_DATA_A1_8 = {
+  serviceData: { 
+    uuid: "ffe1",
+    data: "a10864d739a03f23ac504c5553" 
   }
 };
 
@@ -72,6 +78,19 @@ var EXPECTED_DATA_A1_3 = {
     }
   }
 };
+var EXPECTED_DATA_A1_8 = {
+  serviceData: {
+    uuid: "ffe1",
+    data: "a10864d739a03f23ac504c5553",
+    minew: {
+      frameType: "a1",
+      productModel: 8,
+      batteryPercent: 100,
+      macAddress: "ac:23:3f:a0:39:d7",
+      name: "PLUS"
+    }
+  }
+};
 
 
 describe('ble data gatt service member minew', function() {
@@ -91,5 +110,10 @@ describe('ble data gatt service member minew', function() {
     var advertiserData = INPUT_DATA_A1_3;
     minew.process(advertiserData);
     assert.deepEqual(advertiserData, EXPECTED_DATA_A1_3);
+  });
+  it('should parse BLE advertiser data Minew frame A1 model 8', function() {
+    var advertiserData = INPUT_DATA_A1_8;
+    minew.process(advertiserData);
+    assert.deepEqual(advertiserData, EXPECTED_DATA_A1_8);
   });
 });
