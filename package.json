@@ -1,27 +1,33 @@
 {
   "name": "advlib",
-  "homepage": "https://github.com/reelyactive/advlib/",
-  "author": "reelyActive <webdev@reelyactive.com>",
+  "homepage": "https://www.reelyactive.com",
+  "author": {
+    "name": "reelyActive",
+    "email": "info@reelyactive.com"
+  },
   "description": "Library for Decoding Wireless Advertising Packets.  We believe in an open Internet of Things.",
   "keywords": [
     "reelyActive",
     "IoT",
+    "RFID",
+    "M2M",
     "library",
-    "Bluetooth Smart",
-    "BLE"
+    "packet decoder",
+    "Bluetooth Low Energy"
   ],
-  "version": "0.1.4",
+  "version": "1.0.0",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=6.0.0"
   },
-  "main": "./lib/index.js",
+  "main": "./lib/advlib.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/reelyactive/advlib.git"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
-    "mocha": "^2.2.5"
+    "mocha": "^6.0.0"
   },
   "scripts": {
     "test": "mocha"
