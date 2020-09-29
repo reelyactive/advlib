@@ -4,6 +4,12 @@ advlib
 Library for wireless advertising packet decoding.  __advlib__ is protocol-agnostic and currently supports the following processor modules:
 - [advlib-ble](https://github.com/reelyactive/advlib-ble) for Bluetooth Low Energy
 
+The _purpose_ of __advlib__ is to extract all potentially relevant information from ambient data packets and to organise this information in a consistent manner, regardless of the radio protocol.
+
+The _objective_ of __advlib__ v1.x is to support and to make accessible the broadest array of use cases by being highly modular and by facilitating contributions to its continuous development.
+
+__advlib__ is a lightweight [Node.js package](https://www.npmjs.com/package/advlib) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between. It is a key element in [Pareto Anywhere](https://getpareto.com/) open source software of the [reelyActive technology platform](https://www.reelyactive.com/technology/).
+
 
 Installation
 ------------
@@ -14,7 +20,7 @@ Installation
 Hello advlib
 ------------
 
-For example, process several raw packets received from a beacon by selecting Bluetooth Low Energy as the processor ([advlib-ble](https://github.com/reelyactive/advlib-ble)) and including any relevant processing libraries.
+For example, process several raw packets received from a beacon by selecting Bluetooth Low Energy as the processor ([advlib-ble](https://github.com/reelyactive/advlib-ble)) and including any relevant processing libraries (don't forget to first install these using npm).
 
 ```javascript
 const advlib = require('advlib');
