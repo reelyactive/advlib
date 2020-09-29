@@ -1,7 +1,8 @@
 advlib
 ======
 
-Library for wireless advertising packet decoding.
+Library for wireless advertising packet decoding.  __advlib__ is protocol-agnostic and currently supports the following processor modules:
+- [advlib-ble](https://github.com/reelyactive/advlib-ble) for Bluetooth Low Energy
 
 
 Installation
@@ -13,8 +14,41 @@ Installation
 Hello advlib
 ------------
 
+For example, process several raw packets received from a beacon by selecting Bluetooth Low Energy as the processor ([advlib-ble](https://github.com/reelyactive/advlib-ble)) and including any relevant processing libraries.
+
 ```javascript
 const advlib = require('advlib');
+
+const PROCESSORS = [
+    { processor: require('advlib-ble'),
+      libraries: [ require('advlib-ble-services'),
+                   require('advlib-ble-manufacturers') ] }
+];
+
+let packets = [
+    'c21d04acbe55daba16096164766c6962206279207265656c79416374697665',
+    'c21904acbe55daba1216aafe10fc017265656c7961637469766507',
+    'c21804acbe55daba1116aafe20000c4815200000004500000258'
+];
+let processedPackets = advlib.process(packets, PROCESSORS);
+console.log(processedPackets);
+```
+
+Packets will be combined, in order of precedence, into a single JSON:
+
+```javascript
+{ rxAdd: "random",
+  txAdd: "random",
+  type: "ADV_NONCONN_IND",
+  length: 29,
+  advA: "bada55beac04",
+  name: "advlib by reelyActive",
+  txPower: -4,
+  uri: "https://www.reelyactive.com",
+  batteryVoltage: 3.144,
+  temperature: 21.125,
+  txCount: 69,
+  uptime: 60000 }
 ```
 
 
