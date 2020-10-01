@@ -28,7 +28,8 @@ const advlib = require('advlib');
 const PROCESSORS = [
     { processor: require('advlib-ble'),
       libraries: [ require('advlib-ble-services'),
-                   require('advlib-ble-manufacturers') ] }
+                   require('advlib-ble-manufacturers') ],
+      options: { ignoreProtocolOverhead: true } }
 ];
 
 let packets = [
@@ -43,12 +44,7 @@ console.log(processedPackets);
 Packets will be combined, in order of precedence, into a single JSON:
 
 ```javascript
-{ rxAdd: "random",
-  txAdd: "random",
-  type: "ADV_NONCONN_IND",
-  length: 29,
-  advA: "bada55beac04",
-  name: "advlib by reelyActive",
+{ name: "advlib by reelyActive",
   txPower: -4,
   uri: "https://www.reelyactive.com",
   batteryVoltage: 3.144,
