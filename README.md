@@ -80,6 +80,13 @@ __advlib__ observes the following standard properties to represent the informati
 Properties are intended to be as flat as possible to facilitate data manipulation, especially with respect to database schemas.
 
 
+Project History
+---------------
+
+The __advlib__ project began in 2015 and was published in a scientific paper entitled [Low-Power Wireless Advertising Software Library for Distributed M2M and Contextual IoT](https://www.reelyactive.com/science/reelyActive-IoT2015.pdf) presented at the [2nd IEEE World Forum on Internet of Things (WF-IoT)](http://wfiot2015.ieee-wf-iot.org/) in Milan, Italy that same year.
+
+In 2020, __advlib__ was redesigned and updated to v1.x which is modular, more efficient, protocol-agnostic and better supports the broad range of use cases that have emerged since its initial conception.
+
 
 What's next?
 ------------
