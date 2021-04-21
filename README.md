@@ -66,8 +66,9 @@ __advlib__ observes the following standard properties to represent the informati
 | batteryPercentage | Number          | 0 to 100 (%)     |
 | batteryVoltage    | Number          | In volts         |
 | deviceIds         | Array of String |                  |
+| interactionDigest | Array of Object |                  |
 | name              | String          |                  |
-| nearest           | Array of Object | Format pending   |
+| nearest           | Array of Object |                  |
 | relativeHumidity  | Number          | 0 to 100 (%)     |
 | temperature       | Number          | In Celcius       |
 | txCount           | Number          |                  |
