@@ -1,8 +1,11 @@
 advlib
 ======
 
-Library for wireless advertising packet decoding.  __advlib__ is protocol-agnostic and currently supports the following processor modules:
+Library for wireless advertising packet decoding.  __advlib__ is protocol-agnostic and currently supports the following _processor_ modules:
 - [advlib-ble](https://github.com/reelyactive/advlib-ble) for Bluetooth Low Energy
+
+and the following _interpreter_ modules:
+- [advlib-interoperable](https://github.com/reelyactive/advlib-interoperable) for [InteroperaBLE identifiers](https://reelyactive.github.io/diy/best-practices-ble-identifiers/#part04).
 
 The _purpose_ of __advlib__ is to extract all potentially relevant information from ambient data packets and to organise this information in a consistent manner, regardless of the radio protocol.
 
@@ -20,7 +23,7 @@ Installation
 Hello advlib
 ------------
 
-For example, process several raw packets received from a beacon by selecting Bluetooth Low Energy as the processor ([advlib-ble](https://github.com/reelyactive/advlib-ble)) and including any relevant processing libraries (don't forget to first install these using npm).
+For example, process several raw packets received from a beacon by selecting Bluetooth Low Energy as the processor ([advlib-ble](https://github.com/reelyactive/advlib-ble)) and including any relevant processor and interpreter libraries (don't forget to first install these using npm).
 
 ```javascript
 const advlib = require('advlib');
@@ -31,13 +34,14 @@ const PROCESSORS = [
                    require('advlib-ble-manufacturers') ],
       options: { ignoreProtocolOverhead: true } }
 ];
+const INTERPRETERS = [ require('advlib-interoperable') ];
 
 let packets = [
     'c21d04acbe55daba16096164766c6962206279207265656c79416374697665',
     'c21904acbe55daba1216aafe10fc017265656c7961637469766507',
     'c21804acbe55daba1116aafe20000c4815200000004500000258'
 ];
-let processedPackets = advlib.process(packets, PROCESSORS);
+let processedPackets = advlib.process(packets, PROCESSORS, INTERPRETERS);
 console.log(processedPackets);
 ```
 
