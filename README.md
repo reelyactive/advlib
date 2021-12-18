@@ -63,24 +63,32 @@ Standard Properties
 
 __advlib__ observes the following standard properties to represent the information extracted from ambient data packets.  New standard properties are added whenever new data cannot be effectively represented using the existing properties.  Once established, a standard property should not change (unless otherwise noted).
 
-| Property          | Type            | Notes            |
-|:------------------|:----------------|------------------|
-| acceleration      | Array of Number | [ x, y, z ] In g |
-| appearance        | String          | From Bluetooth   |
-| batteryPercentage | Number          | 0 to 100 (%)     |
-| batteryVoltage    | Number          | In volts         |
-| deviceIds         | Array of String |                  |
-| interactionDigest | Array of Object |                  |
-| name              | String          |                  |
-| nearest           | Array of Object |                  |
-| relativeHumidity  | Number          | 0 to 100 (%)     |
-| temperature       | Number          | In Celcius       |
-| txCount           | Number          |                  |
-| txPower           | Number          | In dBm           |
-| uptime            | Number          | In milliseconds  |
-| uri               | String          |                  |
-| uuids             | Array of String |                  |
-| version           | String          | Format pending   |
+| Property          | Type            | Notes               |
+|:------------------|:----------------|---------------------|
+| acceleration      | Array of Number | [ x, y, z ] In g    |
+| appearance        | String          | From Bluetooth      |
+| batteryPercentage | Number          | 0 to 100 (%)        |
+| batteryVoltage    | Number          | In volts            |
+| deviceIds         | Array of String |                     |
+| elevation         | Number          | In m                |
+| heading           | Number          | In degrees          |
+| heartRate         | Number          | In beats per minute |
+| illuminance       | Number          | In lx               |
+| interactionDigest | Array of Object |                     |
+| magneticField     | Array of Number | [ x, y, z ] In G    |
+| name              | String          |                     |
+| nearest           | Array of Object |                     |
+| position          | Array of Number | [ lon, lat, ele ]   |
+| pressure          | Number          | In Pa               |
+| relativeHumidity  | Number          | 0 to 100 (%)        |
+| speed             | Number          | In m/s              |
+| temperature       | Number          | In Celcius          |
+| txCount           | Number          |                     |
+| txPower           | Number          | In dBm              |
+| uptime            | Number          | In milliseconds     |
+| uri               | String          |                     |
+| uuids             | Array of String |                     |
+| version           | String          | Format pending      |
 
 Properties are intended to be as flat as possible to facilitate data manipulation, especially with respect to database schemas.
 
