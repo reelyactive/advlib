@@ -66,6 +66,7 @@ __advlib__ observes the following standard properties to represent the informati
 | Property          | Type             | Notes               |
 |:------------------|:-----------------|---------------------|
 | acceleration      | Array of Number  | [ x, y, z ] In g    |
+| angleOfRotation   | Number           | In degrees          |
 | appearance        | String           | From Bluetooth      |
 | batteryPercentage | Number           | 0 to 100 (%)        |
 | batteryVoltage    | Number           | In volts            |
