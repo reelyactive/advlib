@@ -77,6 +77,8 @@ __advlib__ observes the following standard properties to represent the informati
 | illuminance       | Number           | In lx               |
 | interactionDigest | Array of Object  |                     |
 | isButtonPressed   | Array of Boolean |                     |
+| isContactDetected | Array of Boolean |                     |
+| isMotionDetected  | Array of Boolean |                     |
 | magneticField     | Array of Number  | [ x, y, z ] In G    |
 | name              | String           |                     |
 | nearest           | Array of Object  |                     |
