@@ -85,6 +85,7 @@ __advlib__ observes the following standard properties to represent the informati
 | position          | Array of Number  | [ lon, lat, ele ]   |
 | pressure          | Number           | In Pa               |
 | relativeHumidity  | Number           | 0 to 100 (%)        |
+| relay             | Object           | See note below      |
 | speed             | Number           | In m/s              |
 | temperature       | Number           | In Celcius          |
 | txCount           | Number           |                     |
@@ -94,7 +95,7 @@ __advlib__ observes the following standard properties to represent the informati
 | uuids             | Array of String  |                     |
 | version           | String           | Format pending      |
 
-Properties are intended to be as flat as possible to facilitate data manipulation, especially with respect to database schemas.
+Properties are intended to be as flat as possible to facilitate data manipulation, especially with respect to database schemas.  One exception is the _relay_ property which encapsulates ambient data intended for external processing by a third party.  A _relay_ Object has only one mandatory property, _type_, which is a String identifying the third party, and may also include any number of third-party-specific properties.
 
 
 Project History
