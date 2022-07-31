@@ -3,6 +3,7 @@ advlib
 
 Library for wireless advertising packet decoding.  __advlib__ is protocol-agnostic and currently supports the following _processor_ modules:
 - [advlib-ble](https://github.com/reelyactive/advlib-ble) for Bluetooth Low Energy
+- [advlib-epc-tds](https://github.com/reelyactive/advlib-epc-tds) for RAIN RFID (Electronic Product Code Tag Data Standard)
 
 and the following _interpreter_ modules:
 - [advlib-interoperable](https://github.com/reelyactive/advlib-interoperable) for [InteroperaBLE identifiers](https://reelyactive.github.io/diy/best-practices-ble-identifiers/#part04).
