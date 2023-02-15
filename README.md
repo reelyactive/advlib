@@ -118,6 +118,8 @@ So why then is the mascot the Cuneiform symbol KU<sub>6</sub>?
 
 Let's _ad-lib_ shall we?  The Babel fish is likely a reference to the [Tower of Babel](https://en.wikipedia.org//wiki/Tower_of_Babel) which is a parable meant to explain why the world's peoples speak different languages.  The tower may well have existed in ancient Babylon where the Sumerian/Akkadian languages were spoken.  [Cuneiform](https://en.wikipedia.org/wiki/Cuneiform), the earliest known writing system, was originally developed to write the Sumerian language.  And 𒄩 is the [Sumerian cuneiform symbol for fish](https://en.wiktionary.org/wiki/%F0%92%84%A9#Sumerian).  So 𒄩 can arguably be _decoded_ as Babel fish!
 
+Does that seem like a completely implausable decoding of a cryptic message?  Well that's what developing __advlib__ has often been like over the years!
+
 
 Project History
 ---------------
