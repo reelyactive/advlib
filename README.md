@@ -110,13 +110,13 @@ See the [reelyActive Developer's Cheatsheet](https://reelyactive.github.io/diy/c
 What's in a name?
 -----------------
 
-The name __advlib__ is derived from __adv__ertising __lib__rary, which sounds like _ad-lib_, hinting at the fact that decoding [ambient data](https://www.reelyactive.com/ambient-data/) is often improvised, especially when little or no documentation is available!
+The name __advlib__ is derived from advertising library, which sounds like _ad-lib_, hinting at the fact that decoding [ambient data](https://www.reelyactive.com/ambient-data/) is often improvised, especially when little or no documentation is available!
 
 The function of __advlib__ is not unlike the Babel fish in Hitchiker's Guide to the Galaxy: _"if you stick a Babel fish in your ear you can instantly understand anything said to you in any form of language."_  Hence, the Babel fish would make an obvious choice of mascot.
 
-So why then is the mascot the cuneiform symbol KU~6~?
+So why then is the mascot the Cuneiform symbol KU<sub>6</sub>?
 
-Let's _ad-lib_ shall we?  The Babel fish is a likely reference to the [Tower of Babel](https://en.wikipedia.org//wiki/Tower_of_Babel) which is a parable meant to explain why the world's peoples speak different languages.  The tower may well have existed in ancient Babylon where the Sumerian/Akkadian languages were used, and written in cuneiform.  And 𒄩 is the [Sumerian cuneiform symbol for fish](https://en.wiktionary.org/wiki/%F0%92%84%A9#Sumerian).  So 𒄩 can arguably be decoded as Babel fish!
+Let's _ad-lib_ shall we?  The Babel fish is likely a reference to the [Tower of Babel](https://en.wikipedia.org//wiki/Tower_of_Babel) which is a parable meant to explain why the world's peoples speak different languages.  The tower may well have existed in ancient Babylon where the Sumerian/Akkadian languages were spoken.  [Cuneiform](https://en.wikipedia.org/wiki/Cuneiform), the earliest known writing system, was originally developed to write the Sumerian language.  And 𒄩 is the [Sumerian cuneiform symbol for fish](https://en.wiktionary.org/wiki/%F0%92%84%A9#Sumerian).  So 𒄩 can arguably be _decoded_ as Babel fish!
 
 
 Project History
