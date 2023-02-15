@@ -104,6 +104,21 @@ Properties are intended to be as flat as possible to facilitate data manipulatio
 See the [reelyActive Developer's Cheatsheet](https://reelyactive.github.io/diy/cheatsheet/) for more details about the standard properties above which are considered to be dynamic ambient (dynamb) data.
 
 
+![advlib logo](https://reelyactive.github.io/advlib/images/advlib-bubble.png)
+
+
+What's in a name?
+-----------------
+
+The name __advlib__ is derived from __adv__ertising __lib__rary, which sounds like _ad-lib_, hinting at the fact that decoding [ambient data](https://www.reelyactive.com/ambient-data/) is often improvised, especially when little or no documentation is available!
+
+The function of __advlib__ is not unlike the Babel fish in Hitchiker's Guide to the Galaxy: _"if you stick a Babel fish in your ear you can instantly understand anything said to you in any form of language."_  Hence, the Babel fish would make an obvious choice of mascot.
+
+So why then is the mascot the cuneiform symbol KU~6~?
+
+Let's _ad-lib_ shall we?  The Babel fish is a likely reference to the [Tower of Babel](https://en.wikipedia.org//wiki/Tower_of_Babel) which is a parable meant to explain why the world's peoples speak different languages.  The tower may well have existed in ancient Babylon where the Sumerian/Akkadian languages were used, and written in cuneiform.  And 𒄩 is the [Sumerian cuneiform symbol for fish](https://en.wiktionary.org/wiki/%F0%92%84%A9#Sumerian).  So 𒄩 can arguably be decoded as Babel fish!
+
+
 Project History
 ---------------
 
