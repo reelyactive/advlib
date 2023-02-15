@@ -1,31 +1,33 @@
 advlib
 ======
 
-Library for wireless advertising packet decoding.  __advlib__ is protocol-agnostic and currently supports the following _processor_ modules:
+__advlib__ is a library for decoding ambient wireless packets into web-standard JSON with a vendor/technology/application-agnostic set of properties.
+
+![Overview of advlib](https://reelyactive.github.io/advlib/images/overview.png)
+
+__advlib__ is a lightweight [Node.js package](https://www.npmjs.com/package/advlib) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between.  It is included in reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source middleware suite with its complementary _processor_ and _interpreter_ modules.
+
+
+Processor modules
+-----------------
+
+__advlib__ is protocol-agnostic and currently supports the following _processor_ modules:
 - [advlib-ble](https://github.com/reelyactive/advlib-ble) for Bluetooth Low Energy
 - [advlib-epc-tds](https://github.com/reelyactive/advlib-epc-tds) for RAIN RFID (Electronic Product Code Tag Data Standard)
 - [advlib-esp](https://github.com/reelyactive/advlib-esp) for the EnOcean Wireless Standard (via the EnOcean Serial Protocol)
 
-and the following _interpreter_ modules:
-- [advlib-interoperable](https://github.com/reelyactive/advlib-interoperable) for [InteroperaBLE identifiers](https://reelyactive.github.io/diy/best-practices-ble-identifiers/#part04).
 
-The _purpose_ of __advlib__ is to extract all potentially relevant information from ambient data packets and to organise this information in a consistent manner, regardless of the radio protocol.
+Interpreter modules
+-------------------
 
-The _objective_ of __advlib__ v1.x is to support and to make accessible the broadest array of use cases by being highly modular and by facilitating contributions to its continuous development.
-
-__advlib__ is a lightweight [Node.js package](https://www.npmjs.com/package/advlib) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between. It is a key element in [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source software of the [reelyActive technology platform](https://www.reelyactive.com/technology/).
+__advlib__ currently supports the following _interpreter_ module:
+- [advlib-interoperable](https://github.com/reelyactive/advlib-interoperable) for [InteroperaBLE identifiers](https://reelyactive.github.io/interoperable-identifier/).
 
 
-Installation
-------------
+Hello advlib!
+-------------
 
-    npm install advlib
-
-
-Hello advlib
-------------
-
-For example, process several raw packets received from a beacon by selecting Bluetooth Low Energy as the processor ([advlib-ble](https://github.com/reelyactive/advlib-ble)) and including any relevant processor and interpreter libraries (don't forget to first install these using npm).
+For example, process several raw packets received from a beacon by selecting Bluetooth Low Energy as the processor ([advlib-ble](https://github.com/reelyactive/advlib-ble)) and including any relevant processor and interpreter libraries.
 
 ```javascript
 const advlib = require('advlib');
@@ -47,7 +49,7 @@ let processedPackets = advlib.process(packets, PROCESSORS, INTERPRETERS);
 console.log(processedPackets);
 ```
 
-Packets will be combined, in order of precedence, into a single JSON:
+Paste the code above into a decoder.js file.  From the same folder, install package dependencies with the commands `npm install advlib`, `npm install advlib-ble`, ..., `npm install advlib-interoperable`.  Then run the code with the command `node decoder.js` and observe the packets combined, in order of precedence, into a single JSON:
 
 ```javascript
 { name: "advlib by reelyActive",
@@ -98,6 +100,8 @@ __advlib__ observes the following standard properties to represent the informati
 | version           | String           | Format pending      |
 
 Properties are intended to be as flat as possible to facilitate data manipulation, especially with respect to database schemas.  One exception is the _relay_ property which encapsulates ambient data intended for external processing by a third party.  A _relay_ Object has only one mandatory property, _type_, which is a String identifying the third party, and may also include any number of third-party-specific properties.
+
+See the [reelyActive Developer's Cheatsheet](https://reelyactive.github.io/diy/cheatsheet/) for more details about the standard properties above which are considered to be dynamic ambient (dynamb) data.
 
 
 Project History
