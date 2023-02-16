@@ -5,7 +5,7 @@
     "name": "reelyActive",
     "email": "info@reelyactive.com"
   },
-  "description": "Library for Decoding Wireless Advertising Packets.  We believe in an open Internet of Things.",
+  "description": "Open source, protocol-agnostic library for decoding ambient wireless packets.  We believe in an open Internet of Things.",
   "keywords": [
     "reelyActive",
     "IoT",
