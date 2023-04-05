@@ -95,7 +95,7 @@ __advlib__ observes the following standard properties to represent the informati
 | relay             | Object           | See note below      |
 | speed             | Number           | In m/s              |
 | temperature       | Number           | In Celcius          |
-| temperatures      | Array ofNumber   | In Celcius          |
+| temperatures      | Array of Number  | In Celcius          |
 | txCount           | Number           |                     |
 | txPower           | Number           | In dBm              |
 | uptime            | Number           | In milliseconds     |
@@ -106,6 +106,8 @@ __advlib__ observes the following standard properties to represent the informati
 | voltages          | Array of Number  | In volts            |
 
 Properties are intended to be as flat as possible to facilitate data manipulation, especially with respect to database schemas.  One exception is the _relay_ property which encapsulates ambient data intended for external processing by a third party.  A _relay_ Object has only one mandatory property, _type_, which is a String identifying the third party, and may also include any number of third-party-specific properties.
+
+Some properties have a singular and plural form where the latter is to represent multiple properties of the same type from a single device (ex: sensor beacon with multiple temperature probes).  In this case, the length of the Array is expected to correspond to the number of such instances supported by the device, with Array elements represented as `null` in the absence of a value.
 
 See the [reelyActive Developer's Cheatsheet](https://reelyactive.github.io/diy/cheatsheet/) for more details about the standard properties above which are considered to be dynamic ambient (dynamb) data.
 
