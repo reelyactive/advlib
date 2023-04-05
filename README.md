@@ -70,6 +70,8 @@ __advlib__ observes the following standard properties to represent the informati
 | Property          | Type             | Notes               |
 |:------------------|:-----------------|---------------------|
 | acceleration      | Array of Number  | [ x, y, z ] In g    |
+| amperage          | Number           | In amps             |
+| amperages         | Array of Number  | In amps             |
 | angleOfRotation   | Number           | In degrees          |
 | appearance        | String           | From Bluetooth      |
 | batteryPercentage | Number           | 0 to 100 (%)        |
@@ -88,16 +90,20 @@ __advlib__ observes the following standard properties to represent the informati
 | nearest           | Array of Object  |                     |
 | position          | Array of Number  | [ lon, lat, ele ]   |
 | pressure          | Number           | In Pa               |
+| pressures         | Array of Number  | In Pa               |
 | relativeHumidity  | Number           | 0 to 100 (%)        |
 | relay             | Object           | See note below      |
 | speed             | Number           | In m/s              |
 | temperature       | Number           | In Celcius          |
+| temperatures      | Array ofNumber   | In Celcius          |
 | txCount           | Number           |                     |
 | txPower           | Number           | In dBm              |
 | uptime            | Number           | In milliseconds     |
 | uri               | String           |                     |
 | uuids             | Array of String  |                     |
 | version           | String           | Format pending      |
+| voltage           | Number           | In volts            |
+| voltages          | Array of Number  | In volts            |
 
 Properties are intended to be as flat as possible to facilitate data manipulation, especially with respect to database schemas.  One exception is the _relay_ property which encapsulates ambient data intended for external processing by a third party.  A _relay_ Object has only one mandatory property, _type_, which is a String identifying the third party, and may also include any number of third-party-specific properties.
 
