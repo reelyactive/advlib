@@ -77,6 +77,7 @@ __advlib__ observes the following standard properties to represent the informati
 | batteryPercentage | Number           | 0 to 100 (%)        |
 | batteryVoltage    | Number           | In volts            |
 | deviceIds         | Array of String  |                     |
+| distance          | Number           | In m                |
 | elevation         | Number           | In m                |
 | heading           | Number           | In degrees          |
 | heartRate         | Number           | In beats per minute |
