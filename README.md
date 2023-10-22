@@ -90,6 +90,8 @@ __advlib__ observes the following standard properties to represent the informati
 | magneticField     | Array of Number  | [ x, y, z ] In G    |
 | name              | String           |                     |
 | nearest           | Array of Object  |                     |
+| numberOfOccupants | Number           |                     |
+| passageCounts     | Array of Number  | [ entries, exits ]  |
 | position          | Array of Number  | [ lon, lat, ele ]   |
 | pressure          | Number           | In Pa               |
 | pressures         | Array of Number  | In Pa               |
