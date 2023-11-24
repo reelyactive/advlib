@@ -67,47 +67,57 @@ Standard Properties
 
 __advlib__ observes the following standard properties to represent the information extracted from ambient data packets.  New standard properties are added whenever new data cannot be effectively represented using the existing properties.  Once established, a standard property should not change (unless otherwise noted).
 
-| Property          | Type             | Notes               |
-|:------------------|:-----------------|---------------------|
-| acceleration      | Array of Number  | [ x, y, z ] In g    |
-| amperage          | Number           | In amps             |
-| amperages         | Array of Number  | In amps             |
-| angleOfRotation   | Number           | In degrees          |
-| appearance        | String           | From Bluetooth      |
-| batteryPercentage | Number           | 0 to 100 (%)        |
-| batteryVoltage    | Number           | In volts            |
-| deviceIds         | Array of String  |                     |
-| distance          | Number           | In m                |
-| elevation         | Number           | In m                |
-| heading           | Number           | In degrees          |
-| heartRate         | Number           | In beats per minute |
-| illuminance       | Number           | In lx               |
-| interactionDigest | Array of Object  |                     |
-| isButtonPressed   | Array of Boolean |                     |
-| isContactDetected | Array of Boolean |                     |
-| isLiquidDetected  | Array of Boolean |                     |
-| isMotionDetected  | Array of Boolean |                     |
-| magneticField     | Array of Number  | [ x, y, z ] In G    |
-| name              | String           |                     |
-| nearest           | Array of Object  |                     |
-| numberOfOccupants | Number           |                     |
-| passageCounts     | Array of Number  | [ entries, exits ]  |
-| position          | Array of Number  | [ lon, lat, ele ]   |
-| pressure          | Number           | In Pa               |
-| pressures         | Array of Number  | In Pa               |
-| relativeHumidity  | Number           | 0 to 100 (%)        |
-| relay             | Object           | See note below      |
-| speed             | Number           | In m/s              |
-| temperature       | Number           | In Celcius          |
-| temperatures      | Array of Number  | In Celcius          |
-| txCount           | Number           |                     |
-| txPower           | Number           | In dBm              |
-| uptime            | Number           | In milliseconds     |
-| uri               | String           |                     |
-| uuids             | Array of String  |                     |
-| version           | String           | Format pending      |
-| voltage           | Number           | In volts            |
-| voltages          | Array of Number  | In volts            |
+| Property                     | Type             | Notes               |
+|:-----------------------------|:-----------------|---------------------|
+| acceleration                 | Array of Number  | [ x, y, z ] In g    |
+| ammoniaConcentration         | Number           | In ppm              |
+| amperage                     | Number           | In amps             |
+| amperages                    | Array of Number  | In amps             |
+| angleOfRotation              | Number           | In degrees          |
+| appearance                   | String           | From Bluetooth      |
+| batteryPercentage            | Number           | 0 to 100 (%)        |
+| batteryVoltage               | Number           | In volts            |
+| carbonDioxideConcentration   | Number           | In ppm              |
+| carbonMonoxideConcentration  | Number           | In ppm              |
+| deviceIds                    | Array of String  |                     |
+| dissolvedOxygen              | Number           | 0 to 100+ (%)       |
+| distance                     | Number           | In m                |
+| elevation                    | Number           | In m                |
+| heading                      | Number           | In degrees          |
+| heartRate                    | Number           | In beats per minute |
+| illuminance                  | Number           | In lx               |
+| interactionDigest            | Array of Object  |                     |
+| isButtonPressed              | Array of Boolean |                     |
+| isContactDetected            | Array of Boolean |                     |
+| isLiquidDetected             | Array of Boolean |                     |
+| isMotionDetected             | Array of Boolean |                     |
+| languages                    | Array of String  | ISO 639-1           |
+| levelPercentage              | Number           | 0 to 100 (%)        |
+| magneticField                | Array of Number  | [ x, y, z ] In G    |
+| methaneConcentration         | Number           | In ppm              |
+| name                         | String           |                     |
+| nearest                      | Array of Object  |                     |
+| nitrogenDioxideConcentration | Number           | In ppm              |
+| numberOfOccupants            | Number           |                     |
+| passageCounts                | Array of Number  | [ entries, exits ]  |
+| pH                           | Number           | 0 to 14 (typical)   |
+| position                     | Array of Number  | [ lon, lat, ele ]   |
+| pressure                     | Number           | In Pa               |
+| pressures                    | Array of Number  | In Pa               |
+| relativeHumidity             | Number           | 0 to 100 (%)        |
+| relay                        | Object           | See note below      |
+| speed                        | Number           | In m/s              |
+| temperature                  | Number           | In Celcius          |
+| temperatures                 | Array of Number  | In Celcius          |
+| txCount                      | Number           |                     |
+| txPower                      | Number           | In dBm              |
+| uptime                       | Number           | In milliseconds     |
+| uri                          | String           |                     |
+| uuids                        | Array of String  |                     |
+| version                      | String           | Format pending      |
+| volatileOrganicCompoundsConcentration | Number  | In ppm              |
+| voltage                      | Number           | In volts            |
+| voltages                     | Array of Number  | In volts            |
 
 Properties are intended to be as flat as possible to facilitate data manipulation, especially with respect to database schemas.  One exception is the _relay_ property which encapsulates ambient data intended for external processing by a third party.  A _relay_ Object has only one mandatory property, _type_, which is a String identifying the third party, and may also include any number of third-party-specific properties.
 
