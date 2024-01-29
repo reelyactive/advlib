@@ -6,6 +6,7 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Decode ambient wireless packets within a web browser using the advlib open source, protocol-agnostic library.">
     <link rel="stylesheet" href="style/bootstrappyactive.min.css">
+    <script type="module" src="js/color-modes.js"></script>
     <title> advlib by reelyActive </title>
     <!----- Structured, linked metadata (JSON-LD & Schema.org) ----->
     <script type="application/ld+json">
@@ -43,8 +44,7 @@
   </head>
   <body>
     <!-- Navigation -->
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white
-                shadow">
+    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary shadow">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
           <img src="images/reelyactive-developers-logo-nav.png" width="135"
@@ -61,6 +61,36 @@
           </ul>
           <!-- Right-aligned navigation items -->
           <ul class="navbar-nav">
+            <!-- Colour theme chooser -->
+            <li class="nav-item dropdown">
+              <button class="btn btn-link nav-link dropdown-toggle"
+                      id="bd-theme" type="button" aria-expanded="false"
+                      data-bs-toggle="dropdown" data-bs-display="static"
+                      aria-label="Toggle theme (auto)">
+                <i class="fas fa-adjust"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end shadow"
+                  aria-labelledby="bd-theme-text">
+                <li>
+                  <button type="button" class="dropdown-item"
+                          data-bs-theme-value="light" aria-pressed="false">
+                    <i class="fas fa-sun"></i> Light
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item"
+                          data-bs-theme-value="dark" aria-pressed="false">
+                    <i class="fas fa-moon"></i> Dark
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item active"
+                          data-bs-theme-value="auto" aria-pressed="true">
+                    <i class="fas fa-adjust"></i> Auto
+                  </button>
+                </li>
+              </ul>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarInfoDropdown"
                  role="button" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -149,7 +179,7 @@
             </div>
             <div class="col-9">
               <h1 class="mt-4"> advlib demo </h1>
-              <p class="lead text-muted"> Library for decoding ambient wireless packets into web-standard JSON with a vendor/technology/application-agnostic set of properties. </p>
+              <p class="lead text-body-secondary"> Library for decoding ambient wireless packets into web-standard JSON with a vendor/technology/application-agnostic set of properties. </p>
             </div>
           </div>
           <ul class="nav nav-tabs mt-4" role="tablist">
@@ -174,10 +204,10 @@
                       aria-selected="false"> EnOcean Alliance </button>
             </li>
           </ul>
-          <div class="tab-content tab-content-border">
+          <div class="tab-content tab-content-border border-light-subtle">
             <div class="tab-pane fade show active" id="blecontent"
                  role="tabpanel" aria-labelledby="bletab">
-              <p class="small font-monospace text-muted mt-2 mb-1">
+              <p class="small font-monospace text-body-secondary mt-2 mb-1">
                 advlib.process(packets, [ advlib-ble ])
               </p>
               <form onsubmit="return false;" class="mb-2">
@@ -197,7 +227,7 @@
             </div>
             <div class="tab-pane fade" id="epccontent" role="tabpanel"
                  aria-labelledby="epctab">
-              <p class="small font-monospace text-muted mt-2 mb-1">
+              <p class="small font-monospace text-body-secondary mt-2 mb-1">
                 advlib.processEPC(epc)
               </p>
               <form onsubmit="return false;" class="mb-2">
@@ -215,7 +245,7 @@
             </div>
             <div class="tab-pane fade" id="espcontent" role="tabpanel"
                  aria-labelledby="esptab">
-              <p class="small font-monospace text-muted mt-2 mb-1">
+              <p class="small font-monospace text-body-secondary mt-2 mb-1">
                 advlib.process([ telegram ], [ advlib-esp ])
               </p>
               <form onsubmit="return false;" class="mb-2">
@@ -246,7 +276,7 @@
     <footer class="footer fixed-bottom bg-dark bg-gradient">
       <a href="https://github.com/reelyactive/advlib"> advlib </a>
       &nbsp; | &nbsp;
-      <a href="https://www.reelyactive.com"> &copy; reelyActive 2015-2023 </a>
+      <a href="https://www.reelyactive.com"> &copy; reelyActive 2015-2024 </a>
     </footer>
 
     <!-- Optional JavaScript -->
