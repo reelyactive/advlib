@@ -106,6 +106,7 @@ __advlib__ observes the following standard properties to represent the informati
 | pressures                    | Array of Number  | In Pa               |
 | relativeHumidity             | Number           | 0 to 100 (%)        |
 | relay                        | Object           | See note below      |
+| soundPressure                | Number           | In dB               |
 | speed                        | Number           | In m/s              |
 | temperature                  | Number           | In Celcius          |
 | temperatures                 | Array of Number  | In Celcius          |
