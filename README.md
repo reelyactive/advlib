@@ -5,7 +5,7 @@ __advlib__ is a library for decoding ambient wireless packets into web-standard 
 
 ![Overview of advlib](https://reelyactive.github.io/advlib/images/overview.png)
 
-__advlib__ is a lightweight [Node.js package](https://www.npmjs.com/package/advlib) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between.  It is included in reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source middleware suite with its complementary _processor_ and _interpreter_ modules.
+__advlib__ is a lightweight [Node.js package](https://www.npmjs.com/package/advlib) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between.  It is included in reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source middleware suite with its complementary _processor_ and _interpreter_ modules.  There's even an interactive, browser-based version hosted from the [gh-pages branch](https://github.com/reelyactive/advlib/tree/gh-pages) of this repository: [reelyactive.github.io/advlib/](https://reelyactive.github.io/advlib/)
 
 
 Processor modules
