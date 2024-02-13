@@ -15,7 +15,7 @@
     "EnOcean Alliance",
     "ambient data"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "node": ">=10.0.0"
   },
@@ -28,15 +28,16 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "advlib": "^1.3.3",
+    "advlib": "^1.3.4",
     "advlib-ble": "^1.3.1",
-    "advlib-ble-manufacturers": "^1.5.0",
-    "advlib-ble-services": "^1.3.6",
+    "advlib-ble-manufacturers": "^1.6.0",
+    "advlib-ble-services": "^1.4.2",
     "advlib-epc": "^0.1.0",
-    "advlib-esp": "^1.1.1",
-    "advlib-eep-vld": "^1.1.0",
-    "advlib-eep-4bs": "^1.2.0",
-    "advlib-eep-rps": "^1.0.0",
+    "advlib-esp": "^1.3.0",
+    "advlib-eep-vld": "^1.2.0",
+    "advlib-eep-4bs": "^1.3.0",
+    "advlib-eep-rps": "^1.0.1",
+    "advlib-eep-msc": "^1.1.1",
     "advlib-interoperable": "^1.4.0",
     "buffer": "^6.0.3",
     "sniffypedia": "1.1.8",
