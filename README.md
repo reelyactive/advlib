@@ -158,6 +158,16 @@ The __advlib__ project began in 2015 and was published in a scientific paper ent
 In 2020, __advlib__ was redesigned and updated to v1.x which is modular, more efficient, protocol-agnostic and better supports the broad range of use cases that have emerged since its initial conception.  The previous version remains available in the [release-0.1 branch](https://github.com/reelyactive/advlib/tree/release-0.1) and as [advlib@0.1.4 on npm](https://www.npmjs.com/package/advlib/v/0.1.4).
 
 
+Modular Architecture
+--------------------
+
+__advlib__ is easily combined with the following complementary software modules:
+- [barnowl](https://github.com/reelyactive/barnowl)
+- [barnacles](https://github.com/reelyactive/barnacles)
+
+Learn more about the [reelyActive Open Source Software packages](https://reelyactive.github.io/diy/oss-packages/), all of which are bundled together as [Pareto Anywhere](https://github.com/reelyactive/pareto-anywhere) open source IoT middleware.
+
+
 Contributing
 ------------
 
