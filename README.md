@@ -5,7 +5,13 @@ __advlib__ is a library for decoding ambient wireless packets into web-standard 
 
 ![Overview of advlib](https://reelyactive.github.io/advlib/images/overview.png)
 
-__advlib__ is a lightweight [Node.js package](https://www.npmjs.com/package/advlib) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between.  It is included in reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source middleware suite with its complementary _processor_ and _interpreter_ modules.  There's even an interactive, browser-based version hosted from the [gh-pages branch](https://github.com/reelyactive/advlib/tree/gh-pages) of this repository: [reelyactive.github.io/advlib/](https://reelyactive.github.io/advlib/)
+__advlib__ is a lightweight [Node.js package](https://www.npmjs.com/package/advlib) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between.  It is included in reelyActive's [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source IoT middleware with its complementary _processor_ and _interpreter_ modules.  There's even an interactive, browser-based version hosted from the [gh-pages branch](https://github.com/reelyactive/advlib/tree/gh-pages) of this repository: [reelyactive.github.io/advlib/](https://reelyactive.github.io/advlib/)
+
+
+Open Source _and_ Published
+---------------------------
+
+In addition to being permissively-licensed open source software, our paper [Low-Power Wireless Advertising Software Library for Distributed M2M and Contextual IoT](https://ieeexplore.ieee.org/document/7389121/) was published and presented at the 2015 2nd IEEE World Forum on Internet of Things (WF-IoT) in Milan, Italy.  Learn more at [reelyactive.com/science](https://www.reelyactive.com/science/).
 
 
 Processor modules
