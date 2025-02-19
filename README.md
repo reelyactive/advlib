@@ -109,6 +109,9 @@ __advlib__ observes the following standard properties to represent the informati
 | numberOfOccupants            | Number           |                     |
 | passageCounts                | Array of Number  | [ entries, exits ]  |
 | pH                           | Number           | 0 to 14 (typical)   |
+| pm1.0                        | Number           | In ug/m3            |
+| pm2.5                        | Number           | In ug/m3            |
+| pm10                         | Number           | In ug/m3            |
 | position                     | Array of Number  | [ lon, lat, ele ]   |
 | pressure                     | Number           | In Pa               |
 | pressures                    | Array of Number  | In Pa               |
@@ -123,6 +126,7 @@ __advlib__ observes the following standard properties to represent the informati
 | uptime                       | Number           | In milliseconds     |
 | uri                          | String           |                     |
 | uuids                        | Array of String  |                     |
+| velocityOverall              | Array of Number  | [ x, y, z ] In m/s  |
 | version                      | String           | Format pending      |
 | volatileOrganicCompoundsConcentration | Number  | In ppm              |
 | voltage                      | Number           | In volts            |
