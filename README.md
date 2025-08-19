@@ -109,6 +109,8 @@ __advlib__ observes the following standard properties to represent the informati
 | nearest                      | Array of Object  |                       |
 | nitrogenDioxideConcentration | Number           | In ppm                |
 | numberOfOccupants            | Number           |                       |
+| numberOfReceivedDevices      | Number           |                       |
+| numberOfStrongestReceivedDevices | Number       |                       |
 | passageCounts                | Array of Number  | [ entries, exits ]    |
 | pH                           | Number           | 0 to 14 (typical)     |
 | pm1.0                        | Number           | In ug/m3              |
