@@ -153,7 +153,7 @@ Properties are intended to be as flat as possible to facilitate data manipulatio
 
 Some properties have a singular and plural form where the latter is to represent multiple properties of the same type from a single device (ex: sensor beacon with multiple temperature probes).  In this case, the length of the Array is expected to correspond to the number of such instances supported by the device, with Array elements represented as `null` in the absence of a value.
 
-Some properties represent values captured over time, and are referenced against a cyclic counter to indicate a new capture or sample.  In this case, the cyclic count is represented as a separate property which adds a _Cycle_ suffix, for example, _passageCounts_ and _passageCountsCycle_.
+Some properties represent values captured over time, and are referenced against a cyclic counter to indicate a new capture or sample.  In this case, the cyclic count is represented as a separate property which adds a _Cycle_ suffix, for example, _passageCounts_ and _passageCountsCycle_.  In the case of variables with an _is_ prefix and a _Cycle_ suffix, the value is interpreted as a Number (rather than a Boolean).
 
 Some properties may be extended to represent time series data, sampled at a given rate.  In this case the data is represented as separate properties adding a _TimeSeries_ suffix and a _SamplingRate_ suffix, for example _accelerationTimeSeries_ and _accelerationSamplingRate_.
 
