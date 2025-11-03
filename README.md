@@ -97,9 +97,18 @@ __advlib__ observes the following standard properties to represent the informati
 | illuminance                  | Number           | In lx                 |
 | interactionDigest            | Array of Object  |                       |
 | isButtonPressed              | Array of Boolean |                       |
+| isButtonPressedCycle         | Number           |                       |
 | isContactDetected            | Array of Boolean |                       |
+| isContactDetectedCycle       | Number           |                       |
+| isHealthy                    | Boolean          |                       |
+| isInputDetected              | Array of Boolean |                       |
+| isInputDetectedCycle         | Number           |                       |
 | isLiquidDetected             | Array of Boolean |                       |
+| isLiquidDetectedCycle        | Number           |                       |
 | isMotionDetected             | Array of Boolean |                       |
+| isMotionDetectedCycle        | Number           |                       |
+| isOccupancyDetected          | Array of Boolean |                       |
+| isOccupancyDetectedCycle     | Number           |                       |
 | languages                    | Array of String  | ISO 639-1             |
 | levelPercentage              | Number           | 0 to 100 (%)          |
 | luminousFlux                 | Number           | In lumens             |
@@ -108,10 +117,13 @@ __advlib__ observes the following standard properties to represent the informati
 | name                         | String           |                       |
 | nearest                      | Array of Object  |                       |
 | nitrogenDioxideConcentration | Number           | In ppm                |
+| nitrogenOxidesIndex          | Number           | Index (1 to 500)      |
 | numberOfOccupants            | Number           |                       |
+| numberOfOccupantsCycle       | Number           |                       |
 | numberOfReceivedDevices      | Number           |                       |
 | numberOfStrongestReceivedDevices | Number       |                       |
 | passageCounts                | Array of Number  | [ entries, exits ]    |
+| passageCountsCycle           | Number           |                       |
 | pH                           | Number           | 0 to 14 (typical)     |
 | pm1.0                        | Number           | In ug/m3              |
 | pm2.5                        | Number           | In ug/m3              |
@@ -126,6 +138,7 @@ __advlib__ observes the following standard properties to represent the informati
 | temperature                  | Number           | In Celcius            |
 | temperatures                 | Array of Number  | In Celcius            |
 | txCount                      | Number           |                       |
+| txCycle                      | Number           |                       |
 | txPower                      | Number           | In dBm                |
 | uptime                       | Number           | In milliseconds       |
 | uri                          | String           |                       |
