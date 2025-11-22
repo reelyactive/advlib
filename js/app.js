@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2023
+ * Copyright reelyActive 2023-2025
  * We believe in an open Internet of Things
  */
 
@@ -12,6 +12,7 @@ const ESP_SYNC_BYTE = '55';
 let blepackets = document.querySelector('#blepackets');
 let epc = document.querySelector('#epc');
 let esptelegram = document.querySelector('#esptelegram');
+let eeptype = document.querySelector('#eeptype');
 let processedJson = document.querySelector('#processedJson');
 
 
@@ -23,7 +24,7 @@ bleprocess.addEventListener('click', () => {
     processedJson.textContent = JSON.stringify(json, null, 2);
 });
 
-// Handle BLE Process button click
+// Handle EPC Process button click
 epcprocess.addEventListener('click', () => {
     let json = advlib.processEPC(epc.value);
     processedJson.textContent = JSON.stringify(json, null, 2);
@@ -37,5 +38,13 @@ espprocess.addEventListener('click', () => {
     processor.options.isERP1PayloadOnly = isERP1PayloadOnly;
 
     let json = advlib.process(packets, [ processor ]);
+
+    if(Array.isArray(json?.deviceIds) && (json.deviceIds.length === 1)) {
+      let deviceProfiles = {};
+      deviceProfiles[json.deviceIds[0]] = { eepType: eeptype.value };
+      processor.options.deviceProfiles = deviceProfiles;
+      json = advlib.process(packets, [ processor ]);
+    }
+
     processedJson.textContent = JSON.stringify(json, null, 2);
 });
