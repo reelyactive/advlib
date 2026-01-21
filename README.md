@@ -88,27 +88,44 @@ __advlib__ observes the following standard properties to represent the informati
 | batteryVoltage               | Number           | In volts              |
 | carbonDioxideConcentration   | Number           | In ppm                |
 | carbonMonoxideConcentration  | Number           | In ppm                |
+| count                        | Number           |                       |
+| counts                       | Array of Number  |                       |
 | deviceIds                    | Array of String  |                       |
+| deviceType                   | String           |                       |
 | dissolvedOxygen              | Number           | 0 to 100+ (%)         |
 | distance                     | Number           | In m                  |
+| duration                     | Number           | In milliseconds       |
+| durations                    | Array of Number  | In milliseconds       |
 | elevation                    | Number           | In m                  |
+| encrypted                    | Object           | See note below        |
+| energy                       | Number           | In kWh                |
+| firmwareVersion              | String           |                       |
+| hardwareVersion              | String           |                       |
 | heading                      | Number           | In degrees            |
 | heartRate                    | Number           | In beats per minute   |
 | illuminance                  | Number           | In lx                 |
 | interactionDigest            | Array of Object  |                       |
 | isButtonPressed              | Array of Boolean |                       |
 | isButtonPressedCycle         | Number           |                       |
+| isCarbonMonoxideDetected     | Boolean          |                       |
+| isCarbonMonoxideDetectedCycle | Array ofBoolean |                       |
 | isContactDetected            | Array of Boolean |                       |
 | isContactDetectedCycle       | Number           |                       |
+| isGasDetected                | Array of Boolean |                       |
+| isGasDetectedCycle           | Number           |                       |
 | isHealthy                    | Boolean          |                       |
 | isInputDetected              | Array of Boolean |                       |
 | isInputDetectedCycle         | Number           |                       |
+| isLightDetected              | Array of Boolean |                       |
+| isLightDetectedCycle         | Number           |                       |
 | isLiquidDetected             | Array of Boolean |                       |
 | isLiquidDetectedCycle        | Number           |                       |
 | isMotionDetected             | Array of Boolean |                       |
 | isMotionDetectedCycle        | Number           |                       |
 | isOccupancyDetected          | Array of Boolean |                       |
 | isOccupancyDetectedCycle     | Number           |                       |
+| isSmokeDetected              | Array of Boolean |                       |
+| isSmokeDetectedCycle         | Number           |                       |
 | languages                    | Array of String  | ISO 639-1             |
 | levelPercentage              | Number           | 0 to 100 (%)          |
 | luminousFlux                 | Number           | In lumens             |
@@ -129,14 +146,17 @@ __advlib__ observes the following standard properties to represent the informati
 | pm2.5                        | Number           | In ug/m3              |
 | pm10                         | Number           | In ug/m3              |
 | position                     | Array of Number  | [ lon, lat, ele ]     |
+| power                        | Number           | In W                  |
 | pressure                     | Number           | In Pa                 |
 | pressures                    | Array of Number  | In Pa                 |
+| raw                          | String           | Hexadecimal           |
 | relativeHumidity             | Number           | 0 to 100 (%)          |
 | relay                        | Object           | See note below        |
 | soundPressure                | Number           | In dB                 |
 | speed                        | Number           | In m/s                |
 | temperature                  | Number           | In Celcius            |
 | temperatures                 | Array of Number  | In Celcius            |
+| text                         | String           | In UTF-8              |
 | txCount                      | Number           |                       |
 | txCycle                      | Number           |                       |
 | txPower                      | Number           | In dBm                |
@@ -149,7 +169,7 @@ __advlib__ observes the following standard properties to represent the informati
 | voltage                      | Number           | In volts              |
 | voltages                     | Array of Number  | In volts              |
 
-Properties are intended to be as flat as possible to facilitate data manipulation, especially with respect to database schemas.  One exception is the _relay_ property which encapsulates ambient data intended for external processing by a third party.  A _relay_ Object has only one mandatory property, _type_, which is a String identifying the third party, and may also include any number of third-party-specific properties.
+Properties are intended to be as flat as possible to facilitate data manipulation, especially with respect to database schemas.  One exception is the _relay_ property which encapsulates ambient data intended for external processing by a third party.  A _relay_ Object has only one mandatory property, _type_, which is a String identifying the third party, and may also include any number of third-party-specific properties.  Another exception is the _encrypted_ property which encapsulates data intended for decryption and/or authentication.  An _encrypted_ Object may include any of the following properties: _data_, _salt_, _checksum_, _method_.
 
 Some properties have a singular and plural form where the latter is to represent multiple properties of the same type from a single device (ex: sensor beacon with multiple temperature probes).  In this case, the length of the Array is expected to correspond to the number of such instances supported by the device, with Array elements represented as `null` in the absence of a value.
 
