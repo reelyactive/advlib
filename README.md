@@ -126,6 +126,8 @@ __advlib__ observes the following standard properties to represent the informati
 | isOccupancyDetectedCycle     | Number           |                       |
 | isSmokeDetected              | Array of Boolean |                       |
 | isSmokeDetectedCycle         | Number           |                       |
+| isTamperDetected             | Array of Boolean |                       |
+| isTamperDetectedCycle        | Number           |                       |
 | languages                    | Array of String  | ISO 639-1             |
 | levelPercentage              | Number           | 0 to 100 (%)          |
 | luminousFlux                 | Number           | In lumens             |
